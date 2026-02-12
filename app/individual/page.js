@@ -7,7 +7,17 @@ import { scoreIndividual } from "@/lib/scoring";
 import RadarChart from "@/components/RadarChart";
 import HorizontalBarChart from "@/components/HorizontalBarChart";
 
+import { Suspense } from "react";
+
 export default function IndividualPage() {
+    return (
+        <Suspense fallback={<div className="loading">Laddar...</div>}>
+            <IndividualContent />
+        </Suspense>
+    );
+}
+
+function IndividualContent() {
     const { t, locale } = useI18n();
     const searchParams = useSearchParams();
     const [bank, setBank] = useState(null);

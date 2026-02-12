@@ -8,7 +8,17 @@ import BarChart from "@/components/BarChart";
 import RadarChart from "@/components/RadarChart";
 import LogicSpectrum from "@/components/LogicSpectrum";
 
+import { Suspense } from "react";
+
 export default function OrganizationPage() {
+    return (
+        <Suspense fallback={<div className="loading">Laddar...</div>}>
+            <OrganizationContent />
+        </Suspense>
+    );
+}
+
+function OrganizationContent() {
     const { t, locale } = useI18n();
     const searchParams = useSearchParams();
     const [bank, setBank] = useState(null);
