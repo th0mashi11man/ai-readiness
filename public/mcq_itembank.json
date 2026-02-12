@@ -1,0 +1,664 @@
+{
+  "schemaVersion": "1.0.0",
+  "bankId": "school_ai_literacy_mcq",
+  "title": {
+    "sv": "AI-kunskapstest (objektiv flervalsenkät)",
+    "en": "AI Literacy Quiz (objective multiple-choice)"
+  },
+  "defaultLocale": "sv",
+  "supportedLocales": [
+    "sv",
+    "en"
+  ],
+  "settings": {
+    "randomizeQuestions": true,
+    "randomizeOptions": false,
+    "showRationalesAfterCompletion": true
+  },
+  "domains": [
+    {
+      "id": "understand_ai",
+      "label": {
+        "sv": "Förstå AI",
+        "en": "Understand AI"
+      },
+      "description": {
+        "sv": "Förstå centrala konsekvenser och mekanismer i AI-baserade system.",
+        "en": "Understand key mechanisms and consequences of AI-based systems."
+      }
+    },
+    {
+      "id": "apply_ai",
+      "label": {
+        "sv": "Tillämpa AI",
+        "en": "Apply AI"
+      },
+      "description": {
+        "sv": "Förstå hur AI används i praktiken och i vardagliga system.",
+        "en": "Understand how AI is applied in practice and everyday systems."
+      }
+    },
+    {
+      "id": "ai_ethics",
+      "label": {
+        "sv": "AI-etik",
+        "en": "AI Ethics"
+      },
+      "description": {
+        "sv": "Förstå etiska frågor och risker kopplade till AI.",
+        "en": "Understand ethical issues and risks associated with AI."
+      }
+    },
+    {
+      "id": "detect_ai",
+      "label": {
+        "sv": "Upptäcka AI",
+        "en": "Detect AI"
+      },
+      "description": {
+        "sv": "Känna igen AI i system och skilja det från traditionell IT.",
+        "en": "Recognize AI in systems and distinguish it from traditional IT."
+      }
+    },
+    {
+      "id": "create_ai",
+      "label": {
+        "sv": "Skapa AI",
+        "en": "Create AI"
+      },
+      "description": {
+        "sv": "Grundläggande förståelse för hur AI/ML byggs och tränas.",
+        "en": "Basic understanding of how AI/ML is built and trained."
+      }
+    },
+    {
+      "id": "gen_ai",
+      "label": {
+        "sv": "Generativ AI",
+        "en": "Generative AI"
+      },
+      "description": {
+        "sv": "Förstå hur generativ AI fungerar och vilka risker den har.",
+        "en": "Understand how generative AI works and its risks."
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "apply_ai_q1",
+      "domainId": "apply_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Hur kan människor påverka resultatet av maskininlärning? Genom …",
+        "en": "How can people influence the outcome of machine learning? By…"
+      },
+      "options": [
+        {
+          "sv": "… beräkning av förutsägelsens träffsäkerhet",
+          "en": "… calculating the prediction’s accuracy"
+        },
+        {
+          "sv": "… slumpmässig uppdelning i tränings- och testdata",
+          "en": "… randomly splitting training and test data"
+        },
+        {
+          "sv": "… val av maskinlärande modell",
+          "en": "… choosing the machine learning model"
+        },
+        {
+          "sv": "… abstraktion av modellen",
+          "en": "… abstracting the model"
+        }
+      ],
+      "correctOptionIndex": 2,
+      "rationale": {
+        "sv": "Modellval påverkar vilka mönster som kan läras och hur väl modellen generaliserar; det är ett centralt mänskligt designval.",
+        "en": "Model choice affects what patterns can be learned and how well the model generalizes; it’s a key human design decision."
+      }
+    },
+    {
+      "id": "apply_ai_q2",
+      "domainId": "apply_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "En kommun använder ett maskinlärningsbaserat system som tränas med märkta bilder (t.ex. för att upptäcka skadegörelse på skolor). När en bild har märkts och används i träningsfasen kan AI-systemet kategorisera bilden (t.ex. som skadegörelse eller ej). Vad kan göras under träningsfasen för att förbättra systemet om en bild kategoriseras fel?",
+        "en": "A municipality uses a machine-learning system trained with labeled images (e.g., to detect vandalism at schools). During training, the AI can categorize an image (e.g., vandalism or not). What can be done during training to improve the system if an image is categorized incorrectly?"
+      },
+      "options": [
+        {
+          "sv": "Stärka eller försvaga kopplingarna i det neurala nätverket",
+          "en": "Strengthen or weaken the connections (weights) in the neural network"
+        },
+        {
+          "sv": "Be algoritmen att komma ihåg bilden som kategoriserades fel",
+          "en": "Ask the algorithm to memorize the incorrectly categorized image"
+        },
+        {
+          "sv": "Ta bort bilden",
+          "en": "Remove the image"
+        },
+        {
+          "sv": "Ändra bildens etikett så att AI-systemet inte längre kategoriserar den fel",
+          "en": "Change the image label so the AI system no longer categorizes it incorrectly"
+        }
+      ],
+      "correctOptionIndex": 0,
+      "rationale": {
+        "sv": "Träning av neurala nät justerar vikter/kopplingar för att minska fel—det är själva lärprocessen.",
+        "en": "Training neural networks updates weights/connections to reduce error—that’s the learning process."
+      }
+    },
+    {
+      "id": "apply_ai_q3",
+      "domainId": "apply_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Vilken av följande processer använder INTE teknik för naturlig språkbehandling (NLP)?",
+        "en": "Which of the following processes does NOT use natural language processing (NLP)?"
+      },
+      "options": [
+        {
+          "sv": "Analys av anteckningar",
+          "en": "Analyzing notes"
+        },
+        {
+          "sv": "Geststyrd robot",
+          "en": "Gesture-controlled robot"
+        },
+        {
+          "sv": "Berättelsegenerator",
+          "en": "Story generator"
+        },
+        {
+          "sv": "Fråge- och svarverktyg",
+          "en": "Question-and-answer tool"
+        }
+      ],
+      "correctOptionIndex": 1,
+      "rationale": {
+        "sv": "NLP handlar om språk (text/tal). Geststyrning bygger oftast på sensorer och datorseende, inte språkförståelse.",
+        "en": "NLP is about language (text/speech). Gesture control typically relies on sensors and computer vision, not language understanding."
+      }
+    },
+    {
+      "id": "create_ai_q1",
+      "domainId": "create_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "En skolledning analyserar historisk närvaro- och frånvarostatistik för att kunna förutsäga antalet vikariepass som kommer behövas under kommande termin. Vilken av följande typer av algoritmer är bäst lämpad för denna uppgift?",
+        "en": "A school leadership team analyzes historical attendance/absence statistics to predict the number of substitute-teacher shifts needed next term. Which type of algorithm is best suited for this task?"
+      },
+      "options": [
+        {
+          "sv": "Klassificering",
+          "en": "Classification"
+        },
+        {
+          "sv": "Regression",
+          "en": "Regression"
+        },
+        {
+          "sv": "Klustring",
+          "en": "Clustering"
+        },
+        {
+          "sv": "Objektdetektering",
+          "en": "Object detection"
+        }
+      ],
+      "correctOptionIndex": 1,
+      "rationale": {
+        "sv": "Uppgiften är att förutsäga ett numeriskt värde (antal), vilket typiskt löses med regression.",
+        "en": "The goal is to predict a numeric quantity, which is typically handled with regression."
+      }
+    },
+    {
+      "id": "create_ai_q2",
+      "domainId": "create_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "När man använder maskininlärning i ett textigenkänningssystem (till exempel vid digitalisering av handskrivna prov) tränas systemet genom att mata in ett antal exempel. När systemet väl har tränats kan det …",
+        "en": "When using machine learning in a text-recognition system (e.g., digitizing handwritten exams), the system is trained on examples. Once trained, it can…"
+      },
+      "options": [
+        {
+          "sv": "… endast känna igen texter som exakt motsvarar dessa exempel.",
+          "en": "… only recognize text that exactly matches the training examples."
+        },
+        {
+          "sv": "… känna igen texter som liknar dessa exempel.",
+          "en": "… recognize text that is similar to the training examples."
+        },
+        {
+          "sv": "… känna igen vilken text som helst.",
+          "en": "… recognize any text whatsoever."
+        },
+        {
+          "sv": "… känna igen vilken text, bild eller ljud som helst.",
+          "en": "… recognize any text, image, or audio whatsoever."
+        }
+      ],
+      "correctOptionIndex": 1,
+      "rationale": {
+        "sv": "Maskininlärning syftar till generalisering: att klara nya exempel som liknar träningsdata.",
+        "en": "Machine learning aims for generalization: handling new examples that resemble the training data."
+      }
+    },
+    {
+      "id": "create_ai_q3",
+      "domainId": "create_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Inom vilket av följande områden används AI typiskt sett?",
+        "en": "In which of the following areas is AI typically used?"
+      },
+      "options": [
+        {
+          "sv": "Prognoser av elevunderlag och resursbehov baserat på historiska data",
+          "en": "Forecasting student enrollment and resource needs based on historical data"
+        },
+        {
+          "sv": "Automatisk säkerhetskopiering av skolans datasystem",
+          "en": "Automatic backup of school IT systems"
+        },
+        {
+          "sv": "Åtkomstkontroll till kommunala IT-system",
+          "en": "Access control to municipal IT systems"
+        },
+        {
+          "sv": "Kryptering av personuppgifter i elevadministrativa system",
+          "en": "Encryption of personal data in student administration systems"
+        }
+      ],
+      "correctOptionIndex": 0,
+      "rationale": {
+        "sv": "Prediktion/prognoser på historiska mönster är ett klassiskt AI/ML-användningsområde.",
+        "en": "Predictive modeling on historical patterns is a classic AI/ML use case."
+      }
+    },
+    {
+      "id": "detect_ai_q1",
+      "domainId": "detect_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Vilken av följande tillämpningar använder INTE AI?",
+        "en": "Which of the following applications does NOT use AI?"
+      },
+      "options": [
+        {
+          "sv": "Ett system som analyserar historiska närvaro- och frånvaromönster hos elever och använder dessa data för att förutsäga vilka elever som riskerar att behöva särskilt stöd.",
+          "en": "A system that analyzes historical attendance/absence patterns and predicts which students may need additional support."
+        },
+        {
+          "sv": "Ett digitalt ärendehanteringssystem som visar förutbestämda informationssvar baserat på vilken meny användaren väljer.",
+          "en": "A digital case-management system that shows predefined informational responses based on which menu the user selects."
+        },
+        {
+          "sv": "Ett system som automatiskt transkriberar och sammanfattar tal från möten.",
+          "en": "A system that automatically transcribes and summarizes speech from meetings."
+        },
+        {
+          "sv": "Ett system som tolkar talade röstkommandon och svarar med relevanta åtgärder.",
+          "en": "A system that interprets spoken voice commands and responds with relevant actions."
+        }
+      ],
+      "correctOptionIndex": 1,
+      "rationale": {
+        "sv": "Förutbestämda svar kopplade till menyval är typiskt regel-/flödeslogik utan inlärning.",
+        "en": "Predefined responses triggered by menu choices are typically rule/flow logic without learning."
+      }
+    },
+    {
+      "id": "detect_ai_q2",
+      "domainId": "detect_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Hur används AI redan idag i klassrum?",
+        "en": "How is AI already used in classrooms today?"
+      },
+      "options": [
+        {
+          "sv": "Digital visning av läromedel via interaktiva skrivtavlor",
+          "en": "Displaying learning materials via interactive whiteboards"
+        },
+        {
+          "sv": "Automatisk rättning av flervalsfrågor enligt fasta regler",
+          "en": "Automatically grading multiple-choice questions using fixed rules"
+        },
+        {
+          "sv": "Anpassning av läraktiviteternas svårighetsgrad baserat på elevs prestationer",
+          "en": "Adapting activity difficulty based on student performance"
+        },
+        {
+          "sv": "Lagring av elevuppgifter i lärplattformar",
+          "en": "Storing student data in learning platforms"
+        }
+      ],
+      "correctOptionIndex": 2,
+      "rationale": {
+        "sv": "Adaptiva system använder prestationer som signal för att rekommendera nivå/innehåll—en vanlig AI-funktion i edtech.",
+        "en": "Adaptive systems use performance signals to recommend level/content—a common AI function in edtech."
+      }
+    },
+    {
+      "id": "detect_ai_q3",
+      "domainId": "detect_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Vilka egenskaper skiljer AI från tidigare IT-tillämpningar?",
+        "en": "Which characteristics distinguish AI from earlier IT applications?"
+      },
+      "options": [
+        {
+          "sv": "Förmåga att lära och självständighet",
+          "en": "Ability to learn and act autonomously"
+        },
+        {
+          "sv": "Förmåga att bearbeta data och användarvänlighet",
+          "en": "Ability to process data and user-friendliness"
+        },
+        {
+          "sv": "Hastighet och databehandlingsförmåga",
+          "en": "Speed and data-processing capacity"
+        },
+        {
+          "sv": "Platsoberoende åtkomst och datasäkerhet",
+          "en": "Location-independent access and data security"
+        }
+      ],
+      "correctOptionIndex": 0,
+      "rationale": {
+        "sv": "AI kännetecknas av att lära från data och fatta beslut utan att alla regler är explicit programmerade.",
+        "en": "AI is characterized by learning from data and making decisions without every rule being explicitly programmed."
+      }
+    },
+    {
+      "id": "ai_ethics_q1",
+      "domainId": "ai_ethics",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Vilka är problemen med att reglera AI-lösningar?",
+        "en": "What are the challenges of regulating AI solutions?"
+      },
+      "options": [
+        {
+          "sv": "EU, USA och Kina kan inte enas om regler och därför stannar utvecklingen av AI inom EU av.",
+          "en": "The EU, US, and China cannot agree on rules, so AI development in the EU stops."
+        },
+        {
+          "sv": "Lagstiftningen kring AI-lösningar hinner inte med den snabba utvecklingen och spridningen av nya program.",
+          "en": "Legislation around AI solutions cannot keep up with the rapid development and spread of new systems."
+        },
+        {
+          "sv": "EU:s AI-förordning har klargjort grundläggande etiska frågor och därför är utvecklingen av etiska AI-lösningar okomplicerad.",
+          "en": "The EU AI Act has clarified basic ethical questions, so building ethical AI solutions is straightforward."
+        },
+        {
+          "sv": "Inom EU måste staten godkänna varje AI-lösning innan den kan användas och därför är forskning om AI-lösningar svår att genomföra.",
+          "en": "In the EU, the state must approve every AI solution before use, so AI research is hard to conduct."
+        }
+      ],
+      "correctOptionIndex": 1,
+      "rationale": {
+        "sv": "Reglering och policy tar ofta längre tid än teknikutveckling och implementering, vilket skapar glapp i styrning.",
+        "en": "Regulation and policy often move slower than technology development and deployment, creating governance gaps."
+      }
+    },
+    {
+      "id": "ai_ethics_q2",
+      "domainId": "ai_ethics",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Ett AI-system används för att ge elever individuell vägledning… Lena och Ahmed med samma betyg får olika förslag. Vilket etiskt dilemma illustreras?",
+        "en": "An AI system is used to give students individualized guidance… Lena and Ahmed with the same grades receive different suggestions. What ethical dilemma does this illustrate?"
+      },
+      "options": [
+        {
+          "sv": "Algoritmen har automatiskt antagit att Lena vill bli frisör och Ahmed vill bli ingenjör.",
+          "en": "The algorithm automatically assumed Lena wants to be a hairdresser and Ahmed wants to be an engineer."
+        },
+        {
+          "sv": "Algoritmen kan reproducera omedvetna fördomar genom att ge Lena och Ahmed olika information baserat på kön och bakgrund.",
+          "en": "The algorithm may reproduce hidden biases by giving Lena and Ahmed different information based on gender and background."
+        },
+        {
+          "sv": "Algoritmen ger olika information för att skydda deras personliga integritet.",
+          "en": "The algorithm provides different information to protect their privacy."
+        },
+        {
+          "sv": "Algoritmen har programmerats att ge optimala resultat endast för vissa elever baserat på deras skolor.",
+          "en": "The algorithm was programmed to optimize outcomes only for certain students based on their schools."
+        }
+      ],
+      "correctOptionIndex": 1,
+      "rationale": {
+        "sv": "Olika output för likvärdiga elever kan tyda på bias i data/modellering och leda till systematisk orättvisa.",
+        "en": "Different outputs for comparable students can indicate bias in data/modeling and lead to systematic unfairness."
+      }
+    },
+    {
+      "id": "ai_ethics_q3",
+      "domainId": "ai_ethics",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Vilket bidrar mest till en etiskt hållbar utveckling av datorseende-baserade stödsystem i undervisning?",
+        "en": "What contributes most to the ethically sustainable development of computer-vision-based support systems in education?"
+      },
+      "options": [
+        {
+          "sv": "Att använda ett omfattande bildunderlag från flera skolor utan att informera eleverna om datainsamlingen.",
+          "en": "Using a large image dataset from multiple schools without informing students about data collection."
+        },
+        {
+          "sv": "Att återanvända befintliga bilddata från sociala medier för att förbättra systemets träffsäkerhet.",
+          "en": "Reusing image data from social media to improve system accuracy."
+        },
+        {
+          "sv": "Att fokusera på systemets funktionalitet först och justera eventuella etiska problem senare.",
+          "en": "Focusing on system functionality first and addressing ethical issues later."
+        },
+        {
+          "sv": "Att tidigt definiera användningsområde, databehov och begränsningar som utgångspunkt för systemets utformning.",
+          "en": "Defining use case, data needs, and limitations early as the basis for system design."
+        }
+      ],
+      "correctOptionIndex": 3,
+      "rationale": {
+        "sv": "Tydlig avgränsning och riskbedömning tidigt (purpose, proportionalitet, dataminimering) är avgörande för etisk hållbarhet.",
+        "en": "Early scoping and risk assessment (purpose, proportionality, data minimization) are critical for ethical sustainability."
+      }
+    },
+    {
+      "id": "gen_ai_q1",
+      "domainId": "gen_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Vad betyder ”generativ” i samband med artificiell intelligens?",
+        "en": "What does “generative” mean in the context of artificial intelligence?"
+      },
+      "options": [
+        {
+          "sv": "Det syftar på att snabbt hämta befintligt innehåll från en databas.",
+          "en": "It refers to quickly retrieving existing content from a database."
+        },
+        {
+          "sv": "Det innebär att AI kan skapa nytt innehåll på begäran baserat på träningsdata.",
+          "en": "It means AI can create new content on demand based on training data."
+        },
+        {
+          "sv": "Det beskriver förmågan att samla in data från internet i realtid.",
+          "en": "It describes the ability to collect data from the internet in real time."
+        },
+        {
+          "sv": "Det står för förmågan att sammanfatta information från flera källor.",
+          "en": "It stands for the ability to summarize information from multiple sources."
+        }
+      ],
+      "correctOptionIndex": 1,
+      "rationale": {
+        "sv": "Generativa modeller producerar nytt innehåll (text/bild/ljud) genom att generera utifrån mönster i träningsdata.",
+        "en": "Generative models produce new content (text/image/audio) by generating from patterns learned in training data."
+      }
+    },
+    {
+      "id": "gen_ai_q2",
+      "domainId": "gen_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Hallucinationer (att AI ger felaktiga eller påhittade svar) kan bero på flera faktorer. Vilken faktor är minst sannolik att orsaka hallucinationer?",
+        "en": "Hallucinations (AI producing incorrect or fabricated answers) can have multiple causes. Which factor is least likely to cause hallucinations?"
+      },
+      "options": [
+        {
+          "sv": "Modellen tränas med brusiga eller felaktiga data.",
+          "en": "The model is trained on noisy or incorrect data."
+        },
+        {
+          "sv": "Modellen tränas med för mycket data.",
+          "en": "The model is trained with too much data."
+        },
+        {
+          "sv": "Modellen tränas med för lite data.",
+          "en": "The model is trained with too little data."
+        },
+        {
+          "sv": "Modellen ges inte tillräckligt med kontext.",
+          "en": "The model is not given enough context."
+        }
+      ],
+      "correctOptionIndex": 1,
+      "rationale": {
+        "sv": "Hallucinationer hänger oftare ihop med bristande kontext, otillräcklig träning eller datakvalitet—inte med “för mycket data” i sig.",
+        "en": "Hallucinations are more often linked to insufficient context, inadequate training, or data quality—not simply ‘too much data’ by itself."
+      }
+    },
+    {
+      "id": "gen_ai_q3",
+      "domainId": "gen_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Vilken strategi är INTE särskilt hjälpsam för att avgöra om en video har skapats av generativ AI?",
+        "en": "Which strategy is NOT particularly helpful for deciding whether a video was generated by generative AI?"
+      },
+      "options": [
+        {
+          "sv": "Kontrollera att färgpaletten i videon är konsekvent mellan olika scener, eftersom AI ofta har svårt med detta.",
+          "en": "Check that the color palette is consistent across scenes, since AI often struggles with this."
+        },
+        {
+          "sv": "Uppmärksamma objektpermanens genom att kolla om föremål plötsligt byter form eller försvinner mellan klipp utan orsak.",
+          "en": "Look for object permanence issues—objects changing shape or disappearing between cuts without cause."
+        },
+        {
+          "sv": "Kontrollera om rörelser hos människor och objekt är logiskt konsekventa (t.ex. onaturliga rörelsemönster).",
+          "en": "Check whether movements of people/objects are logically consistent (e.g., unnatural motion patterns)."
+        },
+        {
+          "sv": "Titta på videon flera gånger och uppmärksamma olika detaljer eftersom AI-genererade videor ofta innehåller små inkonsekvenser.",
+          "en": "Watch multiple times and check different details, since AI videos often contain small inconsistencies."
+        }
+      ],
+      "correctOptionIndex": 0,
+      "rationale": {
+        "sv": "Färgkonsekvens är ett svagt tecken: både mänskligt och AI-genererat material kan vara konsekvent. Rörelselogik och objektpermanens är ofta mer informativt.",
+        "en": "Color consistency is a weak cue; both human-made and AI-made videos can be consistent. Motion logic and object permanence tend to be more informative."
+      }
+    },
+    {
+      "id": "understand_ai_q1",
+      "domainId": "understand_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Hur fungerar ett AI-baserat rekommendationssystem i ett digitalt läromedel, exempelvis för att föreslå nästa övning för en elev?",
+        "en": "How does an AI-based recommendation system in a digital learning tool work, for example when suggesting the next exercise for a student?"
+      },
+      "options": [
+        {
+          "sv": "Det använder data från många elevers användning i kombination med elevens egna tidigare resultat för att anpassa rekommendationerna.",
+          "en": "It uses data from many students’ usage combined with the individual student’s past results to adapt recommendations."
+        },
+        {
+          "sv": "Det använder all tillgänglig information om elever från internet för att skapa personliga rekommendationer.",
+          "en": "It uses all available information about students from the internet to create personalized recommendations."
+        },
+        {
+          "sv": "Det baseras uteslutande på andra elevers data, inte på den individuella elevens tidigare prestationer.",
+          "en": "It relies exclusively on other students’ data, not the individual student’s past performance."
+        },
+        {
+          "sv": "Det använder endast elevens egna tidigare resultat och tar inte hänsyn till data från andra elever.",
+          "en": "It uses only the student’s past results and ignores data from other students."
+        }
+      ],
+      "correctOptionIndex": 0,
+      "rationale": {
+        "sv": "Många rekommendationssystem kombinerar individens historik med mönster från många användare (kollektiva signaler).",
+        "en": "Many recommenders combine an individual’s history with patterns from many users (collective signals)."
+      }
+    },
+    {
+      "id": "understand_ai_q2",
+      "domainId": "understand_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Vad är en möjlig konsekvens av AI-baserade personaliseringsprocesser i sökmotorer och sociala medier?",
+        "en": "What is a possible consequence of AI-based personalization in search engines and social media?"
+      },
+      "options": [
+        {
+          "sv": "En större variation av information och åsikter presenteras för användaren.",
+          "en": "A wider variation of information and opinions is presented to the user."
+        },
+        {
+          "sv": "Man kan hamna i filterbubblor med enbart bekräftande innehåll.",
+          "en": "You may end up in filter bubbles that mostly confirm your existing views."
+        },
+        {
+          "sv": "Människor får samma resultat för samma sökfråga oavsett vem som söker.",
+          "en": "People get the same results for the same query regardless of who searches."
+        },
+        {
+          "sv": "Sökresultaten blir mindre relevanta för användaren.",
+          "en": "Search results become less relevant for the user."
+        }
+      ],
+      "correctOptionIndex": 1,
+      "rationale": {
+        "sv": "Personaliserade flöden kan minska exponering för alternativa perspektiv och förstärka tidigare preferenser.",
+        "en": "Personalized feeds can reduce exposure to alternatives and reinforce prior preferences."
+      }
+    },
+    {
+      "id": "understand_ai_q3",
+      "domainId": "understand_ai",
+      "type": "mcq_single",
+      "prompt": {
+        "sv": "Vilken egenskap kan indikera att en text har genererats av AI?",
+        "en": "Which feature may indicate that a text was generated by AI?"
+      },
+      "options": [
+        {
+          "sv": "Texten är felaktig och innehåller många stavfel.",
+          "en": "The text is incorrect and contains many spelling mistakes."
+        },
+        {
+          "sv": "Texten är skriven på flera språk.",
+          "en": "The text is written in multiple languages."
+        },
+        {
+          "sv": "Texten är perfekt strukturerad men innehåller generiska eller repetitiva formuleringar.",
+          "en": "The text is perfectly structured but contains generic or repetitive phrasing."
+        },
+        {
+          "sv": "Texten innehåller starkt subjektiva åsikter och känslor.",
+          "en": "The text contains strongly subjective opinions and emotions."
+        }
+      ],
+      "correctOptionIndex": 2,
+      "rationale": {
+        "sv": "AI-text kan vara formellt välskriven men samtidigt vag/generisk eller repetitiv—särskilt utan konkret kontext eller källor.",
+        "en": "AI text can be polished yet vague/generic or repetitive—especially without concrete context or sources."
+      }
+    }
+  ]
+}

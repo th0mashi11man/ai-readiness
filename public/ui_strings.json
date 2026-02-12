@@ -1,0 +1,388 @@
+{
+  "schemaVersion": "1.0.0",
+  "defaultLocale": "sv",
+  "supportedLocales": [
+    "sv",
+    "en"
+  ],
+  "app": {
+    "name": {
+      "sv": "AI-beredskap i skolorganisationer",
+      "en": "AI Readiness in School Organizations"
+    },
+    "tagline": {
+      "sv": "Självskattning och profilering för individ och organisation",
+      "en": "Assessment and profiling for individuals and organizations"
+    }
+  },
+  "nav": {
+    "home": {
+      "sv": "Start",
+      "en": "Home"
+    },
+    "individual": {
+      "sv": "Individ",
+      "en": "Individual"
+    },
+    "organization": {
+      "sv": "Organisation",
+      "en": "Organization"
+    },
+    "about": {
+      "sv": "Om",
+      "en": "About"
+    },
+    "languageLabel": {
+      "sv": "Språk",
+      "en": "Language"
+    },
+    "languageSwitch": {
+      "sv": "SV / EN",
+      "en": "SV / EN"
+    }
+  },
+  "common": {
+    "start": {
+      "sv": "Starta",
+      "en": "Start"
+    },
+    "continue": {
+      "sv": "Fortsätt",
+      "en": "Continue"
+    },
+    "back": {
+      "sv": "Tillbaka",
+      "en": "Back"
+    },
+    "next": {
+      "sv": "Nästa",
+      "en": "Next"
+    },
+    "finish": {
+      "sv": "Slutför",
+      "en": "Finish"
+    },
+    "restart": {
+      "sv": "Börja om",
+      "en": "Restart"
+    },
+    "exportPdf": {
+      "sv": "Exportera som PDF",
+      "en": "Export as PDF"
+    },
+    "save": {
+      "sv": "Spara",
+      "en": "Save"
+    },
+    "close": {
+      "sv": "Stäng",
+      "en": "Close"
+    },
+    "optional": {
+      "sv": "Valfritt",
+      "en": "Optional"
+    },
+    "required": {
+      "sv": "Obligatoriskt",
+      "en": "Required"
+    },
+    "loading": {
+      "sv": "Laddar…",
+      "en": "Loading…"
+    },
+    "error": {
+      "sv": "Något gick fel.",
+      "en": "Something went wrong."
+    },
+    "tryAgain": {
+      "sv": "Försök igen",
+      "en": "Try again"
+    },
+    "notNow": {
+      "sv": "Inte nu",
+      "en": "Not now"
+    },
+    "progress": {
+      "sv": "Fråga {current} av {total}",
+      "en": "Question {current} of {total}"
+    }
+  },
+  "home": {
+    "title": {
+      "sv": "AI-beredskap i skolorganisationer",
+      "en": "AI Readiness in School Organizations"
+    },
+    "intro": {
+      "sv": "Den här webbplatsen har två delar: (1) ett självbedömningsverktyg för AI-kunskap för personer som arbetar i skolorganisationer, och (2) ett verktyg för organisatorisk AI-beredskap som stödjer reflektion kring AI-implementering i skolorganisationer.",
+      "en": "This site has two parts: (1) an AI literacy self-assessment tool for people working in school organizations, and (2) an organizational AI readiness tool that supports reflection on AI implementation in school organizations."
+    },
+    "ctaIndividual": {
+      "sv": "Gå till den individuella självbedömningen",
+      "en": "Go to the individual self-assessment"
+    },
+    "ctaOrganization": {
+      "sv": "Gå till verktyget för organisationsberedskap",
+      "en": "Go to the organizational readiness tool"
+    }
+  },
+  "consent": {
+    "title": {
+      "sv": "Information och samtycke",
+      "en": "Information and consent"
+    },
+    "body": {
+      "sv": "Syftet är att ge en vägledande bild av AI-kunskap och AI-implementering i en skolkontext. All information bearbetas lokalt i din webbläsare och ingenting sparas eller skickas till en server.",
+      "en": "The purpose is to provide an indicative view of AI literacy and AI implementation in a school context. All information is processed locally in your browser, and nothing is saved or sent to a server."
+    },
+    "checkbox": {
+      "sv": "Jag har läst informationen och vill fortsätta.",
+      "en": "I have read the information and want to continue."
+    },
+    "continueDisabledHint": {
+      "sv": "Bocka i rutan för att fortsätta.",
+      "en": "Check the box to continue."
+    }
+  },
+  "individual": {
+    "title": {
+      "sv": "AI-kunskap självbedömning",
+      "en": "AI literacy self-assessment"
+    },
+    "description": {
+      "sv": "Du får flervalsfrågor om AI. Frågorna visas i slumpmässig ordning. Efteråt får du en visualisering av din nivå inom olika områden.",
+      "en": "You will answer multiple-choice questions about AI. Questions are shown in random order. After completion, you will receive a visualization of your level across different areas."
+    },
+    "startButton": {
+      "sv": "Starta testet",
+      "en": "Start the quiz"
+    },
+    "answerRequired": {
+      "sv": "Välj ett svar för att fortsätta.",
+      "en": "Select an answer to continue."
+    },
+    "resultsTitle": {
+      "sv": "Dina resultat",
+      "en": "Your results"
+    },
+    "totalScore": {
+      "sv": "rätt",
+      "en": "correct"
+    },
+    "scoreLabel": {
+      "sv": "Totalpoäng",
+      "en": "Total score"
+    },
+    "domainScoresTitle": {
+      "sv": "Resultat per område",
+      "en": "Scores by domain"
+    },
+    "domainLevels": {
+      "emerging": {
+        "sv": "På väg",
+        "en": "Emerging"
+      },
+      "basic": {
+        "sv": "Grundläggande",
+        "en": "Basic"
+      },
+      "proficient": {
+        "sv": "God",
+        "en": "Proficient"
+      },
+      "advanced": {
+        "sv": "Avancerad",
+        "en": "Advanced"
+      }
+    },
+    "strengths": {
+      "sv": "Styrkor",
+      "en": "Strengths"
+    },
+    "growthAreas": {
+      "sv": "Utvecklingsområden",
+      "en": "Growth areas"
+    },
+    "reviewAnswersTitle": {
+      "sv": "Granska frågor och förklaringar",
+      "en": "Review questions and explanations"
+    },
+    "crossCutting": {
+      "sv": "Tvärgående",
+      "en": "Cross-cutting"
+    },
+    "tooltip_apply_ai": {
+      "sv": "Det handlar om att kunna använda AI-kunskap, begrepp och AI-teknik i olika situationer och praktiska scenarier.",
+      "en": "It is about being able to apply AI knowledge, concepts, and AI technologies across different situations and practical scenarios."
+    },
+    "tooltip_create_ai": {
+      "sv": "Det handlar om högre kognitiva färdigheter, såsom att värdera, bedöma, förutsäga och utveckla AI-tillämpningar.",
+      "en": "It is about higher-order skills, such as evaluating, assessing, predicting, and developing AI applications."
+    },
+    "tooltip_detect_ai": {
+      "sv": "Det handlar om att kunna känna igen om en tillämpning faktiskt bygger på AI eller inte.",
+      "en": "It is about being able to recognize whether an application is actually based on AI or not."
+    },
+    "tooltip_ai_ethics": {
+      "sv": "Det handlar om att ta hänsyn till mänskliga värden som rättvisa, ansvar, transparens, etik och säkerhet i AI-sammanhang.",
+      "en": "It is about considering human values such as fairness, responsibility, transparency, ethics, and safety in AI contexts."
+    },
+    "tooltip_gen_ai": {
+      "sv": "Det handlar om att förstå, reflektera över och kompetent använda generativ AI, som kan skapa innehåll utifrån minimal input.",
+      "en": "It is about understanding, reflecting on, and competently using generative AI, which can create content from minimal input."
+    },
+    "tooltip_understand_ai": {
+      "sv": "Det handlar om att förstå AI:s grundläggande funktioner och hur man använder AI-tillämpningar.",
+      "en": "It is about understanding the basic functions of AI and how to use AI applications."
+    },
+    "showExplanation": {
+      "sv": "Visa förklaring",
+      "en": "Show explanation"
+    },
+    "hideExplanation": {
+      "sv": "Dölj förklaring",
+      "en": "Hide explanation"
+    },
+    "yourAnswer": {
+      "sv": "Ditt svar",
+      "en": "Your answer"
+    },
+    "correctAnswer": {
+      "sv": "Rätt svar",
+      "en": "Correct answer"
+    }
+  },
+  "organization": {
+    "title": {
+      "sv": "Organisatorisk AI-beredskap",
+      "en": "Organizational AI readiness"
+    },
+    "description": {
+      "sv": "Här beskriver du din organisations AI-implementering. Resultatet visar hur er organisation liknar olika arketyper (vad AI används till) och logiker (hur AI är organiserad).",
+      "en": "Here you describe your organization’s AI implementation. The result shows how your organization resembles different archetypes (what AI is used for) and logics (how AI is organized)."
+    },
+    "startButton": {
+      "sv": "Starta profilen",
+      "en": "Start profiling"
+    },
+    "answerRequired": {
+      "sv": "Välj ett alternativ för att fortsätta.",
+      "en": "Choose an option to continue."
+    },
+    "resultsTitle": {
+      "sv": "Dina resultat",
+      "en": "Your results"
+    },
+    "heatmapTitle": {
+      "sv": "Archetyp × logik",
+      "en": "Archetype × logic"
+    },
+    "archetypeTotalsTitle": {
+      "sv": "AI-roll arketyp",
+      "en": "AI role archetype"
+    },
+    "logicTotalsTitle": {
+      "sv": "Organiseringslogik",
+      "en": "Organizing logic"
+    },
+    "logicSpectrumTitle": {
+      "sv": "Organiseringslogik",
+      "en": "Organizational logic"
+    },
+    "tooltipSeparation": {
+      "sv": "AI organiseras i en separat specialistfunktion (t.ex. centralt AI-/datateam) som driver utveckling och standardiserade lösningar. Fördel: stark expertis och kontroll. Risk: lösningar kan bli en silo med svagt genomslag i vardagspraktiken.",
+      "en": "AI is organized in a separate specialist function (e.g., a central AI/data team) that develops and delivers standardized solutions. Benefit: strong expertise and control. Risk: solutions can become a silo with weak uptake in everyday practice."
+    },
+    "tooltipIntegration": {
+      "sv": "AI-kapacitet byggs in i verksamheten; initiativ drivs och anpassas nära kärnprocessen. Fördel: hög relevans och ägarskap. Risk: kan bli spretigt/fragmenterat om koordinering och gemensamma rutiner saknas.",
+      "en": "AI capability is embedded in operations; initiatives are driven and adapted close to the primary process. Benefit: high relevance and ownership. Risk: can become fragmented without coordination and shared routines."
+    },
+    "tooltipHybrid": {
+      "sv": "Kombinerar central specialistkapacitet med verksamhetsnära anpassning. Nyckeln är bryggor: tydliga samarbeten, “översättarroll” och IT-integration som gör att piloter kan skalas utan att bli silos eller spretighet.",
+      "en": "Combines central specialist capacity with practice-near adaptation. The key is bridging: collaboration, translation roles, and IT integration so pilots can scale without becoming silos or fragmented."
+    },
+    "primaryArchetypesTitle": {
+      "sv": "Framträdande archetyper",
+      "en": "Leading archetypes"
+    },
+    "dominantLogicTitle": {
+      "sv": "Dominerande logik",
+      "en": "Dominant logic"
+    },
+    "riskTitle": {
+      "sv": "Möjliga risker",
+      "en": "Possible risks"
+    },
+    "riskSilo": {
+      "sv": "Silor: AI kan bli en separat ‘specialistaktivitet’ som inte får genomslag i vardagspraktiken.",
+      "en": "Silos: AI may become a separate ‘specialist activity’ that doesn’t translate into everyday practice."
+    },
+    "riskFragmentation": {
+      "sv": "Fragmentering: AI kan utvecklas spretigt med varierande rutiner, verktyg och kvalitet mellan enheter.",
+      "en": "Fragmentation: AI may develop in a scattered way with uneven routines, tools, and quality across units."
+    },
+    "recommendationsTitle": {
+      "sv": "Rekommenderade nästa steg",
+      "en": "Suggested next steps"
+    },
+    "recoBoundaryRoles": {
+      "sv": "Stärk bryggroller: utse personer som kan översätta mellan pedagogik, ledning, IT och juridik/etik.",
+      "en": "Strengthen bridge roles: appoint people who can translate between pedagogy, leadership, IT, and legal/ethical concerns."
+    },
+    "recoDataReadiness": {
+      "sv": "Förbättra dataförutsättningar: kartlägg datakällor, kvalitet och åtkomst innan fler AI-piloter startas.",
+      "en": "Improve data readiness: map data sources, quality, and access before launching more AI pilots."
+    },
+    "recoITIntegration": {
+      "sv": "Planera för IT-integration: säkerställ att verktyg, plattformar och ansvar för drift/förvaltning är tydliga.",
+      "en": "Plan for IT integration: ensure tools, platforms, and responsibility for operations/maintenance are clear."
+    },
+    "recoPartnerships": {
+      "sv": "Utveckla partnerskap: samverka med andra skolor/huvudmän, leverantörer och/eller akademi för att kombinera expertis och nytta.",
+      "en": "Develop partnerships: collaborate with other schools/authorities, vendors, and/or academia to combine expertise and value."
+    }
+  },
+  "about": {
+    "title": {
+      "sv": "Om verktyget",
+      "en": "About the tool"
+    },
+    "body": {
+      "sv": "Den individuella modulen är baserad på AICOS (Objective AI Literacy/Competency Scale). Organisationsmodulen använder profilering som kombinerar arketyper för AI-användning i skolor med organisatorisk implementeringslogik.",
+      "en": "The individual module is based on AICOS (Objective AI Literacy/Competency Scale). The organizational module uses profiling that combines archetypes of AI use in schools with organizational adoption logics."
+    },
+    "referencesTitle": {
+      "sv": "Referenser",
+      "en": "References"
+    },
+    "references": [
+      {
+        "label": {
+          "sv": "Markus, Carolus & Wienrich (2025). Objective measurement of AI literacy: Development and validation of the AI competency objective scale (AICOS).",
+          "en": "Markus, Carolus & Wienrich (2025). Objective measurement of AI literacy: Development and validation of the AI competency objective scale (AICOS)."
+        },
+        "url": "https://doi.org/10.1016/j.caeai.2025.100485"
+      },
+      {
+        "label": {
+          "sv": "Selten & Klievink (2024). Organizing public sector AI adoption: Navigating between separation and integration.",
+          "en": "Selten & Klievink (2024). Organizing public sector AI adoption: Navigating between separation and integration."
+        },
+        "url": "https://doi.org/10.1016/j.giq.2023.101885"
+      }
+    ]
+  },
+  "errors": {
+    "missingBankFile": {
+      "sv": "Kunde inte läsa item-bankfilen. Kontrollera att filen finns i projektmappen.",
+      "en": "Could not load the item bank file. Please check that the file exists in the project folder."
+    },
+    "invalidLocale": {
+      "sv": "Ogiltigt språkval.",
+      "en": "Invalid language selection."
+    },
+    "incompleteAnswers": {
+      "sv": "Du har inte besvarat alla frågor.",
+      "en": "You have not answered all questions."
+    }
+  }
+}
