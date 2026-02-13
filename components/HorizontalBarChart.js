@@ -35,13 +35,35 @@ export default function HorizontalBarChart({ labels, values, maxValue, hideValue
                                     <span style={{ opacity: 0.5, marginRight: '6px', fontWeight: 400 }}>{prefix}</span>
                                     {label}
                                 </span>
-                                {!hideValues && <span className="bar-value">{val} / {maxValue}</span>}
                             </div>
-                            <div className="bar-track">
+                            <div className="bar-track" style={{ position: 'relative', height: '24px', background: '#edf2f7', borderRadius: '6px', overflow: 'hidden' }}>
                                 <div
                                     className="bar-fill"
-                                    style={{ width: `${percentage}%` }}
+                                    style={{
+                                        width: `${percentage}%`,
+                                        height: '100%',
+                                        backgroundColor: 'var(--color-primary)',
+                                        transition: 'width 0.8s ease',
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0
+                                    }}
                                 ></div>
+                                {!hideValues && (
+                                    <span className="bar-value-overlay" style={{
+                                        position: 'absolute',
+                                        right: '8px',
+                                        top: '50%',
+                                        transform: 'translateY(-50%)',
+                                        fontSize: '0.85rem',
+                                        fontWeight: '600',
+                                        color: percentage > 50 ? 'white' : 'var(--color-text)',
+                                        zIndex: 2,
+                                        textShadow: percentage > 50 ? '0 1px 2px rgba(0,0,0,0.1)' : 'none'
+                                    }}>
+                                        {Math.round(val)} / {maxValue}
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </div>
