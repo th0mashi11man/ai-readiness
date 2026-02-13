@@ -127,8 +127,8 @@
   },
   "consent": {
     "title": {
-      "sv": "Information och samtycke",
-      "en": "Information and consent"
+      "sv": "",
+      "en": ""
     },
     "body": {
       "sv": "Syftet med den här webbplatsen är att ge en vägledande bild av AI-kunskap och AI-kapacitet i en skolorganisation. All information bearbetas lokalt i din webbläsare, och ingenting sparas eller skickas till en server.",

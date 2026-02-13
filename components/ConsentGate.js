@@ -13,8 +13,7 @@ export default function ConsentGate({ module, children }) {
     return (
         <section className="page page-consent fade-in">
             <div className="card card-consent">
-                <h1>{t("consent.title")}</h1>
-                <p className="consent-body">{t("consent.body")}</p>
+                <p className="consent-body" style={{ marginTop: '1rem' }}>{t("consent.body")}</p>
                 <label className="checkbox-label">
                     <input
                         type="checkbox"
