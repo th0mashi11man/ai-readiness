@@ -310,20 +310,20 @@
         "en": "It could be valuable to experiment more practically to see how AI can support your specific workflows."
       },
       "ai_ethics_low": {
-        "sv": "Ökad kunskap om AI-etik kan hjälpa dig att navigera tryggare kring ansvar och transparens i mötet med eleverna.",
-        "en": "Increased knowledge of AI ethics can help you navigate more confidently regarding responsibility and transparency when meeting students."
+        "sv": "Ökad kunskap om AI-etik kan hjälpa dig att navigera tryggare kring ansvar och transparens i din yrkesutövning.",
+        "en": "Increased knowledge of AI ethics can help you navigate more confidently regarding responsibility and transparency in your professional practice."
       },
       "detect_ai_low": {
-        "sv": "Genom att träna på att känna igen AI-genererat innehåll kan du stärka både din egen och dina elevers källkritik.",
-        "en": "By practicing recognizing AI-generated content, you can strengthen both your own and your students' critical thinking."
+        "sv": "Genom att träna på att känna igen AI-genererat innehåll kan du stärka både din egen och omgivningens källkritik.",
+        "en": "By practicing recognizing AI-generated content, you can strengthen both your own and the organization's critical thinking."
       },
       "create_ai_low": {
         "sv": "Att gå från att vara användare till att förstå hur AI-lösningar skapas ger dig bättre förutsättningar att värdera verktygens begränsningar.",
         "en": "Moving from being a user to understanding how AI solutions are created gives you better pre-requisites to evaluate the tools' limitations."
       },
       "gen_ai_low": {
-        "sv": "Genom att reflektera över hur generativ AI förändrar synen på kunskap och examination kan du bättre navigera i dess roll i klassrummet.",
-        "en": "By reflecting on how generative AI changes the view of knowledge and assessment, you can better navigate its role in the classroom."
+        "sv": "Genom att reflektera över hur generativ AI förändrar synen på kunskap och kompetens kan du bättre navigera i dess roll i verksamheten.",
+        "en": "By reflecting on how generative AI changes the view of knowledge and competence, you can better navigate its role in the organization."
       }
     }
   },
