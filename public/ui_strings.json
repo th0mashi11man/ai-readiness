@@ -253,6 +253,36 @@
     "correctAnswer": {
       "sv": "Rätt svar",
       "en": "Correct answer"
+    },
+    "reflectionsTitle": {
+      "sv": "Vägledning och reflektion",
+      "en": "Guidance and reflection"
+    },
+    "prompts": {
+      "understand_ai": {
+        "sv": "Reflektera över: Hur skulle en djupare förståelse för AI:s grundläggande logik påverka ditt dagliga arbete?",
+        "en": "Reflect on: How would a deeper understanding of AI’s basic logic impact your daily work?"
+      },
+      "apply_ai": {
+        "sv": "Reflektera över: Vilka specifika arbetsuppgifter ser du störst potential i att stötta med AI-verktyg?",
+        "en": "Reflect on: Which specific tasks do you see the most potential for supporting with AI tools?"
+      },
+      "ai_ethics": {
+        "sv": "Reflektera över: Vilka etiska risker är mest relevanta i just din pedagogiska miljö?",
+        "en": "Reflect on: Which ethical risks are most relevant in your specific pedagogical environment?"
+      },
+      "detect_ai": {
+        "sv": "Reflektera över: Hur kan du hjälpa elever eller kollegor att bli mer källkritiska mot AI-genererat innehåll?",
+        "en": "Reflect on: How can you help students or colleagues become more critical of AI-generated content?"
+      },
+      "create_ai": {
+        "sv": "Reflektera över: Finns det behov av att utveckla egna anpassade AI-lösningar för dina behov, eller räcker färdiga tjänster?",
+        "en": "Reflect on: Is there a need to develop custom AI solutions for your needs, or are off-the-shelf services sufficient?"
+      },
+      "gen_ai": {
+        "sv": "Reflektera över: Hur förändras synen på kunskap och examination när generativ AI blir ett vardagsverktyg?",
+        "en": "Reflect on: How does the view of knowledge and assessment change when generative AI becomes an everyday tool?"
+      }
     }
   },
   "organization": {
@@ -324,25 +354,39 @@
       "sv": "Fragmentering: AI kan utvecklas spretigt med varierande rutiner, verktyg och kvalitet mellan enheter.",
       "en": "Fragmentation: AI may develop in a scattered way with uneven routines, tools, and quality across units."
     },
-    "recommendationsTitle": {
-      "sv": "Rekommenderade nästa steg",
-      "en": "Suggested next steps"
+    "reflectionsTitle": {
+      "sv": "Frågor för reflektion",
+      "en": "Questions for reflection"
     },
-    "recoBoundaryRoles": {
-      "sv": "Stärk bryggroller: utse personer som kan översätta mellan pedagogik, ledning, IT och juridik/etik.",
-      "en": "Strengthen bridge roles: appoint people who can translate between pedagogy, leadership, IT, and legal/ethical concerns."
-    },
-    "recoDataReadiness": {
-      "sv": "Förbättra dataförutsättningar: kartlägg datakällor, kvalitet och åtkomst innan fler AI-piloter startas.",
-      "en": "Improve data readiness: map data sources, quality, and access before launching more AI pilots."
-    },
-    "recoITIntegration": {
-      "sv": "Planera för IT-integration: säkerställ att verktyg, plattformar och ansvar för drift/förvaltning är tydliga.",
-      "en": "Plan for IT integration: ensure tools, platforms, and responsibility for operations/maintenance are clear."
-    },
-    "recoPartnerships": {
-      "sv": "Utveckla partnerskap: samverka med andra skolor/huvudmän, leverantörer och/eller akademi för att kombinera expertis och nytta.",
-      "en": "Develop partnerships: collaborate with other schools/authorities, vendors, and/or academia to combine expertise and value."
+    "prompts": {
+      "TA": {
+        "sv": "Hur kan AI-avlastning av administrativa sysslor frigöra tid för det pedagogiska mötet i din organisation?",
+        "en": "How can AI-driven administrative offloading free up time for pedagogical interactions in your organization?"
+      },
+      "PT": {
+        "sv": "Vilka förutsättningar behövs för att personalisering genom AI ska bidra till ökad likvärdighet snarare än större klyftor?",
+        "en": "What conditions are needed for AI-driven personalization to promote equity rather than widening gaps?"
+      },
+      "DDL": {
+        "sv": "Hur säkerställer ni att datadriven analys används för att stödja snarare än att enbart kontrollera verksamheten?",
+        "en": "How do you ensure that data-driven analysis is used to support operations rather than just monitoring them?"
+      },
+      "SB": {
+        "sv": "Hur kan ni främja en kultur där elever och lärare ser AI som en samarbetspartner för kreativt och kritiskt tänkande?",
+        "en": "How can you foster a culture where students and teachers view AI as a partner for creative and critical thinking?"
+      },
+      "SEP": {
+        "sv": "Hur säkerställer ni att expertisen i den centrala specialistfunktionen når hela vägen ut i klassrummen?",
+        "en": "How do you ensure that the expertise in central specialist functions reaches all the way to the classroom?"
+      },
+      "INT": {
+        "sv": "Hur kan ni koordinera lokala initiativ så att goda exempel sprids och standarder för säkerhet och juridik efterlevs?",
+        "en": "How can you coordinate local initiatives to ensure best practices are shared and safety/legal standards are met?"
+      },
+      "HYB": {
+        "sv": "Vilka 'översättarroller' eller mötesplatser behövs för att bryggan mellan central expertis och lokal praktik ska bli ännu starkare?",
+        "en": "What 'translator roles' or forums are needed to further strengthen the bridge between central expertise and local practice?"
+      }
     }
   },
   "about": {

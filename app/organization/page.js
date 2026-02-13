@@ -237,14 +237,27 @@ function OrgResults({ bank, t, locale, onRestart }) {
                     t={t}
                 />
 
-                {/* Narrative */}
+                {/* Narrative / Reflections */}
                 <div className="narrative-section">
-                    {narrative.recommendations.length > 0 && (
-                        <div className="recommendations-narrative">
-                            <h2>{t("organization.recommendationsTitle")}</h2>
-                            <p className="narrative-text">
-                                {narrative.recommendations.join(" ")}
-                            </p>
+                    {narrative.risks.length > 0 && (
+                        <div className="risks-narrative">
+                            <h2 className="text-warning">{t("organization.riskTitle")}</h2>
+                            <ul className="narrative-list">
+                                {narrative.risks.map((r, i) => (
+                                    <li key={i}>{r}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+
+                    {narrative.reflectionPrompts.length > 0 && (
+                        <div className="reflections-narrative">
+                            <h2 className="text-accent">{t("organization.reflectionsTitle")}</h2>
+                            <ul className="narrative-list">
+                                {narrative.reflectionPrompts.map((p, i) => (
+                                    <li key={i}>{p}</li>
+                                ))}
+                            </ul>
                         </div>
                     )}
                 </div>

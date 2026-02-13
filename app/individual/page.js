@@ -233,6 +233,27 @@ function ResultsScreen({ bank, t, locale, onRestart }) {
                     </button>
                 </div>
 
+                {/* Reflection section for Individual */}
+                <div className="reflection-section-box card-highlight" style={{ marginTop: '2rem' }}>
+                    <h2 className="text-accent">{t("individual.reflectionsTitle")}</h2>
+                    <ul className="narrative-list">
+                        {bank.domains.map(domain => {
+                            const score = results.domainScores[domain.id]?.correct || 0;
+                            const total = results.domainScores[domain.id]?.total || 1;
+                            // Show prompt if user missed at least one question in this domain
+                            if (score < total) {
+                                return (
+                                    <li key={domain.id} style={{ marginBottom: '1rem' }}>
+                                        <strong>{t(domain.label)}:</strong><br />
+                                        <span className="text-secondary">{t(`individual.prompts.${domain.id}`)}</span>
+                                    </li>
+                                );
+                            }
+                            return null;
+                        })}
+                    </ul>
+                </div>
+
                 <h2>{t("individual.reviewAnswersTitle")}</h2>
                 <div className="review-list">
                     {orderedItems.map((item, i) => {
