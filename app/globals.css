@@ -1354,6 +1354,19 @@ body {
   color: var(--color-accent) !important;
 }
 
+.fluid-narrative {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--color-text-primary);
+  font-weight: 400;
+  max-width: 800px;
+}
+
+.fluid-narrative strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
 .text-warning {
   color: #d97706 !important;
   /* Amber-600 */

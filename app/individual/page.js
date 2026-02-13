@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import { useQuizStore } from "@/lib/store";
-import { scoreIndividual } from "@/lib/scoring";
+import { scoreIndividual, generateIndividualNarrative } from "@/lib/scoring";
 import RadarChart from "@/components/RadarChart";
 import HorizontalBarChart from "@/components/HorizontalBarChart";
 
@@ -233,25 +233,12 @@ function ResultsScreen({ bank, t, locale, onRestart }) {
                     </button>
                 </div>
 
-                {/* Reflection section for Individual */}
-                <div className="reflection-section-box card-highlight" style={{ marginTop: '2rem' }}>
+                {/* Rule-based Narrative for Individual */}
+                <div className="reflection-section-box card-highlight" style={{ marginTop: '2.5rem', marginBottom: '2.5rem' }}>
                     <h2 className="text-accent">{t("individual.reflectionsTitle")}</h2>
-                    <ul className="narrative-list">
-                        {bank.domains.map(domain => {
-                            const score = results.domainScores[domain.id]?.correct || 0;
-                            const total = results.domainScores[domain.id]?.total || 1;
-                            // Show prompt if user missed at least one question in this domain
-                            if (score < total) {
-                                return (
-                                    <li key={domain.id} style={{ marginBottom: '1rem' }}>
-                                        <strong>{t(domain.label)}:</strong><br />
-                                        <span className="text-secondary">{t(`individual.prompts.${domain.id}`)}</span>
-                                    </li>
-                                );
-                            }
-                            return null;
-                        })}
-                    </ul>
+                    <p className="narrative-text fluid-narrative">
+                        {generateIndividualNarrative(results, t, domainLabels)}
+                    </p>
                 </div>
 
                 <h2>{t("individual.reviewAnswersTitle")}</h2>

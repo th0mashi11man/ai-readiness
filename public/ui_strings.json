@@ -283,6 +283,44 @@
         "sv": "Reflektera över: Hur förändras synen på kunskap och examination när generativ AI blir ett vardagsverktyg?",
         "en": "Reflect on: How does the view of knowledge and assessment change when generative AI becomes an everyday tool?"
       }
+    },
+    "narrative": {
+      "emerging": {
+        "sv": "Du befinner dig på en framväxande nivå av AI-kompetens. Detta innebär att du har en grundläggande medvetenhet, men skulle dra nytta av en mer strukturerad genomgång av begrepp och verktyg.",
+        "en": "You are at an emerging level of AI literacy. This means you have a basic awareness but would benefit from a more structured review of concepts and tools."
+      },
+      "basic": {
+        "sv": "Du har en stabil grundnivå. Du är bekant med de vanligaste begreppen och kan identifiera AI i vardagliga sammanhang.",
+        "en": "You have a solid basic level. You are familiar with common concepts and can identify AI in everyday contexts."
+      },
+      "proficient": {
+        "sv": "Din AI-kompetens är god. Du uppvisar en bra balans mellan att förstå, upptäcka och använda AI i olika scenarier.",
+        "en": "Your AI literacy is proficient. You demonstrate a good balance between understanding, detecting, and using AI in various scenarios."
+      },
+      "advanced": {
+        "sv": "Du har en avancerad nivå av AI-kompetens. Du kan inte bara använda verktygen utan även förhålla dig kritiskt till deras konstruktion och etiska konsekvenser.",
+        "en": "You have an advanced level of AI literacy. You can not only use the tools but also relate critically to their design and ethical implications."
+      },
+      "understand_low": {
+        "sv": "Att fokusera mer på den underliggande logiken i AI-system kan hjälpa dig att avdramatisera hur dessa verktyg fungerar.",
+        "en": "Focusing more on the underlying logic of AI systems can help you demystify how these tools work."
+      },
+      "apply_low": {
+        "sv": "Det kan vara värdefullt att experimentera mer praktiskt för att se hur AI kan avlasta just dina specifika arbetsflöden.",
+        "en": "It could be valuable to experiment more practically to see how AI can support your specific workflows."
+      },
+      "ethics_low": {
+        "sv": "Ökad kunskap om AI-etik kan hjälpa dig att navigera tryggare kring ansvar och transparens i mötet med eleverna.",
+        "en": "Increased knowledge of AI ethics can help you navigate more confidently regarding responsibility and transparency when meeting students."
+      },
+      "detect_low": {
+        "sv": "Genom att träna på att känna igen AI-genererat innehåll kan du stärka både din egen och dina elevers källkritik.",
+        "en": "By practicing recognizing AI-generated content, you can strengthen both your own and your students' critical thinking."
+      },
+      "create_low": {
+        "sv": "Att gå från att vara användare till att förstå hur AI-lösningar skapas ger dig bättre förutsättningar att värdera verktygens begränsningar.",
+        "en": "Moving from being a user to understanding how AI solutions are created gives you better pre-requisites to evaluate the tools' limitations."
+      }
     }
   },
   "organization": {
@@ -404,6 +442,32 @@
       "partnerships": {
         "sv": "Fundera på: Vilka externa parter (andra skolor, högskolor eller leverantörer) skulle kunna komplettera er interna AI-kompetens?",
         "en": "Consider: Which external parties (other schools, universities, or vendors) could complement your internal AI competence?"
+      }
+    },
+    "narrative": {
+      "logic_SEP": {
+        "sv": "Eran organisation lutar idag mot en **separeringslogik**, där AI hanteras i en specialistfunktion. Detta skapar kontroll och expertis, men kräver aktivt arbete för att lösningarna inte ska stanna i en 'kunskapssilo'.",
+        "en": "Your organization currently leans towards a **separation logic**, where AI is handled in a specialist function. This creates control and expertise but requires active work to ensure solutions don't remain in a 'knowledge silo'."
+      },
+      "logic_INT": {
+        "sv": "Implementeringen följer en **integreringslogik**, vilket innebär att AI-initiativ växer fram nära kärnverksamheten. Detta borgar för relevans, men ställer krav på samordning för att undvika ett fragmenterat landskap.",
+        "en": "Implementation follows an **integration logic**, which means AI initiatives emerge close to core operations. This ensures relevance but demands coordination to avoid a fragmented landscape."
+      },
+      "logic_HYB": {
+        "sv": "Ni har uppnått en **hybridslogik**, där ni balanserar centralt stöd med lokal anpassning. Denna strategiska ansats ger goda förutsättningar att skala upp arbetet utan att tappa varken expertis eller pedagogisk förankring.",
+        "en": "You have achieved a **hybrid logic**, balancing central support with local adaptation. This strategic approach provides good conditions for scaling up without losing expertise or pedagogical grounding."
+      },
+      "arch_focus": {
+        "sv": "Det huvudsakliga fokuset ligger på arketyperna {arch1} och {arch2}.",
+        "en": "The primary focus lies on the {arch1} and {arch2} archetypes."
+      },
+      "risk_note": {
+        "sv": "För att komma vidare bör ni särskilt beakta risken för {risk}.",
+        "en": "To move forward, you should specifically consider the risk of {risk}."
+      },
+      "diag_note": {
+        "sv": "Ett viktigt steg framåt är att titta närmare på {diag}.",
+        "en": "A key step forward is to look closer at {diag}."
       }
     }
   },

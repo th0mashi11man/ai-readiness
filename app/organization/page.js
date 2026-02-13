@@ -237,29 +237,12 @@ function OrgResults({ bank, t, locale, onRestart }) {
                     t={t}
                 />
 
-                {/* Narrative / Reflections */}
-                <div className="narrative-section">
-                    {narrative.risks.length > 0 && (
-                        <div className="risks-narrative">
-                            <h2 className="text-warning">{t("organization.riskTitle")}</h2>
-                            <ul className="narrative-list">
-                                {narrative.risks.map((r, i) => (
-                                    <li key={i}>{r}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
-
-                    {narrative.reflectionPrompts.length > 0 && (
-                        <div className="reflections-narrative">
-                            <h2 className="text-accent">{t("organization.reflectionsTitle")}</h2>
-                            <ul className="narrative-list">
-                                {narrative.reflectionPrompts.map((p, i) => (
-                                    <li key={i}>{p}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
+                {/* Rule-based Narrative */}
+                <div className="narrative-section card-highlight" style={{ marginTop: '3rem' }}>
+                    <h2 className="text-accent">{t("organization.reflectionsTitle")}</h2>
+                    <p className="narrative-text fluid-narrative">
+                        {generateNarrative(results, t, archetypeLabels, logicLabels)}
+                    </p>
                 </div>
 
                 <div className="results-actions">

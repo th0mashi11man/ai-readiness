@@ -16,7 +16,7 @@ export default function HorizontalBarChart({ labels, values, maxValue, hideValue
                 const prefix = !isGenAi ? `${idx + 1}. ` : `${crossCuttingLabel} `;
 
                 return (
-                    <div key={idx} className="bar-wrapper" style={{ display: 'contents' }}>
+                    <div key={idx} className="bar-wrapper">
                         {isGenAi && (
                             <div className="chart-separator" style={{
                                 height: '1px',
