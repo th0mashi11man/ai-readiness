@@ -261,12 +261,12 @@
       "en": "AI capacity self-assessment"
     },
     "description": {
-      "sv": "Här beskriver du din organisations AI-implementering. Resultatet visar hur er organisation liknar olika arketyper (vad AI används till) och logiker (hur AI är organiserad).",
-      "en": "Here you describe your organization’s AI implementation. The result shows how your organization resembles different archetypes (what AI is used for) and logics (how AI is organized)."
+      "sv": "Svara på frågor om din organisations AI-implementering och få en vägledande bedömning av hur din organisation liknar olika arketyper för vad AI används till och logiker för hur AI är organiserad.",
+      "en": "Answer questions about your organization’s AI implementation and get an indicative assessment of how your organization resembles different archetypes for what AI is used for and logics for how AI is organized."
     },
     "startButton": {
-      "sv": "Starta profilen",
-      "en": "Start profiling"
+      "sv": "Starta självbedömningen",
+      "en": "Start the self-assessment"
     },
     "answerRequired": {
       "sv": "Välj ett alternativ för att fortsätta.",
