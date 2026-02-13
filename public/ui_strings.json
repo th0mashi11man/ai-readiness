@@ -260,28 +260,28 @@
     },
     "prompts": {
       "understand_ai": {
-        "sv": "Reflektera över: Hur skulle en djupare förståelse för AI:s grundläggande logik påverka ditt dagliga arbete?",
-        "en": "Reflect on: How would a deeper understanding of AI’s basic logic impact your daily work?"
+        "sv": "Reflektera över: Hur skulle en djupare förståelse för AI:s grundläggande logik påverka ditt arbete och beslutsfattande?",
+        "en": "Reflect on: How would a deeper understanding of AI’s basic logic impact your work and decision-making?"
       },
       "apply_ai": {
-        "sv": "Reflektera över: Vilka specifika arbetsuppgifter ser du störst potential i att stötta med AI-verktyg?",
-        "en": "Reflect on: Which specific tasks do you see the most potential for supporting with AI tools?"
+        "sv": "Reflektera över: Inom vilka arbetsområden ser du störst potential att använda AI-stöd för att effektivisera eller höja kvaliteten?",
+        "en": "Reflect on: In which work areas do you see the most potential for using AI support to increase efficiency or quality?"
       },
       "ai_ethics": {
-        "sv": "Reflektera över: Vilka etiska risker är mest relevanta i just din pedagogiska miljö?",
-        "en": "Reflect on: Which ethical risks are most relevant in your specific pedagogical environment?"
+        "sv": "Reflektera över: Vilka etiska risker och ansvarsfrågor är mest kritiska att bevaka i din yrkesroll?",
+        "en": "Reflect on: Which ethical risks and responsibility issues are most critical to monitor in your professional role?"
       },
       "detect_ai": {
-        "sv": "Reflektera över: Hur kan du hjälpa elever eller kollegor att bli mer källkritiska mot AI-genererat innehåll?",
-        "en": "Reflect on: How can you help students or colleagues become more critical of AI-generated content?"
+        "sv": "Reflektera över: Hur kan du bidra till att bibehålla en sund källkritik och transparens kring AI-genererat material i organisationen?",
+        "en": "Reflect on: How can you contribute to maintaining sound source criticism and transparency regarding AI-generated material in the organization?"
       },
       "create_ai": {
-        "sv": "Reflektera över: Finns det behov av att utveckla egna anpassade AI-lösningar för dina behov, eller räcker färdiga tjänster?",
-        "en": "Reflect on: Is there a need to develop custom AI solutions for your needs, or are off-the-shelf services sufficient?"
+        "sv": "Reflektera över: Kan ni gå från att bara använda färdiga tjänster till att anpassa eller skapa egna lösningar för verksamhetens behov?",
+        "en": "Reflect on: Can you move from just using off-the-shelf services to adapting or creating your own solutions for operational needs?"
       },
       "gen_ai": {
-        "sv": "Reflektera över: Hur förändras synen på kunskap och examination när generativ AI blir ett vardagsverktyg?",
-        "en": "Reflect on: How does the view of knowledge and assessment change when generative AI becomes an everyday tool?"
+        "sv": "Reflektera över: Vad innebär den snabba utvecklingen av generativ AI för kompetensbehovet i din roll framöver?",
+        "en": "Reflect on: What does the rapid development of generative AI mean for the competence needs in your role going forward?"
       }
     },
     "narrative": {
