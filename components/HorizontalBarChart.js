@@ -13,7 +13,7 @@ export default function HorizontalBarChart({ labels, values, maxValue, hideValue
 
                 // Numbering for Bloom-like progression (1-5)
                 // For GenAI, use the cross-cutting label as prefix
-                const prefix = !isGenAi ? `${idx + 1}. ` : `${crossCuttingLabel}: `;
+                const prefix = !isGenAi ? `${idx + 1}. ` : `${crossCuttingLabel} `;
 
                 return (
                     <div key={idx} className="bar-wrapper" style={{ display: 'contents' }}>
