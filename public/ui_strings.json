@@ -153,12 +153,12 @@
       "en": "AI literacy self-assessment"
     },
     "description": {
-      "sv": "Du får flervalsfrågor om AI. Frågorna visas i slumpmässig ordning. Efteråt får du en visualisering av din nivå inom olika områden.",
-      "en": "You will answer multiple-choice questions about AI. Questions are shown in random order. After completion, you will receive a visualization of your level across different areas."
+      "sv": "Svara på flervalsfrågor om AI och få en vägledande bedömning av din nivå av AI-kunskap inom olika områden.",
+      "en": "Answer multiple-choice questions about AI and get an indicative assessment of your level of AI literacy across different areas."
     },
     "startButton": {
-      "sv": "Starta testet",
-      "en": "Start the quiz"
+      "sv": "Starta självbedömningen",
+      "en": "Start the self-assessment"
     },
     "answerRequired": {
       "sv": "Välj ett svar för att fortsätta.",
