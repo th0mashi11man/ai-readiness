@@ -195,10 +195,10 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
     const results = scoreOrganization(bank.items, responses);
     const narrative = generateNarrative(
-        results.archetypeMarginals,
-        results.logicMarginals,
-        results.diagnostics,
-        t
+        results,
+        t,
+        archetypeLabels,
+        logicLabels
     );
 
     const archetypeLabels = results.ARCHETYPE_IDS.map(
