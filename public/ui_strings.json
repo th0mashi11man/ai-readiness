@@ -131,8 +131,8 @@
       "en": "Information and consent"
     },
     "body": {
-      "sv": "Syftet är att ge en vägledande bild av AI-kunskap och AI-implementering i en skolkontext. All information bearbetas lokalt i din webbläsare, och ingenting sparas eller skickas till en server. Syftet med den här webbplatsen är att ge en vägledande bild av AI-kunskap och AI-kapacitet i en skolorganisation. All information bearbetas lokalt i din webbläsare, och ingenting sparas eller skickas till en server.",
-      "en": "The purpose is to provide an indicative view of AI literacy and AI implementation in a school context. All information is processed locally in your browser, and nothing is saved or sent to a server. The purpose of this site is to provide an indicative view of AI literacy and AI capacity in a school organization. All information is processed locally in your browser, and nothing is saved or sent to a server."
+      "sv": "Syftet med den här webbplatsen är att ge en vägledande bild av AI-kunskap och AI-kapacitet i en skolorganisation. All information bearbetas lokalt i din webbläsare, och ingenting sparas eller skickas till en server.",
+      "en": "The purpose of this site is to provide an indicative view of AI literacy and AI capacity in a school organization. All information is processed locally in your browser, and nothing is saved or sent to a server."
     },
     "checkbox": {
       "sv": "Jag har läst informationen och vill fortsätta.",
