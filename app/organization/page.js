@@ -193,6 +193,15 @@ function OrgResults({ bank, t, locale, onRestart }) {
             : {};
     const responses = stored.answers || {};
 
+    const [narratives, setNarratives] = useState(null);
+
+    useEffect(() => {
+        fetch("/narratives.json")
+            .then(r => r.json())
+            .then(setNarratives)
+            .catch(err => console.error("Failed to load narratives", err));
+    }, []);
+
     const results = scoreOrganization(bank.items, responses);
     const archetypeLabels = results.ARCHETYPE_IDS.map(
         (id) => t(bank.archetypes.find((a) => a.id === id)?.label)
@@ -201,12 +210,14 @@ function OrgResults({ bank, t, locale, onRestart }) {
         (id) => t(bank.logics.find((l) => l.id === id)?.label)
     );
 
-    const narrative = generateNarrative(
+    const narrative = narratives ? generateNarrative(
         results,
         t,
         archetypeLabels,
-        logicLabels
-    );
+        logicLabels,
+        narratives,
+        locale
+    ) : { logicText: "Laddar...", archetypeText: "Laddar..." };
 
     const archetypeValues = results.ARCHETYPE_IDS.map(
         (id) => Math.round(results.archetypeMarginals[id])
