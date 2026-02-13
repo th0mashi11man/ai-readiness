@@ -9,34 +9,35 @@ function seedIndividualAndGo(router, profile = "proficient") {
   let answers = {};
 
   if (profile === "novice") {
-    // Mostly incorrect (level 0 or wrong index)
+    // ~7/18 correct (random guessing territory)
     answers = {
-      apply_ai_q1: 0, apply_ai_q2: 1, apply_ai_q3: 0,
-      create_ai_q1: 0, create_ai_q2: 0, create_ai_q3: 1,
-      detect_ai_q1: 0, detect_ai_q2: 0, detect_ai_q3: 1,
-      ai_ethics_q1: 0, ai_ethics_q2: 0, ai_ethics_q3: 0,
-      gen_ai_q1: 0, gen_ai_q2: 0, gen_ai_q3: 1,
-      understand_ai_q1: 1, understand_ai_q2: 0, understand_ai_q3: 0,
+      apply_ai_q1: 2, apply_ai_q2: 1, apply_ai_q3: 0,   // 1/3
+      create_ai_q1: 1, create_ai_q2: 0, create_ai_q3: 1, // 1/3
+      detect_ai_q1: 1, detect_ai_q2: 0, detect_ai_q3: 1, // 1/3
+      ai_ethics_q1: 1, ai_ethics_q2: 0, ai_ethics_q3: 0, // 1/3
+      gen_ai_q1: 1, gen_ai_q2: 0, gen_ai_q3: 1,           // 1/3
+      understand_ai_q1: 0, understand_ai_q2: 0, understand_ai_q3: 0, // 1/3 plus one extra
+      understand_ai_q2: 1,
     };
   } else if (profile === "expert") {
-    // 100% correct
+    // 17/18 correct (Realistic expert)
     answers = {
       apply_ai_q1: 2, apply_ai_q2: 0, apply_ai_q3: 1,
-      create_ai_q1: 1, create_ai_q2: 1, create_ai_q3: 0,
+      create_ai_q1: 1, create_ai_q2: 1, create_ai_q3: 2, // Missed q3
       detect_ai_q1: 1, detect_ai_q2: 2, detect_ai_q3: 0,
       ai_ethics_q1: 1, ai_ethics_q2: 1, ai_ethics_q3: 3,
       gen_ai_q1: 1, gen_ai_q2: 1, gen_ai_q3: 0,
       understand_ai_q1: 0, understand_ai_q2: 1, understand_ai_q3: 2,
     };
   } else {
-    // Proficient (mix)
+    // Proficient (~12/18 - Balanced intermediate)
     answers = {
-      apply_ai_q1: 2, apply_ai_q2: 0, apply_ai_q3: 0,
-      create_ai_q1: 1, create_ai_q2: 1, create_ai_q3: 2,
-      detect_ai_q1: 1, detect_ai_q2: 2, detect_ai_q3: 0,
-      ai_ethics_q1: 1, ai_ethics_q2: 0, ai_ethics_q3: 3,
-      gen_ai_q1: 1, gen_ai_q2: 1, gen_ai_q3: 2,
-      understand_ai_q1: 0, understand_ai_q2: 1, understand_ai_q3: 0,
+      apply_ai_q1: 2, apply_ai_q2: 0, apply_ai_q3: 0,   // 2/3
+      create_ai_q1: 1, create_ai_q2: 1, create_ai_q3: 2, // 2/3
+      detect_ai_q1: 1, detect_ai_q2: 2, detect_ai_q3: 1, // 2/3
+      ai_ethics_q1: 1, ai_ethics_q2: 0, ai_ethics_q3: 3, // 2/3
+      gen_ai_q1: 1, gen_ai_q2: 1, gen_ai_q3: 2,           // 2/3
+      understand_ai_q1: 0, understand_ai_q2: 1, understand_ai_q3: 0, // 2/3
     };
   }
 
