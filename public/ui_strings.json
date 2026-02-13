@@ -261,8 +261,8 @@
       "en": "AI capacity self-assessment"
     },
     "description": {
-      "sv": "Svara på frågor om din organisations AI-implementering och få en vägledande bedömning av hur din organisation liknar olika arketyper för vad AI används till och logiker för hur AI är organiserad.",
-      "en": "Answer questions about your organization’s AI implementation and get an indicative assessment of how your organization resembles different archetypes for what AI is used for and logics for how AI is organized."
+      "sv": "Svara på frågor om din organisations AI-implementering och få en vägledande bedömning av hur din organisation liknar olika arketyper för vad AI används till och logiker för hur implementeringen är organiserad.",
+      "en": "Answer questions about your organization’s AI implementation and get an indicative assessment of how your organization resembles different archetypes for what AI is used for and logics for how implementation is organized."
     },
     "startButton": {
       "sv": "Starta självbedömningen",
