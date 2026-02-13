@@ -117,7 +117,7 @@
       "en": ""
     },
     "intro": {
-      "sv": "Använd verktygen på den här webbplatsen för att reflektera över din egen AI-kunskap och AI-kapaciteten i din skolorganisation.",
+      "sv": "Använd verktygen på den här webbplatsen för att reflektera över din egen AI-kompetens och AI-kapaciteten i din skolorganisation.",
       "en": "Use the tools on this site to reflect on your own AI literacy and the AI capacity within your school organization."
     },
     "ctaIndividual": {
@@ -149,11 +149,11 @@
   },
   "individual": {
     "title": {
-      "sv": "AI-kunskap självbedömning",
+      "sv": "AI-kompetens självbedömning",
       "en": "AI literacy self-assessment"
     },
     "description": {
-      "sv": "Svara på flervalsfrågor om AI och få en vägledande bedömning av din nivå av AI-kunskap inom olika områden.",
+      "sv": "Svara på flervalsfrågor om AI och få en vägledande bedömning av din nivå av AI-kompetens inom olika områden.",
       "en": "Answer multiple-choice questions about AI and get an indicative assessment of your level of AI literacy across different areas."
     },
     "startButton": {
@@ -215,7 +215,7 @@
       "en": "Cross-cutting"
     },
     "tooltip_apply_ai": {
-      "sv": "Det handlar om att kunna använda AI-kunskap, begrepp och AI-teknik i olika situationer och praktiska scenarier.",
+      "sv": "Det handlar om att kunna använda AI-kompetens, begrepp och AI-teknik i olika situationer och praktiska scenarier.",
       "en": "It is about being able to apply AI knowledge, concepts, and AI technologies across different situations and practical scenarios."
     },
     "tooltip_create_ai": {

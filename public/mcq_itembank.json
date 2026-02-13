@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "bankId": "school_ai_literacy_mcq",
   "title": {
-    "sv": "AI-kunskapstest (objektiv flervalsenkät)",
+    "sv": "AI-kompetenstest (objektiv flervalsenkät)",
     "en": "AI Literacy Quiz (objective multiple-choice)"
   },
   "defaultLocale": "sv",
