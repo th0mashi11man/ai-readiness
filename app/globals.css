@@ -1360,7 +1360,8 @@ body {
   line-height: 1.75;
   color: var(--color-text-primary);
   font-weight: 400;
-  max-width: 800px;
+  max-width: 100%;
+  /* Changed from 800px to 100% */
 }
 
 .fluid-narrative strong {
