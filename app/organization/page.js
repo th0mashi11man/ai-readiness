@@ -194,6 +194,13 @@ function OrgResults({ bank, t, locale, onRestart }) {
     const responses = stored.answers || {};
 
     const results = scoreOrganization(bank.items, responses);
+    const archetypeLabels = results.ARCHETYPE_IDS.map(
+        (id) => t(bank.archetypes.find((a) => a.id === id)?.label)
+    );
+    const logicLabels = results.LOGIC_IDS.map(
+        (id) => t(bank.logics.find((l) => l.id === id)?.label)
+    );
+
     const narrative = generateNarrative(
         results,
         t,
@@ -201,12 +208,6 @@ function OrgResults({ bank, t, locale, onRestart }) {
         logicLabels
     );
 
-    const archetypeLabels = results.ARCHETYPE_IDS.map(
-        (id) => t(bank.archetypes.find((a) => a.id === id)?.label)
-    );
-    const logicLabels = results.LOGIC_IDS.map(
-        (id) => t(bank.logics.find((l) => l.id === id)?.label)
-    );
     const archetypeValues = results.ARCHETYPE_IDS.map(
         (id) => Math.round(results.archetypeMarginals[id])
     );
