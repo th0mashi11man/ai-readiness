@@ -387,6 +387,24 @@
         "sv": "Vilka 'översättarroller' eller mötesplatser behövs för att bryggan mellan central expertis och lokal praktik ska bli ännu starkare?",
         "en": "What 'translator roles' or forums are needed to further strengthen the bridge between central expertise and local practice?"
       }
+    },
+    "diagnosticPrompts": {
+      "boundary_spanning": {
+        "sv": "Fundera på: Vem i din organisation har bäst förutsättningar att översätta mellan pedagogiska behov och tekniska möjligheter?",
+        "en": "Consider: Who in your organization is best positioned to translate between pedagogical needs and technical possibilities?"
+      },
+      "data_readiness": {
+        "sv": "Fundera på: Vilka hinder ser du för att få en samlad bild av den data ni skulle vilja använda för AI-analys?",
+        "en": "Consider: What obstacles do you see to getting a unified view of the data you would like to use for AI analysis?"
+      },
+      "it_integration": {
+        "sv": "Fundera på: Hur ser ansvarsfördelningen ut mellan it-avdelningen och kärnverksamheten när det gäller drift av nya AI-verktyg?",
+        "en": "Consider: What does the division of responsibility look like between the IT department and the core business regarding the operation of new AI tools?"
+      },
+      "partnerships": {
+        "sv": "Fundera på: Vilka externa parter (andra skolor, högskolor eller leverantörer) skulle kunna komplettera er interna AI-kompetens?",
+        "en": "Consider: Which external parties (other schools, universities, or vendors) could complement your internal AI competence?"
+      }
     }
   },
   "about": {
