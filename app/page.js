@@ -130,9 +130,9 @@ export default function HomePage() {
             </div>
             <div className="test-section">
               <h4>Test Organization:</h4>
-              <button onClick={() => seedOrgAndGo(router, "admin")}>Admin/Efficiency</button>
-              <button onClick={() => seedOrgAndGo(router, "pedagogical")}>Pedagogical</button>
-              <button onClick={() => seedOrgAndGo(router, "hybrid")}>Strategic/Holistic</button>
+              <button onClick={() => seedOrgAndGo(router, "admin")}>Separation</button>
+              <button onClick={() => seedOrgAndGo(router, "pedagogical")}>Integration</button>
+              <button onClick={() => seedOrgAndGo(router, "hybrid")}>Hybrid</button>
             </div>
           </div>
         </div>
