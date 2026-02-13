@@ -67,7 +67,7 @@ export default function HomePage() {
               <path d="M12 17h.01" />
             </svg>
             <p className="privacy-note-text">
-              <strong>{t("consent.title")}:</strong> {t("consent.body")}
+              {t("consent.body")}
             </p>
           </div>
           <div className="test-links">
