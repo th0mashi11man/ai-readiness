@@ -7,8 +7,8 @@
   ],
   "app": {
     "name": {
-      "sv": "AI-beredskap",
-      "en": "AI Readiness"
+      "sv": "AI-beredskap i skolorganisationer",
+      "en": "AI Readiness in School Organizations"
     },
     "tagline": {
       "sv": "Självskattning och profilering för individ och organisation",
@@ -109,24 +109,24 @@
   },
   "home": {
     "title": {
-      "sv": "AI-beredskap",
-      "en": "AI Readiness"
+      "sv": "AI-beredskap i skolorganisationer",
+      "en": "AI Readiness in School Organizations"
     },
     "tagline": {
       "sv": "",
       "en": ""
     },
     "intro": {
-      "sv": "Använd självbedömningsverktygen på den här webbplatsen för att reflektera över din egen AI-kunskap och AI-kapacitet i din skolorganisation",
-      "en": "Use the self-assessment tools on this site to reflect on your own AI literacy and AI capacity within your school organization"
+      "sv": "Använd verktygen på den här webbplatsen för att reflektera över din egen AI-kunskap och AI-kapaciteten i din skolorganisation.",
+      "en": "Use the tools on this site to reflect on your own AI literacy and the AI capacity within your school organization."
     },
     "ctaIndividual": {
       "sv": "Gå till den individuella självbedömningen",
       "en": "Go to the individual self-assessment"
     },
     "ctaOrganization": {
-      "sv": "Gå till Organisatorisk AI-kapacitet",
-      "en": "Go to Organizational AI Capacity"
+      "sv": "Gå till den organisatoriska självbedömningen",
+      "en": "Go to the organizational self-assessment"
     }
   },
   "consent": {
