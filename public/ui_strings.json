@@ -135,8 +135,8 @@
       "en": ""
     },
     "body": {
-      "sv": "All information bearbetas lokalt i din webbläsare, och ingenting sparas eller skickas till en server.",
-      "en": "All information is processed locally in your browser, and nothing is saved or sent to a server."
+      "sv": "All information bearbetas i din webbläsare. Ingenting sparas eller skickas till en server.",
+      "en": "All information is processed in your browser. Nothing is saved or sent to a server."
     },
     "checkbox": {
       "sv": "Jag har läst informationen och vill fortsätta.",
