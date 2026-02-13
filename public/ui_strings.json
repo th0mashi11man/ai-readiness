@@ -432,34 +432,34 @@
     },
     "diagnosticPrompts": {
       "boundary_spanning": {
-        "sv": "Fundera på: Vem i din organisation har bäst förutsättningar att översätta mellan pedagogiska behov och tekniska möjligheter?",
-        "en": "Consider: Who in your organization is best positioned to translate between pedagogical needs and technical possibilities?"
+        "sv": "Identifiera vem i organisationen som har bäst förutsättningar att översätta mellan verksamhetens behov och tekniska möjligheter.",
+        "en": "Identify who in the organization is best positioned to translate between operational needs and technical possibilities."
       },
       "data_readiness": {
-        "sv": "Fundera på: Vilka hinder ser du för att få en samlad bild av den data ni skulle vilja använda för AI-analys?",
-        "en": "Consider: What obstacles do you see to getting a unified view of the data you would like to use for AI analysis?"
+        "sv": "Kartlägg vilka hinder som finns för att få en samlad bild av den data ni vill använda för AI-analys.",
+        "en": "Map out what obstacles exist to getting a unified view of the data you want to use for AI analysis."
       },
       "it_integration": {
-        "sv": "Fundera på: Hur ser ansvarsfördelningen ut mellan it-avdelningen och kärnverksamheten när det gäller drift av nya AI-verktyg?",
-        "en": "Consider: What does the division of responsibility look like between the IT department and the core business regarding the operation of new AI tools?"
+        "sv": "Tydliggör ansvarsfördelningen mellan it-avdelningen och kärnverksamheten gällande drift av nya AI-verktyg.",
+        "en": "Clarify the division of responsibility between the IT department and core operations regarding the operation of new AI tools."
       },
       "partnerships": {
-        "sv": "Fundera på: Vilka externa parter (andra skolor, högskolor eller leverantörer) skulle kunna komplettera er interna AI-kompetens?",
-        "en": "Consider: Which external parties (other schools, universities, or vendors) could complement your internal AI competence?"
+        "sv": "Utvärdera vilka externa parter (andra skolor, lärosäten eller leverantörer) som kan komplettera er interna AI-kompetens.",
+        "en": "Evaluate which external parties (other schools, universities, or vendors) can complement your internal AI competence."
       }
     },
     "narrative": {
       "logic_SEP": {
-        "sv": "Eran organisation lutar idag mot en **separeringslogik**, där AI hanteras i en specialistfunktion. Detta skapar kontroll och expertis, men kräver aktivt arbete för att lösningarna inte ska stanna i en 'kunskapssilo'.",
-        "en": "Your organization currently leans towards a **separation logic**, where AI is handled in a specialist function. This creates control and expertise but requires active work to ensure solutions don't remain in a 'knowledge silo'."
+        "sv": "AI hanteras primärt i en specialistfunktion eller central enhet. Detta skapar kontroll och expertis, men kräver aktivt arbete för att lösningarna inte ska stanna i en 'kunskapssilo'.",
+        "en": "AI is primarily handled in a specialist function or central unit. This creates control and expertise but requires active work to ensure solutions don't remain in a 'knowledge silo'."
       },
       "logic_INT": {
-        "sv": "Implementeringen följer en **integreringslogik**, vilket innebär att AI-initiativ växer fram nära kärnverksamheten. Detta borgar för relevans, men ställer krav på samordning för att undvika ett fragmenterat landskap.",
-        "en": "Implementation follows an **integration logic**, which means AI initiatives emerge close to core operations. This ensures relevance but demands coordination to avoid a fragmented landscape."
+        "sv": "AI-initiativ växer fram nära kärnverksamheten. Detta borgar för relevans, men ställer krav på samordning för att undvika ett fragmenterat landskap.",
+        "en": "AI initiatives emerge close to core operations. This ensures relevance but demands coordination to avoid a fragmented landscape."
       },
       "logic_HYB": {
-        "sv": "Ni har uppnått en **hybridslogik**, där ni balanserar centralt stöd med lokal anpassning. Denna strategiska ansats ger goda förutsättningar att skala upp arbetet utan att tappa varken expertis eller pedagogisk förankring.",
-        "en": "You have achieved a **hybrid logic**, balancing central support with local adaptation. This strategic approach provides good conditions for scaling up without losing expertise or pedagogical grounding."
+        "sv": "Ni balanserar centralt stöd med lokal anpassning. Denna strategiska ansats ger goda förutsättningar att skala upp arbetet utan att tappa varken expertis eller pedagogisk förankring.",
+        "en": "You balance central support with local adaptation. This strategic approach provides good conditions for scaling up without losing expertise or pedagogical grounding."
       },
       "arch_focus": {
         "sv": "Det huvudsakliga fokuset ligger på arketyperna {arch1} och {arch2}.",
