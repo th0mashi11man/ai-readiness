@@ -194,6 +194,12 @@ function OrgResults({ bank, t, locale, onRestart }) {
     const responses = stored.answers || {};
 
     const results = scoreOrganization(bank.items, responses);
+    const narrative = generateNarrative(
+        results.archetypeMarginals,
+        results.logicMarginals,
+        results.diagnostics,
+        t
+    );
 
     const archetypeLabels = results.ARCHETYPE_IDS.map(
         (id) => t(bank.archetypes.find((a) => a.id === id)?.label)
