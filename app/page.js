@@ -4,16 +4,42 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // Test data seeders — fill localStorage and navigate to results
-function seedIndividualAndGo(router) {
-  // Give a mix of correct and incorrect answers for a realistic spread
-  const answers = {
-    apply_ai_q1: 2, apply_ai_q2: 0, apply_ai_q3: 0,   // 2/3 correct
-    create_ai_q1: 1, create_ai_q2: 1, create_ai_q3: 2, // 2/3 correct
-    detect_ai_q1: 1, detect_ai_q2: 2, detect_ai_q3: 0, // 3/3 correct
-    ai_ethics_q1: 1, ai_ethics_q2: 0, ai_ethics_q3: 3,  // 2/3 correct
-    gen_ai_q1: 1, gen_ai_q2: 1, gen_ai_q3: 2,           // 2/3 correct
-    understand_ai_q1: 0, understand_ai_q2: 1, understand_ai_q3: 0, // 2/3 correct
-  };
+// Test data seeders — fill localStorage and navigate to results
+function seedIndividualAndGo(router, profile = "proficient") {
+  let answers = {};
+
+  if (profile === "novice") {
+    // Mostly incorrect (level 0 or wrong index)
+    answers = {
+      apply_ai_q1: 0, apply_ai_q2: 1, apply_ai_q3: 0,
+      create_ai_q1: 0, create_ai_q2: 0, create_ai_q3: 1,
+      detect_ai_q1: 0, detect_ai_q2: 0, detect_ai_q3: 1,
+      ai_ethics_q1: 0, ai_ethics_q2: 0, ai_ethics_q3: 0,
+      gen_ai_q1: 0, gen_ai_q2: 0, gen_ai_q3: 1,
+      understand_ai_q1: 1, understand_ai_q2: 0, understand_ai_q3: 0,
+    };
+  } else if (profile === "expert") {
+    // 100% correct
+    answers = {
+      apply_ai_q1: 2, apply_ai_q2: 0, apply_ai_q3: 1,
+      create_ai_q1: 1, create_ai_q2: 1, create_ai_q3: 0,
+      detect_ai_q1: 1, detect_ai_q2: 2, detect_ai_q3: 0,
+      ai_ethics_q1: 1, ai_ethics_q2: 1, ai_ethics_q3: 3,
+      gen_ai_q1: 1, gen_ai_q2: 1, gen_ai_q3: 0,
+      understand_ai_q1: 0, understand_ai_q2: 1, understand_ai_q3: 2,
+    };
+  } else {
+    // Proficient (mix)
+    answers = {
+      apply_ai_q1: 2, apply_ai_q2: 0, apply_ai_q3: 0,
+      create_ai_q1: 1, create_ai_q2: 1, create_ai_q3: 2,
+      detect_ai_q1: 1, detect_ai_q2: 2, detect_ai_q3: 0,
+      ai_ethics_q1: 1, ai_ethics_q2: 0, ai_ethics_q3: 3,
+      gen_ai_q1: 1, gen_ai_q2: 1, gen_ai_q3: 2,
+      understand_ai_q1: 0, understand_ai_q2: 1, understand_ai_q3: 0,
+    };
+  }
+
   const itemOrder = Object.keys(answers);
   localStorage.setItem("individual_state", JSON.stringify({
     answers, itemOrder, currentIndex: itemOrder.length - 1, completed: true,
@@ -21,16 +47,41 @@ function seedIndividualAndGo(router) {
   router.push("/individual?phase=results");
 }
 
-function seedOrgAndGo(router) {
-  // Realistic Likert spread — TA strong, hybrid-leaning
-  const answers = {
-    TA_SEP_01: 4, TA_SEP_02: 3, TA_INT_01: 4, TA_INT_02: 5, TA_HYB_01: 4, TA_HYB_02: 4,
-    PT_SEP_01: 2, PT_SEP_02: 3, PT_INT_01: 4, PT_INT_02: 3, PT_HYB_01: 3, PT_HYB_02: 4,
-    DDL_SEP_01: 3, DDL_SEP_02: 2, DDL_INT_01: 3, DDL_INT_02: 4, DDL_HYB_01: 3, DDL_HYB_02: 3,
-    SB_SEP_01: 2, SB_SEP_02: 2, SB_INT_01: 4, SB_INT_02: 5, SB_HYB_01: 4, SB_HYB_02: 3,
-    X_DIAG_SILO: 2, X_DIAG_FRAGMENT: 3,
-    X_GOV_DATA_READINESS: 3, X_GOV_BOUNDARY_ROLES: 2, X_GOV_IT_INTEGRATION: 2, X_GOV_PARTNERSHIPS: 4,
-  };
+function seedOrgAndGo(router, profile = "hybrid") {
+  let answers = {};
+
+  if (profile === "separated") {
+    // High SEP, Low INT/HYB
+    answers = {
+      TA_SEP_01: 5, TA_SEP_02: 5, TA_INT_01: 1, TA_INT_02: 1, TA_HYB_01: 2, TA_HYB_02: 1,
+      PT_SEP_01: 5, PT_SEP_02: 4, PT_INT_01: 2, PT_INT_02: 1, PT_HYB_01: 1, PT_HYB_02: 2,
+      DDL_SEP_01: 5, DDL_SEP_02: 5, DDL_INT_01: 1, DDL_INT_02: 2, DDL_HYB_01: 2, DDL_HYB_02: 1,
+      SB_SEP_01: 4, SB_SEP_02: 5, SB_INT_01: 1, SB_INT_02: 1, SB_HYB_01: 1, SB_HYB_02: 1,
+      X_DIAG_SILO: 5, X_DIAG_FRAGMENT: 1,
+      X_GOV_DATA_READINESS: 2, X_GOV_BOUNDARY_ROLES: 1, X_GOV_IT_INTEGRATION: 5, X_GOV_PARTNERSHIPS: 2,
+    };
+  } else if (profile === "integrated") {
+    // High INT, Low SEP/HYB
+    answers = {
+      TA_SEP_01: 1, TA_SEP_02: 2, TA_INT_01: 5, TA_INT_02: 5, TA_HYB_01: 2, TA_HYB_02: 1,
+      PT_SEP_01: 2, PT_SEP_02: 1, PT_INT_01: 5, PT_INT_02: 4, PT_HYB_01: 1, PT_HYB_02: 2,
+      DDL_SEP_01: 1, DDL_SEP_02: 2, DDL_INT_01: 5, DDL_INT_02: 5, DDL_HYB_01: 2, DDL_HYB_02: 1,
+      SB_SEP_01: 2, SB_SEP_02: 1, SB_INT_01: 5, SB_INT_02: 4, SB_HYB_01: 1, SB_HYB_02: 2,
+      X_DIAG_SILO: 1, X_DIAG_FRAGMENT: 5,
+      X_GOV_DATA_READINESS: 4, X_GOV_BOUNDARY_ROLES: 2, X_GOV_IT_INTEGRATION: 2, X_GOV_PARTNERSHIPS: 5,
+    };
+  } else {
+    // Hybrid / Realistic
+    answers = {
+      TA_SEP_01: 4, TA_SEP_02: 3, TA_INT_01: 4, TA_INT_02: 5, TA_HYB_01: 5, TA_HYB_02: 5,
+      PT_SEP_01: 3, PT_SEP_02: 3, PT_INT_01: 4, PT_INT_02: 4, PT_HYB_01: 4, PT_HYB_02: 5,
+      DDL_SEP_01: 3, DDL_SEP_02: 3, DDL_INT_01: 4, DDL_INT_02: 4, DDL_HYB_01: 5, DDL_HYB_02: 4,
+      SB_SEP_01: 2, SB_SEP_02: 3, SB_INT_01: 4, SB_INT_02: 5, SB_HYB_01: 5, SB_HYB_02: 5,
+      X_DIAG_SILO: 2, X_DIAG_FRAGMENT: 2,
+      X_GOV_DATA_READINESS: 4, X_GOV_BOUNDARY_ROLES: 4, X_GOV_IT_INTEGRATION: 4, X_GOV_PARTNERSHIPS: 5,
+    };
+  }
+
   const itemOrder = Object.keys(answers);
   localStorage.setItem("organization_state", JSON.stringify({
     answers, itemOrder, currentIndex: itemOrder.length - 1, completed: true,
@@ -70,8 +121,18 @@ export default function HomePage() {
             </p>
           </div>
           <div className="test-links">
-            <button onClick={() => seedIndividualAndGo(router)}>Test: Individual results</button>
-            <button onClick={() => seedOrgAndGo(router)}>Test: Organization results</button>
+            <div className="test-section">
+              <h4>Test Individual:</h4>
+              <button onClick={() => seedIndividualAndGo(router, "novice")}>Novice</button>
+              <button onClick={() => seedIndividualAndGo(router, "proficient")}>Proficient</button>
+              <button onClick={() => seedIndividualAndGo(router, "expert")}>Expert</button>
+            </div>
+            <div className="test-section">
+              <h4>Test Organization:</h4>
+              <button onClick={() => seedOrgAndGo(router, "separated")}>Separated</button>
+              <button onClick={() => seedOrgAndGo(router, "integrated")}>Integrated</button>
+              <button onClick={() => seedOrgAndGo(router, "hybrid")}>Hybrid/Mature</button>
+            </div>
           </div>
         </div>
       </div>

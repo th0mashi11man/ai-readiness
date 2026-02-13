@@ -1277,3 +1277,40 @@ body {
     max-width: 400px !important;
   }
 }
+
+/* ── Test Links ─────────────────────────────────────────────────── */
+.test-links {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--color-border);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.test-section h4 {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.test-links button {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  margin: 4px;
+  transition: all 0.2s;
+}
+
+.test-links button:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-text-secondary);
+}
