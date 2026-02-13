@@ -970,7 +970,8 @@ body {
   height: 100%;
   border-radius: var(--radius-sm);
   transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  background: var(--color-primary);
+  /* Use solid primary for reliability */
 }
 
 .bar-fill.bar-archetype {
@@ -1230,7 +1231,7 @@ body {
 
 .bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  background-color: var(--color-accent) !important;
   border-radius: 6px;
   transition: width 0.8s ease;
 }

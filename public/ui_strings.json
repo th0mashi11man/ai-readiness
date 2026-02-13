@@ -301,25 +301,29 @@
         "sv": "Du har en avancerad nivå av AI-kompetens. Du kan inte bara använda verktygen utan även förhålla dig kritiskt till deras konstruktion och etiska konsekvenser.",
         "en": "You have an advanced level of AI literacy. You can not only use the tools but also relate critically to their design and ethical implications."
       },
-      "understand_low": {
+      "understand_ai_low": {
         "sv": "Att fokusera mer på den underliggande logiken i AI-system kan hjälpa dig att avdramatisera hur dessa verktyg fungerar.",
         "en": "Focusing more on the underlying logic of AI systems can help you demystify how these tools work."
       },
-      "apply_low": {
+      "apply_ai_low": {
         "sv": "Det kan vara värdefullt att experimentera mer praktiskt för att se hur AI kan avlasta just dina specifika arbetsflöden.",
         "en": "It could be valuable to experiment more practically to see how AI can support your specific workflows."
       },
-      "ethics_low": {
+      "ai_ethics_low": {
         "sv": "Ökad kunskap om AI-etik kan hjälpa dig att navigera tryggare kring ansvar och transparens i mötet med eleverna.",
         "en": "Increased knowledge of AI ethics can help you navigate more confidently regarding responsibility and transparency when meeting students."
       },
-      "detect_low": {
+      "detect_ai_low": {
         "sv": "Genom att träna på att känna igen AI-genererat innehåll kan du stärka både din egen och dina elevers källkritik.",
         "en": "By practicing recognizing AI-generated content, you can strengthen both your own and your students' critical thinking."
       },
-      "create_low": {
+      "create_ai_low": {
         "sv": "Att gå från att vara användare till att förstå hur AI-lösningar skapas ger dig bättre förutsättningar att värdera verktygens begränsningar.",
         "en": "Moving from being a user to understanding how AI solutions are created gives you better pre-requisites to evaluate the tools' limitations."
+      },
+      "gen_ai_low": {
+        "sv": "Genom att reflektera över hur generativ AI förändrar synen på kunskap och examination kan du bättre navigera i dess roll i klassrummet.",
+        "en": "By reflecting on how generative AI changes the view of knowledge and assessment, you can better navigate its role in the classroom."
       }
     }
   },

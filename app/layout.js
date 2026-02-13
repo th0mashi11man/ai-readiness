@@ -24,7 +24,7 @@ function getUiStrings() {
 export default function RootLayout({ children }) {
   const uiStrings = getUiStrings();
   return (
-    <html lang="sv" className={inter.variable}>
+    <html lang="sv" suppressHydrationWarning className={inter.variable}>
       <body>
         <AppShell uiStrings={uiStrings}>
           {children}
