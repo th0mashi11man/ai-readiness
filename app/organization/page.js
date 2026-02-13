@@ -222,7 +222,8 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
                 {/* Archetype Profile */}
                 <h2>{t("organization.archetypeTotalsTitle")}</h2>
-                <div className="radar-container org-radar">
+                {/* Archetype Visualization - Made Bigger */}
+                <div className="radar-container org-radar" style={{ height: '500px', margin: '0 auto 2rem', maxWidth: '800px', width: '100%' }}>
                     <RadarChart labels={archetypeLabels} values={archetypeValues} maxValue={100} hideValues={true} />
                 </div>
                 <div className="fluid-narrative mt-4 mb-8 text-secondary">
@@ -240,14 +241,13 @@ function OrgResults({ bank, t, locale, onRestart }) {
                     }}
                     t={t}
                 />
-                <div className="fluid-narrative mt-4 mb-8 text-secondary">
-                    {narrative.logicText}
-                </div>
 
-                {/* Risks / Diagnostics (if any) */}
-                {(narrative.riskText || narrative.diagText) && (
-                    <div className="fluid-narrative mt-4 pt-4 border-t border-gray-200 text-secondary">
-                        {narrative.riskText} {narrative.diagText}
+                {/* Logic Narrative - Continuous Flow */}
+                {narrative && (
+                    <div className="fluid-narrative mt-4 mb-8 text-secondary">
+                        <p>
+                            {narrative.logicText} {narrative.riskText} {narrative.diagText}
+                        </p>
                     </div>
                 )}
 

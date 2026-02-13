@@ -10,12 +10,12 @@ export default function RadarChart({ labels, values, maxValue, hideValues = fals
 
         const dpr = window.devicePixelRatio || 1;
         const W = 800;
-        const H = 450;
+        const H = 500; // Increased height for better fit
         canvas.width = W * dpr;
         canvas.height = H * dpr;
         canvas.style.width = "100%";
-        canvas.style.maxWidth = W + "px";
-        canvas.style.height = "auto";
+        canvas.style.height = "100%"; // Allow height to be controlled by container
+        canvas.style.objectFit = "contain";
 
         const ctx = canvas.getContext("2d");
         ctx.scale(dpr, dpr);
