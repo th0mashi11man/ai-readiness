@@ -112,9 +112,13 @@
       "sv": "AI-beredskap i skolorganisationer",
       "en": "AI Readiness in School Organizations"
     },
+    "tagline": {
+      "sv": "",
+      "en": ""
+    },
     "intro": {
-      "sv": "Den här webbplatsen har två delar: (1) ett självbedömningsverktyg för AI-kunskap för personer som arbetar i skolorganisationer, och (2) ett verktyg för organisatorisk AI-beredskap som stödjer reflektion kring AI-implementering i skolorganisationer.",
-      "en": "This site has two parts: (1) an AI literacy self-assessment tool for people working in school organizations, and (2) an organizational AI readiness tool that supports reflection on AI implementation in school organizations."
+      "sv": "Använd självbedömningsverktygen på den här webbplatsen för att reflektera över din egen AI-kunskap och AI-kapacitet i din skolorganisation",
+      "en": "Use the self-assessment tools on this site to reflect on your own AI literacy and AI capacity within your school organization"
     },
     "ctaIndividual": {
       "sv": "Gå till den individuella självbedömningen",

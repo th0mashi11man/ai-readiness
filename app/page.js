@@ -48,8 +48,7 @@ export default function HomePage() {
         <div className="hero-glow" aria-hidden="true" />
         <div className="hero-content">
           <h1 className="hero-title">{t("home.title")}</h1>
-          <p className="hero-tagline">{t("app.tagline")}</p>
-          <p className="hero-intro">{t("home.intro")}</p>
+          <p className="hero-intro" style={{ marginTop: '1.5rem' }}>{t("home.intro")}</p>
           <div className="cta-group">
             <Link href="/individual" className="btn btn-primary btn-lg">
               <span className="btn-icon" aria-hidden="true">📝</span>
