@@ -234,9 +234,21 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 {/* Rule-based Narrative */}
                 <div className="narrative-section card-highlight" style={{ marginTop: '3rem' }}>
                     <h2 className="text-accent">{t("organization.reflectionsTitle")}</h2>
-                    <p className="narrative-text fluid-narrative">
-                        {generateNarrative(results, t, archetypeLabels, logicLabels)}
-                    </p>
+                    <div className="narrative-text fluid-narrative">
+                        <p className="mb-4">
+                            <strong>{t("organization.logicTotalsTitle")}: </strong>
+                            {narrative.logicText}
+                        </p>
+                        <p className="mb-4">
+                            <strong>{t("organization.archetypeTotalsTitle")}: </strong>
+                            {narrative.archetypeText}
+                        </p>
+                        {(narrative.riskText || narrative.diagText) && (
+                            <p className="mt-4 pt-4 border-t border-gray-200">
+                                {narrative.riskText} {narrative.diagText}
+                            </p>
+                        )}
+                    </div>
                 </div>
 
                 <div className="results-actions">

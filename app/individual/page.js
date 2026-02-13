@@ -220,7 +220,7 @@ function ResultsScreen({ bank, t, locale, onRestart }) {
                         labels={domainLabels}
                         values={domainValues}
                         maxValue={maxPerDomain}
-                        hideValues={true}
+                        hideValues={false}
                         tooltips={domainTooltips}
                         ids={bank.domains.map(d => d.id)}
                         crossCuttingLabel={t("individual.crossCutting")}
