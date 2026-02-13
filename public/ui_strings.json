@@ -25,8 +25,8 @@
       "en": "Individual"
     },
     "organization": {
-      "sv": "AI-kapacitet",
-      "en": "AI Capacity"
+      "sv": "Organisation",
+      "en": "Organization"
     },
     "about": {
       "sv": "Om",
@@ -257,8 +257,8 @@
   },
   "organization": {
     "title": {
-      "sv": "Organisatorisk AI-kapacitet",
-      "en": "Organizational AI Capacity"
+      "sv": "Självbedömning av AI-kapacitet",
+      "en": "AI capacity self-assessment"
     },
     "description": {
       "sv": "Här beskriver du din organisations AI-implementering. Resultatet visar hur er organisation liknar olika arketyper (vad AI används till) och logiker (hur AI är organiserad).",
