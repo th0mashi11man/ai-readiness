@@ -225,6 +225,9 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 <div className="radar-container org-radar">
                     <RadarChart labels={archetypeLabels} values={archetypeValues} maxValue={100} hideValues={true} />
                 </div>
+                <div className="fluid-narrative mt-4 mb-8 text-secondary">
+                    {narrative.archetypeText}
+                </div>
 
                 {/* Logic Profile */}
                 <h2>{t("organization.logicSpectrumTitle")}</h2>
@@ -237,26 +240,16 @@ function OrgResults({ bank, t, locale, onRestart }) {
                     }}
                     t={t}
                 />
-
-                {/* Rule-based Narrative */}
-                <div className="narrative-section card-highlight" style={{ marginTop: '3rem' }}>
-                    <h2 className="text-accent">{t("organization.reflectionsTitle")}</h2>
-                    <div className="narrative-text fluid-narrative">
-                        <p className="mb-4">
-                            <strong>{t("organization.logicTotalsTitle")}: </strong>
-                            {narrative.logicText}
-                        </p>
-                        <p className="mb-4">
-                            <strong>{t("organization.archetypeTotalsTitle")}: </strong>
-                            {narrative.archetypeText}
-                        </p>
-                        {(narrative.riskText || narrative.diagText) && (
-                            <p className="mt-4 pt-4 border-t border-gray-200">
-                                {narrative.riskText} {narrative.diagText}
-                            </p>
-                        )}
-                    </div>
+                <div className="fluid-narrative mt-4 mb-8 text-secondary">
+                    {narrative.logicText}
                 </div>
+
+                {/* Risks / Diagnostics (if any) */}
+                {(narrative.riskText || narrative.diagText) && (
+                    <div className="fluid-narrative mt-4 pt-4 border-t border-gray-200 text-secondary">
+                        {narrative.riskText} {narrative.diagText}
+                    </div>
+                )}
 
                 <div className="results-actions">
                     <button className="btn btn-primary" onClick={() => window.print()}>

@@ -227,18 +227,15 @@ function ResultsScreen({ bank, t, locale, onRestart }) {
                     />
                 </div>
 
+                {/* Fluid Narrative - integrated with results */}
+                <div className="fluid-narrative text-secondary" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
+                    {generateIndividualNarrative(results, t, domainLabels)}
+                </div>
+
                 <div className="results-actions">
                     <button className="btn btn-primary" onClick={() => window.print()}>
                         {t("common.exportPdf")}
                     </button>
-                </div>
-
-                {/* Rule-based Narrative for Individual */}
-                <div className="reflection-section-box card-highlight" style={{ marginTop: '2.5rem', marginBottom: '2.5rem' }}>
-                    <h2 className="text-accent">{t("individual.reflectionsTitle")}</h2>
-                    <p className="narrative-text fluid-narrative">
-                        {generateIndividualNarrative(results, t, domainLabels)}
-                    </p>
                 </div>
 
                 <h2>{t("individual.reviewAnswersTitle")}</h2>
