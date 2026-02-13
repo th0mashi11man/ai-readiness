@@ -51,35 +51,35 @@ function seedIndividualAndGo(router, profile = "proficient") {
 function seedOrgAndGo(router, profile = "hybrid") {
   let answers = {};
 
-  if (profile === "separated") {
-    // High SEP, Low INT/HYB
+  if (profile === "admin") {
+    // High Efficiency/Admin: TA and DDL strong, high Separation logic
     answers = {
-      TA_SEP_01: 5, TA_SEP_02: 5, TA_INT_01: 1, TA_INT_02: 1, TA_HYB_01: 2, TA_HYB_02: 1,
-      PT_SEP_01: 5, PT_SEP_02: 4, PT_INT_01: 2, PT_INT_02: 1, PT_HYB_01: 1, PT_HYB_02: 2,
-      DDL_SEP_01: 5, DDL_SEP_02: 5, DDL_INT_01: 1, DDL_INT_02: 2, DDL_HYB_01: 2, DDL_HYB_02: 1,
-      SB_SEP_01: 4, SB_SEP_02: 5, SB_INT_01: 1, SB_INT_02: 1, SB_HYB_01: 1, SB_HYB_02: 1,
-      X_DIAG_SILO: 5, X_DIAG_FRAGMENT: 1,
-      X_GOV_DATA_READINESS: 2, X_GOV_BOUNDARY_ROLES: 1, X_GOV_IT_INTEGRATION: 5, X_GOV_PARTNERSHIPS: 2,
+      TA_SEP_01: 5, TA_SEP_02: 5, TA_INT_01: 2, TA_INT_02: 2, TA_HYB_01: 3, TA_HYB_02: 3,
+      PT_SEP_01: 2, PT_SEP_02: 2, PT_INT_01: 1, PT_INT_02: 1, PT_HYB_01: 1, PT_HYB_02: 1,
+      DDL_SEP_01: 5, DDL_SEP_02: 5, DDL_INT_01: 3, DDL_INT_02: 3, DDL_HYB_01: 4, DDL_HYB_02: 4,
+      SB_SEP_01: 1, SB_SEP_02: 1, SB_INT_01: 1, SB_INT_02: 1, SB_HYB_01: 1, SB_HYB_02: 1,
+      X_DIAG_SILO: 4, X_DIAG_FRAGMENT: 2,
+      X_GOV_DATA_READINESS: 3, X_GOV_BOUNDARY_ROLES: 2, X_GOV_IT_INTEGRATION: 5, X_GOV_PARTNERSHIPS: 3,
     };
-  } else if (profile === "integrated") {
-    // High INT, Low SEP/HYB
+  } else if (profile === "pedagogical") {
+    // High Pedagogical: PT strong, high Integration logic
     answers = {
-      TA_SEP_01: 1, TA_SEP_02: 2, TA_INT_01: 5, TA_INT_02: 5, TA_HYB_01: 2, TA_HYB_02: 1,
-      PT_SEP_01: 2, PT_SEP_02: 1, PT_INT_01: 5, PT_INT_02: 4, PT_HYB_01: 1, PT_HYB_02: 2,
-      DDL_SEP_01: 1, DDL_SEP_02: 2, DDL_INT_01: 5, DDL_INT_02: 5, DDL_HYB_01: 2, DDL_HYB_02: 1,
-      SB_SEP_01: 2, SB_SEP_02: 1, SB_INT_01: 5, SB_INT_02: 4, SB_HYB_01: 1, SB_HYB_02: 2,
-      X_DIAG_SILO: 1, X_DIAG_FRAGMENT: 5,
-      X_GOV_DATA_READINESS: 4, X_GOV_BOUNDARY_ROLES: 2, X_GOV_IT_INTEGRATION: 2, X_GOV_PARTNERSHIPS: 5,
+      TA_SEP_01: 2, TA_SEP_02: 2, TA_INT_01: 3, TA_INT_02: 3, TA_HYB_01: 2, TA_HYB_02: 2,
+      PT_SEP_01: 3, PT_SEP_02: 3, PT_INT_01: 5, PT_INT_02: 5, PT_HYB_01: 4, PT_HYB_02: 4,
+      DDL_SEP_01: 1, DDL_SEP_02: 1, DDL_INT_01: 2, DDL_INT_02: 2, DDL_HYB_01: 2, DDL_HYB_02: 2,
+      SB_SEP_01: 4, SB_SEP_02: 4, SB_INT_01: 4, SB_INT_02: 4, SB_HYB_01: 3, SB_HYB_02: 3,
+      X_DIAG_SILO: 1, X_DIAG_FRAGMENT: 4,
+      X_GOV_DATA_READINESS: 4, X_GOV_BOUNDARY_ROLES: 3, X_GOV_IT_INTEGRATION: 2, X_GOV_PARTNERSHIPS: 4,
     };
   } else {
-    // Hybrid / Realistic
+    // Strategic/Holistic: SB strong, high Hybrid logic, balanced others
     answers = {
-      TA_SEP_01: 4, TA_SEP_02: 3, TA_INT_01: 4, TA_INT_02: 5, TA_HYB_01: 5, TA_HYB_02: 5,
-      PT_SEP_01: 3, PT_SEP_02: 3, PT_INT_01: 4, PT_INT_02: 4, PT_HYB_01: 4, PT_HYB_02: 5,
-      DDL_SEP_01: 3, DDL_SEP_02: 3, DDL_INT_01: 4, DDL_INT_02: 4, DDL_HYB_01: 5, DDL_HYB_02: 4,
-      SB_SEP_01: 2, SB_SEP_02: 3, SB_INT_01: 4, SB_INT_02: 5, SB_HYB_01: 5, SB_HYB_02: 5,
+      TA_SEP_01: 3, TA_SEP_02: 3, TA_INT_01: 4, TA_INT_02: 4, TA_HYB_01: 5, TA_HYB_02: 5,
+      PT_SEP_01: 3, PT_SEP_02: 3, PT_INT_01: 4, PT_INT_02: 4, PT_HYB_01: 5, PT_HYB_02: 5,
+      DDL_SEP_01: 3, DDL_SEP_02: 3, DDL_INT_01: 4, DDL_INT_02: 4, DDL_HYB_01: 5, DDL_HYB_02: 5,
+      SB_SEP_01: 4, SB_SEP_02: 4, SB_INT_01: 5, SB_INT_02: 5, SB_HYB_01: 5, SB_HYB_02: 5,
       X_DIAG_SILO: 2, X_DIAG_FRAGMENT: 2,
-      X_GOV_DATA_READINESS: 4, X_GOV_BOUNDARY_ROLES: 4, X_GOV_IT_INTEGRATION: 4, X_GOV_PARTNERSHIPS: 5,
+      X_GOV_DATA_READINESS: 5, X_GOV_BOUNDARY_ROLES: 5, X_GOV_IT_INTEGRATION: 4, X_GOV_PARTNERSHIPS: 5,
     };
   }
 
@@ -130,9 +130,9 @@ export default function HomePage() {
             </div>
             <div className="test-section">
               <h4>Test Organization:</h4>
-              <button onClick={() => seedOrgAndGo(router, "separated")}>Separated</button>
-              <button onClick={() => seedOrgAndGo(router, "integrated")}>Integrated</button>
-              <button onClick={() => seedOrgAndGo(router, "hybrid")}>Hybrid/Mature</button>
+              <button onClick={() => seedOrgAndGo(router, "admin")}>Admin/Efficiency</button>
+              <button onClick={() => seedOrgAndGo(router, "pedagogical")}>Pedagogical</button>
+              <button onClick={() => seedOrgAndGo(router, "hybrid")}>Strategic/Holistic</button>
             </div>
           </div>
         </div>
