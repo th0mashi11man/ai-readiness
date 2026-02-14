@@ -1,88 +1,112 @@
 {
-  "individual": {
-    "emerging": {
-      "sv": "Du befinner dig på en framväxande nivå av AI-litteracitet. Det innebär att du har en grundorientering, men skulle vinna på att bygga en tydligare begreppsgrund (vad systemen kan och inte kan) och att pröva avgränsade användningsfall med enkla rutiner för kvalitet och risk. Oavsett roll hjälper det att börja smått, följa upp och justera.",
-      "en": "You are at an emerging level of AI literacy. This means you have an initial orientation, but you would benefit from building a clearer conceptual foundation (what these systems can and cannot do) and trying bounded use cases with simple quality and risk routines. Regardless of role, it helps to start small, monitor outcomes, and iterate."
+    "individual": {
+        "emerging": {
+            "sv": "Du befinner dig på en framväxande nivå av AI-litteracitet. Det innebär att du har en grundorientering, men skulle vinna på att bygga en tydligare begreppsgrund (vad systemen kan och inte kan) och att pröva avgränsade användningsfall med enkla rutiner för kvalitet och risk. Oavsett roll hjälper det att börja smått, följa upp och justera.",
+            "en": "You are at an emerging level of AI literacy. This means you have an initial orientation, but you would benefit from building a clearer conceptual foundation (what these systems can and cannot do) and trying bounded use cases with simple quality and risk routines. Regardless of role, it helps to start small, monitor outcomes, and iterate."
+        },
+        "basic": {
+            "sv": "Du har en stabil grundnivå. Du känner igen vanliga AI-begrepp och kan ofta identifiera AI i system och tjänster. Nästa steg är att bli mer systematisk i hur du bedömer lämplighet, konsekvenser och kvalitet, så att dina beslut och arbetssätt blir mer konsekventa.",
+            "en": "You have a solid basic level. You recognize common AI concepts and can often identify AI in systems and services. A next step is to be more systematic in judging appropriateness, consequences, and quality so your decisions and practices become more consistent."
+        },
+        "proficient": {
+            "sv": "Din AI-litteracitet är god. Du visar en fungerande balans mellan förståelse, tillämpning och kritisk bedömning. Det ger goda förutsättningar att utveckla mer konsekventa rutiner, dela fungerande praktiker och stödja andra i ansvarsfull användning.",
+            "en": "Your AI literacy is proficient. You show a working balance of understanding, application, and critical judgment. This positions you well to develop more consistent routines, share what works, and support others in responsible use."
+        },
+        "advanced": {
+            "sv": "Du har en avancerad nivå av AI-litteracitet. Du kan kombinera strategisk användning med kritisk granskning av antaganden, datagrund och konsekvenser. Du kan bidra genom att bygga kvalitetssäkring och gemensamma principer—och samtidigt skapa utrymme för innovation där det är rimligt.",
+            "en": "You have an advanced level of AI literacy. You can combine strategic use with critical scrutiny of assumptions, data foundations, and consequences. You can contribute by strengthening quality assurance and shared principles—while also creating space for innovation where appropriate."
+        },
+        "understand_ai_low": {
+            "sv": "Det kan vara hjälpsamt att stärka förståelsen för hur AI-system producerar resultat (mönster i data, sannolikheter och begränsningar). För dig som leder eller samordnar kan det stödja kravställning och riskbedömning; för dig som arbetar nära elever och undervisning kan det hjälpa dig att tolka svar och ställa bättre följdfrågor.",
+            "en": "It may help to strengthen your understanding of how AI systems produce outputs (patterns in data, probabilities, and limitations). If you lead or coordinate, this supports requirements and risk assessment; if you work close to teaching and students, it helps you interpret outputs and ask better follow-up questions."
+        },
+        "apply_ai_low": {
+            "sv": "Pröva AI i små, tydligt avgränsade uppgifter där nyttan går att jämföra före/efter. Om du undervisar kan det vara utkast, omformuleringar eller lektionsidéer som du alltid granskar och anpassar. Om du leder kan det vara sammanfattningar, kommunikationsutkast eller strukturering av underlag—med rutiner för granskning och hantering av känsliga uppgifter.",
+            "en": "Try AI in small, clearly bounded tasks where you can compare before/after value. If you teach, this might be drafts, rewrites, or lesson ideas that you always review and adapt. If you lead, it might be summaries, draft communications, or structuring documents—with routines for review and handling sensitive information."
+        },
+        "ai_ethics_low": {
+            "sv": "Stärk gärna den etiska kompassen: ansvar, transparens, rättvisa och säkerhet. Om du fattar beslut eller sätter riktlinjer: bygg principer för när kraven på dokumentation och mänsklig granskning ska öka. Om du använder AI i vardagen: utveckla vanor för källkontroll, tydlighet om osäkerhet och extra försiktighet när det rör bedömning eller elevdata.",
+            "en": "Consider strengthening your ethical compass: accountability, transparency, fairness, and safety. If you make decisions or set guidelines, build principles for when documentation and human oversight should increase. If you use AI day-to-day, develop habits for source checking, signaling uncertainty, and extra caution in assessment or student-data contexts."
+        },
+        "detect_ai_low": {
+            "sv": "Öva på att skilja mellan regelstyrda system och AI-baserade system, och på att känna igen när innehåll kan vara AI-genererat. För undervisning kan det stärka källkritik och bedömning av elevarbeten; för ledning och stödroller kan det hjälpa att avgöra var extra kontroll behövs och vilka gemensamma rutiner som krävs.",
+            "en": "Practice distinguishing rule-based systems from AI-based systems, and recognizing when content may be AI-generated. In teaching, this supports critical evaluation and assessment of student work; in leadership/support roles, it helps decide where extra checks are needed and what shared routines are required."
+        },
+        "create_ai_low": {
+            "sv": "Att förstå grunderna i hur AI-lösningar byggs och utvärderas (data, modellval, testning och uppföljning) gör det lättare att bedöma begränsningar och risk. För dig som upphandlar eller leder kan det förbättra kravställning och uppföljning; för dig som använder verktyg kan det hjälpa dig att förutse vanliga fel och välja rätt nivå av kontroll.",
+            "en": "Understanding the basics of how AI solutions are built and evaluated (data, model choice, testing, monitoring) makes it easier to judge limitations and risk. If you procure or lead, it improves requirements and oversight; if you use tools, it helps you anticipate common errors and choose the right level of checking."
+        },
+        "gen_ai_low": {
+            "sv": "Det kan vara hjälpsamt att tydligt skilja på generativ AI:s styrkor (idéer, språkstöd, sammanfattning) och svagheter (fel, påhitt, brist på källor). Om du undervisar: skapa rutiner för att elever alltid redovisar källor och arbetsprocess. Om du leder: etablera gemensamma riktlinjer för när faktakontroll och spårbarhet är obligatoriskt, särskilt när resultatet påverkar beslut eller kommunikation.",
+            "en": "It can help to clearly distinguish generative AI’s strengths (ideation, language support, summarization) from its weaknesses (errors, hallucinations, lack of sources). If you teach, build routines where students document sources and process. If you lead, establish shared guidelines for when fact-checking and traceability are mandatory—especially when outputs inform decisions or communication."
+        }
     },
-    "basic": {
-      "sv": "Du har en stabil grundnivå. Du känner igen vanliga AI-begrepp och kan ofta identifiera AI i system och tjänster. Nästa steg är att bli mer systematisk i hur du bedömer lämplighet, konsekvenser och kvalitet, så att dina beslut och arbetssätt blir mer konsekventa.",
-      "en": "You have a solid basic level. You recognize common AI concepts and can often identify AI in systems and services. A next step is to be more systematic in judging appropriateness, consequences, and quality so your decisions and practices become more consistent."
-    },
-    "proficient": {
-      "sv": "Din AI-litteracitet är god. Du visar en fungerande balans mellan förståelse, tillämpning och kritisk bedömning. Det ger goda förutsättningar att utveckla mer konsekventa rutiner, dela fungerande praktiker och stödja andra i ansvarsfull användning.",
-      "en": "Your AI literacy is proficient. You show a working balance of understanding, application, and critical judgment. This positions you well to develop more consistent routines, share what works, and support others in responsible use."
-    },
-    "advanced": {
-      "sv": "Du har en avancerad nivå av AI-litteracitet. Du kan kombinera strategisk användning med kritisk granskning av antaganden, datagrund och konsekvenser. Du kan bidra genom att bygga kvalitetssäkring och gemensamma principer—och samtidigt skapa utrymme för innovation där det är rimligt.",
-      "en": "You have an advanced level of AI literacy. You can combine strategic use with critical scrutiny of assumptions, data foundations, and consequences. You can contribute by strengthening quality assurance and shared principles—while also creating space for innovation where appropriate."
-    },
-    "understand_ai_low": {
-      "sv": "Det kan vara hjälpsamt att stärka förståelsen för hur AI-system producerar resultat (mönster i data, sannolikheter och begränsningar). För dig som leder eller samordnar kan det stödja kravställning och riskbedömning; för dig som arbetar nära elever och undervisning kan det hjälpa dig att tolka svar och ställa bättre följdfrågor.",
-      "en": "It may help to strengthen your understanding of how AI systems produce outputs (patterns in data, probabilities, and limitations). If you lead or coordinate, this supports requirements and risk assessment; if you work close to teaching and students, it helps you interpret outputs and ask better follow-up questions."
-    },
-    "apply_ai_low": {
-      "sv": "Pröva AI i små, tydligt avgränsade uppgifter där nyttan går att jämföra före/efter. Om du undervisar kan det vara utkast, omformuleringar eller lektionsidéer som du alltid granskar och anpassar. Om du leder kan det vara sammanfattningar, kommunikationsutkast eller strukturering av underlag—med rutiner för granskning och hantering av känsliga uppgifter.",
-      "en": "Try AI in small, clearly bounded tasks where you can compare before/after value. If you teach, this might be drafts, rewrites, or lesson ideas that you always review and adapt. If you lead, it might be summaries, draft communications, or structuring documents—with routines for review and handling sensitive information."
-    },
-    "ai_ethics_low": {
-      "sv": "Stärk gärna den etiska kompassen: ansvar, transparens, rättvisa och säkerhet. Om du fattar beslut eller sätter riktlinjer: bygg principer för när kraven på dokumentation och mänsklig granskning ska öka. Om du använder AI i vardagen: utveckla vanor för källkontroll, tydlighet om osäkerhet och extra försiktighet när det rör bedömning eller elevdata.",
-      "en": "Consider strengthening your ethical compass: accountability, transparency, fairness, and safety. If you make decisions or set guidelines, build principles for when documentation and human oversight should increase. If you use AI day-to-day, develop habits for source checking, signaling uncertainty, and extra caution in assessment or student-data contexts."
-    },
-    "detect_ai_low": {
-      "sv": "Öva på att skilja mellan regelstyrda system och AI-baserade system, och på att känna igen när innehåll kan vara AI-genererat. För undervisning kan det stärka källkritik och bedömning av elevarbeten; för ledning och stödroller kan det hjälpa att avgöra var extra kontroll behövs och vilka gemensamma rutiner som krävs.",
-      "en": "Practice distinguishing rule-based systems from AI-based systems, and recognizing when content may be AI-generated. In teaching, this supports critical evaluation and assessment of student work; in leadership/support roles, it helps decide where extra checks are needed and what shared routines are required."
-    },
-    "create_ai_low": {
-      "sv": "Att förstå grunderna i hur AI-lösningar byggs och utvärderas (data, modellval, testning och uppföljning) gör det lättare att bedöma begränsningar och risk. För dig som upphandlar eller leder kan det förbättra kravställning och uppföljning; för dig som använder verktyg kan det hjälpa dig att förutse vanliga fel och välja rätt nivå av kontroll.",
-      "en": "Understanding the basics of how AI solutions are built and evaluated (data, model choice, testing, monitoring) makes it easier to judge limitations and risk. If you procure or lead, it improves requirements and oversight; if you use tools, it helps you anticipate common errors and choose the right level of checking."
-    },
-    "gen_ai_low": {
-      "sv": "Det kan vara hjälpsamt att tydligt skilja på generativ AI:s styrkor (idéer, språkstöd, sammanfattning) och svagheter (fel, påhitt, brist på källor). Om du undervisar: skapa rutiner för att elever alltid redovisar källor och arbetsprocess. Om du leder: etablera gemensamma riktlinjer för när faktakontroll och spårbarhet är obligatoriskt, särskilt när resultatet påverkar beslut eller kommunikation.",
-      "en": "It can help to clearly distinguish generative AI’s strengths (ideation, language support, summarization) from its weaknesses (errors, hallucinations, lack of sources). If you teach, build routines where students document sources and process. If you lead, establish shared guidelines for when fact-checking and traceability are mandatory—especially when outputs inform decisions or communication."
+    "organization": {
+        "arch_focus": {
+            "sv": "Er profil visar en tydlig betoning på {arch1} och {arch2}. Det kan tolkas som att dessa är de områden där ni just nu har mest energi, mest behov—eller störst möjlighet till nytta. Fundera på vilka mål ni vill nå, och vilka roller som behöver mandat, tid och stöd för att lyckas.",
+            "en": "Your profile shows a clear emphasis on {arch1} and {arch2}. This can suggest where you currently have the most energy, the most need, or the greatest potential value. Consider what goals you want to reach and which roles need mandate, time, and support to succeed."
+        },
+        "arch_focus_1": {
+            "sv": "Er profil visar en mycket tydlig betoning på {arch1}. Detta indikerar en starkt fokuserad ansats. Fundera på om detta speglar en medveten strategi eller om andra perspektiv riskerar att glömmas bort.",
+            "en": "Your profile shows a very clear emphasis on {arch1}. This indicates a highly focused approach. Consider whether this reflects a conscious strategy or if other perspectives risk being overlooked."
+        },
+        "arch_balanced": {
+            "sv": "Er profil är balanserad utan någon enskild dominerande arketyp. Detta kan tyda på en bred ansats där ni arbetar med AI på flera fronter samtidigt, eller att ni befinner er i en utforskande fas där ingen specifik inriktning ännu tagit överhanden.",
+            "en": "Your profile is balanced without any single dominant archetype. This may indicate a broad approach where you are working with AI on multiple fronts simultaneously, or that you are in an exploratory phase where no specific direction has yet taken precedence."
+        },
+        "arch_TA": {
+            "sv": "Lärarassistenten handlar om att avlasta och effektivisera. Fokus ligger på verktyg som sparar tid i planering, administration och bedömning.",
+            "en": "The Teacher Assistant is about rigorous efficiency. The focus is on tools that save time in planning, administration, and assessment."
+        },
+        "arch_PT": {
+            "sv": "Den personliga handledaren fokuserar på elevens lärande. Här används AI för att anpassa material, ge feedback och stötta den enskilda eleven.",
+            "en": "The Personal Tutor focuses on student learning. AI is used here to adapt materials, provide feedback, and support the individual student."
+        },
+        "arch_DDL": {
+            "sv": "Den datadrivna ledaren använder AI för att se mönster och styra verksamheten. Fokus ligger på analys, resursfördelning och proaktiva beslut.",
+            "en": "The Data-Driven Leader uses AI to see patterns and steer operations. The focus is on analytics, resource allocation, and proactive decisions."
+        },
+        "arch_SB": {
+            "sv": "Kompetensbyggaren ser AI som ett kunskapsinnehåll. Här är målet att elever och personal ska förstå tekniken, dess risker och möjligheter.",
+            "en": "The Skill Builder views AI as subject matter. The goal here is for students and staff to understand the technology, its risks, and possibilities."
+        },
+        "logic_SEP": {
+            "sv": "Er organisationslogik präglas av separation. Ni tenderar att möta nya AI-krav genom specialistroller eller separata enheter som kan testa, kvalitetssäkra och standardisera lösningar utan att störa kärnverksamheten för mycket. Det kan ge tydliga ansvar och robusthet. För ledning handlar nästa steg ofta om att skapa kopplingar in i vardagspraktiken; för verksamhetsnära roller handlar det ofta om att ha tydliga vägar för återkoppling och anpassning så att verktyg blir relevanta.",
+            "en": "Your organizing logic is characterized by separation. You tend to meet new AI demands through specialist roles or separate units that can test, quality-assure, and standardize solutions without overly disrupting core operations. This can create clear responsibilities and robustness. For leadership, a next step is often building connections into everyday practice; for practice-near roles, it often means having clear feedback and adaptation pathways so tools become relevant."
+        },
+        "logic_HYB": {
+            "sv": "Er organisationslogik är hybrid. Ni kombinerar central samordning och specialistkapacitet med verksamhetsnära anpassning, ofta genom tvärfunktionella samarbeten, projekt eller nätverk. Det kan ge både robusthet och relevans. För ledning är nyckeln ofta att tydliggöra mandat och ansvar (inklusive för drift/förvaltning). För verksamhetsnära roller är nyckeln ofta att det finns stöd för att testa, dela och skala sådant som fungerar.",
+            "en": "Your organizing logic is hybrid. You combine central coordination and specialist capacity with practice-near adaptation, often through cross-functional collaborations, projects, or networks. This can deliver both robustness and relevance. For leadership, the key is often clarifying mandates and ownership (including operations/maintenance). For practice-near roles, the key is support to test, share, and scale what works."
+        },
+        "logic_INT": {
+            "sv": "Er organisationslogik präglas av integration. Ni ser AI som en del av kärnverksamhetens utveckling och vill att fler roller ska kunna initiera och anpassa arbetssätt nära undervisning, elevstöd och ledning. Det kan ge snabb lärande och hög relevans. Samtidigt kräver det samordning och gemensamma principer för att inte bli spretigt. För ledning innebär det ofta att skapa struktur för uppföljning och gemensamma standarder; för verksamhetsnära roller innebär det ofta tydliga ramar och stöd för kollegialt lärande.",
+            "en": "Your organizing logic is characterized by integration. You treat AI as part of core improvement work and want more roles to initiate and adapt practices close to teaching, student support, and leadership. This can enable fast learning and high relevance. At the same time, it requires coordination and shared principles to avoid scattered efforts. For leadership, this often means building monitoring structures and shared standards; for practice-near roles, it often means clear boundaries and support for collegial learning."
+        },
+        "risk_note": {
+            "sv": "Var dock uppmärksam på risken för {risk}. För ledning kan det signalera behov av tydligare styrning och samordning; för andra roller kan det signalera behov av tydliga kontaktvägar, stöd och gemensamma rutiner.",
+            "en": "However, be aware of the risk of {risk}. For leadership, this may signal a need for clearer governance and coordination; for other roles, it may signal a need for clear contact points, support, and shared routines."
+        },
+        "diagnosticPrompts": {
+            "boundary_spanning": {
+                "sv": "Överväg att stärka bryggor mellan teknik, styrning och praktik. Om du leder: utse roller/funktioner med mandat att översätta behov, bedöma genomförbarhet (t.ex. datatillgång) och stödja spridning. Om du arbetar nära verksamheten: ta reda på vem som äger frågan och hur du kan bidra med återkoppling från praktiken.",
+                "en": "Consider strengthening bridges between technology, governance, and practice. If you lead: appoint roles/functions with mandate to translate needs, assess feasibility (e.g., data availability), and support scaling. If you are practice-near: identify who owns the area and how you can provide feedback from everyday work."
+            },
+            "resource_allocation": {
+                "sv": "Överväg att synliggöra tid och resurser för både piloter och förvaltning. Om du leder: säkra att ansvar, tid och uppföljning är avsatta så att initiativ inte blir övertidsprojekt. Om du inte leder: efterfråga tydlighet om vad som prioriteras och vilken tid som faktiskt finns för att testa och lära.",
+                "en": "Consider making time and resources explicit for both pilots and ongoing operations. If you lead: ensure ownership, time, and monitoring so initiatives don’t become overtime projects. If you don’t lead: ask for clarity on priorities and what time is actually available to test and learn."
+            },
+            "vision_clarity": {
+                "sv": "Överväg att tydliggöra riktning och gränser. Om du leder: formulera vilka problem AI ska lösa, vilka värden som ska skyddas (t.ex. likvärdighet, transparens) och vad ni inte ska göra. Om du arbetar i verksamheten: bidra med konkreta behov och scenarier som kan hjälpa till att göra visionen verklighetsnära.",
+                "en": "Consider clarifying direction and boundaries. If you lead: specify which problems AI should address, which values to protect (e.g., equity, transparency), and what you will not do. If you are in operations: contribute concrete needs and scenarios that make the direction practice-near."
+            },
+            "professional_development": {
+                "sv": "Överväg kompetensutveckling som kombinerar begrepp med rutiner (granskning, källkontroll, dokumentation). Om du leder: bygg en gemensam bas som når fler än entusiasterna. Om du undervisar eller stödjer elever: pröva gemensamma lektionsupplägg/rutiner och dela vad som fungerar.",
+                "en": "Consider professional learning that combines concepts with routines (review, source checking, documentation). If you lead: build a shared baseline that reaches beyond enthusiasts. If you teach or support students: try shared lesson/routine designs and share what works."
+            },
+            "infrastructure_readiness": {
+                "sv": "Överväg infrastrukturen runt AI: behörigheter, datakvalitet, integration med system, avtal och ansvar för drift/förvaltning. Om du leder: säkerställ att vägen från pilot till stabil lösning är tydlig. Om du arbetar i verksamheten: efterfråga tydliga verktyg, support och regler för hur känsliga uppgifter ska hanteras.",
+                "en": "Consider the infrastructure around AI: permissions, data quality, system integration, contracts, and ownership for operations/maintenance. If you lead: ensure the path from pilot to stable solution is clear. If you are in operations: ask for clear tools, support, and rules for handling sensitive information."
+            }
+        }
     }
-  },
-  "organization": {
-    "arch_focus": {
-      "sv": "Er profil visar en tydlig betoning på {arch1} och {arch2}. Det kan tolkas som att dessa är de områden där ni just nu har mest energi, mest behov—eller störst möjlighet till nytta. Fundera på vilka mål ni vill nå, och vilka roller som behöver mandat, tid och stöd för att lyckas.",
-      "en": "Your profile shows a clear emphasis on {arch1} and {arch2}. This can suggest where you currently have the most energy, the most need, or the greatest potential value. Consider what goals you want to reach and which roles need mandate, time, and support to succeed."
-    },
-    "logic_SEP": {
-      "sv": "Er organisationslogik präglas av separation. Ni tenderar att möta nya AI-krav genom specialistroller eller separata enheter som kan testa, kvalitetssäkra och standardisera lösningar utan att störa kärnverksamheten för mycket. Det kan ge tydliga ansvar och robusthet. För ledning handlar nästa steg ofta om att skapa kopplingar in i vardagspraktiken; för verksamhetsnära roller handlar det ofta om att ha tydliga vägar för återkoppling och anpassning så att verktyg blir relevanta.",
-      "en": "Your organizing logic is characterized by separation. You tend to meet new AI demands through specialist roles or separate units that can test, quality-assure, and standardize solutions without overly disrupting core operations. This can create clear responsibilities and robustness. For leadership, a next step is often building connections into everyday practice; for practice-near roles, it often means having clear feedback and adaptation pathways so tools become relevant."
-    },
-    "logic_HYB": {
-      "sv": "Er organisationslogik är hybrid. Ni kombinerar central samordning och specialistkapacitet med verksamhetsnära anpassning, ofta genom tvärfunktionella samarbeten, projekt eller nätverk. Det kan ge både robusthet och relevans. För ledning är nyckeln ofta att tydliggöra mandat och ansvar (inklusive för drift/förvaltning). För verksamhetsnära roller är nyckeln ofta att det finns stöd för att testa, dela och skala sådant som fungerar.",
-      "en": "Your organizing logic is hybrid. You combine central coordination and specialist capacity with practice-near adaptation, often through cross-functional collaborations, projects, or networks. This can deliver both robustness and relevance. For leadership, the key is often clarifying mandates and ownership (including operations/maintenance). For practice-near roles, the key is support to test, share, and scale what works."
-    },
-    "logic_INT": {
-      "sv": "Er organisationslogik präglas av integration. Ni ser AI som en del av kärnverksamhetens utveckling och vill att fler roller ska kunna initiera och anpassa arbetssätt nära undervisning, elevstöd och ledning. Det kan ge snabb lärande och hög relevans. Samtidigt kräver det samordning och gemensamma principer för att inte bli spretigt. För ledning innebär det ofta att skapa struktur för uppföljning och gemensamma standarder; för verksamhetsnära roller innebär det ofta tydliga ramar och stöd för kollegialt lärande.",
-      "en": "Your organizing logic is characterized by integration. You treat AI as part of core improvement work and want more roles to initiate and adapt practices close to teaching, student support, and leadership. This can enable fast learning and high relevance. At the same time, it requires coordination and shared principles to avoid scattered efforts. For leadership, this often means building monitoring structures and shared standards; for practice-near roles, it often means clear boundaries and support for collegial learning."
-    },
-    "risk_note": {
-      "sv": "Var dock uppmärksam på risken för {risk}. För ledning kan det signalera behov av tydligare styrning och samordning; för andra roller kan det signalera behov av tydliga kontaktvägar, stöd och gemensamma rutiner.",
-      "en": "However, be aware of the risk of {risk}. For leadership, this may signal a need for clearer governance and coordination; for other roles, it may signal a need for clear contact points, support, and shared routines."
-    },
-    "diagnosticPrompts": {
-      "boundary_spanning": {
-        "sv": "Överväg att stärka bryggor mellan teknik, styrning och praktik. Om du leder: utse roller/funktioner med mandat att översätta behov, bedöma genomförbarhet (t.ex. datatillgång) och stödja spridning. Om du arbetar nära verksamheten: ta reda på vem som äger frågan och hur du kan bidra med återkoppling från praktiken.",
-        "en": "Consider strengthening bridges between technology, governance, and practice. If you lead: appoint roles/functions with mandate to translate needs, assess feasibility (e.g., data availability), and support scaling. If you are practice-near: identify who owns the area and how you can provide feedback from everyday work."
-      },
-      "resource_allocation": {
-        "sv": "Överväg att synliggöra tid och resurser för både piloter och förvaltning. Om du leder: säkra att ansvar, tid och uppföljning är avsatta så att initiativ inte blir övertidsprojekt. Om du inte leder: efterfråga tydlighet om vad som prioriteras och vilken tid som faktiskt finns för att testa och lära.",
-        "en": "Consider making time and resources explicit for both pilots and ongoing operations. If you lead: ensure ownership, time, and monitoring so initiatives don’t become overtime projects. If you don’t lead: ask for clarity on priorities and what time is actually available to test and learn."
-      },
-      "vision_clarity": {
-        "sv": "Överväg att tydliggöra riktning och gränser. Om du leder: formulera vilka problem AI ska lösa, vilka värden som ska skyddas (t.ex. likvärdighet, transparens) och vad ni inte ska göra. Om du arbetar i verksamheten: bidra med konkreta behov och scenarier som kan hjälpa till att göra visionen verklighetsnära.",
-        "en": "Consider clarifying direction and boundaries. If you lead: specify which problems AI should address, which values to protect (e.g., equity, transparency), and what you will not do. If you are in operations: contribute concrete needs and scenarios that make the direction practice-near."
-      },
-      "professional_development": {
-        "sv": "Överväg kompetensutveckling som kombinerar begrepp med rutiner (granskning, källkontroll, dokumentation). Om du leder: bygg en gemensam bas som når fler än entusiasterna. Om du undervisar eller stödjer elever: pröva gemensamma lektionsupplägg/rutiner och dela vad som fungerar.",
-        "en": "Consider professional learning that combines concepts with routines (review, source checking, documentation). If you lead: build a shared baseline that reaches beyond enthusiasts. If you teach or support students: try shared lesson/routine designs and share what works."
-      },
-      "infrastructure_readiness": {
-        "sv": "Överväg infrastrukturen runt AI: behörigheter, datakvalitet, integration med system, avtal och ansvar för drift/förvaltning. Om du leder: säkerställ att vägen från pilot till stabil lösning är tydlig. Om du arbetar i verksamheten: efterfråga tydliga verktyg, support och regler för hur känsliga uppgifter ska hanteras.",
-        "en": "Consider the infrastructure around AI: permissions, data quality, system integration, contracts, and ownership for operations/maintenance. If you lead: ensure the path from pilot to stable solution is clear. If you are in operations: ask for clear tools, support, and rules for handling sensitive information."
-      }
-    }
-  }
 }
