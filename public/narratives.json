@@ -43,12 +43,12 @@
     },
     "organization": {
         "arch_focus": {
-            "sv": "Era svar indikerar en betoning på {arch1} och {arch2}. Det kan tolkas som att dessa är de områden där ni just nu har mest energi, mest behov—eller störst möjlighet till nytta. Fundera på vilka mål ni vill nå, och vilka roller som behöver mandat, tid och stöd för att lyckas.",
-            "en": "Your answers indicate an emphasis on {arch1} and {arch2}. This can suggest where you currently have the most energy, the most need, or the greatest potential value. Consider what goals you want to reach and which roles need mandate, time, and support to succeed."
+            "sv": "Era svar indikerar att arketyperna {arch1} och {arch2} är dominerande i er organisation. Det kan tolkas som att dessa är de områden där ni just nu har mest energi, mest behov—eller störst möjlighet till nytta. Fundera på vilka mål ni vill nå, och vilka roller som behöver mandat, tid och stöd för att lyckas.",
+            "en": "Your answers indicate the {arch1} and {arch2} archetypes are dominant within your organization. This can suggest where you currently have the most energy, the most need, or the greatest potential value. Consider what goals you want to reach and which roles need mandate, time, and support to succeed."
         },
         "arch_focus_1": {
-            "sv": "Era svar indikerar en betoning på {arch1}. Detta kan spegla en fokuserad ansats. Fundera på om detta är en medveten strategi eller om andra perspektiv riskerar att hamna i skymundan.",
-            "en": "Your answers indicate an emphasis on {arch1}. This may reflect a focused approach. Consider whether this is a conscious strategy or if other perspectives risk being overlooked."
+            "sv": "Era svar indikerar att arketypen {arch1} är dominerande i er organisation. Detta kan spegla en fokuserad ansats. Fundera på om detta är en medveten strategi eller om andra perspektiv riskerar att hamna i skymundan.",
+            "en": "Your answers indicate the {arch1} archetype is dominant within your organization. This may reflect a focused approach. Consider whether this is a conscious strategy or if other perspectives risk being overlooked."
         },
         "arch_balanced": {
             "sv": "Era svar visar på en balanserad profil utan någon enskild dominerande arketyp. Detta kan tyda på en bred ansats där ni arbetar med AI på flera fronter samtidigt, eller att ni befinner er i en utforskande fas.",
