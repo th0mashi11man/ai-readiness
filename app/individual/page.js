@@ -21,15 +21,22 @@ function IndividualContent() {
     const { t, locale } = useI18n();
     const searchParams = useSearchParams();
     const [bank, setBank] = useState(null);
+    const [narratives, setNarratives] = useState(null);
     const [phase, setPhase] = useState(searchParams.get("phase") || "intro");
 
     useEffect(() => {
         fetch("/mcq_itembank.json")
             .then((r) => r.json())
-            .then(setBank);
+            .then(setBank)
+            .catch(err => console.error("Failed to load item bank:", err));
+
+        fetch("/narratives.json")
+            .then((r) => r.json())
+            .then(setNarratives)
+            .catch(err => console.error("Failed to load narratives:", err));
     }, []);
 
-    if (!bank) return <div className="loading">{t("common.loading")}</div>;
+    if (!bank || !narratives) return <div className="loading">{t("common.loading")}</div>;
 
     return (
         <>
@@ -47,6 +54,7 @@ function IndividualContent() {
             {phase === "results" && (
                 <ResultsScreen
                     bank={bank}
+                    narratives={narratives}
                     t={t}
                     locale={locale}
                     onRestart={() => setPhase("intro")}
@@ -183,7 +191,7 @@ function QuizFlow({ bank, onComplete, t, locale }) {
     );
 }
 
-function ResultsScreen({ bank, t, locale, onRestart }) {
+function ResultsScreen({ bank, narratives, t, locale, onRestart }) {
     const stored = typeof window !== "undefined"
         ? JSON.parse(localStorage.getItem("individual_state") || "{}")
         : {};
