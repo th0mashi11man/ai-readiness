@@ -229,7 +229,10 @@ function ResultsScreen({ bank, t, locale, onRestart }) {
 
                 {/* Fluid Narrative - integrated with results */}
                 <div className="fluid-narrative text-secondary" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
-                    {generateIndividualNarrative(results, t, domainLabels)}
+                    {(() => {
+                        const narrativeText = generateIndividualNarrative(results, t, bank.domains, narratives, locale);
+                        return narrativeText;
+                    })()}
                 </div>
 
                 <div className="results-actions">

@@ -33,8 +33,8 @@
             "en": "Practice distinguishing rule-based systems from AI-based systems, and recognizing when content may be AI-generated. In teaching, this supports critical evaluation and assessment of student work; in leadership/support roles, it helps decide where extra checks are needed and what shared routines are required."
         },
         "create_ai_low": {
-            "sv": "Att förstå grunderna i hur AI-lösningar byggs och utvärderas (data, modellval, testning och uppföljning) gör det lättare att bedöma begränsningar och risk. För dig som upphandlar eller leder kan det förbättra kravställning och uppföljning; för dig som använder verktyg kan det hjälpa dig att förutse vanliga fel och välja rätt nivå av kontroll.",
-            "en": "Understanding the basics of how AI solutions are built and evaluated (data, model choice, testing, monitoring) makes it easier to judge limitations and risk. If you procure or lead, it improves requirements and oversight; if you use tools, it helps you anticipate common errors and choose the right level of checking."
+            "sv": "Att förstå hur AI-modeller tränas kan hjälpa dig att avgöra när ett verktyg används utanför sitt kompetensområde. Det ger dig bättre förutsättningar att värdera risker och begränsningar i de verktyg du använder.",
+            "en": "Developing a deeper understanding of how AI models are trained can help you better identify when a tool is being used outside its capabilities. This gives you better conditions to evaluate risks and limitations in the tools you use."
         },
         "gen_ai_low": {
             "sv": "Det kan vara hjälpsamt att tydligt skilja på generativ AI:s styrkor (idéer, språkstöd, sammanfattning) och svagheter (fel, påhitt, brist på källor). Om du undervisar: skapa rutiner för att elever alltid redovisar källor och arbetsprocess. Om du leder: etablera gemensamma riktlinjer för när faktakontroll och spårbarhet är obligatoriskt, särskilt när resultatet påverkar beslut eller kommunikation.",
