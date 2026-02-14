@@ -217,7 +217,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
         logicLabels,
         narratives,
         locale
-    ) : { logicText: "Laddar...", archetypeText: "Laddar..." };
+    ) : { logicItems: [], archetypeIntro: "", archetypeItems: [] };
 
     const archetypeValues = results.ARCHETYPE_IDS.map(
         (id) => Math.round(results.archetypeMarginals[id])
@@ -237,14 +237,21 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 <div className="radar-container org-radar" style={{ height: '500px', margin: '0 auto 2rem', maxWidth: '1000px', width: '100%' }}>
                     <RadarChart labels={archetypeLabels} values={archetypeValues} maxValue={100} hideValues={true} />
                 </div>
-                <div className="fluid-narrative mt-4 mb-8 text-secondary">
-                    <p>{narrative.archetypeText}</p>
-                </div>
+                {narrative.archetypeItems && narrative.archetypeItems.length > 0 && (
+                    <ul className="archetype-bullets">
+                        {narrative.archetypeItems.map(item => (
+                            <li key={item.id} className="archetype-bullet">
+                                <strong>{item.label}</strong>{item.text ? ` — ${item.text}` : ''}
+                            </li>
+                        ))}
+                    </ul>
+                )}
 
                 {/* Logic Profile */}
                 <h2>{t("organization.logicSpectrumTitle")}</h2>
                 <LogicSpectrum
                     scores={results.logicMarginals}
+                    score={results.integrationScore}
                     labels={{
                         SEP: t(bank.logics.find(l => l.id === "SEP")?.label),
                         HYB: t(bank.logics.find(l => l.id === "HYB")?.label),
@@ -253,13 +260,27 @@ function OrgResults({ bank, t, locale, onRestart }) {
                     t={t}
                 />
 
-                {/* Logic Narrative - Continuous Flow */}
-                {narrative && (
-                    <div className="fluid-narrative mt-4 mb-8 text-secondary">
-                        <p>
-                            {narrative.logicText} {narrative.riskText} {narrative.diagText}
-                        </p>
-                    </div>
+                {/* Logic Narrative - Bullet Points */}
+                {narrative.logicItems && narrative.logicItems.length > 0 && (
+                    <ul className="archetype-bullets">
+                        {narrative.logicItems.map(item => (
+                            <li key={item.id} className="archetype-bullet">
+                                {item.label && <strong>{item.label}</strong>}
+                                {item.label && item.text ? " — " : ""}
+                                {item.text}
+                            </li>
+                        ))}
+                        {narrative.riskText && (
+                            <li className="archetype-bullet">
+                                {narrative.riskText}
+                            </li>
+                        )}
+                        {narrative.diagText && (
+                            <li className="archetype-bullet">
+                                {narrative.diagText}
+                            </li>
+                        )}
+                    </ul>
                 )}
 
                 <div className="results-actions">

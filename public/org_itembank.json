@@ -6,22 +6,40 @@
     "en": "Organizational AI Profile (archetype × organizing logic)"
   },
   "defaultLocale": "sv",
-  "supportedLocales": ["sv", "en"],
+  "supportedLocales": [
+    "sv",
+    "en"
+  ],
   "settings": {
     "randomizeStatements": true,
     "likertScale": {
       "min": 1,
       "max": 5,
       "labels": {
-        "sv": ["Instämmer inte alls", "Instämmer lite", "Varken/eller", "Instämmer", "Instämmer helt"],
-        "en": ["Strongly disagree", "Disagree", "Neither", "Agree", "Strongly agree"]
+        "sv": [
+          "Instämmer inte alls",
+          "Instämmer lite",
+          "Varken/eller",
+          "Instämmer",
+          "Instämmer helt"
+        ],
+        "en": [
+          "Strongly disagree",
+          "Disagree",
+          "Neither",
+          "Agree",
+          "Strongly agree"
+        ]
       }
     }
   },
   "archetypes": [
     {
       "id": "TA",
-      "label": { "sv": "Lärarassistent (Effektiviseringsmodell)", "en": "Teacher Assistant (Efficiency model)" },
+      "label": {
+        "sv": "AI som assistent",
+        "en": "AI as assistant"
+      },
       "description": {
         "sv": "AI som minskar arbetsbelastning (planering, bedömning, administration).",
         "en": "AI that reduces workload (planning, assessment, administration)."
@@ -29,7 +47,10 @@
     },
     {
       "id": "PT",
-      "label": { "sv": "Personlig handledare (Adaptiv modell)", "en": "Personalized Tutor (Adaptive model)" },
+      "label": {
+        "sv": "AI som handledare",
+        "en": "AI as tutor"
+      },
       "description": {
         "sv": "AI som ger individanpassat lärande och uppföljning.",
         "en": "AI that provides individualized learning and progress tracking."
@@ -37,7 +58,10 @@
     },
     {
       "id": "DDL",
-      "label": { "sv": "Datadriven ledare (Operativ modell)", "en": "Data-Driven Leader (Operational model)" },
+      "label": {
+        "sv": "AI som analytiker",
+        "en": "AI as analyst"
+      },
       "description": {
         "sv": "AI för analys, beslut och resursstyrning i ledning/organisation.",
         "en": "AI for analytics, decision-making, and resource allocation."
@@ -45,7 +69,10 @@
     },
     {
       "id": "SB",
-      "label": { "sv": "Kompetensbyggare (Curriculummodell)", "en": "Skill Builder (Curriculum model)" },
+      "label": {
+        "sv": "AI som ämnesinnehåll",
+        "en": "AI as subject matter"
+      },
       "description": {
         "sv": "AI som innehåll: elev-AI-litteracitet, etik, prompts, kritisk förståelse.",
         "en": "AI as content: student AI literacy, ethics, prompting, critical understanding."
@@ -55,7 +82,10 @@
   "logics": [
     {
       "id": "SEP",
-      "label": { "sv": "Separation", "en": "Separation" },
+      "label": {
+        "sv": "Separation",
+        "en": "Separation"
+      },
       "description": {
         "sv": "AI organiseras i separata specialistfunktioner/enheter med standardiserade tjänster.",
         "en": "AI is organized in separate specialist functions/units delivering standardized services."
@@ -63,7 +93,10 @@
     },
     {
       "id": "INT",
-      "label": { "sv": "Integration", "en": "Integration" },
+      "label": {
+        "sv": "Integration",
+        "en": "Integration"
+      },
       "description": {
         "sv": "AI integreras i verksamheten; lokala enheter driver och anpassar i vardagen.",
         "en": "AI is embedded in operations; local units drive and adapt it in everyday work."
@@ -71,7 +104,10 @@
     },
     {
       "id": "HYB",
-      "label": { "sv": "Hybrid", "en": "Hybrid" },
+      "label": {
+        "sv": "Hybrid",
+        "en": "Hybrid"
+      },
       "description": {
         "sv": "Kombinerar central expertis med lokala anpassningar via bryggroller, skalning och gemensamma plattformar.",
         "en": "Combines central expertise with local adaptation through boundary roles, scaling, and shared platforms."
@@ -145,7 +181,6 @@
         "en": "Local AI initiatives for efficiency can be scaled via shared platforms/routines so they do not remain isolated ‘islands’."
       }
     },
-
     {
       "id": "PT_SEP_01",
       "type": "likert",
@@ -212,7 +247,6 @@
         "en": "Mechanisms connect local experimentation with central scaling so solutions both work pedagogically and can be operated safely."
       }
     },
-
     {
       "id": "DDL_SEP_01",
       "type": "likert",
@@ -279,7 +313,6 @@
         "en": "There is a clear path from local pilots to central operation/maintenance, including integration into the IT landscape."
       }
     },
-
     {
       "id": "SB_SEP_01",
       "type": "likert",
@@ -346,7 +379,6 @@
         "en": "We have both central competence (policy/ethics/legal) and local practice networks, and they are connected so instructional innovation becomes neither siloed nor fragmented."
       }
     },
-
     {
       "id": "X_DIAG_SILO",
       "type": "likert",

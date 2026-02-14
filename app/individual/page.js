@@ -235,13 +235,26 @@ function ResultsScreen({ bank, narratives, t, locale, onRestart }) {
                     />
                 </div>
 
-                {/* Fluid Narrative - integrated with results */}
-                <div className="fluid-narrative text-secondary" style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
-                    {(() => {
-                        const narrativeText = generateIndividualNarrative(results, t, bank.domains, narratives, locale);
-                        return narrativeText;
-                    })()}
-                </div>
+                {/* Narrative - Overview + Per-Domain Bullets */}
+                {(() => {
+                    const narrative = generateIndividualNarrative(results, t, bank.domains, narratives, locale);
+                    return (
+                        <>
+                            <div className="fluid-narrative text-secondary" style={{ marginTop: '1.5rem', marginBottom: '1rem' }}>
+                                {narrative.overview}
+                            </div>
+                            {narrative.domainItems && narrative.domainItems.length > 0 && (
+                                <ul className="archetype-bullets">
+                                    {narrative.domainItems.map(item => (
+                                        <li key={item.id} className="archetype-bullet">
+                                            <strong>{item.label}</strong>{item.text ? ` — ${item.text}` : ''}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </>
+                    );
+                })()}
 
                 <div className="results-actions">
                     <button className="btn btn-primary" onClick={() => window.print()}>
