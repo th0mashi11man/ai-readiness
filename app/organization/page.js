@@ -234,7 +234,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 {/* Archetype Profile */}
                 <h2>{t("organization.archetypeTotalsTitle")}</h2>
                 {/* Archetype Visualization - Made Bigger */}
-                <div className="radar-container org-radar" style={{ height: '500px', margin: '0 auto 2rem', maxWidth: '800px', width: '100%' }}>
+                <div className="radar-container org-radar" style={{ height: '500px', margin: '0 auto 2rem', maxWidth: '1000px', width: '100%' }}>
                     <RadarChart labels={archetypeLabels} values={archetypeValues} maxValue={100} hideValues={true} />
                 </div>
                 <div className="fluid-narrative mt-4 mb-8 text-secondary">

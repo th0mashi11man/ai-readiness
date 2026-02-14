@@ -22,7 +22,7 @@ export default function RadarChart({ labels, values, maxValue, hideValues = fals
 
         const cx = W / 2;
         const cy = H / 2;
-        const R = Math.min(cx, cy) - 110;
+        const R = Math.min(cx, cy) - 50;
         const n = labels.length;
         const angleStep = (2 * Math.PI) / n;
         const startAngle = -Math.PI / 2;
