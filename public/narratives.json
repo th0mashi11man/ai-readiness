@@ -55,20 +55,20 @@
             "en": "Your answers show a balanced profile without any single dominant archetype. This may indicate a broad approach where you are working with AI on multiple fronts simultaneously, or that you are in an exploratory phase."
         },
         "arch_TA": {
-            "sv": "Lärarassistenten handlar om att avlasta och effektivisera. Fokus ligger ofta på verktyg som sparar tid i planering, administration och bedömning.",
-            "en": "The Teacher Assistant is about efficiency. The focus is often on tools that save time in planning, administration, and assessment."
+            "sv": "I arketypen Lärarassistenten ligger fokus på avlastning och effektivisering. Målet är ofta verktyg som sparar tid i planering, administration och bedömning.",
+            "en": "In the Teacher Assistant archetype, the focus is on efficiency. The goal is often tools that save time in planning, administration, and assessment."
         },
         "arch_PT": {
-            "sv": "Den personliga handledaren fokuserar på elevens lärande. Här används AI ofta för att anpassa material, ge feedback och stötta den enskilda eleven.",
-            "en": "The Personal Tutor focuses on student learning. AI is often used here to adapt materials, provide feedback, and support the individual student."
+            "sv": "I arketypen Den personliga handledaren ligger fokus på elevens lärande. Här används AI ofta för att anpassa material, ge feedback och stötta den enskilda eleven.",
+            "en": "In the Personal Tutor archetype, the focus is on student learning. AI is often used here to adapt materials, provide feedback, and support the individual student."
         },
         "arch_DDL": {
-            "sv": "Den datadrivna ledaren använder AI för att se mönster och styra verksamheten. Fokus ligger ofta på analys, resursfördelning och proaktiva beslut.",
-            "en": "The Data-Driven Leader uses AI to see patterns and steer operations. The focus is often on analytics, resource allocation, and proactive decisions."
+            "sv": "I arketypen Den datadrivna ledaren ligger fokus på att använda AI för att se mönster och styra verksamheten. Det handlar ofta om analys, resursfördelning och proaktiva beslut.",
+            "en": "In the Data-Driven Leader archetype, the focus is on using AI to see patterns and steer operations. This often involves analytics, resource allocation, and proactive decisions."
         },
         "arch_SB": {
-            "sv": "Kompetensbyggaren ser AI som ett kunskapsinnehåll. Här är målet ofta att elever och personal ska förstå tekniken, dess risker och möjligheter.",
-            "en": "The Skill Builder views AI as subject matter. The goal here is often for students and staff to understand the technology, its risks, and possibilities."
+            "sv": "I arketypen Kompetensbyggaren ligger fokus på AI som ett kunskapsinnehåll. Målet är ofta att elever och personal ska förstå tekniken, dess risker och möjligheter.",
+            "en": "In the Skill Builder archetype, the focus is on AI as subject matter. The goal here is often for students and staff to understand the technology, its risks, and possibilities."
         },
         "logic_SEP": {
             "sv": "Era svar tyder på en organisationslogik som präglas av separation. Det innebär ofta att man möter nya AI-krav genom specialistroller eller separata enheter som kan testa och kvalitetssäkra utan att störa kärnverksamheten. Det kan ge tydliga ansvar. För ledning handlar nästa steg ofta om att skapa kopplingar in i vardagspraktiken.",
