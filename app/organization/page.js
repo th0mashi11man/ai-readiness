@@ -238,7 +238,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                     <RadarChart labels={archetypeLabels} values={archetypeValues} maxValue={100} hideValues={true} />
                 </div>
                 <div className="fluid-narrative mt-4 mb-8 text-secondary">
-                    {narrative.archetypeText}
+                    <p>{narrative.archetypeText}</p>
                 </div>
 
                 {/* Logic Profile */}
