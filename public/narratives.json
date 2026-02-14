@@ -13,8 +13,8 @@
             "en": "Your AI literacy is proficient. You show a working balance of understanding, application, and critical judgment. This positions you well to develop more consistent routines, share what works, and support others in responsible use."
         },
         "advanced": {
-            "sv": "Du har en avancerad nivå av AI-litteracitet. Du kan kombinera strategisk användning med kritisk granskning av antaganden, datagrund och konsekvenser. Du kan bidra genom att bygga kvalitetssäkring och gemensamma principer—och samtidigt skapa utrymme för innovation där det är rimligt.",
-            "en": "You have an advanced level of AI literacy. You can combine strategic use with critical scrutiny of assumptions, data foundations, and consequences. You can contribute by strengthening quality assurance and shared principles—while also creating space for innovation where appropriate."
+            "sv": "Du har en avancerad nivå av AI-litteracitet. Du kan kombinera strategisk användning med kritisk granskning av antaganden, datagrund och konsekvenser. Din kunskap är en tillgång för att stödja kollegor och bidra till gemensamma arbetssätt som balanserar trygghet med utveckling.",
+            "en": "You have an advanced level of AI literacy. You can combine strategic use with critical scrutiny of assumptions, data foundations, and consequences. Your knowledge is an asset for supporting colleagues and contributing to shared practices that balance safety with development."
         },
         "understand_ai_low": {
             "sv": "Det kan vara hjälpsamt att stärka förståelsen för hur AI-system producerar resultat (mönster i data, sannolikheter och begränsningar). För dig som leder eller samordnar kan det stödja kravställning och riskbedömning; för dig som arbetar nära elever och undervisning kan det hjälpa dig att tolka svar och ställa bättre följdfrågor.",
@@ -25,8 +25,8 @@
             "en": "Try AI in small, clearly bounded tasks where you can compare before/after value. If you teach, this might be drafts, rewrites, or lesson ideas that you always review and adapt. If you lead, it might be summaries, draft communications, or structuring documents—with routines for review and handling sensitive information."
         },
         "ai_ethics_low": {
-            "sv": "Stärk gärna den etiska kompassen: ansvar, transparens, rättvisa och säkerhet. Om du fattar beslut eller sätter riktlinjer: bygg principer för när kraven på dokumentation och mänsklig granskning ska öka. Om du använder AI i vardagen: utveckla vanor för källkontroll, tydlighet om osäkerhet och extra försiktighet när det rör bedömning eller elevdata.",
-            "en": "Consider strengthening your ethical compass: accountability, transparency, fairness, and safety. If you make decisions or set guidelines, build principles for when documentation and human oversight should increase. If you use AI day-to-day, develop habits for source checking, signaling uncertainty, and extra caution in assessment or student-data contexts."
+            "sv": "Det är värdefullt att hålla etiska perspektiv i fokus: ansvar, transparens, rättvisa och säkerhet. Om du fattar beslut eller sätter riktlinjer: bygg principer för när kraven på dokumentation och mänsklig granskning ska öka. Om du använder AI i vardagen: utveckla vanor för källkontroll, tydlighet om osäkerhet och extra försiktighet när det rör bedömning eller elevdata.",
+            "en": "It is valuable to keep ethical perspectives in focus: accountability, transparency, fairness, and safety. If you make decisions or set guidelines, build principles for when documentation and human oversight should increase. If you use AI day-to-day, develop habits for source checking, signaling uncertainty, and extra caution in assessment or student-data contexts."
         },
         "detect_ai_low": {
             "sv": "Öva på att skilja mellan regelstyrda system och AI-baserade system, och på att känna igen när innehåll kan vara AI-genererat. För undervisning kan det stärka källkritik och bedömning av elevarbeten; för ledning och stödroller kan det hjälpa att avgöra var extra kontroll behövs och vilka gemensamma rutiner som krävs.",
