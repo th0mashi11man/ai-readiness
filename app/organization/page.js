@@ -273,16 +273,19 @@ function SurveyFlow({ bank, onComplete, t, locale }) {
 
 
 function OrgResults({ bank, t, locale, onRestart }) {
-    const stored =
-        typeof window !== "undefined"
-            ? JSON.parse(localStorage.getItem("organization_state") || "{}")
-            : {};
-    const responses = stored.answers || {};
+    const [responses, setResponses] = useState({});
+    const [storedPriorities, setStoredPriorities] = useState({});
+    const [mounted, setMounted] = useState(false);
 
-    const storedPriorities =
-        typeof window !== "undefined"
-            ? JSON.parse(localStorage.getItem("org_priorities") || "{}")
-            : {};
+    useEffect(() => {
+        const stored = JSON.parse(localStorage.getItem("organization_state") || "{}");
+        setResponses(stored.answers || {});
+
+        const priorities = JSON.parse(localStorage.getItem("org_priorities") || "{}");
+        setStoredPriorities(priorities);
+
+        setMounted(true);
+    }, []);
 
     const [narratives, setNarratives] = useState(null);
 
@@ -292,6 +295,8 @@ function OrgResults({ bank, t, locale, onRestart }) {
             .then(setNarratives)
             .catch(err => console.error("Failed to load narratives", err));
     }, []);
+
+    if (!mounted) return <div className="loading text-center p-8">{t("common.loading")}</div>;
 
     const results = scoreOrganization(bank.items, responses);
 
