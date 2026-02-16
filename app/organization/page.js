@@ -229,13 +229,13 @@ function SurveyFlow({ bank, onComplete, t, locale }) {
                                 <input
                                     type="radio"
                                     name={`q_${currentItemId}`}
-                                    value={value}
-                                    checked={selectedAnswer === value}
-                                    onChange={() => {
-                                        setAnswer(currentItemId, value);
-                                        setShowWarning(false);
+                                    labels={{
+                                        SEP: bank.logics.find(l => l.id === "SEP")?.label?.[locale],
+                                        HYB: bank.logics.find(l => l.id === "HYB")?.label?.[locale] || "Hybrid",
+                                        INT: bank.logics.find(l => l.id === "INT")?.label?.[locale],
+                                    }} setShowWarning(false);
                                     }}
-                                    aria-label={label}
+                                aria-label={label}
                                 />
                                 <span className="likert-value">{value}</span>
                                 <span className="likert-label">{label}</span>
