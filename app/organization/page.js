@@ -382,6 +382,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 </div>
 
                 {/* Narrative / Feedback using Accardeon or Cards */}
+
                 <div className="results-narrative">
                     <h2>Framträdande orienteringar</h2>
                     {narrative.narrativeItems.map(item => (
@@ -390,32 +391,54 @@ function OrgResults({ bank, t, locale, onRestart }) {
                             padding: "2rem",
                             borderRadius: "var(--radius-lg)",
                             border: "1px solid var(--border-color)",
-                    {topOrientations.map(item => {
-                                const def = bank.orientations.find(o => o.id === item.id);
-                                if (!def) return null;
-                                const feedback = def.feedback;
-                                return (
-                                    <div key={item.id} className="narrative-block">
-                                        <h3>{def.label[locale]} ({Math.round(item.score)}%)</h3>
-                                        <p>{def.description[locale]}</p>
+                            marginBottom: "2rem"
+                        }}>
+                            <h2 style={{ marginTop: 0, color: "var(--primary-color)" }}>
+                                {item.label} ({item.score}%)
+                            </h2>
+                            <p className="large-text">{item.description}</p>
 
-                                        <div className="feedback-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginTop: "1rem" }}>
-                                            <div className="feedback-item">
-                                                <strong>Frågeställning:</strong> {feedback.core_question[locale]}
-                                            </div>
-                                            <div className="feedback-item">
-                                                <strong>Framgångsfaktor:</strong> {feedback.success_criteria[locale]}
-                                            </div>
-                                            <div className="feedback-item">
-                                                <strong>Drivkraft:</strong> {feedback.drivers[locale]}
-                                            </div>
-                                            <div className="feedback-item">
-                                                <strong>Blind fläck:</strong> {feedback.blind_spots[locale]}
-                                            </div>
+                            <hr style={{ margin: "1.5rem 0", borderColor: "var(--border-color)" }} />
+
+                            {item.details && (
+                                <div className="feedback-grid" style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }}>
+                                    <div>
+                                        <h3 style={{ fontSize: "1rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--muted-foreground)" }}>
+                                            Kärnfråga
+                                        </h3>
+                                        <p style={{ fontStyle: "italic", fontSize: "1.1rem" }}>
+                                            "{item.details.core_question[locale]}"
+                                        </p>
+                                    </div>
+
+                                    <div className="grid-cols-2" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "2rem" }}>
+                                        <div>
+                                            <h3 style={{ fontSize: "1rem", color: "var(--success-color, green)" }}>
+                                                Vad räknas som framgång
+                                            </h3>
+                                            <p>{item.details.success_criteria[locale]}</p>
+                                        </div>
+
+                                        <div>
+                                            <h3 style={{ fontSize: "1rem", color: "var(--foreground)" }}>
+                                                Typiska drivkrafter
+                                            </h3>
+                                            <p>{item.details.drivers[locale]}</p>
                                         </div>
                                     </div>
-                                );
-                            })}
+
+                                    <div style={{ background: "#fff0f0", padding: "1rem", borderRadius: "8px", border: "1px solid #ffcccc" }}>
+                                        <h3 style={{ fontSize: "1rem", color: "#cc0000", marginTop: 0 }}>
+                                            ⚠️ Möjlig blind fläck
+                                        </h3>
+                                        <p style={{ margin: 0 }}>
+                                            {item.details.blind_spots[locale]}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    ))}
                 </div>
 
                 <div className="results-actions" style={{ marginTop: "3rem" }}>
