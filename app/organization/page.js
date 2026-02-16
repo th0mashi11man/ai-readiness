@@ -352,107 +352,43 @@ function OrgResults({ bank, t, locale, onRestart }) {
                             padding: "2rem",
                             borderRadius: "var(--radius-lg)",
                             border: "1px solid var(--border-color)",
-                            marginBottom: "2rem"
-                        }}>
-                            <h2 style={{ marginTop: 0, color: "var(--primary-color)" }}>
-                                {item.label}
-                            </h2>
-                            <p className="large-text">{item.description}</p>
+                    {topOrientations.map(item => {
+                                const def = bank.orientations.find(o => o.id === item.id);
+                                if (!def) return null;
+                                const feedback = def.feedback;
+                                return (
+                                    <div key={item.id} className="narrative-block">
+                                        <h3>{def.label[locale]} ({Math.round(item.score)}%)</h3>
+                                        <p>{def.description[locale]}</p>
 
-                            <hr style={{ margin: "1.5rem 0", borderColor: "var(--border-color)" }} />
-
-                            <div className="feedback-grid" style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }}>
-
-                                <div>
-                                    <h3 style={{ fontSize: "1rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--muted-foreground)" }}>
-                                        Kärnfråga
-                                    </h3>
-                                    <p style={{ fontStyle: "italic", fontSize: "1.1rem" }}>
-                                        "{item.details.coreQuestion?.[locale]}"
-                                    </p>
-                                </div>
-
-                                <div className="grid-cols-2" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "2rem" }}>
-                                    <div>
-                                        <h3 style={{ fontSize: "1rem", color: "var(--success-color, green)" }}>
-                                            Vad räknas som framgång
-                                        </h3>
-                                        <ul style={{ paddingLeft: "1.2rem", margin: "0.5rem 0" }}>
-                                            {item.details.successCriteria?.[locale]?.map((sc, i) => (
-                                                <li key={i}>{sc}</li>
-                                            ))}
-                                        </ul>
+                                        <div className="feedback-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginTop: "1rem" }}>
+                                            <div className="feedback-item">
+                                                <strong>Frågeställning:</strong> {feedback.core_question[locale]}
+                                            </div>
+                                            <div className="feedback-item">
+                                                <strong>Framgångsfaktor:</strong> {feedback.success_criteria[locale]}
+                                            </div>
+                                            <div className="feedback-item">
+                                                <strong>Drivkraft:</strong> {feedback.drivers[locale]}
+                                            </div>
+                                            <div className="feedback-item">
+                                                <strong>Blind fläck:</strong> {feedback.blind_spots[locale]}
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <div>
-                                        <h3 style={{ fontSize: "1rem", color: "var(--foreground)" }}>
-                                            Typiska drivkrafter
-                                        </h3>
-                                        <ul style={{ paddingLeft: "1.2rem", margin: "0.5rem 0" }}>
-                                            {item.details.drivers?.[locale]?.map((d, i) => (
-                                                <li key={i}>{d}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div style={{ background: "#fff0f0", padding: "1rem", borderRadius: "8px", border: "1px solid #ffcccc" }}>
-                                    <h3 style={{ fontSize: "1rem", color: "#cc0000", marginTop: 0 }}>
-                                        ⚠️ Möjlig blind fläck
-                                    </h3>
-                                    <p style={{ margin: 0 }}>
-                                        {item.details.blindSpot?.[locale]}
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Logic Spectrum / Narrative */}
-                <div style={{ marginTop: "4rem" }}>
-                    <h2>{t("organization.logicSpectrumTitle")}</h2>
-                    <p className="lead">
-                        Utöver orientering mäter vi även hur ni organiserar implementeringen – från central styrning (separation) till lokal anpassning (integration).
-                    </p>
-
-                    <LogicSpectrum
-                        scores={results.logicScores}
-                        score={results.integrationScore}
-                        labels={{
-                            SEP: t(bank.logics.find(l => l.id === "SEP")?.label),
-                            HYB: t(bank.logics.find(l => l.id === "HYB")?.label),
-                            INT: t(bank.logics.find(l => l.id === "INT")?.label),
-                        }}
-                        t={t}
-                    />
-
-                    {narrative.logicItem && (
-                        <div style={{
-                            marginTop: "2rem",
-                            padding: "1.5rem",
-                            background: "var(--surface-color)",
-                            borderLeft: "4px solid var(--primary-color)",
-                            borderRadius: "4px"
-                        }}>
-                            <p style={{ fontStyle: "italic", fontSize: "1.1rem", margin: 0 }}>
-                                "{narrative.logicItem.text}"
-                            </p>
-                        </div>
-                    )}
+                                );
+                            })}
                 </div>
 
                 <div className="results-actions" style={{ marginTop: "3rem" }}>
-                    <button className="btn btn-text" onClick={onRestart}>
-                        {t("common.restart")}
-                    </button>
                     <button className="btn btn-primary" onClick={() => window.print()}>
                         {t("common.exportPdf")}
+                    </button>
+                    <button className="btn btn-outline" onClick={onRestart}>
+                        {t("common.restart")}
                     </button>
                 </div>
             </div>
         </section>
     );
 }
-
