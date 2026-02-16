@@ -116,7 +116,7 @@ function PriorityStep({ bank, t, locale, onComplete }) {
             <div className="card">
                 <h1 style={{ marginBottom: "0.5rem" }}>Prioritering</h1>
                 <p className="lead" style={{ marginBottom: "2rem" }}>
-                    Hur viktig är respektive orientering för er organisation *just nu*? (1 = Inte viktig, 5 = Mycket viktig)
+                    Hur viktig är respektive orientering för er organisation? (1 = Inte viktig, 5 = Mycket viktig)
                 </p>
 
                 <div className="priority-list" style={{ display: "grid", gap: "1.5rem", marginBottom: "2rem" }}>
