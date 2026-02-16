@@ -1,9 +1,9 @@
 {
-  "schemaVersion": "1.0.0",
-  "bankId": "school_ai_org_profile",
+  "schemaVersion": "2.0.0",
+  "bankId": "school_ai_org_orientations",
   "title": {
-    "sv": "Organisatorisk AI-profil (archetyp × logik)",
-    "en": "Organizational AI Profile (archetype × organizing logic)"
+    "sv": "Organisatoriska orienteringar som formar AI-implementering",
+    "en": "Organisational orientations shaping AI implementation"
   },
   "defaultLocale": "sv",
   "supportedLocales": [
@@ -33,49 +33,406 @@
       }
     }
   },
-  "archetypes": [
+  "orientations": [
     {
-      "id": "TA",
+      "id": "EFF",
       "label": {
-        "sv": "AI som assistent",
-        "en": "AI as assistant"
+        "sv": "Effektivitet & Automatisering",
+        "en": "Efficiency & Automation"
       },
       "description": {
-        "sv": "AI som minskar arbetsbelastning (planering, bedömning, administration).",
-        "en": "AI that reduces workload (planning, assessment, administration)."
+        "sv": " Fokus på att minska arbetsbelastning och effektivisera processer.",
+        "en": "Focus on reducing workload and streamlining processes."
+      },
+      "feedback": {
+        "coreQuestion": {
+          "sv": "Hur kan AI minska arbetsbelastning och effektivisera organisationens processer?",
+          "en": "How can AI reduce workload and streamline organizational processes?"
+        },
+        "successCriteria": {
+          "sv": [
+            "Tidsbesparing",
+            "Minskade administrativa kostnader",
+            "Smidigare arbetsflöden",
+            "Avlastning för personal"
+          ],
+          "en": [
+            "Time savings",
+            "Reduced administrative costs",
+            "Smoother workflows",
+            "Staff workload relief"
+          ]
+        },
+        "drivers": {
+          "sv": [
+            "Förvaltningsledning",
+            "HR- och administrativa funktioner",
+            "Ekonomi"
+          ],
+          "en": [
+            "Administration management",
+            "HR and administrative functions",
+            "Finance"
+          ]
+        },
+        "blindSpot": {
+          "sv": "Risk att AI främst förstås som rationaliseringsverktyg, medan pedagogiska och demokratiska konsekvenser hamnar i bakgrunden.",
+          "en": "Risk that AI is understood primarily as a rationalization tool, while pedagogical and democratic consequences are overshadowed."
+        }
       }
     },
     {
-      "id": "PT",
+      "id": "ANA",
       "label": {
-        "sv": "AI som handledare",
-        "en": "AI as tutor"
+        "sv": "Analys & Kvalitet",
+        "en": "Analysis & Quality"
       },
       "description": {
-        "sv": "AI som ger individanpassat lärande och uppföljning.",
-        "en": "AI that provides individualized learning and progress tracking."
+        "sv": "Fokus på uppföljning och systematiskt kvalitetsarbete.",
+        "en": "Focus on monitoring and systematic quality work."
+      },
+      "feedback": {
+        "coreQuestion": {
+          "sv": "Hur kan AI stärka uppföljning, analys och systematiskt kvalitetsarbete?",
+          "en": "How can AI strengthen monitoring, analysis, and systematic quality work?"
+        },
+        "successCriteria": {
+          "sv": [
+            "Förbättrad datainsikt",
+            "Mer träffsäkra analyser",
+            "Tidig identifiering av behov",
+            "Stöd för evidensbaserade beslut"
+          ],
+          "en": [
+            "Improved data insight",
+            "More accurate analyses",
+            "Early identification of needs",
+            "Support for evidence-based decisions"
+          ]
+        },
+        "drivers": {
+          "sv": [
+            "Kvalitets- och utvecklingsenheter",
+            "Analysfunktioner",
+            "Skolledare med stark uppföljningskultur"
+          ],
+          "en": [
+            "Quality and development units",
+            "Analytics functions",
+            "School leaders with strong monitoring culture"
+          ]
+        },
+        "blindSpot": {
+          "sv": "Risk för förstärkt mät- och granskningslogik som påverkar professionell autonomi.",
+          "en": "Risk of reinforced measurement and audit logic affecting professional autonomy."
+        }
       }
     },
     {
-      "id": "DDL",
+      "id": "TEC",
       "label": {
-        "sv": "AI som analytiker",
-        "en": "AI as analyst"
+        "sv": "Teknik & Inköp",
+        "en": "Technology & Procurement"
       },
       "description": {
-        "sv": "AI för analys, beslut och resursstyrning i ledning/organisation.",
-        "en": "AI for analytics, decision-making, and resource allocation."
+        "sv": "Fokus på säkerhet, juridik och integration.",
+        "en": "Focus on security, legality, and integration."
+      },
+      "feedback": {
+        "coreQuestion": {
+          "sv": "Hur säkerställer vi att AI-verktyg är säkra, lagliga och tekniskt integrerade?",
+          "en": "How do we ensure AI tools are safe, legal, and technically integrated?"
+        },
+        "successCriteria": {
+          "sv": [
+            "Juridisk och dataskyddsmässig efterlevnad",
+            "Stabil integration i befintliga system",
+            "Tydliga upphandlingsprocesser",
+            "Riskminimering"
+          ],
+          "en": [
+            "Legal and data protection compliance",
+            "Stable integration with existing systems",
+            "Clear procurement processes",
+            "Risk minimization"
+          ]
+        },
+        "drivers": {
+          "sv": [
+            "IT-avdelning",
+            "Upphandlingsfunktion",
+            "Informationssäkerhetsansvariga"
+          ],
+          "en": [
+            "IT department",
+            "Procurement function",
+            "Information security officers"
+          ]
+        },
+        "blindSpot": {
+          "sv": "AI reduceras till en teknisk och juridisk fråga, snarare än en pedagogisk eller kunskapsmässig.",
+          "en": "AI is reduced to a technical and legal issue rather than a pedagogical or knowledge-based one."
+        }
       }
     },
     {
-      "id": "SB",
+      "id": "SUP",
       "label": {
-        "sv": "AI som ämnesinnehåll",
-        "en": "AI as subject matter"
+        "sv": "Elevstöd & Lärande",
+        "en": "Student Support & Learning"
       },
       "description": {
-        "sv": "AI som innehåll: elev-AI-litteracitet, etik, prompts, kritisk förståelse.",
-        "en": "AI as content: student AI literacy, ethics, prompting, critical understanding."
+        "sv": "Fokus på undervisning och elevers lärande.",
+        "en": "Focus on teaching and student learning."
+      },
+      "feedback": {
+        "coreQuestion": {
+          "sv": "Hur kan AI stödja undervisning och elevers lärande?",
+          "en": "How can AI support teaching and student learning?"
+        },
+        "successCriteria": {
+          "sv": [
+            "Bättre differentiering",
+            "Stöd för inkludering",
+            "Anpassningar utifrån elevers behov",
+            "Pedagogisk innovation"
+          ],
+          "en": [
+            "Better differentiation",
+            "Support for inclusion",
+            "Adaptations based on student needs",
+            "Pedagogical innovation"
+          ]
+        },
+        "drivers": {
+          "sv": [
+            "Pedagogiska utvecklingsledare",
+            "Rektorer",
+            "Lärare med utvecklingsuppdrag"
+          ],
+          "en": [
+            "Pedagogical development leaders",
+            "Principals",
+            "Teachers with development assignments"
+          ]
+        },
+        "blindSpot": {
+          "sv": "Systemiska och organisatoriska konsekvenser kan underskattas om fokus främst ligger på klassrummet.",
+          "en": "Systemic and organizational consequences may be underestimated if focus is primarily on the classroom."
+        }
+      }
+    },
+    {
+      "id": "KNO",
+      "label": {
+        "sv": "Kunskap & Demokrati",
+        "en": "Knowledge & Democracy"
+      },
+      "description": {
+        "sv": "Fokus på omdöme, litercitet och demokratiskt deltagande.",
+        "en": "Focus on judgment, literacy, and democratic participation."
+      },
+      "feedback": {
+        "coreQuestion": {
+          "sv": "Vad innebär AI för kunskap, omdöme och demokratiskt deltagande?",
+          "en": "What does AI imply for knowledge, judgment, and democratic participation?"
+        },
+        "successCriteria": {
+          "sv": [
+            "Utvecklad AI-literacitet hos elever och personal",
+            "Kritisk förståelse av teknikens roll i samhället",
+            "Reflekterad användning av AI i lärprocesser",
+            "Stärkt professionellt omdöme"
+          ],
+          "en": [
+            "Developed AI literacy among students and staff",
+            "Critical understanding of technology's role in society",
+            "Reflected use of AI in learning processes",
+            "Strengthened professional judgment"
+          ]
+        },
+        "drivers": {
+          "sv": [
+            "Strategiskt orienterad ledning",
+            "Utvecklings- eller forskningsnära funktioner",
+            "Aktörer med starkt fokus på skolans samhällsuppdrag"
+          ],
+          "en": [
+            "Strategically oriented management",
+            "Development or research-near functions",
+            "Actors strongly focused on the school's societal mission"
+          ]
+        },
+        "blindSpot": {
+          "sv": "Svårare att operationalisera och mäta; kan uppfattas som mindre akut än effektivisering eller riskhantering.",
+          "en": "Harder to operationalize and measure; may be perceived as less urgent than efficiency or risk management."
+        }
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "EFF_01",
+      "type": "likert",
+      "orientationId": "EFF",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Vi använder primärt AI för att automatisera administration och frigöra tid.",
+        "en": "We primarily use AI to automate administration and free up time."
+      }
+    },
+    {
+      "id": "EFF_02",
+      "type": "likert",
+      "orientationId": "EFF",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Framgång med AI mäts hos oss främst genom tidsbesparingar och effektivare flöden.",
+        "en": "Success with AI is measured mainly by time savings and more efficient workflows."
+      }
+    },
+    {
+      "id": "ANA_01",
+      "type": "likert",
+      "orientationId": "ANA",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Vi använder AI-verktyg för att hitta mönster i data och genomföra systematiska kvalitetsanalyser.",
+        "en": "We use AI tools to find patterns in data and conduct systematic quality analyses."
+      }
+    },
+    {
+      "id": "ANA_02",
+      "type": "likert",
+      "orientationId": "ANA",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Beslut om insatser och resursfördelning baseras i hög grad på AI-stödda analyser.",
+        "en": "Decisions on interventions and resource allocation are largely based on AI-supported analyses."
+      }
+    },
+    {
+      "id": "TEC_01",
+      "type": "likert",
+      "orientationId": "TEC",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Vårt främsta fokus vid AI-införande är att säkerställa datasäkerhet, juridik och teknisk stabilitet.",
+        "en": "Our main focus in AI adoption is ensuring data security, legality, and technical stability."
+      }
+    },
+    {
+      "id": "TEC_02",
+      "type": "likert",
+      "orientationId": "TEC",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "AI-arbetet drivs huvudsakligen av IT-avdelningen eller genom centrala upphandlingsprocesser.",
+        "en": "AI work is driven mainly by the IT department or through central procurement processes."
+      }
+    },
+    {
+      "id": "SUP_01",
+      "type": "likert",
+      "orientationId": "SUP",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Vi prioriterar AI-verktyg som direkt stödjer anpassning och differentiering i klassrummet.",
+        "en": "We prioritize AI tools that directly support adaptation and differentiation in the classroom."
+      }
+    },
+    {
+      "id": "SUP_02",
+      "type": "likert",
+      "orientationId": "SUP",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Målet med AI är att hjälpa lärare att möta varje elevs unika behov snarare än att effektivisera administration.",
+        "en": "The goal of AI is to help teachers meet each student's unique needs rather than to streamline administration."
+      }
+    },
+    {
+      "id": "KNO_01",
+      "type": "likert",
+      "orientationId": "KNO",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Vi lägger stor vikt vid att elever och personal utvecklar kritisk förståelse för hur AI påverkar samhället.",
+        "en": "We place great emphasis on students and staff developing critical understanding of how AI affects society."
+      },
+      "feedback": {
+        "sv": "Test",
+        "en": "Test"
+      }
+    },
+    {
+      "id": "KNO_02",
+      "type": "likert",
+      "orientationId": "KNO",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "AI ses hos oss främst som ett kunskapsinnehåll och en demokratifråga.",
+        "en": "AI is seen by us primarily as subject matter and a question of democracy."
+      }
+    },
+    {
+      "id": "LOG_SEP_01",
+      "type": "likert",
+      "logicId": "SEP",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "AI-utveckling och beslut om verktyg hanteras centralt (t.ex. av IT eller en stab), separerat från den dagliga undervisningen.",
+        "en": "AI development and decisions on tools are handled centrally (e.g., by IT or admin), separated from daily teaching."
+      }
+    },
+    {
+      "id": "LOG_SEP_02",
+      "type": "likert",
+      "logicId": "SEP",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Vi har specialiserade roller som ansvarar för AI, och lärarna är främst mottagare av färdiga lösningar.",
+        "en": "We have specialized roles responsible for AI, and teachers are primarily recipients of finished solutions."
+      }
+    },
+    {
+      "id": "LOG_INT_01",
+      "type": "likert",
+      "logicId": "INT",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "AI-användning växer fram organiskt i klassrum och arbetslag, baserat på lärarnas egna initiativ.",
+        "en": "AI usage emerges organically in classrooms and teams, based on teachers' own initiatives."
+      }
+    },
+    {
+      "id": "LOG_INT_02",
+      "type": "likert",
+      "logicId": "INT",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Beslut om hur AI ska användas fattas nära eleven och undervisningen, inte centralt.",
+        "en": "Decisions on how AI should be used are made close to the student and teaching, not centrally."
+      }
+    },
+    {
+      "id": "LOG_HYB_01",
+      "type": "likert",
+      "logicId": "HYB",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Vi har gemensamma ramar och stöd för AI, men metoderna utvecklas och anpassas lokalt.",
+        "en": "We have shared frameworks and support for AI, but methods are developed and adapted locally."
+      }
+    },
+    {
+      "id": "LOG_HYB_02",
+      "type": "likert",
+      "logicId": "HYB",
+      "reverseScored": false,
+      "prompt": {
+        "sv": "Det finns tydliga bryggor (t.ex. mötesplatser eller roller) som kopplar ihop central expertis med lärarnas vardag.",
+        "en": "There are clear bridges (e.g., forums or roles) connecting central expertise with teachers' daily work."
       }
     }
   ],
@@ -87,8 +444,8 @@
         "en": "Separation"
       },
       "description": {
-        "sv": "AI organiseras i separata specialistfunktioner/enheter med standardiserade tjänster.",
-        "en": "AI is organized in separate specialist functions/units delivering standardized services."
+        "sv": "AI organiseras i separata specialistfunktioner/enheter.",
+        "en": "AI is organized in separate specialist functions/units."
       }
     },
     {
@@ -98,8 +455,8 @@
         "en": "Integration"
       },
       "description": {
-        "sv": "AI integreras i verksamheten; lokala enheter driver och anpassar i vardagen.",
-        "en": "AI is embedded in operations; local units drive and adapt it in everyday work."
+        "sv": "AI integreras i verksamheten och drivs lokalt.",
+        "en": "AI is embedded in operations and driven locally."
       }
     },
     {
@@ -109,346 +466,8 @@
         "en": "Hybrid"
       },
       "description": {
-        "sv": "Kombinerar central expertis med lokala anpassningar via bryggroller, skalning och gemensamma plattformar.",
-        "en": "Combines central expertise with local adaptation through boundary roles, scaling, and shared platforms."
-      }
-    }
-  ],
-  "items": [
-    {
-      "id": "TA_SEP_01",
-      "type": "likert",
-      "archetypeId": "TA",
-      "logicId": "SEP",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Vi har en central funktion (t.ex. IT/utveckling/AI-team) som upphandlar, testar och paketerar AI-verktyg för att minska lärarnas administrativa belastning.",
-        "en": "We have a central function (e.g., IT/development/AI team) that procures, tests, and packages AI tools to reduce teachers’ administrative workload."
-      }
-    },
-    {
-      "id": "TA_SEP_02",
-      "type": "likert",
-      "archetypeId": "TA",
-      "logicId": "SEP",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Stöd för AI i lärarvardagen (t.ex. planering, bedömning, dokumentation) levereras främst som standardiserade tjänster snarare än lokala initiativ.",
-        "en": "AI support in teachers’ daily work (e.g., planning, assessment, documentation) is delivered mainly as standardized services rather than local initiatives."
-      }
-    },
-    {
-      "id": "TA_INT_01",
-      "type": "likert",
-      "archetypeId": "TA",
-      "logicId": "INT",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Arbetslag/ämneslag initierar och anpassar AI-stöd för planering/bedömning i nära koppling till undervisningspraktiken.",
-        "en": "Teaching teams/subject teams initiate and adapt AI support for planning/assessment closely tied to classroom practice."
-      }
-    },
-    {
-      "id": "TA_INT_02",
-      "type": "likert",
-      "archetypeId": "TA",
-      "logicId": "INT",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Det finns utrymme i arbetet att pröva, justera och dela AI-rutiner som direkt förbättrar vardagsflöden (utan att behöva gå via en central enhet).",
-        "en": "There is time and space to try, refine, and share AI routines that directly improve everyday workflows (without having to go through a central unit)."
-      }
-    },
-    {
-      "id": "TA_HYB_01",
-      "type": "likert",
-      "archetypeId": "TA",
-      "logicId": "HYB",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Vi kombinerar centrala riktlinjer/verktyg med lokala anpassningar, och har tydliga ‘bryggroller’ som hjälper idéer ut i verksamheten.",
-        "en": "We combine central guidelines/tools with local adaptations, and we have clear ‘bridge roles’ that help ideas move into everyday operations."
-      }
-    },
-    {
-      "id": "TA_HYB_02",
-      "type": "likert",
-      "archetypeId": "TA",
-      "logicId": "HYB",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Lokala AI-initiativer för effektivisering kan skalas upp via gemensamma plattformar/rutiner så att de inte stannar som isolerade öar.",
-        "en": "Local AI initiatives for efficiency can be scaled via shared platforms/routines so they do not remain isolated ‘islands’."
-      }
-    },
-    {
-      "id": "PT_SEP_01",
-      "type": "likert",
-      "archetypeId": "PT",
-      "logicId": "SEP",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Personalisering med AI (t.ex. adaptiva övningar, rekommendationer) drivs främst som ett centralt program/projekt med gemensamma beslut om datakrav, verktyg och uppföljning.",
-        "en": "AI-based personalization (e.g., adaptive exercises, recommendations) is mainly run as a central program/project with shared decisions about data requirements, tools, and monitoring."
-      }
-    },
-    {
-      "id": "PT_SEP_02",
-      "type": "likert",
-      "archetypeId": "PT",
-      "logicId": "SEP",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Det finns central kompetens för att kvalitetssäkra adaptiva AI-system (t.ex. datakvalitet, riskbedömning) innan de används brett.",
-        "en": "There is central expertise to quality-assure adaptive AI systems (e.g., data quality, risk assessment) before they are widely used."
-      }
-    },
-    {
-      "id": "PT_INT_01",
-      "type": "likert",
-      "archetypeId": "PT",
-      "logicId": "INT",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Lärare/pedagoger kan konfigurera och finjustera adaptiva AI-stöd utifrån elevernas behov, och det räknas som del av den ordinarie undervisningsutvecklingen.",
-        "en": "Teachers/educators can configure and fine-tune adaptive AI supports based on students’ needs, and this is considered part of normal instructional development."
-      }
-    },
-    {
-      "id": "PT_INT_02",
-      "type": "likert",
-      "archetypeId": "PT",
-      "logicId": "INT",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Beslut om när/var personalisering är lämplig tas i första hand i undervisningsnära forum (t.ex. arbetslag), inte via centrala styrgrupper.",
-        "en": "Decisions about when/where personalization is appropriate are primarily made in practice-near forums (e.g., teaching teams), not via central steering groups."
-      }
-    },
-    {
-      "id": "PT_HYB_01",
-      "type": "likert",
-      "archetypeId": "PT",
-      "logicId": "HYB",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Vi har gemensamma principer för personalisering (t.ex. transparens, uppföljning, begränsningar) men låter skolor/arbetslag välja och pröva inom ramen.",
-        "en": "We have shared principles for personalization (e.g., transparency, monitoring, limits) while allowing schools/teams to choose and experiment within that frame."
-      }
-    },
-    {
-      "id": "PT_HYB_02",
-      "type": "likert",
-      "archetypeId": "PT",
-      "logicId": "HYB",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Det finns mekanismer som kopplar ihop experiment (lokalt) med skalning (centralt), så att lösningar både fungerar pedagogiskt och kan driftas säkert.",
-        "en": "Mechanisms connect local experimentation with central scaling so solutions both work pedagogically and can be operated safely."
-      }
-    },
-    {
-      "id": "DDL_SEP_01",
-      "type": "likert",
-      "archetypeId": "DDL",
-      "logicId": "SEP",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Analysstöd med AI för ledning (t.ex. resursfördelning, närvaro, schemaläggning) utvecklas/ägs främst av en central data-/analysenhet.",
-        "en": "AI-based analytics for leadership (e.g., resource allocation, attendance, scheduling) are developed/owned mainly by a central data/analytics unit."
-      }
-    },
-    {
-      "id": "DDL_SEP_02",
-      "type": "likert",
-      "archetypeId": "DDL",
-      "logicId": "SEP",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Vi hanterar frågor om kvalitetssäkring, juridik och etik för lednings-AI som organisationstäckande frågor (centralt) snarare än lokalt.",
-        "en": "We address quality assurance, legal, and ethical issues for leadership AI as organization-wide (central) concerns rather than local ones."
-      }
-    },
-    {
-      "id": "DDL_INT_01",
-      "type": "likert",
-      "archetypeId": "DDL",
-      "logicId": "INT",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Rektorer och lokala ledningsfunktioner använder AI-analys nära verksamheten och kan snabbt omsätta insikter i förändrade rutiner.",
-        "en": "Principals and local leadership functions use AI analytics close to operations and can quickly translate insights into changed routines."
-      }
-    },
-    {
-      "id": "DDL_INT_02",
-      "type": "likert",
-      "archetypeId": "DDL",
-      "logicId": "INT",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Dataarbete och AI-stöd är integrerat i ordinarie förbättringsarbete (t.ex. systematiskt kvalitetsarbete), inte ett separat innovationsspår.",
-        "en": "Data work and AI support are integrated into routine improvement work (e.g., quality management), not a separate innovation track."
-      }
-    },
-    {
-      "id": "DDL_HYB_01",
-      "type": "likert",
-      "archetypeId": "DDL",
-      "logicId": "HYB",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Vi kombinerar centrala datastandarder och verktyg med lokala analysfrågor – och har tydliga gränsroller som översätter mellan verksamhetsbehov och tekniska lösningar.",
-        "en": "We combine central data standards/tools with local analytics questions, and we have clear boundary roles that translate between operational needs and technical solutions."
-      }
-    },
-    {
-      "id": "DDL_HYB_02",
-      "type": "likert",
-      "archetypeId": "DDL",
-      "logicId": "HYB",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Det finns en tydlig väg från pilot (lokal) till förvaltning/drift (centralt), inklusive integration i IT-landskapet.",
-        "en": "There is a clear path from local pilots to central operation/maintenance, including integration into the IT landscape."
-      }
-    },
-    {
-      "id": "SB_SEP_01",
-      "type": "likert",
-      "archetypeId": "SB",
-      "logicId": "SEP",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "AI-litteracitet för elever (t.ex. förståelse, etik, ‘prompting’) drivs som ett centralt initierat program med gemensamt material och progression.",
-        "en": "Student AI literacy (e.g., understanding, ethics, prompting) is driven as a centrally initiated program with shared materials and progression."
-      }
-    },
-    {
-      "id": "SB_SEP_02",
-      "type": "likert",
-      "archetypeId": "SB",
-      "logicId": "SEP",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Det finns centralt framtagna riktlinjer och resurser för hur AI ska användas i undervisning och bedömning, med tydliga ramar.",
-        "en": "There are centrally developed guidelines and resources for how AI should be used in teaching and assessment, with clear boundaries."
-      }
-    },
-    {
-      "id": "SB_INT_01",
-      "type": "likert",
-      "archetypeId": "SB",
-      "logicId": "INT",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "AI-litteracitet byggs in i ämnesundervisningen av lärare som en del av ordinarie didaktiskt arbete (snarare än som ett separat projekt).",
-        "en": "AI literacy is embedded into subject teaching by teachers as part of regular didactic work (rather than as a separate project)."
-      }
-    },
-    {
-      "id": "SB_INT_02",
-      "type": "likert",
-      "archetypeId": "SB",
-      "logicId": "INT",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Lärare har mandat och stöd att pröva undervisningsupplägg om AI (inkl. etik och källkritik) och dela fungerande praktiker kollegialt.",
-        "en": "Teachers have mandate and support to try AI-related teaching designs (including ethics and source critique) and share effective practices with colleagues."
-      }
-    },
-    {
-      "id": "SB_HYB_01",
-      "type": "likert",
-      "archetypeId": "SB",
-      "logicId": "HYB",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Vi har gemensamma mål för AI-litteracitet men möjliggör lokala variationer (ämnen/årskurser), med strukturer som gör att goda upplägg kan spridas och anpassas.",
-        "en": "We have shared goals for AI literacy while enabling local variation (subjects/grades), with structures that help good designs spread and be adapted."
-      }
-    },
-    {
-      "id": "SB_HYB_02",
-      "type": "likert",
-      "archetypeId": "SB",
-      "logicId": "HYB",
-      "reverseScored": false,
-      "prompt": {
-        "sv": "Det finns både central kompetens (policy/etik/juridik) och lokala praktiknätverk, och de kopplas ihop så att undervisningsinnovation inte blir vare sig silo eller spretig.",
-        "en": "We have both central competence (policy/ethics/legal) and local practice networks, and they are connected so instructional innovation becomes neither siloed nor fragmented."
-      }
-    },
-    {
-      "id": "X_DIAG_SILO",
-      "type": "likert",
-      "archetypeId": "X",
-      "logicId": "X",
-      "reverseScored": true,
-      "diagnosticTag": "silo_risk",
-      "prompt": {
-        "sv": "AI-initiativ riskerar att bli isolerade ‘silos’ som verksamheten inte förstår eller tar i bruk.",
-        "en": "AI initiatives risk becoming isolated ‘silos’ that everyday operations do not understand or adopt."
-      }
-    },
-    {
-      "id": "X_DIAG_FRAGMENT",
-      "type": "likert",
-      "archetypeId": "X",
-      "logicId": "X",
-      "reverseScored": true,
-      "diagnosticTag": "fragmentation_risk",
-      "prompt": {
-        "sv": "AI-initiativ riskerar att bli spretiga och svåra att koordinera mellan skolor/enheter.",
-        "en": "AI initiatives risk becoming fragmented and hard to coordinate across schools/units."
-      }
-    },
-    {
-      "id": "X_GOV_DATA_READINESS",
-      "type": "likert",
-      "archetypeId": "X",
-      "logicId": "X",
-      "reverseScored": false,
-      "diagnosticTag": "data_readiness",
-      "prompt": {
-        "sv": "Vi har tydliga rutiner för att bedöma om data finns och är användbara innan vi startar AI-experiment.",
-        "en": "We have clear routines to assess whether data exist and are usable before starting AI experiments."
-      }
-    },
-    {
-      "id": "X_GOV_BOUNDARY_ROLES",
-      "type": "likert",
-      "archetypeId": "X",
-      "logicId": "X",
-      "reverseScored": false,
-      "diagnosticTag": "boundary_spanning",
-      "prompt": {
-        "sv": "Vi har personer/roller som aktivt ‘översätter’ mellan teknik, strategi och praktik så att AI-lösningar faktiskt kommer ut i verksamheten.",
-        "en": "We have people/roles who actively ‘translate’ between technology, strategy, and practice so AI solutions actually reach everyday operations."
-      }
-    },
-    {
-      "id": "X_GOV_IT_INTEGRATION",
-      "type": "likert",
-      "archetypeId": "X",
-      "logicId": "X",
-      "reverseScored": false,
-      "diagnosticTag": "it_integration",
-      "prompt": {
-        "sv": "Integration i befintliga system och IT-arkitektur är tydligt löst (inte ad hoc), så att AI-lösningar kan driftsättas och skalas.",
-        "en": "Integration into existing systems and IT architecture is clearly addressed (not ad hoc), so AI solutions can be deployed and scaled."
-      }
-    },
-    {
-      "id": "X_GOV_PARTNERSHIPS",
-      "type": "likert",
-      "archetypeId": "X",
-      "logicId": "X",
-      "reverseScored": false,
-      "diagnosticTag": "partnerships",
-      "prompt": {
-        "sv": "Vi använder partnerskap (t.ex. med akademi/leverantörer/andra huvudmän) eller matrisstrukturer för att kombinera expertis och verksamhetsnytta.",
-        "en": "We use partnerships (e.g., with academia/vendors/other authorities) or matrix structures to combine expertise with operational value."
+        "sv": "Kombinerar central expertis med lokala anpassningar.",
+        "en": "Combines central expertise with local adaptation."
       }
     }
   ]

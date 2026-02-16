@@ -348,6 +348,10 @@
       "sv": "Dina resultat",
       "en": "Your results"
     },
+    "resultsIntro": {
+      "sv": "Här är er organisations profil baserat på svaren. Blått fält visar utfallet av frågorna, medan den orangea streckade linjen visar er angivna prioritering.",
+      "en": "Here is your organization's profile based on the answers. The blue area shows the survey outcome, while the orange dashed line shows your indicated priority."
+    },
     "heatmapTitle": {
       "sv": "Archetyp × logik",
       "en": "Archetype × logic"

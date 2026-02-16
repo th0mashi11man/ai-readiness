@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useEffect } from "react";
 
-export default function RadarChart({ labels, values, maxValue, hideValues = false }) {
+export default function RadarChart({ labels, values, overlayValues, maxValue, hideValues = false }) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -26,8 +26,6 @@ export default function RadarChart({ labels, values, maxValue, hideValues = fals
         const n = labels.length;
         const angleStep = (2 * Math.PI) / n;
         const startAngle = -Math.PI / 2;
-
-
 
         // Grid rings
         const rings = [0.25, 0.5, 0.75, 1.0];
@@ -55,7 +53,41 @@ export default function RadarChart({ labels, values, maxValue, hideValues = fals
             ctx.stroke();
         }
 
-        // Data polygon
+        // Draw Overlay (Priorities) first - Dashed Orange
+        if (overlayValues && overlayValues.length === n) {
+            ctx.beginPath();
+            for (let i = 0; i < n; i++) {
+                const angle = startAngle + i * angleStep;
+                const frac = (overlayValues[i] || 0) / maxValue;
+                const x = cx + R * frac * Math.cos(angle);
+                const y = cy + R * frac * Math.sin(angle);
+                i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.save();
+            ctx.strokeStyle = "#ed8936"; // Orange
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            ctx.stroke();
+
+            ctx.fillStyle = "rgba(237, 137, 54, 0.1)";
+            ctx.fill();
+            ctx.restore();
+
+            // Overlay Points
+            for (let i = 0; i < n; i++) {
+                const angle = startAngle + i * angleStep;
+                const frac = (overlayValues[i] || 0) / maxValue;
+                const x = cx + R * frac * Math.cos(angle);
+                const y = cy + R * frac * Math.sin(angle);
+                ctx.beginPath();
+                ctx.arc(x, y, 4, 0, 2 * Math.PI);
+                ctx.fillStyle = "#ed8936";
+                ctx.fill();
+            }
+        }
+
+        // Data polygon (Main Results)
         const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
         gradient.addColorStop(0, "rgba(44, 82, 130, 0.30)");
         gradient.addColorStop(1, "rgba(44, 82, 130, 0.08)");
@@ -129,14 +161,14 @@ export default function RadarChart({ labels, values, maxValue, hideValues = fals
                 ctx.fillText(`${values[i]}/${maxValue}`, x, y - 14);
             }
         }
-    }, [labels, values, maxValue, hideValues]);
+    }, [labels, values, overlayValues, maxValue, hideValues]);
 
     return (
         <canvas
             ref={canvasRef}
             className="radar-canvas"
             role="img"
-            aria-label="Radar chart showing domain scores"
+            aria-label="Radar chart showing organization profile"
         />
     );
 }

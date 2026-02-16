@@ -25,6 +25,15 @@ function OrganizationContent() {
     const [bank, setBank] = useState(null);
     const [phase, setPhase] = useState(searchParams.get("phase") || "intro");
 
+    // Check for stored priorities
+    useEffect(() => {
+        const stored = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("org_priorities") || "{}") : {};
+        if (Object.keys(stored).length > 0 && phase === "intro") {
+            // Optional: could skip priority step if already done? 
+            // For now, simpler to always let them review/start fresh or relying on flow.
+        }
+    }, []);
+
     useEffect(() => {
         fetch("/org_itembank.json")
             .then((r) => r.json())
@@ -33,10 +42,25 @@ function OrganizationContent() {
 
     if (!bank) return <div className="loading">{t("common.loading")}</div>;
 
+    const handlePriorityComplete = (priorities) => {
+        if (typeof window !== "undefined") {
+            localStorage.setItem("org_priorities", JSON.stringify(priorities));
+        }
+        setPhase("survey");
+    };
+
     return (
         <>
             {phase === "intro" && (
-                <IntroScreen bank={bank} t={t} onStart={() => setPhase("survey")} />
+                <IntroScreen bank={bank} t={t} onStart={() => setPhase("priority")} />
+            )}
+            {phase === "priority" && (
+                <PriorityStep
+                    bank={bank}
+                    t={t}
+                    locale={locale}
+                    onComplete={handlePriorityComplete}
+                />
             )}
             {phase === "survey" && (
                 <SurveyFlow
@@ -64,8 +88,70 @@ function IntroScreen({ bank, t, onStart }) {
             <div className="card">
                 <h1>{t("organization.title")}</h1>
                 <p>{t("organization.description")}</p>
-                <button className="btn btn-primary" onClick={onStart}>
+                <div style={{ marginTop: "1.5rem", padding: "1rem", background: "var(--surface-color)", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
+                    <strong>Nyhet:</strong> Nu ingår även en prioriteringsövning där ni först anger hur viktiga de olika områdena är för er organisation, så att ni kan jämföra idealbild med nuläge.
+                </div>
+                <button className="btn btn-primary" onClick={onStart} style={{ marginTop: "2rem" }}>
                     {t("organization.startButton")}
+                </button>
+            </div>
+        </section>
+    );
+}
+
+function PriorityStep({ bank, t, locale, onComplete }) {
+    const [priorities, setPriorities] = useState({});
+
+    // Initialize with 3 (middle) if not set
+    useEffect(() => {
+        const initial = {};
+        bank.orientations.forEach(o => initial[o.id] = 3);
+        setPriorities(initial);
+    }, [bank]);
+
+    const handleChange = (id, val) => {
+        setPriorities(prev => ({ ...prev, [id]: parseInt(val) }));
+    };
+
+    return (
+        <section className="page fade-in">
+            <div className="card">
+                <h1 style={{ marginBottom: "0.5rem" }}>Prioritering</h1>
+                <p className="lead" style={{ marginBottom: "2rem" }}>
+                    Hur viktig är respektive orientering för er organisation *just nu*? (1 = Inte viktig, 5 = Mycket viktig)
+                </p>
+
+                <div className="priority-list" style={{ display: "grid", gap: "1.5rem", marginBottom: "2rem" }}>
+                    {bank.orientations.map(orient => (
+                        <div key={orient.id} style={{ padding: "1rem", border: "1px solid var(--border-color)", borderRadius: "8px" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                                <h3 style={{ margin: 0 }}>{orient.label[locale]}</h3>
+                                <div style={{ fontWeight: "bold", fontSize: "1.2rem", color: "var(--primary-color)" }}>
+                                    {priorities[orient.id]} / 5
+                                </div>
+                            </div>
+                            <p style={{ margin: "0 0 1rem 0", fontSize: "0.9rem", color: "var(--muted-foreground)" }}>
+                                {orient.description[locale]}
+                            </p>
+                            <input
+                                type="range"
+                                min="1"
+                                max="5"
+                                step="1"
+                                value={priorities[orient.id] || 3}
+                                onChange={(e) => handleChange(orient.id, e.target.value)}
+                                style={{ width: "100%", accentColor: "var(--primary-color)" }}
+                            />
+                            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--muted-foreground)", marginTop: "0.2rem" }}>
+                                <span>Inte viktig</span>
+                                <span>Mycket viktig</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <button className="btn btn-primary" onClick={() => onComplete(priorities)}>
+                    Gå vidare till frågorna
                 </button>
             </div>
         </section>
@@ -187,12 +273,18 @@ function SurveyFlow({ bank, onComplete, t, locale }) {
     );
 }
 
+
 function OrgResults({ bank, t, locale, onRestart }) {
     const stored =
         typeof window !== "undefined"
             ? JSON.parse(localStorage.getItem("organization_state") || "{}")
             : {};
     const responses = stored.answers || {};
+
+    const storedPriorities =
+        typeof window !== "undefined"
+            ? JSON.parse(localStorage.getItem("org_priorities") || "{}")
+            : {};
 
     const [narratives, setNarratives] = useState(null);
 
@@ -204,28 +296,23 @@ function OrgResults({ bank, t, locale, onRestart }) {
     }, []);
 
     const results = scoreOrganization(bank.items, responses);
-    const archetypeLabels = results.ARCHETYPE_IDS.map(
-        (id) => t(bank.archetypes.find((a) => a.id === id)?.label)
-    );
-    const logicLabels = results.LOGIC_IDS.map(
-        (id) => t(bank.logics.find((l) => l.id === id)?.label)
-    );
 
-    const narrative = narratives ? generateNarrative(
-        results,
-        t,
-        archetypeLabels,
-        logicLabels,
-        narratives,
-        locale
-    ) : { logicItems: [], archetypeIntro: "", archetypeItems: [] };
+    // Generate labels and values for Radar Chart
+    const labels = results.ORIENTATION_IDS.map(id => {
+        const o = bank.orientations.find(opt => opt.id === id);
+        return o?.label?.[locale] || id;
+    });
 
-    const archetypeValues = results.ARCHETYPE_IDS.map(
-        (id) => Math.round(results.archetypeMarginals[id])
-    );
-    const logicValues = results.LOGIC_IDS.map(
-        (id) => Math.round(results.logicMarginals[id])
-    );
+    const values = results.ORIENTATION_IDS.map(id => Math.round(results.scores[id]));
+
+    // Convert 1-5 priority to 0-100 for comparison overlay
+    const priorityValues = results.ORIENTATION_IDS.map(id => {
+        const raw = storedPriorities[id] || 0;
+        return ((raw - 1) / 4) * 100; // Normalize 1-5 to 0-100 same as scoring
+    });
+
+    // Generate narrative (feedback) for the top result + logic
+    const narrative = narratives ? generateNarrative(results, t, bank.orientations, narratives, locale) : { narrativeItems: [], logicItem: null };
 
     return (
         <section className="page page-results fade-in">
@@ -233,59 +320,135 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 <PrintHeader title={t("organization.resultsTitle")} />
                 <h1>{t("organization.resultsTitle")}</h1>
 
-                {/* Archetype Profile */}
-                <h2>{t("organization.archetypeTotalsTitle")}</h2>
-                {/* Archetype Visualization - Made Bigger */}
-                <div className="radar-container org-radar" style={{ height: '500px', margin: '0 auto 2rem', maxWidth: '1000px', width: '100%' }}>
-                    <RadarChart labels={archetypeLabels} values={archetypeValues} maxValue={100} hideValues={true} />
+                {/* Radar Chart */}
+                <div style={{ margin: "0 auto 3rem", maxWidth: "800px" }}>
+                    <p className="lead" style={{ marginBottom: "2rem", textAlign: "center" }}>
+                        {t("organization.resultsIntro", "Här är er organisations profil baserat på svaren. Blått fält visar utfallet av frågorna, medan den orangea streckade linjen visar er angivna prioritering.")}
+                    </p>
+                    <div className="radar-container org-radar" style={{ height: '400px', width: '100%' }}>
+                        <RadarChart
+                            labels={labels}
+                            values={values}
+                            overlayValues={priorityValues}
+                            maxValue={100}
+                        />
+                    </div>
+                    <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", fontSize: "0.9rem", color: "var(--muted-foreground)" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                            <span style={{ width: 12, height: 12, backgroundColor: "rgba(44, 82, 130, 0.4)", borderRadius: "2px" }}></span>
+                            <span>Resultat (Nuläge)</span>
+                        </div>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                            <span style={{ width: 12, height: 12, border: "2px dashed #ed8936", borderRadius: "2px" }}></span>
+                            <span>Prioritering (Önskat läge)</span>
+                        </div>
+                    </div>
                 </div>
-                {narrative.archetypeItems && narrative.archetypeItems.length > 0 && (
-                    <ul className="archetype-bullets">
-                        {narrative.archetypeItems.map(item => (
-                            <li key={item.id} className="archetype-bullet">
-                                <strong>{item.label}</strong>{item.text ? ` — ${item.text}` : ''}
-                            </li>
-                        ))}
-                    </ul>
-                )}
 
-                {/* Logic Profile */}
-                <h2>{t("organization.logicSpectrumTitle")}</h2>
-                <LogicSpectrum
-                    scores={results.logicMarginals}
-                    score={results.integrationScore}
-                    labels={{
-                        SEP: t(bank.logics.find(l => l.id === "SEP")?.label),
-                        HYB: t(bank.logics.find(l => l.id === "HYB")?.label),
-                        INT: t(bank.logics.find(l => l.id === "INT")?.label),
-                    }}
-                    t={t}
-                />
+                {/* Narrative / Feedback using Accardeon or Cards */}
+                <div className="results-narrative">
+                    <h2>Framträdande orienteringar</h2>
+                    {narrative.narrativeItems.map(item => (
+                        <div key={item.id} className="narrative-block" style={{
+                            background: "var(--surface-color)",
+                            padding: "2rem",
+                            borderRadius: "var(--radius-lg)",
+                            border: "1px solid var(--border-color)",
+                            marginBottom: "2rem"
+                        }}>
+                            <h2 style={{ marginTop: 0, color: "var(--primary-color)" }}>
+                                {item.label}
+                            </h2>
+                            <p className="large-text">{item.description}</p>
 
-                {/* Logic Narrative - Bullet Points */}
-                {narrative.logicItems && narrative.logicItems.length > 0 && (
-                    <ul className="archetype-bullets">
-                        {narrative.logicItems.map(item => (
-                            <li key={item.id} className="archetype-bullet">
-                                {item.label && <strong>{item.label}</strong>}
-                                {item.label && item.text ? " — " : ""}
-                                {item.text}
-                            </li>
-                        ))}
-                        {narrative.riskText && (
-                            <li className="archetype-bullet">
-                                {narrative.riskText}
-                            </li>
-                        )}
-                        {narrative.diagText && (
-                            <li className="archetype-bullet">
-                                {narrative.diagText}
-                            </li>
-                        )}
-                    </ul>
-                )}
+                            <hr style={{ margin: "1.5rem 0", borderColor: "var(--border-color)" }} />
 
-                <div className="results-actions">
+                            <div className="feedback-grid" style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }}>
+
+                                <div>
+                                    <h3 style={{ fontSize: "1rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--muted-foreground)" }}>
+                                        Kärnfråga
+                                    </h3>
+                                    <p style={{ fontStyle: "italic", fontSize: "1.1rem" }}>
+                                        "{item.details.coreQuestion?.[locale]}"
+                                    </p>
+                                </div>
+
+                                <div className="grid-cols-2" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "2rem" }}>
+                                    <div>
+                                        <h3 style={{ fontSize: "1rem", color: "var(--success-color, green)" }}>
+                                            Vad räknas som framgång
+                                        </h3>
+                                        <ul style={{ paddingLeft: "1.2rem", margin: "0.5rem 0" }}>
+                                            {item.details.successCriteria?.[locale]?.map((sc, i) => (
+                                                <li key={i}>{sc}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h3 style={{ fontSize: "1rem", color: "var(--foreground)" }}>
+                                            Typiska drivkrafter
+                                        </h3>
+                                        <ul style={{ paddingLeft: "1.2rem", margin: "0.5rem 0" }}>
+                                            {item.details.drivers?.[locale]?.map((d, i) => (
+                                                <li key={i}>{d}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div style={{ background: "#fff0f0", padding: "1rem", borderRadius: "8px", border: "1px solid #ffcccc" }}>
+                                    <h3 style={{ fontSize: "1rem", color: "#cc0000", marginTop: 0 }}>
+                                        ⚠️ Möjlig blind fläck
+                                    </h3>
+                                    <p style={{ margin: 0 }}>
+                                        {item.details.blindSpot?.[locale]}
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Logic Spectrum / Narrative */}
+                <div style={{ marginTop: "4rem" }}>
+                    <h2>{t("organization.logicSpectrumTitle")}</h2>
+                    <p className="lead">
+                        Utöver orientering mäter vi även hur ni organiserar implementeringen – från central styrning (separation) till lokal anpassning (integration).
+                    </p>
+
+                    <LogicSpectrum
+                        scores={results.logicScores}
+                        score={results.integrationScore}
+                        labels={{
+                            SEP: t(bank.logics.find(l => l.id === "SEP")?.label),
+                            HYB: t(bank.logics.find(l => l.id === "HYB")?.label),
+                            INT: t(bank.logics.find(l => l.id === "INT")?.label),
+                        }}
+                        t={t}
+                    />
+
+                    {narrative.logicItem && (
+                        <div style={{
+                            marginTop: "2rem",
+                            padding: "1.5rem",
+                            background: "var(--surface-color)",
+                            borderLeft: "4px solid var(--primary-color)",
+                            borderRadius: "4px"
+                        }}>
+                            <p style={{ fontStyle: "italic", fontSize: "1.1rem", margin: 0 }}>
+                                "{narrative.logicItem.text}"
+                            </p>
+                        </div>
+                    )}
+                </div>
+
+                <div className="results-actions" style={{ marginTop: "3rem" }}>
+                    <button className="btn btn-text" onClick={onRestart}>
+                        {t("common.restart")}
+                    </button>
                     <button className="btn btn-primary" onClick={() => window.print()}>
                         {t("common.exportPdf")}
                     </button>
@@ -294,3 +457,4 @@ function OrgResults({ bank, t, locale, onRestart }) {
         </section>
     );
 }
+
