@@ -300,6 +300,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
     const results = scoreOrganization(bank.items, responses);
 
     // Generate labels and values for Radar Chart
+    // (Ensure fresh build)
     const labels = results.ORIENTATION_IDS.map(id => {
         const o = bank.orientations.find(opt => opt.id === id);
         return o?.label?.[locale] || id;
