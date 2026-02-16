@@ -91,8 +91,87 @@ function IntroScreen({ bank, t, onStart }) {
                 <button className="btn btn-primary" onClick={onStart} style={{ marginTop: "2rem" }}>
                     {t("organization.startButton")}
                 </button>
+
+                {/* Dev Only: Test Scenarios */}
+                <div style={{ marginTop: "3rem", borderTop: "1px solid var(--border-color)", paddingTop: "1rem" }}>
+                    <TestScenarios bank={bank} t={t} />
+                </div>
             </div>
         </section>
+    );
+}
+
+function TestScenarios({ bank, t }) {
+    const applyScenario = (type) => {
+        let answers = {};
+        let priorities = {};
+
+        bank.items.forEach(item => {
+            // Default middle
+            answers[item.id] = 3;
+        });
+
+        bank.orientations.forEach(o => {
+            priorities[o.id] = 3;
+        });
+
+        if (type === 'efficiency') {
+            // Separation Logic (Low score on logic items)
+            // Efficiency High
+            bank.items.forEach(item => {
+                if (item.orientation === 'EFF') answers[item.id] = 5;
+                if (item.orientation === 'KNO') answers[item.id] = 2; // Low knowledge
+                // Logic items... mostly 1 or 2 for separation
+                if (item.id.includes('_L')) answers[item.id] = 1;
+            });
+            priorities['EFF'] = 5;
+        } else if (type === 'balanced') {
+            // Hybrid Logic (Mid score)
+            // Balanced profile
+            bank.items.forEach(item => {
+                answers[item.id] = 4;
+                if (item.id.includes('_L')) answers[item.id] = 3;
+            });
+        } else if (type === 'knowledge') {
+            // Integration Logic (High score)
+            // Knowledge High
+            bank.items.forEach(item => {
+                if (item.orientation === 'KNO') answers[item.id] = 5;
+                if (item.orientation === 'SUP') answers[item.id] = 4;
+                // Logic items... mostly 4 or 5 for integration
+                if (item.id.includes('_L')) answers[item.id] = 5;
+            });
+            priorities['KNO'] = 5;
+        }
+
+        if (typeof window !== "undefined") {
+            localStorage.setItem("organization_state", JSON.stringify({
+                answers,
+                itemOrder: bank.items.map(i => i.id),
+                currentIndex: bank.items.length - 1 // Finished
+            }));
+            localStorage.setItem("org_priorities", JSON.stringify(priorities));
+
+            // Force reload to results
+            window.location.href = "/organization?phase=results";
+        }
+    };
+
+    return (
+        <div style={{ fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
+            <p style={{ marginBottom: "0.5rem", fontWeight: "bold" }}>{t("testScenarios.title")}</p>
+            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                <button className="btn btn-sm btn-outline" onClick={() => applyScenario('efficiency')}>
+                    {t("testScenarios.efficiency")}
+                </button>
+                <button className="btn btn-sm btn-outline" onClick={() => applyScenario('balanced')}>
+                    {t("testScenarios.balanced")}
+                </button>
+                <button className="btn btn-sm btn-outline" onClick={() => applyScenario('knowledge')}>
+                    {t("testScenarios.knowledge")}
+                </button>
+            </div>
+        </div>
     );
 }
 
@@ -113,9 +192,9 @@ function PriorityStep({ bank, t, locale, onComplete }) {
     return (
         <section className="page fade-in">
             <div className="card">
-                <h1 style={{ marginBottom: "0.5rem" }}>Prioritering</h1>
+                <h1 style={{ marginBottom: "0.5rem" }}>{t("prioritiesTitle")}</h1>
                 <p className="lead" style={{ marginBottom: "2rem" }}>
-                    Hur viktig är respektive orientering för er organisation? (1 = Inte viktig, 5 = Mycket viktig)
+                    {t("prioritiesDescription")}
                 </p>
 
                 <div className="priority-list" style={{ display: "grid", gap: "1.5rem", marginBottom: "2rem" }}>
@@ -140,15 +219,15 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                                 style={{ width: "100%", accentColor: "var(--primary-color)" }}
                             />
                             <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--muted-foreground)", marginTop: "0.2rem" }}>
-                                <span>Inte viktig</span>
-                                <span>Mycket viktig</span>
+                                <span>{t("notImportant")}</span>
+                                <span>{t("veryImportant")}</span>
                             </div>
                         </div>
                     ))}
                 </div>
 
                 <button className="btn btn-primary" onClick={() => onComplete(priorities)}>
-                    Gå vidare till frågorna
+                    {t("proceedToQuestions")}
                 </button>
             </div>
         </section>

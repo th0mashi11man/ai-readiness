@@ -344,6 +344,44 @@
       "sv": "Välj ett alternativ för att fortsätta.",
       "en": "Choose an option to continue."
     },
+    "prioritiesTitle": {
+      "sv": "Prioritering",
+      "en": "Prioritization"
+    },
+    "prioritiesDescription": {
+      "sv": "Hur viktig är respektive orientering för er organisation? (1 = Inte viktig, 5 = Mycket viktig)",
+      "en": "How important is each orientation for your organization? (1 = Not important, 5 = Very important)"
+    },
+    "notImportant": {
+      "sv": "Inte viktig",
+      "en": "Not important"
+    },
+    "veryImportant": {
+      "sv": "Mycket viktig",
+      "en": "Very important"
+    },
+    "proceedToQuestions": {
+      "sv": "Gå vidare till frågorna",
+      "en": "Proceed to questions"
+    },
+    "testScenarios": {
+      "title": {
+        "sv": "Testscenarier (Endast utveckling)",
+        "en": "Test Scenarios (Dev Only)"
+      },
+      "efficiency": {
+        "sv": "Effektivisering (Blå)",
+        "en": "Efficiency (Blue)"
+      },
+      "balanced": {
+        "sv": "Balanserad (Hybrid)",
+        "en": "Balanced (Hybrid)"
+      },
+      "knowledge": {
+        "sv": "Kunskap (Grön)",
+        "en": "Knowledge (Green)"
+      }
+    },
     "resultsTitle": {
       "sv": "Dina resultat",
       "en": "Your results"
