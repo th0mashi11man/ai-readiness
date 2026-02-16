@@ -9,17 +9,27 @@ export default function AboutPage() {
         <section className="page page-about fade-in">
             <div className="card">
                 <h1>{t("about.title")}</h1>
-                <p className="about-body">{t("about.body")}</p>
-                <h2>{t("about.referencesTitle")}</h2>
-                <ul className="references-list">
-                    {refs.map((ref, i) => (
-                        <li key={i} className="ref-item">
-                            <a href={ref.url} target="_blank" rel="noopener noreferrer">
-                                {t(ref.label)}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                <p className="about-body">
+                    {t("about.bodyPrefix")}
+                    <a href={uiStrings.about?.bodyLinkUrl} target="_blank" rel="noopener noreferrer">
+                        {t("about.bodyLinkText")}
+                    </a>
+                    {t("about.bodySuffix")}
+                </p>
+                {refs.length > 0 && (
+                    <>
+                        <h2>{t("about.referencesTitle")}</h2>
+                        <ul className="references-list">
+                            {refs.map((ref, i) => (
+                                <li key={i} className="ref-item">
+                                    <a href={ref.url} target="_blank" rel="noopener noreferrer">
+                                        {t(ref.label)}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </>
+                )}
             </div>
         </section>
     );

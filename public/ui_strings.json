@@ -526,30 +526,24 @@
       "sv": "Om verktyget",
       "en": "About the tool"
     },
-    "body": {
-      "sv": "Den individuella modulen är baserad på AICOS (Objective AI Literacy/Competency Scale). Organisationsmodulen använder profilering som kombinerar arketyper för AI-användning i skolor med organisatorisk implementeringslogik.",
-      "en": "The individual module is based on AICOS (Objective AI Literacy/Competency Scale). The organizational module uses profiling that combines archetypes of AI use in schools with organizational adoption logics."
+    "bodyPrefix": {
+      "sv": "Detta verktyg utvecklades av CREDtech i samarbete med Göteborgsregionen. Den individuella modulen utvecklades baserat på AICOS-skalan av ",
+      "en": "This tool was developed by CREDtech in collaboration with Göteborgs Regionen. The individual module was developed based on the AICOS scale by "
+    },
+    "bodyLinkText": {
+      "sv": "Markus, Carolus och Wienrich (2025)",
+      "en": "Markus, Carolus and Wienrich (2025)"
+    },
+    "bodyLinkUrl": "https://doi.org/10.1016/j.caeai.2025.100485",
+    "bodySuffix": {
+      "sv": ". Organisationsmodulen utvecklades baserat på analys av skolorganisationers prioriteringar och orienteringar som genomförts som en del av samarbetet mellan CREDtech och Göteborgsregionen.",
+      "en": ". The organizational module was developed based on analysis of school organisation priorities and orientations conducted as part of the collaboration between CREDtech and Göteborgs Regionen."
     },
     "referencesTitle": {
       "sv": "Referenser",
       "en": "References"
     },
-    "references": [
-      {
-        "label": {
-          "sv": "Markus, Carolus & Wienrich (2025). Objective measurement of AI literacy: Development and validation of the AI competency objective scale (AICOS).",
-          "en": "Markus, Carolus & Wienrich (2025). Objective measurement of AI literacy: Development and validation of the AI competency objective scale (AICOS)."
-        },
-        "url": "https://doi.org/10.1016/j.caeai.2025.100485"
-      },
-      {
-        "label": {
-          "sv": "Selten & Klievink (2024). Organizing public sector AI adoption: Navigating between separation and integration.",
-          "en": "Selten & Klievink (2024). Organizing public sector AI adoption: Navigating between separation and integration."
-        },
-        "url": "https://doi.org/10.1016/j.giq.2023.101885"
-      }
-    ]
+    "references": []
   },
   "errors": {
     "missingBankFile": {
