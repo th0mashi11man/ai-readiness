@@ -88,9 +88,7 @@ function IntroScreen({ bank, t, onStart }) {
             <div className="card">
                 <h1>{t("organization.title")}</h1>
                 <p>{t("organization.description")}</p>
-                <div style={{ marginTop: "1.5rem", padding: "1rem", background: "var(--surface-color)", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
-                    <strong>Nyhet:</strong> Nu ingår även en prioriteringsövning där ni först anger hur viktiga de olika områdena är för er organisation, så att ni kan jämföra idealbild med nuläge.
-                </div>
+
                 <button className="btn btn-primary" onClick={onStart} style={{ marginTop: "2rem" }}>
                     {t("organization.startButton")}
                 </button>
