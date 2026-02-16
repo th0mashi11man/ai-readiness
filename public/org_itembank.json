@@ -4,7 +4,7 @@
       "id": "EFF",
       "label": {
         "sv": "Effektivisering",
-        "en": "Efficiency"
+        "en": "Efficiency / Automation Orientation"
       },
       "description": {
         "sv": "Användning för att automatisera och effektivisera administrativa processer.",
@@ -45,7 +45,7 @@
       "id": "ANA",
       "label": {
         "sv": "Analys",
-        "en": "Analysis"
+        "en": "Analysis / Quality Orientation"
       },
       "description": {
         "sv": "Användning för att analysera data och underlätta beslutsfattande.",
@@ -86,7 +86,7 @@
       "id": "TEC",
       "label": {
         "sv": "Teknik",
-        "en": "Technical"
+        "en": "Technology / Procurement Orientation"
       },
       "description": {
         "sv": "Fokus på infrastruktur, säkerhet och teknisk kapacitet.",
@@ -127,7 +127,7 @@
       "id": "SUP",
       "label": {
         "sv": "Elevstöd",
-        "en": "Support"
+        "en": "Student Support / Learning Orientation"
       },
       "description": {
         "sv": "Användning för att stödja elevers lärande och anpassa undervisningen.",
@@ -168,7 +168,7 @@
       "id": "KNO",
       "label": {
         "sv": "Kunskap",
-        "en": "Knowledge"
+        "en": "Knowledge / Democracy Orientation"
       },
       "description": {
         "sv": "Fokus på att utveckla organisationens och individernas kompetens om AI.",
