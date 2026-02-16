@@ -8,21 +8,32 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
         const canvas = canvasRef.current;
         if (!canvas) return;
 
+        // High DPI support
+        const dpr = window.devicePixelRatio || 1;
+        // Use container dimensions if possible, but for canvas drawing we need explicit size.
+        // We'll assume a coordinate space of 800x500 for drawing logic, scaled by DPR.
+        const W = 800;
+        const H = 550;
+
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+
+        // CSS size (responsiveness handled by CSS "width: 100%")
+        canvas.style.width = "100%";
+        canvas.style.height = "auto";
+        canvas.style.aspectRatio = `${W}/${H}`;
+
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        // High DPI support
-        const dpr = window.devicePixelRatio || 1;
-        const rect = canvas.getBoundingClientRect();
-        canvas.width = rect.width * dpr;
-        canvas.height = rect.height * dpr;
         ctx.scale(dpr, dpr);
 
-        const w = rect.width;
-        const h = rect.height;
+        const w = W;
+        const h = H;
         const cx = w / 2;
         const cy = h / 2;
-        const R = Math.min(w, h) / 2 - 40; // Reduced margin slightly
+        // Radius: fit within the canvas with padding for labels
+        const R = Math.min(w, h) / 2 - 60;
 
         if (!labels || labels.length === 0) return;
 
@@ -68,11 +79,25 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
             ctx.lineWidth = 2;
             ctx.setLineDash([5, 5]);
             ctx.stroke();
-
-            // Subtle fill for priority
+            // Optional fill
             // ctx.fillStyle = "rgba(237, 137, 54, 0.05)";
             // ctx.fill();
             ctx.restore();
+
+            // Draw overlay points (small orange dots)
+            /*
+            ctx.fillStyle = "#ed8936";
+            for (let i = 0; i < n; i++) {
+                const angle = startAngle + i * angleStep;
+                const val = overlayValues[i] || 0;
+                const frac = val / maxValue;
+                const x = cx + R * frac * Math.cos(angle);
+                const y = cy + R * frac * Math.sin(angle);
+                ctx.beginPath();
+                ctx.arc(x, y, 3, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+            */
         }
 
         // Draw Main Data Polygon (Blue fill)
@@ -88,7 +113,10 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
             }
             ctx.closePath();
 
-            ctx.fillStyle = "rgba(49, 130, 206, 0.4)"; // Blue translucent
+            const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+            gradient.addColorStop(0, "rgba(49, 130, 206, 0.4)");
+            gradient.addColorStop(1, "rgba(49, 130, 206, 0.1)");
+            ctx.fillStyle = gradient;
             ctx.fill();
 
             ctx.strokeStyle = "#3182ce";
@@ -96,6 +124,9 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
             ctx.stroke();
 
             // Draw Points (Colored by Logic if provided)
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "#fff";
+
             for (let i = 0; i < n; i++) {
                 const angle = startAngle + i * angleStep;
                 const val = values[i] || 0;
@@ -104,46 +135,53 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
                 const y = cy + R * frac * Math.sin(angle);
 
                 ctx.beginPath();
-                ctx.arc(x, y, 6, 0, 2 * Math.PI); // Slightly larger
-                // Default blue if no color provided
+                ctx.arc(x, y, 6, 0, 2 * Math.PI);
+                // Color from props or default blue
                 ctx.fillStyle = (pointColors && pointColors[i]) ? pointColors[i] : "#3182ce";
                 ctx.fill();
-                ctx.strokeStyle = "#fff";
-                ctx.lineWidth = 2;
                 ctx.stroke();
             }
         }
 
         // Labels
         ctx.fillStyle = "#2d3748";
-        ctx.font = "12px Inter, sans-serif";
+        ctx.font = "600 13px Inter, system-ui, sans-serif";
         ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-    } else {
-        ctx.fillText(labels[i], lx, ly);
-    }
+
+        for (let i = 0; i < n; i++) {
+            const angle = startAngle + i * angleStep;
+            const labelR = R + 25;
+            const x = cx + labelR * Math.cos(angle);
+            const y = cy + labelR * Math.sin(angle);
+
+            // Adjust alignment slightly based on position
+            /*
+            if (angle > -Math.PI/2 && angle < Math.PI/2) ctx.textAlign = "left";
+            else if (angle === -Math.PI/2 || angle === Math.PI/2) ctx.textAlign = "center";
+            else ctx.textAlign = "right";
+            */
+
+            ctx.fillText(labels[i], x, y);
+
+            // Draw values if not hidden
+            if (!hideValues && values && values[i] !== undefined) {
+                ctx.fillStyle = "#4a5568";
+                ctx.font = "normal 11px Inter, system-ui, sans-serif";
+                ctx.fillText(`${Math.round(values[i])}%`, x, y + 15);
+                ctx.fillStyle = "#2d3748"; // Reset for next label
+                ctx.font = "600 13px Inter, system-ui, sans-serif";
+            }
         }
 
-// Score values
-if (!hideValues) {
-    ctx.fillStyle = "#2c5282";
-    ctx.font = "700 11px 'Inter', sans-serif";
-    for (let i = 0; i < n; i++) {
-        const angle = startAngle + i * angleStep;
-        const frac = (values[i] || 0) / maxValue;
-        const x = cx + R * frac * Math.cos(angle);
-        const y = cy + R * frac * Math.sin(angle);
-        ctx.fillText(`${values[i]}/${maxValue}`, x, y - 14);
-    }
-}
-    }, [labels, values, overlayValues, maxValue, hideValues]);
+    }, [labels, values, overlayValues, pointColors, maxValue, hideValues]);
 
-return (
-    <canvas
-        ref={canvasRef}
-        className="radar-canvas"
-        role="img"
-        aria-label="Radar chart showing organization profile"
-    />
-);
+    return (
+        <canvas
+            ref={canvasRef}
+            className="radar-canvas"
+            role="img"
+            aria-label="Radar chart showing organization profile"
+            style={{ width: "100%", height: "auto", display: "block" }}
+        />
+    );
 }

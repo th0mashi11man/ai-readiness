@@ -303,10 +303,31 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
     const values = results.ORIENTATION_IDS.map(id => Math.round(results.scores[id]));
 
-    // Convert 1-5 priority to 0-100 for comparison overlay
+    // Calculate point colors based on logic score (0=Sep, 100=Int)
+    // Sep (0) -> Blue (#3182ce) -> rgb(49, 130, 206)
+    // Int (100) -> Green (#38a169) -> rgb(56, 161, 105)
+
+    const interpolateColor = (score) => {
+        const t = Math.max(0, Math.min(1, score / 100)); // Clamp 0-1
+
+        const r1 = 49, g1 = 130, b1 = 206; // Blue
+        const r2 = 56, g2 = 161, b2 = 105; // Green
+
+        const r = Math.round(r1 + (r2 - r1) * t);
+        const g = Math.round(g1 + (g2 - g1) * t);
+        const b = Math.round(b1 + (b2 - b1) * t);
+
+        return `rgb(${r}, ${g}, ${b})`;
+    };
+
+    const pointColors = results.ORIENTATION_IDS.map(id => {
+        const logic = results[id]?.logicScore || 50;
+        return interpolateColor(logic);
+    });
+
     const priorityValues = results.ORIENTATION_IDS.map(id => {
         const raw = storedPriorities[id] || 0;
-        return ((raw - 1) / 4) * 100; // Normalize 1-5 to 0-100 same as scoring
+        return ((raw - 1) / 4) * 100; // Normalize 1-5 to 0-100
     });
 
     // Generate narrative (feedback) for the top result + logic
@@ -318,28 +339,45 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 <PrintHeader title={t("organization.resultsTitle")} />
                 <h1>{t("organization.resultsTitle")}</h1>
 
-                {/* Radar Chart */}
                 <div style={{ margin: "0 auto 3rem", maxWidth: "800px" }}>
                     <p className="lead" style={{ marginBottom: "2rem", textAlign: "center" }}>
-                        {t("organization.resultsIntro", "Här är er organisations profil baserat på svaren. Blått fält visar utfallet av frågorna, medan den orangea streckade linjen visar er angivna prioritering.")}
+                        {t("organization.resultsIntro")}
                     </p>
-                    <div className="radar-container org-radar" style={{ height: '400px', width: '100%' }}>
+
+                    {/* Legend for Colors (Gradient) */}
+                    <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginBottom: "1rem", fontSize: "0.9rem", flexWrap: "wrap" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                            <span style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#3182ce" }}></span>
+                            <span>Separering (Centralt)</span>
+                        </div>
+                        <div style={{
+                            height: "6px",
+                            width: "80px",
+                            background: "linear-gradient(90deg, #3182ce 0%, #38a169 100%)",
+                            borderRadius: "3px",
+                            alignSelf: "center",
+                            margin: "0 0.5rem"
+                        }}></div>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                            <span style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#38a169" }}></span>
+                            <span>Integrering (Lokalt)</span>
+                        </div>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", marginBottom: "2rem", fontSize: "0.9rem" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                            <span style={{ width: "20px", borderTop: "2px dashed #ed8936" }}></span>
+                            <span>Prioritering</span>
+                        </div>
+                    </div>
+
+                    <div className="radar-container org-radar" style={{ height: '450px', width: '100%' }}>
                         <RadarChart
                             labels={labels}
                             values={values}
                             overlayValues={priorityValues}
+                            pointColors={pointColors}
                             maxValue={100}
                         />
-                    </div>
-                    <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", fontSize: "0.9rem", color: "var(--muted-foreground)" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <span style={{ width: 12, height: 12, backgroundColor: "rgba(44, 82, 130, 0.4)", borderRadius: "2px" }}></span>
-                            <span>Resultat (Nuläge)</span>
-                        </div>
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <span style={{ width: 12, height: 12, border: "2px dashed #ed8936", borderRadius: "2px" }}></span>
-                            <span>Prioritering (Önskat läge)</span>
-                        </div>
                     </div>
                 </div>
 
