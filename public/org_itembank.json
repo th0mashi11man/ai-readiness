@@ -253,5 +253,26 @@
       "orientationId": "KNO",
       "logicId": "INT"
     }
-  ]
+  ],
+  "settings": {
+    "randomizeStatements": false,
+    "likertScale": {
+      "labels": {
+        "sv": [
+          "Stämmer inte alls",
+          "Stämmer dåligt",
+          "Stämmer delvis",
+          "Stämmer ganska bra",
+          "Stämmer helt"
+        ],
+        "en": [
+          "Strongly disagree",
+          "Disagree",
+          "Partially agree",
+          "Agree",
+          "Strongly agree"
+        ]
+      }
+    }
+  }
 }
