@@ -88,90 +88,18 @@ function IntroScreen({ bank, t, onStart }) {
                 <h1>{t("organization.title")}</h1>
                 <p>{t("organization.description")}</p>
 
-                <button className="btn btn-primary" onClick={onStart} style={{ marginTop: "2rem" }}>
+                <button className="btn btn-primary" onClick={() => {
+                    // Force reset state when starting fresh
+                    if (typeof window !== "undefined") {
+                        localStorage.removeItem("organization_state");
+                        localStorage.removeItem("org_priorities");
+                    }
+                    onStart();
+                }} style={{ marginTop: "2rem" }}>
                     {t("organization.startButton")}
                 </button>
-
-                {/* Dev Only: Test Scenarios */}
-                <div style={{ marginTop: "3rem", borderTop: "1px solid var(--border-color)", paddingTop: "1rem" }}>
-                    <TestScenarios bank={bank} t={t} />
-                </div>
             </div>
         </section>
-    );
-}
-
-function TestScenarios({ bank, t }) {
-    const applyScenario = (type) => {
-        let answers = {};
-        let priorities = {};
-
-        bank.items.forEach(item => {
-            // Default middle
-            answers[item.id] = 3;
-        });
-
-        bank.orientations.forEach(o => {
-            priorities[o.id] = 3;
-        });
-
-        if (type === 'efficiency') {
-            // Separation Logic (Low score on logic items)
-            // Efficiency High
-            bank.items.forEach(item => {
-                if (item.orientation === 'EFF') answers[item.id] = 5;
-                if (item.orientation === 'KNO') answers[item.id] = 2; // Low knowledge
-                // Logic items... mostly 1 or 2 for separation
-                if (item.id.includes('_L')) answers[item.id] = 1;
-            });
-            priorities['EFF'] = 5;
-        } else if (type === 'balanced') {
-            // Hybrid Logic (Mid score)
-            // Balanced profile
-            bank.items.forEach(item => {
-                answers[item.id] = 4;
-                if (item.id.includes('_L')) answers[item.id] = 3;
-            });
-        } else if (type === 'knowledge') {
-            // Integration Logic (High score)
-            // Knowledge High
-            bank.items.forEach(item => {
-                if (item.orientation === 'KNO') answers[item.id] = 5;
-                if (item.orientation === 'SUP') answers[item.id] = 4;
-                // Logic items... mostly 4 or 5 for integration
-                if (item.id.includes('_L')) answers[item.id] = 5;
-            });
-            priorities['KNO'] = 5;
-        }
-
-        if (typeof window !== "undefined") {
-            localStorage.setItem("organization_state", JSON.stringify({
-                answers,
-                itemOrder: bank.items.map(i => i.id),
-                currentIndex: bank.items.length - 1 // Finished
-            }));
-            localStorage.setItem("org_priorities", JSON.stringify(priorities));
-
-            // Force reload to results
-            window.location.href = "/organization?phase=results";
-        }
-    };
-
-    return (
-        <div style={{ fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
-            <p style={{ marginBottom: "0.5rem", fontWeight: "bold" }}>{t("testScenarios.title")}</p>
-            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                <button className="btn btn-sm btn-outline" onClick={() => applyScenario('efficiency')}>
-                    {t("testScenarios.efficiency")}
-                </button>
-                <button className="btn btn-sm btn-outline" onClick={() => applyScenario('balanced')}>
-                    {t("testScenarios.balanced")}
-                </button>
-                <button className="btn btn-sm btn-outline" onClick={() => applyScenario('knowledge')}>
-                    {t("testScenarios.knowledge")}
-                </button>
-            </div>
-        </div>
     );
 }
 
@@ -192,9 +120,9 @@ function PriorityStep({ bank, t, locale, onComplete }) {
     return (
         <section className="page fade-in">
             <div className="card">
-                <h1 style={{ marginBottom: "0.5rem" }}>{t("prioritiesTitle")}</h1>
+                <h1 style={{ marginBottom: "0.5rem" }}>{t("organization.prioritiesTitle")}</h1>
                 <p className="lead" style={{ marginBottom: "2rem" }}>
-                    {t("prioritiesDescription")}
+                    {t("organization.prioritiesDescription")}
                 </p>
 
                 <div className="priority-list" style={{ display: "grid", gap: "1.5rem", marginBottom: "2rem" }}>
@@ -219,16 +147,18 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                                 style={{ width: "100%", accentColor: "var(--primary-color)" }}
                             />
                             <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--muted-foreground)", marginTop: "0.2rem" }}>
-                                <span>{t("notImportant")}</span>
-                                <span>{t("veryImportant")}</span>
+                                <span>{t("organization.notImportant")}</span>
+                                <span>{t("organization.veryImportant")}</span>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <button className="btn btn-primary" onClick={() => onComplete(priorities)}>
-                    {t("proceedToQuestions")}
-                </button>
+                <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "2rem" }}>
+                    <button className="btn btn-primary" onClick={() => onComplete(priorities)}>
+                        {t("organization.proceedToQuestions")}
+                    </button>
+                </div>
             </div>
         </section>
     );
@@ -294,7 +224,7 @@ function SurveyFlow({ bank, onComplete, t, locale }) {
                     </div>
                 </div>
 
-                <h2 className="quiz-question">{t(currentItem.prompt)}</h2>
+                <h2 className="quiz-question">{t(currentItem.text)}</h2>
 
                 <div className="likert-scale" role="radiogroup" aria-label="Likert scale">
                     {scaleLabels.map((label, idx) => {
@@ -339,11 +269,7 @@ function SurveyFlow({ bank, onComplete, t, locale }) {
                     </button>
                 </div>
 
-                <div className="quiz-actions">
-                    <button className="btn btn-text btn-sm" onClick={reset}>
-                        {t("common.restart")}
-                    </button>
-                </div>
+
             </div>
         </section>
     );
@@ -387,27 +313,8 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
     const values = results.ORIENTATION_IDS.map(id => Math.round(results.scores[id]));
 
-    // Calculate point colors based on logic score (0=Sep, 100=Int)
-    // Sep (0) -> Blue (#3182ce) -> rgb(49, 130, 206)
-    // Int (100) -> Green (#38a169) -> rgb(56, 161, 105)
-
-    const interpolateColor = (score) => {
-        const t = Math.max(0, Math.min(1, score / 100)); // Clamp 0-1
-
-        const r1 = 49, g1 = 130, b1 = 206; // Blue
-        const r2 = 56, g2 = 161, b2 = 105; // Green
-
-        const r = Math.round(r1 + (r2 - r1) * t);
-        const g = Math.round(g1 + (g2 - g1) * t);
-        const b = Math.round(b1 + (b2 - b1) * t);
-
-        return `rgb(${r}, ${g}, ${b})`;
-    };
-
-    const pointColors = results.ORIENTATION_IDS.map(id => {
-        const logic = results[id]?.logicScore || 50;
-        return interpolateColor(logic);
-    });
+    // Use a single brand color for all points
+    const pointColors = results.ORIENTATION_IDS.map(() => "var(--primary-color)");
 
     const priorityValues = results.ORIENTATION_IDS.map(id => {
         const raw = storedPriorities[id] || 0;
@@ -424,33 +331,16 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 <h1>{t("organization.resultsTitle")}</h1>
 
                 <div style={{ margin: "0 auto 3rem", maxWidth: "800px" }}>
-                    <p className="lead" style={{ marginBottom: "2rem", textAlign: "center" }}>
-                        {t("organization.resultsIntro")}
-                    </p>
 
-                    {/* Legend for Colors (Gradient) */}
-                    <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginBottom: "1rem", fontSize: "0.9rem", flexWrap: "wrap" }}>
+                    {/* Legend for Current vs Target */}
+                    <div style={{ display: "flex", justifyContent: "center", gap: "2rem", marginBottom: "2rem" }}>
                         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <span style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#3182ce" }}></span>
-                            <span>Separering (Centralt)</span>
+                            <div style={{ width: "16px", height: "16px", background: "rgba(49, 130, 206, 0.4)", border: "2px solid #3182ce", borderRadius: "4px" }}></div>
+                            <span style={{ fontWeight: 500 }}>{locale === 'sv' ? "Nuvarande prioriteringar" : "Current Priorities"}</span>
                         </div>
-                        <div style={{
-                            height: "6px",
-                            width: "80px",
-                            background: "linear-gradient(90deg, #3182ce 0%, #38a169 100%)",
-                            borderRadius: "3px",
-                            alignSelf: "center",
-                            margin: "0 0.5rem"
-                        }}></div>
                         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <span style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#38a169" }}></span>
-                            <span>Integrering (Lokalt)</span>
-                        </div>
-                    </div>
-                    <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", marginBottom: "2rem", fontSize: "0.9rem" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <span style={{ width: "20px", borderTop: "2px dashed #ed8936" }}></span>
-                            <span>Prioritering</span>
+                            <div style={{ width: "16px", height: "0px", borderTop: "2px dashed #ed8936" }}></div>
+                            <span style={{ fontWeight: 500 }}>{locale === 'sv' ? "Målbild" : "Target"}</span>
                         </div>
                     </div>
 
@@ -467,79 +357,63 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
                 {/* Narrative / Feedback using Accardeon or Cards */}
 
+                {/* Narrative / Feedback using Accardeon or Cards */}
+
                 <div className="results-narrative">
-                    <h2>Framträdande orienteringar</h2>
-                    {narrative.narrativeItems.map(item => (
-                        <div key={item.id} className="narrative-block" style={{
-                            background: "var(--surface-color)",
-                            padding: "2rem",
-                            borderRadius: "var(--radius-lg)",
-                            border: "1px solid var(--border-color)",
-                            marginBottom: "2rem"
-                        }}>
-                            <h2 style={{ marginTop: 0, color: "var(--primary-color)" }}>
-                                {item.label} ({item.score}%)
-                            </h2>
-                            <p className="large-text">{item.description}</p>
+                    {/* Removed 'Prominent Orientations' heading as requested */}
 
-                            <hr style={{ margin: "1.5rem 0", borderColor: "var(--border-color)" }} />
+                    {/* Sort results by score descending */}
+                    {results.ORIENTATION_IDS
+                        .map(id => ({
+                            id,
+                            score: results.results[id].score,
+                            average: results.results[id].average,
+                            ...bank.orientations.find(o => o.id === id)
+                        }))
+                        .sort((a, b) => b.score - a.score)
+                        .map(item => (
+                            <div key={item.id} className="narrative-block" style={{
+                                background: "var(--surface-color)",
+                                padding: "1rem",
+                                borderRadius: "var(--radius-lg)",
+                                border: "1px solid var(--border-color)",
+                                marginBottom: "0.5rem"
+                            }}>
+                                <h2 style={{ marginTop: 0, color: "var(--primary-color)" }}>
+                                    {item.label[locale]}
+                                </h2>
 
-                            {item.details && (
-                                <div className="feedback-grid" style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }}>
+                                {/* Score Display: Current vs Priority */}
+                                <div style={{ display: "flex", gap: "2rem", marginBottom: "1rem", flexWrap: "wrap" }}>
                                     <div>
-                                        <h3 style={{ fontSize: "1rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--muted-foreground)" }}>
-                                            Kärnfråga
-                                        </h3>
-                                        <p style={{ fontStyle: "italic", fontSize: "1.1rem" }}>
-                                            "{item.details.core_question[locale]}"
-                                        </p>
-                                    </div>
-
-                                    <div className="grid-cols-2" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "2rem" }}>
-                                        <div>
-                                            <h3 style={{ fontSize: "1rem", color: "var(--success-color, green)" }}>
-                                                Vad räknas som framgång
-                                            </h3>
-                                            <ul style={{ paddingLeft: "1.2rem", margin: "0.5rem 0" }}>
-                                                {item.details.success_criteria[locale]?.map((sc, i) => (
-                                                    <li key={i}>{sc}</li>
-                                                ))}
-                                            </ul>
+                                        <div style={{ fontSize: "0.9rem", color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                                            {locale === 'sv' ? "Nuvarande" : "Current"}
                                         </div>
-
-                                        <div>
-                                            <h3 style={{ fontSize: "1rem", color: "var(--foreground)" }}>
-                                                Typiska drivkrafter
-                                            </h3>
-                                            <ul style={{ paddingLeft: "1.2rem", margin: "0.5rem 0" }}>
-                                                {item.details.drivers[locale]?.map((d, i) => (
-                                                    <li key={i}>{d}</li>
-                                                ))}
-                                            </ul>
+                                        <div style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#3182ce" }}>
+                                            {Math.round(item.average)} / 5
                                         </div>
                                     </div>
 
-                                    <div style={{ background: "#fff0f0", padding: "1rem", borderRadius: "8px", border: "1px solid #ffcccc" }}>
-                                        <h3 style={{ fontSize: "1rem", color: "#cc0000", marginTop: 0 }}>
-                                            ⚠️ Möjlig blind fläck
-                                        </h3>
-                                        <p style={{ margin: 0 }}>
-                                            {item.details.blind_spots[locale]}
-                                        </p>
+                                    <div>
+                                        <div style={{ fontSize: "0.9rem", color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                                            {locale === 'sv' ? "Målbild" : "Target"}
+                                        </div>
+                                        <div style={{ fontSize: "1.5rem", fontWeight: "bold", color: "var(--secondary-color, #f59e0b)" }}>
+                                            {storedPriorities[item.id] || 3} / 5
+                                        </div>
                                     </div>
                                 </div>
-                            )}
-                        </div>
-                    ))}
+
+                                <p className="large-text">{item.description[locale]}</p>
+                            </div>
+                        ))}
                 </div>
 
                 <div className="results-actions" style={{ marginTop: "3rem" }}>
                     <button className="btn btn-primary" onClick={() => window.print()}>
                         {t("common.exportPdf")}
                     </button>
-                    <button className="btn btn-outline" onClick={onRestart}>
-                        {t("common.restart")}
-                    </button>
+                    {/* Restart button removed as requested */}
                 </div>
             </div>
         </section>

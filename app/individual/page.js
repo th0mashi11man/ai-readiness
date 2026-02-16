@@ -71,7 +71,13 @@ function IntroScreen({ bank, t, onStart }) {
             <div className="card">
                 <h1>{t("individual.title")}</h1>
                 <p>{t("individual.description")}</p>
-                <button className="btn btn-primary" onClick={onStart}>
+                <button className="btn btn-primary" onClick={() => {
+                    // Force reset state when starting fresh
+                    if (typeof window !== "undefined") {
+                        localStorage.removeItem("individual_state");
+                    }
+                    onStart();
+                }}>
                     {t("individual.startButton")}
                 </button>
             </div>
@@ -182,11 +188,7 @@ function QuizFlow({ bank, onComplete, t, locale }) {
                     </button>
                 </div>
 
-                <div className="quiz-actions">
-                    <button className="btn btn-text btn-sm" onClick={handleRestart}>
-                        {t("common.restart")}
-                    </button>
-                </div>
+
             </div>
         </section>
     );

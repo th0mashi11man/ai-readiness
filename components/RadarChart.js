@@ -163,7 +163,11 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
 
             ctx.fillText(labels[i], x, y);
 
+            ctx.fillText(labels[i], x, y);
+
             // Draw values if not hidden
+            // User requested removal of numerical scores from the chart
+            /*
             if (!hideValues && values && values[i] !== undefined) {
                 ctx.fillStyle = "#4a5568";
                 ctx.font = "normal 11px Inter, system-ui, sans-serif";
@@ -171,6 +175,7 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
                 ctx.fillStyle = "#2d3748"; // Reset for next label
                 ctx.font = "600 13px Inter, system-ui, sans-serif";
             }
+            */
         }
 
     }, [labels, values, overlayValues, pointColors, maxValue, hideValues]);

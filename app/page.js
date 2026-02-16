@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // Test data seeders — fill localStorage and navigate to results
-// Test data seeders — fill localStorage and navigate to results
 function seedIndividualAndGo(router, profile = "proficient") {
   let answers = {};
 
@@ -48,45 +47,69 @@ function seedIndividualAndGo(router, profile = "proficient") {
   router.push("/individual?phase=results");
 }
 
-function seedOrgAndGo(router, profile = "hybrid") {
+function seedOrgAndGo(router, profile) {
   let answers = {};
+  let priorities = {};
 
-  if (profile === "admin") {
-    // "Separation": High SEP (5s), Low INT/HYB (1s/2s)
-    answers = {
-      TA_SEP_01: 5, TA_SEP_02: 5, TA_INT_01: 1, TA_INT_02: 1, TA_HYB_01: 2, TA_HYB_02: 2,
-      PT_SEP_01: 4, PT_SEP_02: 4, PT_INT_01: 1, PT_INT_02: 1, PT_HYB_01: 1, PT_HYB_02: 1,
-      DDL_SEP_01: 5, DDL_SEP_02: 5, DDL_INT_01: 2, DDL_INT_02: 1, DDL_HYB_01: 2, DDL_HYB_02: 2,
-      SB_SEP_01: 4, SB_SEP_02: 4, SB_INT_01: 1, SB_INT_02: 1, SB_HYB_01: 1, SB_HYB_02: 1,
-      X_DIAG_SILO: 5, X_DIAG_FRAGMENT: 1,
-      X_GOV_DATA_READINESS: 2, X_GOV_BOUNDARY_ROLES: 1, X_GOV_IT_INTEGRATION: 5, X_GOV_PARTNERSHIPS: 3,
-    };
-  } else if (profile === "pedagogical") {
-    // "Integration": High INT (5s), Low SEP/HYB (1s/2s)
-    answers = {
-      TA_SEP_01: 1, TA_SEP_02: 2, TA_INT_01: 4, TA_INT_02: 4, TA_HYB_01: 2, TA_HYB_02: 2,
-      PT_SEP_01: 1, PT_SEP_02: 1, PT_INT_01: 5, PT_INT_02: 5, PT_HYB_01: 2, PT_HYB_02: 1,
-      DDL_SEP_01: 1, DDL_SEP_02: 1, DDL_INT_01: 4, DDL_INT_02: 4, DDL_HYB_01: 1, DDL_HYB_02: 2,
-      SB_SEP_01: 2, SB_SEP_02: 2, SB_INT_01: 5, SB_INT_02: 5, SB_HYB_01: 2, SB_HYB_02: 2,
-      X_DIAG_SILO: 1, X_DIAG_FRAGMENT: 5,
-      X_GOV_DATA_READINESS: 4, X_GOV_BOUNDARY_ROLES: 2, X_GOV_IT_INTEGRATION: 2, X_GOV_PARTNERSHIPS: 5,
-    };
-  } else {
-    // "Hybrid": High HYB (5s), Low/Med others
-    answers = {
-      TA_SEP_01: 2, TA_SEP_02: 2, TA_INT_01: 2, TA_INT_02: 2, TA_HYB_01: 5, TA_HYB_02: 5,
-      PT_SEP_01: 2, PT_SEP_02: 2, PT_INT_01: 2, PT_INT_02: 2, PT_HYB_01: 5, PT_HYB_02: 5,
-      DDL_SEP_01: 2, DDL_SEP_02: 2, DDL_INT_01: 2, DDL_INT_02: 2, DDL_HYB_01: 5, DDL_HYB_02: 5,
-      SB_SEP_01: 3, SB_SEP_02: 3, SB_INT_01: 3, SB_INT_02: 3, SB_HYB_01: 5, SB_HYB_02: 5,
-      X_DIAG_SILO: 1, X_DIAG_FRAGMENT: 1,
-      X_GOV_DATA_READINESS: 5, X_GOV_BOUNDARY_ROLES: 5, X_GOV_IT_INTEGRATION: 4, X_GOV_PARTNERSHIPS: 5,
-    };
+  // Updated items matching org_itembank.json (4 per orientation)
+  const items = [];
+  const orientations = ["EFF", "ANA", "TEC", "SUP", "KNO"];
+
+  orientations.forEach(or => {
+    for (let i = 1; i <= 4; i++) {
+      items.push({ id: `q_${or.toLowerCase()}_${i}`, orientation: or });
+    }
+  });
+
+  // Default: Low baseline (2)
+  items.forEach(i => answers[i.id] = 2);
+  orientations.forEach(o => priorities[o] = 3);
+
+  if (profile === "efficiency") {
+    // Case 1: Efficiency (Blue)
+    items.forEach(i => {
+      if (i.orientation === "EFF") answers[i.id] = 5;
+      else if (i.orientation === "TEC") answers[i.id] = 4;
+      else if (i.orientation === "ANA") answers[i.id] = 3;
+    });
+    priorities["KNO"] = 5;
+    priorities["EFF"] = 2;
+    priorities["ANA"] = 4;
+    priorities["TEC"] = 3;
+    priorities["SUP"] = 2;
+  } else if (profile === "balanced") {
+    // Case 2: Balanced (Hybrid)
+    items.forEach(i => answers[i.id] = Math.random() > 0.5 ? 4 : 3);
+    answers["q_tec_3"] = 5; // Spike
+
+    priorities["TEC"] = 5;
+    priorities["EFF"] = 3;
+    priorities["ANA"] = 2;
+    priorities["KNO"] = 4;
+    priorities["SUP"] = 3;
+  } else if (profile === "knowledge") {
+    // Case 3: Knowledge (Green)
+    items.forEach(i => {
+      if (i.orientation === "KNO") answers[i.id] = 5;
+      else if (i.orientation === "SUP") answers[i.id] = 4;
+      else answers[i.id] = 2;
+    });
+    priorities["EFF"] = 5;
+    priorities["KNO"] = 2;
+    priorities["SUP"] = 3;
+    priorities["ANA"] = 4;
+    priorities["TEC"] = 3;
   }
 
-  const itemOrder = Object.keys(answers);
   localStorage.setItem("organization_state", JSON.stringify({
-    answers, itemOrder, currentIndex: itemOrder.length - 1, completed: true,
+    sessionId: "test-session-" + Date.now(),
+    answers,
+    itemOrder: items.map(i => i.id),
+    currentIndex: items.length - 1,
+    completed: true,
   }));
+  localStorage.setItem("org_priorities", JSON.stringify(priorities));
+
   router.push("/organization?phase=results");
 }
 
@@ -130,9 +153,9 @@ export default function HomePage() {
             </div>
             <div className="test-section">
               <h4>Test Organization:</h4>
-              <button onClick={() => seedOrgAndGo(router, "admin")}>Separation</button>
-              <button onClick={() => seedOrgAndGo(router, "pedagogical")}>Integration</button>
-              <button onClick={() => seedOrgAndGo(router, "hybrid")}>Hybrid</button>
+              <button onClick={() => seedOrgAndGo(router, "efficiency")}>Case 1</button>
+              <button onClick={() => seedOrgAndGo(router, "balanced")}>Case 2</button>
+              <button onClick={() => seedOrgAndGo(router, "knowledge")}>Case 3</button>
             </div>
           </div>
         </div>

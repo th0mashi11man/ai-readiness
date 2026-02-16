@@ -333,8 +333,8 @@
       "en": "AI capacity self-assessment"
     },
     "description": {
-      "sv": "Svara på frågor om din organisations AI-implementering och få en vägledande bedömning av hur din organisation liknar olika arketyper för vad AI används till och logiker för hur implementeringen är organiserad.",
-      "en": "Answer questions about your organization’s AI implementation and get an indicative assessment of how your organization resembles different archetypes for what AI is used for and logics for how implementation is organized."
+      "sv": "Besvara frågor om er organisations arbete med AI för att identifiera dominerande implementeringsorienteringar i nuläget och tydliggöra era avsedda prioriteringar framåt.",
+      "en": "Answer questions about your organisation’s AI work to identify dominant implementation orientations today and clarify your intended priorities going forward."
     },
     "startButton": {
       "sv": "Starta självbedömningen",
@@ -381,6 +381,10 @@
         "sv": "Kunskap (Grön)",
         "en": "Knowledge (Green)"
       }
+    },
+    "prominentOrientations": {
+      "sv": "Framträdande orienteringar",
+      "en": "Prominent Orientations"
     },
     "resultsTitle": {
       "sv": "Dina resultat",
