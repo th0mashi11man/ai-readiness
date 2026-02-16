@@ -16,16 +16,28 @@
           "en": "How can we free up time?"
         },
         "success_criteria": {
-          "sv": "Tidsbesparing och minskad administration.",
-          "en": "Time savings and reduced administration."
+          "sv": [
+            "Tidsbesparing och minskad administration."
+          ],
+          "en": [
+            "Time savings and reduced administration."
+          ]
         },
         "drivers": {
-          "sv": "Effektivitetskrav och resursbrist.",
-          "en": "Efficiency demands and resource scarcity."
+          "sv": [
+            "Effektivitetskrav och resursbrist."
+          ],
+          "en": [
+            "Efficiency demands and resource scarcity."
+          ]
         },
         "blind_spots": {
-          "sv": "Risk att missa kvalitativa aspekter av verksamheten.",
-          "en": "Risk of missing qualitative aspects of operations."
+          "sv": [
+            "Risk att missa kvalitativa aspekter av verksamheten."
+          ],
+          "en": [
+            "Risk of missing qualitative aspects of operations."
+          ]
         }
       }
     },
@@ -45,16 +57,28 @@
           "en": "What does the data say?"
         },
         "success_criteria": {
-          "sv": "Bättre beslutsunderlag och tidig identifiering av behov.",
-          "en": "Better decision support and early identification of needs."
+          "sv": [
+            "Bättre beslutsunderlag och tidig identifiering av behov."
+          ],
+          "en": [
+            "Better decision support and early identification of needs."
+          ]
         },
         "drivers": {
-          "sv": "Behov av uppföljning och kvalitetssäkring.",
-          "en": "Need for monitoring and quality assurance."
+          "sv": [
+            "Behov av uppföljning och kvalitetssäkring."
+          ],
+          "en": [
+            "Need for monitoring and quality assurance."
+          ]
         },
         "blind_spots": {
-          "sv": "Övertro på kvantitativa mått; risk för integritetsintrång.",
-          "en": "Overreliance on quantitative metrics; risk of privacy intrusion."
+          "sv": [
+            "Övertro på kvantitativa mått; risk för integritetsintrång."
+          ],
+          "en": [
+            "Overreliance on quantitative metrics; risk of privacy intrusion."
+          ]
         }
       }
     },
@@ -74,16 +98,28 @@
           "en": "Do systems work securely and stably?"
         },
         "success_criteria": {
-          "sv": "Säker drift, lagefterlevnad och teknisk tillgänglighet.",
-          "en": "Secure operations, compliance, and technical availability."
+          "sv": [
+            "Säker drift, lagefterlevnad och teknisk tillgänglighet."
+          ],
+          "en": [
+            "Secure operations, compliance, and technical availability."
+          ]
         },
         "drivers": {
-          "sv": "Digitaliseringsstrategier och säkerhetskrav.",
-          "en": "Digitalization strategies and security requirements."
+          "sv": [
+            "Digitaliseringsstrategier och säkerhetskrav."
+          ],
+          "en": [
+            "Digitalization strategies and security requirements."
+          ]
         },
         "blind_spots": {
-          "sv": "Tekniken blir ett självändamål utan pedagogisk koppling.",
-          "en": "Technology becomes an end in itself without pedagogical connection."
+          "sv": [
+            "Tekniken blir ett självändamål utan pedagogisk koppling."
+          ],
+          "en": [
+            "Technology becomes an end in itself without pedagogical connection."
+          ]
         }
       }
     },
@@ -103,16 +139,28 @@
           "en": "How do we best support each student?"
         },
         "success_criteria": {
-          "sv": "Ökad måluppfyllelse och likvärdighet.",
-          "en": "Increased goal achievement and equity."
+          "sv": [
+            "Ökad måluppfyllelse och likvärdighet."
+          ],
+          "en": [
+            "Increased goal achievement and equity."
+          ]
         },
         "drivers": {
-          "sv": "Kompensatoriskt uppdrag och individualisering.",
-          "en": "Compensatory mission and individualization."
+          "sv": [
+            "Kompensatoriskt uppdrag och individualisering."
+          ],
+          "en": [
+            "Compensatory mission and individualization."
+          ]
         },
         "blind_spots": {
-          "sv": "Risk att minska lärarens autonomi eller elevernas integritet.",
-          "en": "Risk of reducing teacher autonomy or student privacy."
+          "sv": [
+            "Risk att minska lärarens autonomi eller elevernas integritet."
+          ],
+          "en": [
+            "Risk of reducing teacher autonomy or student privacy."
+          ]
         }
       }
     },
@@ -132,16 +180,28 @@
           "en": "What do we need to know?"
         },
         "success_criteria": {
-          "sv": "Höjd digital mognad och kritisk förmåga.",
-          "en": "Increased digital maturity and critical capability."
+          "sv": [
+            "Höjd digital mognad och kritisk förmåga."
+          ],
+          "en": [
+            "Increased digital maturity and critical capability."
+          ]
         },
         "drivers": {
-          "sv": "Kompetensförsörjning och framtidsspaning.",
-          "en": "Skills supply and future scouting."
+          "sv": [
+            "Kompetensförsörjning och framtidsspaning."
+          ],
+          "en": [
+            "Skills supply and future scouting."
+          ]
         },
         "blind_spots": {
-          "sv": "Teoretisk kunskap som inte omsätts i praktiken.",
-          "en": "Theoretical knowledge that is not applied in practice."
+          "sv": [
+            "Teoretisk kunskap som inte omsätts i praktiken."
+          ],
+          "en": [
+            "Theoretical knowledge that is not applied in practice."
+          ]
         }
       }
     }

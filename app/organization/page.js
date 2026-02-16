@@ -421,14 +421,22 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                             <h3 style={{ fontSize: "1rem", color: "var(--success-color, green)" }}>
                                                 Vad räknas som framgång
                                             </h3>
-                                            <p>{item.details.success_criteria[locale]}</p>
+                                            <ul style={{ paddingLeft: "1.2rem", margin: "0.5rem 0" }}>
+                                                {item.details.success_criteria[locale]?.map((sc, i) => (
+                                                    <li key={i}>{sc}</li>
+                                                ))}
+                                            </ul>
                                         </div>
 
                                         <div>
                                             <h3 style={{ fontSize: "1rem", color: "var(--foreground)" }}>
                                                 Typiska drivkrafter
                                             </h3>
-                                            <p>{item.details.drivers[locale]}</p>
+                                            <ul style={{ paddingLeft: "1.2rem", margin: "0.5rem 0" }}>
+                                                {item.details.drivers[locale]?.map((d, i) => (
+                                                    <li key={i}>{d}</li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </div>
 
