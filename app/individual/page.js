@@ -6,6 +6,7 @@ import { useQuizStore } from "@/lib/store";
 import { scoreIndividual, generateIndividualNarrative } from "@/lib/scoring";
 import RadarChart from "@/components/RadarChart";
 import HorizontalBarChart from "@/components/HorizontalBarChart";
+import PrintHeader from "@/components/PrintHeader";
 
 import { Suspense } from "react";
 
@@ -217,6 +218,7 @@ function ResultsScreen({ bank, narratives, t, locale, onRestart }) {
     return (
         <section className="page page-results fade-in">
             <div className="card">
+                <PrintHeader title={t("individual.resultsTitle")} />
                 <h1>{t("individual.resultsTitle")}</h1>
                 <p style={{ marginBottom: "2rem", fontSize: "1.1rem" }}>
                     <strong>{results.totalCorrect} / {results.totalItems}</strong> {t("individual.totalScore")}

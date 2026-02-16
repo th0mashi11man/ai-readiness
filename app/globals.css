@@ -1237,6 +1237,10 @@ body {
 }
 
 /* ── Print Styles ────────────────────────────────────────────────── */
+.print-header {
+  display: none;
+}
+
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
@@ -1249,8 +1253,20 @@ body {
   .quiz-nav,
   .quiz-actions,
   .btn-text,
-  .site-footer {
+  .site-footer,
+  .logic-spectrum-labels .logic-label, /* Hide logic spectrum tooltips/labels if they are interactive or not needed */
+  .test-links {
     display: none !important;
+  }
+  
+  /* Ensure logic spectrum labels that are just text remain if they are not interactive tooltips */
+  .logic-spectrum-labels {
+      display: flex !important;
+      justify-content: space-between;
+  }
+  
+  .logic-label {
+      display: flex !important; /* Ensure labels are visible */
   }
 
   body {
@@ -1260,12 +1276,22 @@ body {
   .page {
     padding: 0;
     max-width: 100%;
+    margin: 0;
   }
 
   .card {
     box-shadow: none;
     border: none;
     padding: 0;
+  }
+
+  /* Hide original H1 since we have it in the header now, or keep it? 
+     User asked for "title from the main page, and the the title of the particular self-assessment".
+     The PrintHeader puts them together. The original page already has the specific assessment title.
+     Let's hide the original H1 to avoid duplication if the PrintHeader covers it.
+  */
+  .card h1 {
+      display: none;
   }
 
   h1,
@@ -1277,9 +1303,53 @@ body {
   .radar-canvas {
     max-width: 400px !important;
   }
-}
 
-/* ── Test Links ─────────────────────────────────────────────────── */
+  /* Print Header Styles */
+  .print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+  }
+
+  .print-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .print-logo {
+    height: 40px;
+    width: auto;
+  }
+
+  .print-sep {
+      font-size: 1.5rem;
+      color: #9ca3af;
+      font-weight: 300;
+  }
+
+  .print-titles {
+    text-align: right;
+  }
+
+  .print-main-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #3c3c3c !important;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .print-sub-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #6b7280 !important;
+    margin: 4px 0 0;
+  }
+}
 .test-links {
   margin-top: 48px;
   padding-top: 24px;

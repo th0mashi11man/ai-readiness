@@ -7,6 +7,7 @@ import { scoreOrganization, generateNarrative } from "@/lib/scoring";
 import BarChart from "@/components/BarChart";
 import RadarChart from "@/components/RadarChart";
 import LogicSpectrum from "@/components/LogicSpectrum";
+import PrintHeader from "@/components/PrintHeader";
 
 import { Suspense } from "react";
 
@@ -229,6 +230,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
     return (
         <section className="page page-results fade-in">
             <div className="card">
+                <PrintHeader title={t("organization.resultsTitle")} />
                 <h1>{t("organization.resultsTitle")}</h1>
 
                 {/* Archetype Profile */}

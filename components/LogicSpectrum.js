@@ -43,22 +43,13 @@ export default function LogicSpectrum({ scores, score, labels, t }) {
                     style={{ left: `${position}%` }}
                 >
                     <div className="marker-pin"></div>
-                    <div className="marker-value">{Math.round(position)}</div>
+                    {/* Numerical value removed as per request */}
                 </div>
             </div>
             <style jsx>{`
                 .spectrum-gradient {
                     background: linear-gradient(90deg, #e0e0e0 0%, #f0f0f0 50%, #e0e0e0 100%);
                     /* Or meaningful colors if desired, e.g. blue to green */
-                }
-                .marker-value {
-                    position: absolute;
-                    top: -20px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    font-size: 0.8rem;
-                    font-weight: bold;
-                    color: #555;
                 }
             `}</style>
         </div>
