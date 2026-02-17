@@ -11,10 +11,7 @@ export default function Navbar() {
 
     const links = [
         { href: "/", label: t("nav.home") },
-        { href: "/individual", label: t("nav.individual") },
-        { href: "/organization", label: t("nav.organization") },
-        { href: "/about", label: t("nav.about") },
-    ];
+    ].filter(l => l.href !== "/" || pathname !== "/");
 
     return (
         <nav className="navbar" aria-label="Main navigation">
@@ -44,7 +41,14 @@ export default function Navbar() {
                             key={l.href}
                             href={l.href}
                             className={`nav-link ${pathname === l.href ? "active" : ""}`}
-                            onClick={() => setMenuOpen(false)}
+                            onClick={() => {
+                                setMenuOpen(false);
+                                if (l.href === "/") {
+                                    // Handle Restart logic
+                                    localStorage.removeItem("organization_state");
+                                    localStorage.removeItem("org_priorities");
+                                }
+                            }}
                         >
                             {l.label}
                         </Link>

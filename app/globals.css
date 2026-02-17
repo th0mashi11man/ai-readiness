@@ -300,10 +300,19 @@ body {
 }
 
 .hero-intro {
-  font-size: 1.02rem;
+  font-size: 1.15rem;
+  color: var(--color-text);
+  max-width: 720px;
+  margin: 0 auto 12px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.hero-description {
+  font-size: 1.15rem;
   color: var(--color-text-secondary);
-  max-width: 760px;
-  margin: 0 auto 36px;
+  max-width: 680px;
+  margin: 0 auto 48px;
   line-height: 1.7;
 }
 
@@ -312,6 +321,7 @@ body {
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 24px;
 }
 
 .privacy-note {
@@ -1254,19 +1264,21 @@ body {
   .quiz-actions,
   .btn-text,
   .site-footer,
-  .logic-spectrum-labels .logic-label, /* Hide logic spectrum tooltips/labels if they are interactive or not needed */
+  .logic-spectrum-labels .logic-label,
+  /* Hide logic spectrum tooltips/labels if they are interactive or not needed */
   .test-links {
     display: none !important;
   }
-  
+
   /* Ensure logic spectrum labels that are just text remain if they are not interactive tooltips */
   .logic-spectrum-labels {
-      display: flex !important;
-      justify-content: space-between;
+    display: flex !important;
+    justify-content: space-between;
   }
-  
+
   .logic-label {
-      display: flex !important; /* Ensure labels are visible */
+    display: flex !important;
+    /* Ensure labels are visible */
   }
 
   body {
@@ -1291,7 +1303,7 @@ body {
      Let's hide the original H1 to avoid duplication if the PrintHeader covers it.
   */
   .card h1 {
-      display: none;
+    display: none;
   }
 
   h1,
@@ -1326,9 +1338,9 @@ body {
   }
 
   .print-sep {
-      font-size: 1.5rem;
-      color: #9ca3af;
-      font-weight: 300;
+    font-size: 1.5rem;
+    color: #9ca3af;
+    font-weight: 300;
   }
 
   .print-titles {
@@ -1350,6 +1362,7 @@ body {
     margin: 4px 0 0;
   }
 }
+
 .test-links {
   margin-top: 48px;
   padding-top: 24px;

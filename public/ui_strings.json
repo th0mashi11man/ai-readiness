@@ -11,26 +11,14 @@
       "en": "AI Readiness in School Organizations"
     },
     "tagline": {
-      "sv": "Självskattning och profilering för individ och organisation",
-      "en": "Assessment and profiling for individuals and organizations"
+      "sv": "Självskattning och profilering för skolorganisationer",
+      "en": "Assessment and profiling for school organizations"
     }
   },
   "nav": {
     "home": {
-      "sv": "Start",
-      "en": "Home"
-    },
-    "individual": {
-      "sv": "Individ",
-      "en": "Individual"
-    },
-    "organization": {
-      "sv": "Organisation",
-      "en": "Organization"
-    },
-    "about": {
-      "sv": "Om",
-      "en": "About"
+      "sv": "Börja om",
+      "en": "Restart"
     },
     "languageLabel": {
       "sv": "Språk",
@@ -116,17 +104,13 @@
       "sv": "",
       "en": ""
     },
-    "intro": {
-      "sv": "Använd självbedömningarna på den här webbplatsen för att reflektera över din egen AI-kompetens och AI-kapaciteten i din skolorganisation.",
-      "en": "Use the self-assessments on this site to reflect on your own AI literacy and the AI capacity within your school organization."
-    },
-    "ctaIndividual": {
-      "sv": "Gå till den individuella självbedömningen",
-      "en": "Go to the individual self-assessment"
+    "description": {
+      "sv": "Besvara frågor om er organisations arbete med AI för att identifiera dominerande implementeringsorienteringar i nuläget och tydliggöra era avsedda prioriteringar framåt.",
+      "en": "Answer questions about your organisation’s AI work to identify dominant implementation orientations today and clarify your intended priorities going forward."
     },
     "ctaOrganization": {
-      "sv": "Gå till den organisatoriska självbedömningen",
-      "en": "Go to the organizational self-assessment"
+      "sv": "Starta självbedömningen",
+      "en": "Start the self-assessment"
     }
   },
   "consent": {
@@ -145,186 +129,6 @@
     "continueDisabledHint": {
       "sv": "Bocka i rutan för att fortsätta.",
       "en": "Check the box to continue."
-    }
-  },
-  "individual": {
-    "title": {
-      "sv": "AI-kompetens självbedömning",
-      "en": "AI literacy self-assessment"
-    },
-    "description": {
-      "sv": "Svara på flervalsfrågor om AI och få en vägledande bedömning av din nivå av AI-kompetens inom olika områden.",
-      "en": "Answer multiple-choice questions about AI and get an indicative assessment of your level of AI literacy across different areas."
-    },
-    "startButton": {
-      "sv": "Starta självbedömningen",
-      "en": "Start the self-assessment"
-    },
-    "answerRequired": {
-      "sv": "Välj ett svar för att fortsätta.",
-      "en": "Select an answer to continue."
-    },
-    "resultsTitle": {
-      "sv": "Dina resultat",
-      "en": "Your results"
-    },
-    "totalScore": {
-      "sv": "rätt",
-      "en": "correct"
-    },
-    "scoreLabel": {
-      "sv": "Totalpoäng",
-      "en": "Total score"
-    },
-    "domainScoresTitle": {
-      "sv": "Resultat per område",
-      "en": "Scores by domain"
-    },
-    "domainLevels": {
-      "emerging": {
-        "sv": "På väg",
-        "en": "Emerging"
-      },
-      "basic": {
-        "sv": "Grundläggande",
-        "en": "Basic"
-      },
-      "proficient": {
-        "sv": "God",
-        "en": "Proficient"
-      },
-      "advanced": {
-        "sv": "Avancerad",
-        "en": "Advanced"
-      }
-    },
-    "strengths": {
-      "sv": "Styrkor",
-      "en": "Strengths"
-    },
-    "growthAreas": {
-      "sv": "Utvecklingsområden",
-      "en": "Growth areas"
-    },
-    "reviewAnswersTitle": {
-      "sv": "Granska frågor och förklaringar",
-      "en": "Review questions and explanations"
-    },
-    "crossCutting": {
-      "sv": "Tvärgående",
-      "en": "Cross-cutting"
-    },
-    "tooltip_apply_ai": {
-      "sv": "Det handlar om att kunna använda AI-kompetens, begrepp och AI-teknik i olika situationer och praktiska scenarier.",
-      "en": "It is about being able to apply AI knowledge, concepts, and AI technologies across different situations and practical scenarios."
-    },
-    "tooltip_create_ai": {
-      "sv": "Det handlar om högre kognitiva färdigheter, såsom att värdera, bedöma, förutsäga och utveckla AI-tillämpningar.",
-      "en": "It is about higher-order skills, such as evaluating, assessing, predicting, and developing AI applications."
-    },
-    "tooltip_detect_ai": {
-      "sv": "Det handlar om att kunna känna igen om en tillämpning faktiskt bygger på AI eller inte.",
-      "en": "It is about being able to recognize whether an application is actually based on AI or not."
-    },
-    "tooltip_ai_ethics": {
-      "sv": "Det handlar om att ta hänsyn till mänskliga värden som rättvisa, ansvar, transparens, etik och säkerhet i AI-sammanhang.",
-      "en": "It is about considering human values such as fairness, responsibility, transparency, ethics, and safety in AI contexts."
-    },
-    "tooltip_gen_ai": {
-      "sv": "Det handlar om att förstå, reflektera över och kompetent använda generativ AI, som kan skapa innehåll utifrån minimal input.",
-      "en": "It is about understanding, reflecting on, and competently using generative AI, which can create content from minimal input."
-    },
-    "tooltip_understand_ai": {
-      "sv": "Det handlar om att förstå AI:s grundläggande funktioner och hur man använder AI-tillämpningar.",
-      "en": "It is about understanding the basic functions of AI and how to use AI applications."
-    },
-    "showExplanation": {
-      "sv": "Visa förklaring",
-      "en": "Show explanation"
-    },
-    "hideExplanation": {
-      "sv": "Dölj förklaring",
-      "en": "Hide explanation"
-    },
-    "yourAnswer": {
-      "sv": "Ditt svar",
-      "en": "Your answer"
-    },
-    "correctAnswer": {
-      "sv": "Rätt svar",
-      "en": "Correct answer"
-    },
-    "reflectionsTitle": {
-      "sv": "Vägledning och reflektion",
-      "en": "Guidance and reflection"
-    },
-    "prompts": {
-      "understand_ai": {
-        "sv": "Reflektera över: Hur skulle en djupare förståelse för AI:s grundläggande logik påverka ditt arbete och beslutsfattande?",
-        "en": "Reflect on: How would a deeper understanding of AI’s basic logic impact your work and decision-making?"
-      },
-      "apply_ai": {
-        "sv": "Reflektera över: Inom vilka arbetsområden ser du störst potential att använda AI-stöd för att effektivisera eller höja kvaliteten?",
-        "en": "Reflect on: In which work areas do you see the most potential for using AI support to increase efficiency or quality?"
-      },
-      "ai_ethics": {
-        "sv": "Reflektera över: Vilka etiska risker och ansvarsfrågor är mest kritiska att bevaka i din yrkesroll?",
-        "en": "Reflect on: Which ethical risks and responsibility issues are most critical to monitor in your professional role?"
-      },
-      "detect_ai": {
-        "sv": "Reflektera över: Hur kan du bidra till att bibehålla en sund källkritik och transparens kring AI-genererat material i organisationen?",
-        "en": "Reflect on: How can you contribute to maintaining sound source criticism and transparency regarding AI-generated material in the organization?"
-      },
-      "create_ai": {
-        "sv": "Reflektera över: Kan ni gå från att bara använda färdiga tjänster till att anpassa eller skapa egna lösningar för verksamhetens behov?",
-        "en": "Reflect on: Can you move from just using off-the-shelf services to adapting or creating your own solutions for operational needs?"
-      },
-      "gen_ai": {
-        "sv": "Reflektera över: Vad innebär den snabba utvecklingen av generativ AI för kompetensbehovet i din roll framöver?",
-        "en": "Reflect on: What does the rapid development of generative AI mean for the competence needs in your role going forward?"
-      }
-    },
-    "narrative": {
-      "emerging": {
-        "sv": "Du befinner dig på en framväxande nivå av AI-kompetens. Detta innebär att du har en grundläggande medvetenhet, men skulle dra nytta av en mer strukturerad genomgång av begrepp och verktyg.",
-        "en": "You are at an emerging level of AI literacy. This means you have a basic awareness but would benefit from a more structured review of concepts and tools."
-      },
-      "basic": {
-        "sv": "Du har en stabil grundnivå. Du är bekant med de vanligaste begreppen och kan identifiera AI i vardagliga sammanhang.",
-        "en": "You have a solid basic level. You are familiar with common concepts and can identify AI in everyday contexts."
-      },
-      "proficient": {
-        "sv": "Din AI-kompetens är god. Du uppvisar en bra balans mellan att förstå, upptäcka och använda AI i olika scenarier.",
-        "en": "Your AI literacy is proficient. You demonstrate a good balance between understanding, detecting, and using AI in various scenarios."
-      },
-      "advanced": {
-        "sv": "Du har en avancerad nivå av AI-kompetens. Du kan inte bara använda verktygen utan även förhålla dig kritiskt till deras konstruktion och etiska konsekvenser.",
-        "en": "You have an advanced level of AI literacy. You can not only use the tools but also relate critically to their design and ethical implications."
-      },
-      "understand_ai_low": {
-        "sv": "Att fokusera mer på den underliggande logiken i AI-system kan hjälpa dig att avdramatisera hur dessa verktyg fungerar.",
-        "en": "Focusing more on the underlying logic of AI systems can help you demystify how these tools work."
-      },
-      "apply_ai_low": {
-        "sv": "Det kan vara värdefullt att experimentera mer praktiskt för att se hur AI kan avlasta just dina specifika arbetsflöden.",
-        "en": "It could be valuable to experiment more practically to see how AI can support your specific workflows."
-      },
-      "ai_ethics_low": {
-        "sv": "Ökad kunskap om AI-etik kan hjälpa dig att navigera tryggare kring ansvar och transparens i din yrkesutövning.",
-        "en": "Increased knowledge of AI ethics can help you navigate more confidently regarding responsibility and transparency in your professional practice."
-      },
-      "detect_ai_low": {
-        "sv": "Genom att träna på att känna igen AI-genererat innehåll kan du stärka både din egen och omgivningens källkritik.",
-        "en": "By practicing recognizing AI-generated content, you can strengthen both your own and the organization's critical thinking."
-      },
-      "create_ai_low": {
-        "sv": "Att gå från att vara användare till att förstå hur AI-lösningar skapas ger dig bättre förutsättningar att värdera verktygens begränsningar.",
-        "en": "Moving from being a user to understanding how AI solutions are created gives you better pre-requisites to evaluate the tools' limitations."
-      },
-      "gen_ai_low": {
-        "sv": "Genom att reflektera över hur generativ AI förändrar synen på kunskap och kompetens kan du bättre navigera i dess roll i verksamheten.",
-        "en": "By reflecting on how generative AI changes the view of knowledge and competence, you can better navigate its role in the organization."
-      }
     }
   },
   "organization": {
@@ -349,8 +153,16 @@
       "en": "Prioritization"
     },
     "prioritiesDescription": {
-      "sv": "Hur viktig är respektive orientering för er organisation? (1 = Inte viktig, 5 = Mycket viktig)",
-      "en": "How important is each orientation for your organization? (1 = Not important, 5 = Very important)"
+      "sv": "Hur viktig är respektive orientering för er organisation?",
+      "en": "How important is each orientation for your organization?"
+    },
+    "priorityBudget": {
+      "sv": "Du har en budget på totalt 20 poäng",
+      "en": "You have a total budget of 20 points"
+    },
+    "priorityPointsTotal": {
+      "sv": "Använda poäng: {total} / 20",
+      "en": "Points used: {total} / 20"
     },
     "notImportant": {
       "sv": "Inte viktig",
@@ -521,30 +333,6 @@
       }
     }
   },
-  "about": {
-    "title": {
-      "sv": "Om verktyget",
-      "en": "About the tool"
-    },
-    "bodyPrefix": {
-      "sv": "Detta verktyg utvecklades av CREDtech i samarbete med Göteborgsregionen. Den individuella modulen utvecklades baserat på AICOS-skalan av ",
-      "en": "This tool was developed by CREDtech in collaboration with Göteborgs Regionen. The individual module was developed based on the AICOS scale by "
-    },
-    "bodyLinkText": {
-      "sv": "Markus, Carolus och Wienrich (2025)",
-      "en": "Markus, Carolus and Wienrich (2025)"
-    },
-    "bodyLinkUrl": "https://doi.org/10.1016/j.caeai.2025.100485",
-    "bodySuffix": {
-      "sv": ". Organisationsmodulen utvecklades baserat på analys av skolorganisationers prioriteringar och orienteringar som genomförts som en del av samarbetet mellan CREDtech och Göteborgsregionen.",
-      "en": ". The organizational module was developed based on analysis of school organisation priorities and orientations conducted as part of the collaboration between CREDtech and Göteborgs Regionen."
-    },
-    "referencesTitle": {
-      "sv": "Referenser",
-      "en": "References"
-    },
-    "references": []
-  },
   "errors": {
     "missingBankFile": {
       "sv": "Kunde inte läsa item-bankfilen. Kontrollera att filen finns i projektmappen.",
@@ -557,6 +345,10 @@
     "incompleteAnswers": {
       "sv": "Du har inte besvarat alla frågor.",
       "en": "You have not answered all questions."
+    },
+    "priorityLimitExceeded": {
+      "sv": "Totala poäng kan inte överstiga 20. Vänligen justera dina prioriteringar.",
+      "en": "Total points cannot exceed 20. Please adjust your priorities."
     }
   }
 }

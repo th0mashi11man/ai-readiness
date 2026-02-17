@@ -4,48 +4,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // Test data seeders — fill localStorage and navigate to results
-function seedIndividualAndGo(router, profile = "proficient") {
-  let answers = {};
-
-  if (profile === "novice") {
-    // ~7/18 correct (random guessing territory)
-    answers = {
-      apply_ai_q1: 2, apply_ai_q2: 1, apply_ai_q3: 0,   // 1/3
-      create_ai_q1: 1, create_ai_q2: 0, create_ai_q3: 1, // 1/3
-      detect_ai_q1: 1, detect_ai_q2: 0, detect_ai_q3: 1, // 1/3
-      ai_ethics_q1: 1, ai_ethics_q2: 0, ai_ethics_q3: 0, // 1/3
-      gen_ai_q1: 1, gen_ai_q2: 0, gen_ai_q3: 1,           // 1/3
-      understand_ai_q1: 0, understand_ai_q2: 0, understand_ai_q3: 0, // 1/3 plus one extra
-      understand_ai_q2: 1,
-    };
-  } else if (profile === "expert") {
-    // 17/18 correct (Realistic expert)
-    answers = {
-      apply_ai_q1: 2, apply_ai_q2: 0, apply_ai_q3: 1,
-      create_ai_q1: 1, create_ai_q2: 1, create_ai_q3: 2, // Missed q3
-      detect_ai_q1: 1, detect_ai_q2: 2, detect_ai_q3: 0,
-      ai_ethics_q1: 1, ai_ethics_q2: 1, ai_ethics_q3: 3,
-      gen_ai_q1: 1, gen_ai_q2: 1, gen_ai_q3: 0,
-      understand_ai_q1: 0, understand_ai_q2: 1, understand_ai_q3: 2,
-    };
-  } else {
-    // Proficient (~12/18 - Balanced intermediate)
-    answers = {
-      apply_ai_q1: 2, apply_ai_q2: 0, apply_ai_q3: 0,   // 2/3
-      create_ai_q1: 1, create_ai_q2: 1, create_ai_q3: 2, // 2/3
-      detect_ai_q1: 1, detect_ai_q2: 2, detect_ai_q3: 1, // 2/3
-      ai_ethics_q1: 1, ai_ethics_q2: 0, ai_ethics_q3: 3, // 2/3
-      gen_ai_q1: 1, gen_ai_q2: 1, gen_ai_q3: 2,           // 2/3
-      understand_ai_q1: 0, understand_ai_q2: 1, understand_ai_q3: 0, // 2/3
-    };
-  }
-
-  const itemOrder = Object.keys(answers);
-  localStorage.setItem("individual_state", JSON.stringify({
-    answers, itemOrder, currentIndex: itemOrder.length - 1, completed: true,
-  }));
-  router.push("/individual?phase=results");
-}
 
 function seedOrgAndGo(router, profile) {
   let answers = {};
@@ -123,14 +81,16 @@ export default function HomePage() {
         <div className="hero-glow" aria-hidden="true" />
         <div className="hero-content">
           <h1 className="hero-title">{t("home.title")}</h1>
-          <p className="hero-intro">{t("home.intro")}</p>
+          <p className="hero-description">{t("home.description")}</p>
           <div className="cta-group">
-            <Link href="/individual" className="btn btn-primary btn-lg">
-              <span className="btn-icon" aria-hidden="true">📝</span>
-              {t("home.ctaIndividual")}
-            </Link>
-            <Link href="/organization" className="btn btn-secondary btn-lg">
-              <span className="btn-icon" aria-hidden="true">🏫</span>
+            <Link
+              href="/organization"
+              className="btn btn-primary btn-lg"
+              onClick={() => {
+                localStorage.removeItem("organization_state");
+                localStorage.removeItem("org_priorities");
+              }}
+            >
               {t("home.ctaOrganization")}
             </Link>
           </div>
@@ -146,13 +106,7 @@ export default function HomePage() {
           </div>
           <div className="test-links">
             <div className="test-section">
-              <h4>Test Individual:</h4>
-              <button onClick={() => seedIndividualAndGo(router, "novice")}>Novice</button>
-              <button onClick={() => seedIndividualAndGo(router, "proficient")}>Proficient</button>
-              <button onClick={() => seedIndividualAndGo(router, "expert")}>Expert</button>
-            </div>
-            <div className="test-section">
-              <h4>Test Organization:</h4>
+              <h4>Test Cases:</h4>
               <button onClick={() => seedOrgAndGo(router, "efficiency")}>Case 1</button>
               <button onClick={() => seedOrgAndGo(router, "balanced")}>Case 2</button>
               <button onClick={() => seedOrgAndGo(router, "knowledge")}>Case 3</button>

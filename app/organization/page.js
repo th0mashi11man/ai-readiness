@@ -22,7 +22,7 @@ function OrganizationContent() {
     const { t, locale } = useI18n();
     const searchParams = useSearchParams();
     const [bank, setBank] = useState(null);
-    const [phase, setPhase] = useState(searchParams.get("phase") || "intro");
+    const [phase, setPhase] = useState(searchParams.get("phase") || "priority");
 
     // Check for stored priorities
     useEffect(() => {
@@ -49,10 +49,7 @@ function OrganizationContent() {
     };
 
     return (
-        <>
-            {phase === "intro" && (
-                <IntroScreen bank={bank} t={t} onStart={() => setPhase("priority")} />
-            )}
+        <div className="org-container">
             {phase === "priority" && (
                 <PriorityStep
                     bank={bank}
@@ -74,47 +71,37 @@ function OrganizationContent() {
                     bank={bank}
                     t={t}
                     locale={locale}
-                    onRestart={() => setPhase("intro")}
+                    onRestart={() => setPhase("priority")}
                 />
             )}
-        </>
-    );
-}
-
-function IntroScreen({ bank, t, onStart }) {
-    return (
-        <section className="page fade-in">
-            <div className="card">
-                <h1>{t("organization.title")}</h1>
-                <p>{t("organization.description")}</p>
-
-                <button className="btn btn-primary" onClick={() => {
-                    // Force reset state when starting fresh
-                    if (typeof window !== "undefined") {
-                        localStorage.removeItem("organization_state");
-                        localStorage.removeItem("org_priorities");
-                    }
-                    onStart();
-                }} style={{ marginTop: "2rem" }}>
-                    {t("organization.startButton")}
-                </button>
-            </div>
-        </section>
+        </div>
     );
 }
 
 function PriorityStep({ bank, t, locale, onComplete }) {
     const [priorities, setPriorities] = useState({});
 
-    // Initialize with 3 (middle) if not set
+    // Initialize with 3 (middle) if not set. Total for 5 orientations = 15.
     useEffect(() => {
         const initial = {};
         bank.orientations.forEach(o => initial[o.id] = 3);
         setPriorities(initial);
     }, [bank]);
 
+    const totalPoints = Object.values(priorities).reduce((a, b) => a + b, 0);
+
     const handleChange = (id, val) => {
-        setPriorities(prev => ({ ...prev, [id]: parseInt(val) }));
+        const newVal = parseInt(val);
+        const currentVal = priorities[id] || 0;
+        const otherTotal = totalPoints - currentVal;
+
+        // If the new total would exceed 20, clamp it to the remaining budget
+        const allowedVal = Math.min(newVal, 20 - otherTotal);
+
+        // Don't go below the slider's minimum (1) if it's already there
+        const finalVal = Math.max(allowedVal, 1);
+
+        setPriorities(prev => ({ ...prev, [id]: finalVal }));
     };
 
     return (
@@ -125,16 +112,34 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                     {t("organization.prioritiesDescription")}
                 </p>
 
+                <div className="point-tracker" style={{
+                    marginBottom: "2rem",
+                    padding: "1rem",
+                    borderRadius: "8px",
+                    backgroundColor: "var(--color-surface)",
+                    border: "1px solid var(--color-border)",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center"
+                }}>
+                    <span style={{ fontSize: "0.95rem", color: "var(--color-text-secondary)" }}>
+                        {t("organization.priorityBudget")}
+                    </span>
+                    <span style={{ fontWeight: "600", color: "var(--color-text)" }}>
+                        {t("organization.priorityPointsTotal").replace("{total}", totalPoints)}
+                    </span>
+                </div>
+
                 <div className="priority-list" style={{ display: "grid", gap: "1.5rem", marginBottom: "2rem" }}>
                     {bank.orientations.map(orient => (
-                        <div key={orient.id} style={{ padding: "1rem", border: "1px solid var(--border-color)", borderRadius: "8px" }}>
+                        <div key={orient.id} style={{ padding: "1rem", border: "1px solid var(--color-border)", borderRadius: "8px" }}>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
                                 <h3 style={{ margin: 0 }}>{orient.label[locale]}</h3>
-                                <div style={{ fontWeight: "bold", fontSize: "1.2rem", color: "var(--primary-color)" }}>
+                                <div style={{ fontWeight: "bold", fontSize: "1.2rem", color: "var(--color-primary)" }}>
                                     {priorities[orient.id]} / 5
                                 </div>
                             </div>
-                            <p style={{ margin: "0 0 1rem 0", fontSize: "0.9rem", color: "var(--muted-foreground)" }}>
+                            <p style={{ margin: "0 0 1rem 0", fontSize: "0.9rem", color: "var(--color-text-secondary)" }}>
                                 {orient.description[locale]}
                             </p>
                             <input
@@ -144,9 +149,9 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                                 step="1"
                                 value={priorities[orient.id] || 3}
                                 onChange={(e) => handleChange(orient.id, e.target.value)}
-                                style={{ width: "100%", accentColor: "var(--primary-color)" }}
+                                style={{ width: "100%", accentColor: "var(--color-primary)" }}
                             />
-                            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--muted-foreground)", marginTop: "0.2rem" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--color-text-muted)", marginTop: "0.2rem" }}>
                                 <span>{t("organization.notImportant")}</span>
                                 <span>{t("organization.veryImportant")}</span>
                             </div>
@@ -155,7 +160,10 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                 </div>
 
                 <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "2rem" }}>
-                    <button className="btn btn-primary" onClick={() => onComplete(priorities)}>
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => onComplete(priorities)}
+                    >
                         {t("organization.proceedToQuestions")}
                     </button>
                 </div>
