@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import { useQuizStore } from "@/lib/store";
-import { scoreOrganization, generateNarrative } from "@/lib/scoring";
+import { scoreOrganization, generateNarrative, getGapLevel } from "@/lib/scoring";
 import BarChart from "@/components/BarChart";
 import RadarChart from "@/components/RadarChart";
 import PrintHeader from "@/components/PrintHeader";
@@ -300,12 +300,17 @@ function OrgResults({ bank, t, locale, onRestart }) {
     }, []);
 
     const [narratives, setNarratives] = useState(null);
+    const [gapSuggestions, setGapSuggestions] = useState(null);
 
     useEffect(() => {
         fetch("/narratives.json")
             .then(r => r.json())
             .then(setNarratives)
             .catch(err => console.error("Failed to load narratives", err));
+        fetch("/gap_suggestions.json")
+            .then(r => r.json())
+            .then(setGapSuggestions)
+            .catch(err => console.error("Failed to load gap suggestions", err));
     }, []);
 
     if (!mounted) return <div className="loading text-center p-8">{t("common.loading")}</div>;
@@ -413,6 +418,52 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                 </div>
 
                                 <p className="large-text">{item.description[locale]}</p>
+
+                                {/* Gap Analysis Suggestion */}
+                                {gapSuggestions && (() => {
+                                    const priority = storedPriorities[item.id] || 3;
+                                    const currentAvg = parseFloat(item.average);
+                                    const level = getGapLevel(priority, currentAvg);
+                                    const suggestion = gapSuggestions[item.id]?.[level]?.[locale];
+
+                                    const levelConfig = {
+                                        aligned: { color: '#22c55e', bg: '#f0fdf4', border: '#86efac', badge: locale === 'sv' ? '✓ I linje med prioritering' : '✓ Aligned with priority' },
+                                        minor: { color: '#3b82f6', bg: '#eff6ff', border: '#93c5fd', badge: locale === 'sv' ? 'Litet glapp' : 'Minor gap' },
+                                        moderate: { color: '#f59e0b', bg: '#fffbeb', border: '#fcd34d', badge: locale === 'sv' ? 'Måttligt glapp' : 'Moderate gap' },
+                                        significant: { color: '#ef4444', bg: '#fef2f2', border: '#fca5a5', badge: locale === 'sv' ? 'Betydande glapp' : 'Significant gap' },
+                                    };
+                                    const cfg = levelConfig[level];
+
+                                    return suggestion ? (
+                                        <div style={{
+                                            marginTop: '1rem',
+                                            padding: '1rem',
+                                            borderRadius: '8px',
+                                            backgroundColor: cfg.bg,
+                                            borderLeft: `4px solid ${cfg.color}`,
+                                            border: `1px solid ${cfg.border}`,
+                                            borderLeftWidth: '4px',
+                                        }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                                                <span style={{
+                                                    fontSize: '0.75rem',
+                                                    fontWeight: '700',
+                                                    textTransform: 'uppercase',
+                                                    letterSpacing: '0.05em',
+                                                    color: cfg.color,
+                                                    padding: '0.2rem 0.6rem',
+                                                    borderRadius: '999px',
+                                                    backgroundColor: 'white',
+                                                    border: `1px solid ${cfg.border}`,
+                                                }}>
+                                                    {cfg.badge}
+                                                </span>
+                                            </div>
+                                            <p style={{ margin: 0, fontSize: '0.95rem', color: 'var(--color-text)', lineHeight: '1.6' }}
+                                                dangerouslySetInnerHTML={{ __html: suggestion }} />
+                                        </div>
+                                    ) : null;
+                                })()}
                             </div>
                         ))}
                 </div>

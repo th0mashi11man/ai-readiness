@@ -1,0 +1,92 @@
+{
+    "EFF": {
+        "aligned": {
+            "sv": "Er organisation arbetar redan i linje med er prioritering inom effektivitet och automatisering. Fortsätt att följa upp och dela goda exempel internt.",
+            "en": "Your organisation is already working in line with your stated priority for efficiency and automation. Continue monitoring and sharing good examples internally."
+        },
+        "minor": {
+            "sv": "Det finns ett litet glapp mellan er prioritering och nuvarande praktik inom effektivitet. Överväg att kartlägga vilka administrativa processer som kan effektiviseras med AI-stöd. [länkplatshållare: resurs om processautomatisering]",
+            "en": "There is a small gap between your priority and current practice in efficiency. Consider mapping which administrative processes could be streamlined with AI support. [link placeholder: resource on process automation]"
+        },
+        "moderate": {
+            "sv": "Er organisation prioriterar effektivitet och automatisering högre än nuvarande praktik visar. Rekommendation: identifiera konkreta pilotprojekt för AI-stödd administration och sätt upp mätbara mål för tidsvinster. [länkplatshållare: guide för AI-driven processoptimering]",
+            "en": "Your organisation prioritises efficiency and automation higher than current practice reflects. Recommendation: identify concrete pilot projects for AI-supported administration and set measurable targets for time savings. [link placeholder: guide to AI-driven process optimisation]"
+        },
+        "significant": {
+            "sv": "Det finns ett betydande glapp mellan er uttalade prioritering av effektivitet och er nuvarande praktik. Vi rekommenderar starkt att ni genomför en strukturerad kartläggning av arbetsflöden och tar fram en handlingsplan för AI-stödd automatisering. [länkplatshållare: ramverk för digital transformation i skolan]",
+            "en": "There is a significant gap between your stated priority for efficiency and your current practice. We strongly recommend conducting a structured workflow mapping and developing an action plan for AI-supported automation. [link placeholder: framework for digital transformation in schools]"
+        }
+    },
+    "ANA": {
+        "aligned": {
+            "sv": "Er organisation arbetar redan i linje med er prioritering inom analys och kvalitetsarbete. Fortsätt att integrera AI-insikter i era uppföljningsprocesser.",
+            "en": "Your organisation is already working in line with your stated priority for analysis and quality work. Continue integrating AI insights into your monitoring processes."
+        },
+        "minor": {
+            "sv": "Det finns ett litet glapp inom analys och kvalitetsarbete. Överväg att utöka användningen av dataanalysverktyg i er uppföljning. [länkplatshållare: introduktion till AI-stödd analys i skolan]",
+            "en": "There is a small gap in analysis and quality work. Consider expanding the use of data analysis tools in your monitoring. [link placeholder: introduction to AI-supported analysis in schools]"
+        },
+        "moderate": {
+            "sv": "Er organisation värderar analys och kvalitetsarbete högre än nuvarande praktik visar. Rekommendation: investera i kompetensutveckling kring dataanalys och etablera tydliga rutiner för hur AI-genererade insikter integreras i beslutsfattandet. [länkplatshållare: kurs i datadriven skolutveckling]",
+            "en": "Your organisation values analysis and quality work more than current practice reflects. Recommendation: invest in competency development around data analysis and establish clear routines for how AI-generated insights are integrated into decision-making. [link placeholder: course in data-driven school development]"
+        },
+        "significant": {
+            "sv": "Det finns ett betydande glapp mellan er prioritering av analys och er nuvarande praktik. Vi rekommenderar att ni tar fram en strategi för datainsamling och analys, och att ni utbildar nyckelpersoner i att tolka och agera på AI-genererade insikter. [länkplatshållare: ramverk för systematiskt kvalitetsarbete med AI]",
+            "en": "There is a significant gap between your priority for analysis and your current practice. We recommend developing a strategy for data collection and analysis, and training key staff to interpret and act on AI-generated insights. [link placeholder: framework for systematic quality work with AI]"
+        }
+    },
+    "TEC": {
+        "aligned": {
+            "sv": "Er organisation arbetar redan i linje med er prioritering inom teknik och upphandling. Fortsätt att säkerställa att era AI-system uppfyller gällande krav på säkerhet och lagefterlevnad.",
+            "en": "Your organisation is already working in line with your stated priority for technology and procurement. Continue ensuring your AI systems meet current security and compliance requirements."
+        },
+        "minor": {
+            "sv": "Det finns ett litet glapp inom teknik och upphandling. Överväg att se över era rutiner för granskning och godkännande av AI-verktyg. [länkplatshållare: checklista för AI-upphandling i offentlig sektor]",
+            "en": "There is a small gap in technology and procurement. Consider reviewing your routines for evaluating and approving AI tools. [link placeholder: checklist for AI procurement in the public sector]"
+        },
+        "moderate": {
+            "sv": "Er organisation prioriterar teknik och upphandling högre än nuvarande praktik visar. Rekommendation: inrätta tydliga processer för AI-upphandling och utse ansvariga roller för teknisk granskning och riskbedömning. [länkplatshållare: guide för ansvarsfull AI-upphandling]",
+            "en": "Your organisation prioritises technology and procurement higher than current practice reflects. Recommendation: establish clear processes for AI procurement and assign responsible roles for technical review and risk assessment. [link placeholder: guide to responsible AI procurement]"
+        },
+        "significant": {
+            "sv": "Det finns ett betydande glapp mellan er prioritering av teknik och er nuvarande praktik. Vi rekommenderar att ni genomför en IT-säkerhetsrevision av befintliga AI-system och tar fram en policy för AI-upphandling och infrastruktur. [länkplatshållare: nationell vägledning för AI och dataskydd i skolan]",
+            "en": "There is a significant gap between your priority for technology and your current practice. We recommend conducting an IT security audit of existing AI systems and developing a policy for AI procurement and infrastructure. [link placeholder: national guidance on AI and data protection in schools]"
+        }
+    },
+    "SUP": {
+        "aligned": {
+            "sv": "Er organisation arbetar redan i linje med er prioritering inom elevstöd och lärande. Fortsätt att stödja lärare i att använda AI pedagogiskt och dela framgångsrika exempel.",
+            "en": "Your organisation is already working in line with your stated priority for student support and learning. Continue supporting teachers in using AI pedagogically and sharing successful examples."
+        },
+        "minor": {
+            "sv": "Det finns ett litet glapp inom elevstöd och lärande. Överväg att erbjuda fler möjligheter för lärare att utforska AI-verktyg i undervisningen. [länkplatshållare: introduktionskurs i AI för lärare]",
+            "en": "There is a small gap in student support and learning. Consider offering more opportunities for teachers to explore AI tools in teaching. [link placeholder: introductory course in AI for teachers]"
+        },
+        "moderate": {
+            "sv": "Er organisation värderar elevstöd och lärande högre än nuvarande praktik visar. Rekommendation: organisera strukturerade kompetensutvecklingsinsatser kring pedagogisk AI-användning och skapa forum för lärare att dela erfarenheter. [länkplatshållare: program för pedagogisk AI-kompetensutveckling]",
+            "en": "Your organisation values student support and learning more than current practice reflects. Recommendation: organise structured professional development around pedagogical AI use and create forums for teachers to share experiences. [link placeholder: programme for pedagogical AI competency development]"
+        },
+        "significant": {
+            "sv": "Det finns ett betydande glapp mellan er prioritering av elevstöd och er nuvarande praktik. Vi rekommenderar starkt att ni tar fram en handlingsplan för pedagogisk AI-kompetensutveckling och att ni systematiskt utvärderar hur AI kan stödja elever med olika behov. [länkplatshållare: forskningsöversikt om AI och inkludering i skolan]",
+            "en": "There is a significant gap between your priority for student support and your current practice. We strongly recommend developing an action plan for pedagogical AI competency development and systematically evaluating how AI can support students with diverse needs. [link placeholder: research overview on AI and inclusion in schools]"
+        }
+    },
+    "KNO": {
+        "aligned": {
+            "sv": "Er organisation arbetar redan i linje med er prioritering inom kunskap och demokrati. Fortsätt att integrera kritisk AI-kompetens i undervisning och ledningsforum.",
+            "en": "Your organisation is already working in line with your stated priority for knowledge and democracy. Continue integrating critical AI literacy into teaching and leadership forums."
+        },
+        "minor": {
+            "sv": "Det finns ett litet glapp inom kunskap och demokrati. Överväg att lyfta etiska och samhälleliga frågor om AI i era befintliga forum och möten. [länkplatshållare: diskussionsguide om AI och demokrati]",
+            "en": "There is a small gap in knowledge and democracy. Consider raising ethical and societal questions about AI in your existing forums and meetings. [link placeholder: discussion guide on AI and democracy]"
+        },
+        "moderate": {
+            "sv": "Er organisation värderar kunskap och demokrati högre än nuvarande praktik visar. Rekommendation: integrera kritisk AI-kompetens i kompetensutvecklingsplaner och ge elever strukturerade möjligheter att granska AI-systems samhällspåverkan. [länkplatshållare: läromedel om AI-etik och källkritik]",
+            "en": "Your organisation values knowledge and democracy more than current practice reflects. Recommendation: integrate critical AI literacy into professional development plans and give students structured opportunities to examine AI's societal impact. [link placeholder: teaching materials on AI ethics and source criticism]"
+        },
+        "significant": {
+            "sv": "Det finns ett betydande glapp mellan er prioritering av kunskap och demokrati och er nuvarande praktik. Vi rekommenderar att ni tar fram en strategi för kritisk AI-kompetens som genomsyrar hela organisationen — från ledning till klassrum. [länkplatshållare: nationellt ramverk för AI-kompetens i skolan]",
+            "en": "There is a significant gap between your priority for knowledge and democracy and your current practice. We recommend developing a strategy for critical AI literacy that permeates the entire organisation — from leadership to classroom. [link placeholder: national framework for AI competency in schools]"
+        }
+    }
+}
