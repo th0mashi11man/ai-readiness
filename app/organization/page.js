@@ -108,7 +108,10 @@ function PriorityStep({ bank, t, locale, onComplete }) {
         <section className="page fade-in">
             <div className="card">
                 <h1 style={{ marginBottom: "0.5rem" }}>{t("organization.prioritiesTitle")}</h1>
-                <p className="lead" style={{ marginBottom: "2rem" }}>
+                <p className="lead" style={{ marginBottom: "1rem" }}>
+                    {t("organization.prioritiesIntro")}
+                </p>
+                <p className="lead" style={{ marginBottom: "2rem", fontWeight: 600 }}>
                     {t("organization.prioritiesDescription")}
                 </p>
 
@@ -159,7 +162,11 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                     ))}
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "2rem" }}>
+                <p style={{ marginTop: "1.5rem", marginBottom: "1.5rem", color: "var(--color-text-secondary)", lineHeight: "1.6" }}>
+                    {t("organization.prioritiesOutro")}
+                </p>
+
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
                     <button
                         className="btn btn-primary"
                         onClick={() => onComplete(priorities)}
@@ -431,6 +438,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                         minor: { color: '#3b82f6', bg: '#eff6ff', border: '#93c5fd', badge: locale === 'sv' ? 'Litet glapp' : 'Minor gap' },
                                         moderate: { color: '#f59e0b', bg: '#fffbeb', border: '#fcd34d', badge: locale === 'sv' ? 'Måttligt glapp' : 'Moderate gap' },
                                         significant: { color: '#ef4444', bg: '#fef2f2', border: '#fca5a5', badge: locale === 'sv' ? 'Betydande glapp' : 'Significant gap' },
+                                        surplus: { color: '#8b5cf6', bg: '#f5f3ff', border: '#c4b5fd', badge: locale === 'sv' ? 'Överstiger prioritering' : 'Exceeds priority' },
                                     };
                                     const cfg = levelConfig[level];
 

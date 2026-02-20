@@ -20,6 +20,14 @@
       "sv": "Börja om",
       "en": "Restart"
     },
+    "homeLabel": {
+      "sv": "Hem",
+      "en": "Home"
+    },
+    "about": {
+      "sv": "Om verktyget",
+      "en": "About"
+    },
     "languageLabel": {
       "sv": "Språk",
       "en": "Language"
@@ -27,6 +35,36 @@
     "languageSwitch": {
       "sv": "SV / EN",
       "en": "SV / EN"
+    }
+  },
+  "about": {
+    "title": {
+      "sv": "Om verktyget",
+      "en": "About this tool"
+    },
+    "intro": {
+      "sv": "Detta självskattningsverktyg för AI-beredskap i skolorganisationer är utvecklat i samarbete mellan CREDtech vid Göteborgs universitet och Göteborgsregionen (GR).",
+      "en": "This AI readiness self-assessment tool for school organisations is developed in collaboration between CREDtech at the University of Gothenburg and Göteborgsregionen (GR)."
+    },
+    "credtechDescription": {
+      "sv": "CREDtech (Center för ansvarsfull utbildningsteknologi) är ett forskningscenter vid Göteborgs universitet. CREDtech anlägger kritiska, praktikbaserade och designorienterade perspektiv i sin forskning för att undersöka hur framväxande teknik som artificiell intelligens på ett ansvarsfullt sätt kan adressera utmaningar inom skola, högre utbildning, kompetensutveckling och livslångt lärande.",
+      "en": "CREDtech (Center for Responsible Educational Technology) is a research centre at the University of Gothenburg. CREDtech takes critical, practice, and design orientations in its research to inform the ways that emerging technologies like artificial intelligence can responsibly address grand challenges facing schooling, higher education, professional development, and lifelong learning."
+    },
+    "grDescription": {
+      "sv": "Göteborgsregionen (GR) är en samarbetsorganisation för 13 kommuner i Västsverige. GR arbetar inom områden som skola och utbildning, arbetsmarknad, social välfärd, samhällsbyggnad och kompetensförsörjning – för att stärka regionen och skapa bättre förutsättningar för invånarna genom mellankommunal samverkan.",
+      "en": "Göteborgsregionen (GR) is a collaborative organisation of 13 municipalities in western Sweden. GR works across areas including education, labour market, social welfare, urban planning, and skills supply — strengthening the region and creating better conditions for its residents through inter-municipal cooperation."
+    },
+    "referenceTitle": {
+      "sv": "Referens",
+      "en": "Reference"
+    },
+    "referenceText": {
+      "sv": "Verktyget bygger på det ramverk som presenteras i Markus, Carolus & Wienrich (2025).",
+      "en": "The tool is based on the framework presented in Markus, Carolus & Wienrich (2025)."
+    },
+    "ctaStart": {
+      "sv": "Starta självbedömningen",
+      "en": "Start the self-assessment"
     }
   },
   "common": {
@@ -152,9 +190,17 @@
       "sv": "Prioritering",
       "en": "Prioritization"
     },
+    "prioritiesIntro": {
+      "sv": "Det finns olika orienteringar som en skolorganisation kan ta vid implementering av AI, och dessa kan prioriteras på olika sätt beroende på verksamhetens mål och förutsättningar.",
+      "en": "There are different orientations that school organisations can take when implementing AI, and these can be prioritised differently depending on the goals and circumstances of the organisation."
+    },
     "prioritiesDescription": {
       "sv": "Hur viktig är respektive orientering för er organisation?",
-      "en": "How important is each orientation for your organization?"
+      "en": "How important is each orientation for your organisation?"
+    },
+    "prioritiesOutro": {
+      "sv": "Nu har ni angett hur ni vill prioritera de olika perspektiven i er organisation. Genom att besvara frågorna som följer får ni en bild av vilka orienteringar som för närvarande har störst genomslag i er organisation. Avslutningsvis kan ni jämföra era resultat med era angivna prioriteringar.",
+      "en": "Now that you have indicated how you would choose to prioritise the different perspectives in your organisation, answering the questions that follow will help you get a sense of which orientations currently have the most priority in your organisation. In the end, you will be able to compare your results with your target prioritisations."
     },
     "priorityBudget": {
       "sv": "Du har en budget på totalt 20 poäng",

@@ -37,7 +37,7 @@ function seedOrgAndGo(router, profile) {
     priorities["SUP"] = 2;
   } else if (profile === "balanced") {
     // Case 2: Balanced (Hybrid)
-    items.forEach(i => answers[i.id] = Math.random() > 0.5 ? 4 : 3);
+    items.forEach((i, idx) => answers[i.id] = idx % 2 === 0 ? 4 : 3);
     answers["q_tec_3"] = 5; // Spike
 
     priorities["TEC"] = 5;
