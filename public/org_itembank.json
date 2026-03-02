@@ -1,4 +1,10 @@
 {
+  "_instructions": [
+    "This file contains the assessment orientations and the actual survey questions.",
+    "Orientation IDs: EFF (Efficiency), ANA (Analysis), TEC (Technology), SUP (Student Support), KNO (Knowledge).",
+    "Items: Each question in the \"items\" array belongs to an orientationId. Editing the \"text\" field updates the question in the app.",
+    "Settings: The \"likertScale\" section defines the labels for the 1-5 rating buttons."
+  ],
   "orientations": [
     {
       "id": "ANA",

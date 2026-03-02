@@ -1,4 +1,10 @@
 {
+  "_instructions": [
+    "This file contains the feedback text shown to users based on the gap between their priorities and current results.",
+    "Levels: Feedback is categorized by the degree of misalignment: aligned, minor, moderate, significant, or surplus.",
+    "Orientation IDs: EFF (Efficiency), ANA (Analysis), TEC (Technology), SUP (Student Support), KNO (Knowledge).",
+    "Placeholders: Some texts contain [link placeholder] hints. These will eventually be replaced with real URLs."
+  ],
   "ANA": {
     "aligned": {
       "sv": "Er organisation arbetar i linje med er prioritering inom analys och kvalitetsarbete. Att fortsätta integrera AI-insikter i uppföljningsprocesser är ett sätt att bygga vidare på detta.",

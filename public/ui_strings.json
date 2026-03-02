@@ -1,4 +1,10 @@
 {
+  "_instructions": [
+    "This file contains all the user interface text for the application.",
+    "Structure: Each category (nav, common, home, etc.) contains keys with translations.",
+    "Translation Format: Always use the format { \"sv\": \"Swedish text\", \"en\": \"English text\" }.",
+    "Variables: Some strings use {variable} syntax (e.g., {current}). Do not translate the text inside the curly braces."
+  ],
   "schemaVersion": "1.0.0",
   "defaultLocale": "sv",
   "supportedLocales": [
