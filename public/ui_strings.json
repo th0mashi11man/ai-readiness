@@ -11,6 +11,24 @@
     "sv",
     "en"
   ],
+  "consent": {
+    "body": {
+      "sv": "All information bearbetas i din webbläsare. Ingenting sparas eller skickas till en server.",
+      "en": "All information is processed in your browser. Nothing is saved or sent to a server."
+    },
+    "checkbox": {
+      "sv": "Jag har läst informationen och vill fortsätta.",
+      "en": "I have read the information and want to continue."
+    },
+    "continueDisabledHint": {
+      "sv": "Bocka i rutan för att fortsätta.",
+      "en": "Check the box to continue."
+    },
+    "title": {
+      "sv": "",
+      "en": ""
+    }
+  },
   "nav": {
     "about": {
       "sv": "Om verktyget",
