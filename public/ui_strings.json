@@ -5,17 +5,11 @@
     "sv",
     "en"
   ],
-  "app": {
-    "name": {
-      "sv": "AI-beredskap i skolorganisationer",
-      "en": "AI Readiness in School Organizations"
-    },
-    "tagline": {
-      "sv": "Självskattning och profilering för skolorganisationer",
-      "en": "Assessment and profiling for school organizations"
-    }
-  },
   "nav": {
+    "about": {
+      "sv": "Om verktyget",
+      "en": "About"
+    },
     "home": {
       "sv": "Börja om",
       "en": "Restart"
@@ -23,29 +17,53 @@
     "homeLabel": {
       "sv": "Hem",
       "en": "Home"
+    }
+  },
+  "common": {
+    "back": {
+      "sv": "Tillbaka",
+      "en": "Back"
     },
-    "about": {
-      "sv": "Om verktyget",
-      "en": "About"
+    "continue": {
+      "sv": "Fortsätt",
+      "en": "Continue"
     },
-    "languageLabel": {
-      "sv": "Språk",
-      "en": "Language"
+    "exportPdf": {
+      "sv": "Exportera som PDF",
+      "en": "Export as PDF"
     },
-    "languageSwitch": {
-      "sv": "SV / EN",
-      "en": "SV / EN"
+    "finish": {
+      "sv": "Slutför",
+      "en": "Finish"
+    },
+    "loading": {
+      "sv": "Laddar…",
+      "en": "Loading…"
+    },
+    "next": {
+      "sv": "Nästa",
+      "en": "Next"
+    },
+    "progress": {
+      "sv": "Fråga {current} av {total}",
+      "en": "Question {current} of {total}"
+    }
+  },
+  "home": {
+    "ctaOrganization": {
+      "sv": "Starta självbedömningen",
+      "en": "Start the self-assessment"
+    },
+    "description": {
+      "sv": "Besvara frågor om er organisations arbete med AI för att identifiera dominerande implementeringsorienteringar i nuläget och tydliggöra era avsedda prioriteringar framåt.",
+      "en": "Answer questions about your organisation’s AI work to identify dominant implementation orientations today and clarify your intended priorities going forward."
+    },
+    "title": {
+      "sv": "AI-beredskap i skolorganisationer",
+      "en": "AI Readiness in School Organizations"
     }
   },
   "about": {
-    "title": {
-      "sv": "Om verktyget",
-      "en": "About this tool"
-    },
-    "intro": {
-      "sv": "Detta självskattningsverktyg för AI-beredskap i skolorganisationer är utvecklat i samarbete mellan CREDtech vid Göteborgs universitet och Göteborgsregionen (GR).",
-      "en": "This AI readiness self-assessment tool for school organisations is developed in collaboration between CREDtech at the University of Gothenburg and Göteborgsregionen (GR)."
-    },
     "credtechDescription": {
       "sv": "CREDtech (Center för ansvarsfull utbildningsteknologi) är ett forskningscenter vid Göteborgs universitet. CREDtech anlägger kritiska, praktikbaserade och designorienterade perspektiv i sin forskning för att undersöka hur framväxande teknik som artificiell intelligens på ett ansvarsfullt sätt kan adressera utmaningar inom skola, högre utbildning, kompetensutveckling och livslångt lärande.",
       "en": "CREDtech (Center for Responsible Educational Technology) is a research centre at the University of Gothenburg. CREDtech takes critical, practice, and design orientations in its research to inform the ways that emerging technologies like artificial intelligence can responsibly address grand challenges facing schooling, higher education, professional development, and lifelong learning."
@@ -54,153 +72,39 @@
       "sv": "Göteborgsregionen (GR) är en samarbetsorganisation för 13 kommuner i Västsverige. GR arbetar inom områden som skola och utbildning, arbetsmarknad, social välfärd, samhällsbyggnad och kompetensförsörjning – för att stärka regionen och skapa bättre förutsättningar för invånarna genom mellankommunal samverkan.",
       "en": "Göteborgsregionen (GR) is a collaborative organisation of 13 municipalities in western Sweden. GR works across areas including education, labour market, social welfare, urban planning, and skills supply — strengthening the region and creating better conditions for its residents through inter-municipal cooperation."
     },
-    "referenceTitle": {
-      "sv": "Referens",
-      "en": "Reference"
+    "intro": {
+      "sv": "Detta självskattningsverktyg för AI-beredskap i skolorganisationer är utvecklat i samarbete mellan CREDtech vid Göteborgs universitet och Göteborgsregionen (GR).",
+      "en": "This AI readiness self-assessment tool for school organisations is developed in collaboration between CREDtech at the University of Gothenburg and Göteborgsregionen (GR)."
     },
-    "referenceText": {
-      "sv": "Verktyget bygger på det ramverk som presenteras i Markus, Carolus & Wienrich (2025).",
-      "en": "The tool is based on the framework presented in Markus, Carolus & Wienrich (2025)."
-    },
-    "ctaStart": {
-      "sv": "Starta självbedömningen",
-      "en": "Start the self-assessment"
-    }
-  },
-  "common": {
-    "start": {
-      "sv": "Starta",
-      "en": "Start"
-    },
-    "continue": {
-      "sv": "Fortsätt",
-      "en": "Continue"
-    },
-    "back": {
-      "sv": "Tillbaka",
-      "en": "Back"
-    },
-    "next": {
-      "sv": "Nästa",
-      "en": "Next"
-    },
-    "finish": {
-      "sv": "Slutför",
-      "en": "Finish"
-    },
-    "restart": {
-      "sv": "Börja om",
-      "en": "Restart"
-    },
-    "exportPdf": {
-      "sv": "Exportera som PDF",
-      "en": "Export as PDF"
-    },
-    "save": {
-      "sv": "Spara",
-      "en": "Save"
-    },
-    "close": {
-      "sv": "Stäng",
-      "en": "Close"
-    },
-    "optional": {
-      "sv": "Valfritt",
-      "en": "Optional"
-    },
-    "required": {
-      "sv": "Obligatoriskt",
-      "en": "Required"
-    },
-    "loading": {
-      "sv": "Laddar…",
-      "en": "Loading…"
-    },
-    "error": {
-      "sv": "Något gick fel.",
-      "en": "Something went wrong."
-    },
-    "tryAgain": {
-      "sv": "Försök igen",
-      "en": "Try again"
-    },
-    "notNow": {
-      "sv": "Inte nu",
-      "en": "Not now"
-    },
-    "progress": {
-      "sv": "Fråga {current} av {total}",
-      "en": "Question {current} of {total}"
-    }
-  },
-  "home": {
     "title": {
-      "sv": "AI-beredskap i skolorganisationer",
-      "en": "AI Readiness in School Organizations"
-    },
-    "tagline": {
-      "sv": "",
-      "en": ""
-    },
-    "description": {
-      "sv": "Besvara frågor om er organisations arbete med AI för att identifiera dominerande implementeringsorienteringar i nuläget och tydliggöra era avsedda prioriteringar framåt.",
-      "en": "Answer questions about your organisation’s AI work to identify dominant implementation orientations today and clarify your intended priorities going forward."
-    },
-    "ctaOrganization": {
-      "sv": "Starta självbedömningen",
-      "en": "Start the self-assessment"
-    }
-  },
-  "consent": {
-    "title": {
-      "sv": "",
-      "en": ""
-    },
-    "body": {
-      "sv": "All information bearbetas i din webbläsare. Ingenting sparas eller skickas till en server.",
-      "en": "All information is processed in your browser. Nothing is saved or sent to a server."
-    },
-    "checkbox": {
-      "sv": "Jag har läst informationen och vill fortsätta.",
-      "en": "I have read the information and want to continue."
-    },
-    "continueDisabledHint": {
-      "sv": "Bocka i rutan för att fortsätta.",
-      "en": "Check the box to continue."
+      "sv": "Om verktyget",
+      "en": "About this tool"
     }
   },
   "organization": {
-    "title": {
-      "sv": "AI-kapacitet självbedömning",
-      "en": "AI capacity self-assessment"
-    },
-    "description": {
-      "sv": "Besvara frågor om er organisations arbete med AI för att identifiera dominerande implementeringsorienteringar i nuläget och tydliggöra era avsedda prioriteringar framåt.",
-      "en": "Answer questions about your organisation’s AI work to identify dominant implementation orientations today and clarify your intended priorities going forward."
-    },
-    "startButton": {
-      "sv": "Starta självbedömningen",
-      "en": "Start the self-assessment"
-    },
     "answerRequired": {
       "sv": "Välj ett alternativ för att fortsätta.",
       "en": "Choose an option to continue."
     },
-    "prioritiesTitle": {
-      "sv": "Prioritering",
-      "en": "Prioritization"
-    },
-    "prioritiesIntro": {
-      "sv": "Det finns olika orienteringar som en skolorganisation kan ta vid implementering av AI, och dessa kan prioriteras på olika sätt beroende på verksamhetens mål och förutsättningar.",
-      "en": "There are different orientations that school organisations can take when implementing AI, and these can be prioritised differently depending on the goals and circumstances of the organisation."
+    "notImportant": {
+      "sv": "Inte viktig",
+      "en": "Not important"
     },
     "prioritiesDescription": {
       "sv": "Hur viktig är respektive orientering för er organisation?",
       "en": "How important is each orientation for your organisation?"
     },
+    "prioritiesIntro": {
+      "sv": "Det finns olika orienteringar som en skolorganisation kan ta vid implementering av AI, och dessa kan prioriteras på olika sätt beroende på verksamhetens mål och förutsättningar.",
+      "en": "There are different orientations that school organisations can take when implementing AI, and these can be prioritised differently depending on the goals and circumstances of the organisation."
+    },
     "prioritiesOutro": {
       "sv": "Nu har ni angett hur ni vill prioritera de olika perspektiven i er organisation. Genom att besvara frågorna som följer får ni en bild av vilka orienteringar som för närvarande har störst genomslag i er organisation. Avslutningsvis kan ni jämföra era resultat med era angivna prioriteringar.",
       "en": "Now that you have indicated how you would choose to prioritise the different perspectives in your organisation, answering the questions that follow will help you get a sense of which orientations currently have the most priority in your organisation. In the end, you will be able to compare your results with your target prioritisations."
+    },
+    "prioritiesTitle": {
+      "sv": "Prioritering",
+      "en": "Prioritization"
     },
     "priorityBudget": {
       "sv": "Du har en budget på totalt 20 poäng",
@@ -210,191 +114,17 @@
       "sv": "Använda poäng: {total} / 20",
       "en": "Points used: {total} / 20"
     },
-    "notImportant": {
-      "sv": "Inte viktig",
-      "en": "Not important"
-    },
-    "veryImportant": {
-      "sv": "Mycket viktig",
-      "en": "Very important"
-    },
     "proceedToQuestions": {
       "sv": "Gå vidare till frågorna",
       "en": "Proceed to questions"
-    },
-    "testScenarios": {
-      "title": {
-        "sv": "Testscenarier (Endast utveckling)",
-        "en": "Test Scenarios (Dev Only)"
-      },
-      "efficiency": {
-        "sv": "Effektivisering (Blå)",
-        "en": "Efficiency (Blue)"
-      },
-      "balanced": {
-        "sv": "Balanserad (Hybrid)",
-        "en": "Balanced (Hybrid)"
-      },
-      "knowledge": {
-        "sv": "Kunskap (Grön)",
-        "en": "Knowledge (Green)"
-      }
-    },
-    "prominentOrientations": {
-      "sv": "Framträdande orienteringar",
-      "en": "Prominent Orientations"
     },
     "resultsTitle": {
       "sv": "Dina resultat",
       "en": "Your results"
     },
-    "resultsIntro": {
-      "sv": "Här är er organisations profil baserat på svaren. Blått fält visar utfallet av frågorna, medan den orangea streckade linjen visar er angivna prioritering.",
-      "en": "Here is your organization's profile based on the answers. The blue area shows the survey outcome, while the orange dashed line shows your indicated priority."
-    },
-    "heatmapTitle": {
-      "sv": "Archetyp × logik",
-      "en": "Archetype × logic"
-    },
-    "archetypeTotalsTitle": {
-      "sv": "AI-roll arketyp",
-      "en": "AI role archetype"
-    },
-    "logicTotalsTitle": {
-      "sv": "Organiseringslogik",
-      "en": "Organizing logic"
-    },
-    "logicSpectrumTitle": {
-      "sv": "Organiseringslogik",
-      "en": "Organizational logic"
-    },
-    "tooltipSeparation": {
-      "sv": "AI organiseras i en separat specialistfunktion (t.ex. centralt AI-/datateam) som driver utveckling och standardiserade lösningar. Fördel: stark expertis och kontroll. Risk: lösningar kan bli en silo med svagt genomslag i vardagspraktiken.",
-      "en": "AI is organized in a separate specialist function (e.g., a central AI/data team) that develops and delivers standardized solutions. Benefit: strong expertise and control. Risk: solutions can become a silo with weak uptake in everyday practice."
-    },
-    "tooltipIntegration": {
-      "sv": "AI-kapacitet byggs in i verksamheten; initiativ drivs och anpassas nära kärnprocessen. Fördel: hög relevans och ägarskap. Risk: kan bli spretigt/fragmenterat om koordinering och gemensamma rutiner saknas.",
-      "en": "AI capability is embedded in operations; initiatives are driven and adapted close to the primary process. Benefit: high relevance and ownership. Risk: can become fragmented without coordination and shared routines."
-    },
-    "tooltipHybrid": {
-      "sv": "Kombinerar central specialistkapacitet med verksamhetsnära anpassning. Nyckeln är bryggor: tydliga samarbeten, “översättarroll” och IT-integration som gör att piloter kan skalas utan att bli silos eller spretighet.",
-      "en": "Combines central specialist capacity with practice-near adaptation. The key is bridging: collaboration, translation roles, and IT integration so pilots can scale without becoming silos or fragmented."
-    },
-    "primaryArchetypesTitle": {
-      "sv": "Framträdande archetyper",
-      "en": "Leading archetypes"
-    },
-    "dominantLogicTitle": {
-      "sv": "Dominerande logik",
-      "en": "Dominant logic"
-    },
-    "riskTitle": {
-      "sv": "Möjliga risker",
-      "en": "Possible risks"
-    },
-    "riskSilo": {
-      "sv": "Silor: AI kan bli en separat ‘specialistaktivitet’ som inte får genomslag i vardagspraktiken.",
-      "en": "Silos: AI may become a separate ‘specialist activity’ that doesn’t translate into everyday practice."
-    },
-    "riskFragmentation": {
-      "sv": "Fragmentering: AI kan utvecklas spretigt med varierande rutiner, verktyg och kvalitet mellan enheter.",
-      "en": "Fragmentation: AI may develop in a scattered way with uneven routines, tools, and quality across units."
-    },
-    "reflectionsTitle": {
-      "sv": "Frågor för reflektion",
-      "en": "Questions for reflection"
-    },
-    "prompts": {
-      "TA": {
-        "sv": "Hur kan AI-avlastning av administrativa sysslor frigöra tid för det pedagogiska mötet i din organisation?",
-        "en": "How can AI-driven administrative offloading free up time for pedagogical interactions in your organization?"
-      },
-      "PT": {
-        "sv": "Vilka förutsättningar behövs för att personalisering genom AI ska bidra till ökad likvärdighet snarare än större klyftor?",
-        "en": "What conditions are needed for AI-driven personalization to promote equity rather than widening gaps?"
-      },
-      "DDL": {
-        "sv": "Hur säkerställer ni att datadriven analys används för att stödja snarare än att enbart kontrollera verksamheten?",
-        "en": "How do you ensure that data-driven analysis is used to support operations rather than just monitoring them?"
-      },
-      "SB": {
-        "sv": "Hur kan ni främja en kultur där elever och lärare ser AI som en samarbetspartner för kreativt och kritiskt tänkande?",
-        "en": "How can you foster a culture where students and teachers view AI as a partner for creative and critical thinking?"
-      },
-      "SEP": {
-        "sv": "Hur säkerställer ni att expertisen i den centrala specialistfunktionen når hela vägen ut i klassrummen?",
-        "en": "How do you ensure that the expertise in central specialist functions reaches all the way to the classroom?"
-      },
-      "INT": {
-        "sv": "Hur kan ni koordinera lokala initiativ så att goda exempel sprids och standarder för säkerhet och juridik efterlevs?",
-        "en": "How can you coordinate local initiatives to ensure best practices are shared and safety/legal standards are met?"
-      },
-      "HYB": {
-        "sv": "Vilka 'översättarroller' eller mötesplatser behövs för att bryggan mellan central expertis och lokal praktik ska bli ännu starkare?",
-        "en": "What 'translator roles' or forums are needed to further strengthen the bridge between central expertise and local practice?"
-      }
-    },
-    "diagnosticPrompts": {
-      "boundary_spanning": {
-        "sv": "Överväg att identifiera vilka personer eller funktioner i organisationen som har bäst förutsättningar att översätta mellan verksamhetens behov och tekniska möjligheter.",
-        "en": "Consider identifying which people or functions within the organization are best positioned to translate between operational needs and technical possibilities."
-      },
-      "data_readiness": {
-        "sv": "Överväg att kartlägga vilka hinder som finns för att få en samlad bild av den data ni vill använda för AI-analys.",
-        "en": "Consider mapping out what obstacles exist to getting a unified view of the data you want to use for AI analysis."
-      },
-      "it_integration": {
-        "sv": "Överväg att tydliggöra ansvarsfördelningen mellan it-avdelningen och kärnverksamheten gällande drift av nya AI-verktyg.",
-        "en": "Consider clarifying the division of responsibility between the IT department and core operations regarding the operation of new AI tools."
-      },
-      "partnerships": {
-        "sv": "Överväg att utvärdera vilka externa parter (andra skolor, lärosäten eller leverantörer) som kan komplettera er interna AI-kompetens.",
-        "en": "Consider evaluating which external parties (other schools, universities, or vendors) can complement your internal AI competence."
-      }
-    },
-    "narrative": {
-      "logic_SEP": {
-        "sv": "AI hanteras primärt i en specialistfunktion eller central enhet. Detta skapar kontroll och expertis, men kräver aktivt arbete för att lösningarna inte ska stanna i en 'kunskapssilo'.",
-        "en": "AI is primarily handled in a specialist function or central unit. This creates control and expertise but requires active work to ensure solutions don't remain in a 'knowledge silo'."
-      },
-      "logic_INT": {
-        "sv": "AI-initiativ växer fram nära kärnverksamheten. Detta borgar för relevans, men ställer krav på samordning för att undvika ett fragmenterat landskap.",
-        "en": "AI initiatives emerge close to core operations. This ensures relevance but demands coordination to avoid a fragmented landscape."
-      },
-      "logic_HYB": {
-        "sv": "Ni balanserar centralt stöd med lokal anpassning. Denna strategiska ansats ger goda förutsättningar att skala upp arbetet utan att tappa varken expertis eller pedagogisk förankring.",
-        "en": "You balance central support with local adaptation. This strategic approach provides good conditions for scaling up without losing expertise or pedagogical grounding."
-      },
-      "arch_focus": {
-        "sv": "Det huvudsakliga fokuset ligger på arketyperna {arch1} och {arch2}.",
-        "en": "The primary focus lies on the {arch1} and {arch2} archetypes."
-      },
-      "risk_note": {
-        "sv": "För att komma vidare bör ni särskilt beakta risken för {risk}.",
-        "en": "To move forward, you should specifically consider the risk of {risk}."
-      },
-      "diag_note": {
-        "sv": "Ett viktigt steg framåt är att titta närmare på {diag}.",
-        "en": "A key step forward is to look closer at {diag}."
-      }
-    }
-  },
-  "errors": {
-    "missingBankFile": {
-      "sv": "Kunde inte läsa item-bankfilen. Kontrollera att filen finns i projektmappen.",
-      "en": "Could not load the item bank file. Please check that the file exists in the project folder."
-    },
-    "invalidLocale": {
-      "sv": "Ogiltigt språkval.",
-      "en": "Invalid language selection."
-    },
-    "incompleteAnswers": {
-      "sv": "Du har inte besvarat alla frågor.",
-      "en": "You have not answered all questions."
-    },
-    "priorityLimitExceeded": {
-      "sv": "Totala poäng kan inte överstiga 20. Vänligen justera dina prioriteringar.",
-      "en": "Total points cannot exceed 20. Please adjust your priorities."
+    "veryImportant": {
+      "sv": "Mycket viktig",
+      "en": "Very important"
     }
   }
 }

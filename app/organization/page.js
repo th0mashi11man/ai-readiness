@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import { useQuizStore } from "@/lib/store";
-import { scoreOrganization, generateNarrative, getGapLevel } from "@/lib/scoring";
+import { scoreOrganization, getGapLevel } from "@/lib/scoring";
 import BarChart from "@/components/BarChart";
 import RadarChart from "@/components/RadarChart";
 import PrintHeader from "@/components/PrintHeader";
@@ -306,14 +306,9 @@ function OrgResults({ bank, t, locale, onRestart }) {
         setMounted(true);
     }, []);
 
-    const [narratives, setNarratives] = useState(null);
     const [gapSuggestions, setGapSuggestions] = useState(null);
 
     useEffect(() => {
-        fetch("/narratives.json")
-            .then(r => r.json())
-            .then(setNarratives)
-            .catch(err => console.error("Failed to load narratives", err));
         fetch("/gap_suggestions.json")
             .then(r => r.json())
             .then(setGapSuggestions)
@@ -340,9 +335,6 @@ function OrgResults({ bank, t, locale, onRestart }) {
         const raw = storedPriorities[id] || 0;
         return ((raw - 1) / 4) * 100; // Normalize 1-5 to 0-100
     });
-
-    // Generate narrative (feedback) for the top result + logic
-    const narrative = narratives ? generateNarrative(results, t, bank.orientations, narratives, locale) : { narrativeItems: [], logicItem: null };
 
     return (
         <section className="page page-results fade-in">
