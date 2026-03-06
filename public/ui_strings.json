@@ -96,6 +96,14 @@
       "sv": "Göteborgsregionen (GR) är en samarbetsorganisation för 13 kommuner i Västsverige. GR arbetar inom områden som skola och utbildning, arbetsmarknad, social välfärd, samhällsbyggnad och kompetensförsörjning – för att stärka regionen och skapa bättre förutsättningar för invånarna genom mellankommunal samverkan.",
       "en": "Göteborgsregionen (GR) is a collaborative organisation of 13 municipalities in western Sweden. GR works across areas including education, labour market, social welfare, urban planning, and skills supply — strengthening the region and creating better conditions for its residents through inter-municipal cooperation."
     },
+    "descriptionBody": {
+      "sv": "Det här verktyget hjälper skolorganisationer att navigera i komplexiteten kring AI-implementering genom att identifiera tydliga \"orienteringar\" – olika sätt att närma sig, värdera och integrera AI i pedagogisk och administrativ verksamhet.",
+      "en": "This tool helps school organizations navigate the complexity of AI implementation by identifying distinct \"orientations\"—different ways of approaching, valuing, and integrating AI into educational and administrative practices."
+    },
+    "descriptionTitle": {
+      "sv": "Vad är detta för verktyg?",
+      "en": "What is this tool?"
+    },
     "intro": {
       "sv": "Detta självskattningsverktyg för AI-beredskap i skolorganisationer är utvecklat i samarbete mellan CREDtech vid Göteborgs universitet och Göteborgsregionen (GR).",
       "en": "This AI readiness self-assessment tool for school organisations is developed in collaboration between CREDtech at the University of Gothenburg and Göteborgsregionen (GR)."
@@ -103,6 +111,14 @@
     "title": {
       "sv": "Om verktyget",
       "en": "About this tool"
+    },
+    "usageBody": {
+      "sv": "Använd verktyget för att överbrygga klyftan mellan er tänkta strategi och den nuvarande verkligheten. Genom att först ange era önskade prioriteringar och sedan svara på frågor om er vardagliga verksamhet får ni en visuell \"radarprofil\" som synliggör styrkor och utvecklingsområden.",
+      "en": "Use it to bridge the gap between your ideal strategy and current reality. By setting your intended priorities first and then answering questions about your daily operations, you receive a visual \"radar profile\" that highlights strengths and areas for further alignment."
+    },
+    "usageTitle": {
+      "sv": "Vad kan ni göra med det?",
+      "en": "What can you do with it?"
     }
   },
   "organization": {
