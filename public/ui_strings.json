@@ -97,28 +97,28 @@
       "en": "Göteborgsregionen (GR) is a collaborative organisation of 13 municipalities in western Sweden. GR works across areas including education, labour market, social welfare, urban planning, and skills supply — strengthening the region and creating better conditions for its residents through inter-municipal cooperation."
     },
     "descriptionBody": {
-      "sv": "Det här verktyget hjälper skolorganisationer att navigera i komplexiteten kring AI-implementering genom att identifiera tydliga \"orienteringar\" – olika sätt att närma sig, värdera och integrera AI i pedagogisk och administrativ verksamhet.",
-      "en": "This tool helps school organizations navigate the complexity of AI implementation by identifying distinct \"orientations\"—different ways of approaching, valuing, and integrating AI into educational and administrative practices."
+      "sv": "Det här verktyget stöder skolorganisationer i att göra medvetna och transparenta val kring hur de tar sig an AI. Det vilar på förståelsen att AI-implementering inte bara är en teknisk fråga, utan en strategisk och normativ sådan. Organisationer prioriterar olika orienteringar vid integrering av AI, och dessa prioriteringar formar hur AI styrs, tolkas och förverkligas i vardaglig pedagogisk och administrativ praktik.\n\nVerktyget identifierar fem tydliga orienteringar för AI-implementering: Analys och kvalitet, Effektivitet och automatisering, Kunskap och demokrati, Elevstöd och lärande samt Teknik och upphandling. Varje orientering speglar ett särskilt sätt att definiera syftet med, värdet av och konsekvenserna av AI i skolan.",
+      "en": "This tool supports school organisations in making deliberate and transparent choices about how to approach AI. It is grounded in the understanding that AI implementation is not only a technical matter, but a strategic and normative one. Organisations prioritise different orientations when integrating AI, and these priorities shape how AI is governed, interpreted, and enacted in everyday educational and administrative practice.\n\nThe tool identifies five distinct orientations to AI implementation: Analysis and Quality, Efficiency and Automation, Knowledge and Democracy, Student Support and Learning, and Technology and Procurement. Each orientation reflects a particular way of defining the purpose, value, and implications of AI in schooling."
     },
     "descriptionTitle": {
       "sv": "Vad är detta för verktyg?",
       "en": "What is this tool?"
     },
     "intro": {
-      "sv": "Detta självskattningsverktyg för AI-beredskap i skolorganisationer är utvecklat i samarbete mellan CREDtech vid Göteborgs universitet och Göteborgsregionen (GR).",
-      "en": "This AI readiness self-assessment tool for school organisations is developed in collaboration between CREDtech at the University of Gothenburg and Göteborgsregionen (GR)."
+      "sv": "Självskattningsverktyget för AI-beredskap i skolorganisationer har utvecklats genom ett samarbete mellan CREDtech vid Göteborgs universitet och Göteborgsregionen (GR).",
+      "en": "The AI Readiness Self-Assessment Tool for School Organisations has been developed through a collaboration between CREDtech at the University of Gothenburg and Göteborgsregionen (GR)."
     },
     "title": {
       "sv": "Om verktyget",
       "en": "About this tool"
     },
     "usageBody": {
-      "sv": "Använd verktyget för att överbrygga klyftan mellan er tänkta strategi och den nuvarande verkligheten. Genom att först ange era önskade prioriteringar och sedan svara på frågor om er vardagliga verksamhet får ni en visuell \"radarprofil\" som synliggör styrkor och utvecklingsområden.",
-      "en": "Use it to bridge the gap between your ideal strategy and current reality. By setting your intended priorities first and then answering questions about your daily operations, you receive a visual \"radar profile\" that highlights strengths and areas for further alignment."
+      "sv": "Du börjar med att ange hur du idealt skulle vilja prioritera de olika orienteringarna i din organisation. Detta steg gör dina strategiska intentioner explicita.\n\nDärefter får du svara på en serie frågor om nuvarande praxis, rutiner och beslutsprocesser relaterade till AI. Dessa frågor hjälper till att identifiera vilka orienteringar som för närvarande är mest framträdande i din organisations dagliga arbete.\n\nVid slutet av skattningen får du en visuell radarprofil som låter dig jämföra din nuvarande orienteringslandskap med dina avsedda prioriteringar. Syftet är inte att ranka eller utvärdera prestationer, utan att stödja strukturerad reflektion, ledarskapsdialog och strategisk linjering i sammanhang där AI håller på att bli en del av skolans kunskapsinfrastruktur.",
+      "en": "You begin by indicating how you would ideally prioritise the different orientations in your organisation. This step makes your strategic intentions explicit.\n\nYou are then asked to respond to a series of questions about current practices, routines, and decision-making processes related to AI. These questions help identify which orientations are presently most prominent in your organisation’s daily work.\n\nAt the end of the assessment, you receive a visual radar profile that allows you to compare your current orientation landscape with your intended priorities. The purpose is not to rank or evaluate performance, but to support structured reflection, leadership dialogue, and strategic alignment in contexts where AI is becoming part of the knowledge infrastructure of schooling."
     },
     "usageTitle": {
-      "sv": "Vad kan ni göra med det?",
-      "en": "What can you do with it?"
+      "sv": "Vad gör man i verktyget?",
+      "en": "What will you do in the tool?"
     }
   },
   "organization": {
