@@ -75,8 +75,8 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
             }
             ctx.closePath();
             ctx.save();
-            ctx.strokeStyle = "#ed8936"; // Orange
-            ctx.lineWidth = 2;
+            ctx.strokeStyle = "#00A29A"; // Orange
+            ctx.lineWidth = 3;
             ctx.setLineDash([5, 5]);
             ctx.stroke();
             // Optional fill
@@ -86,7 +86,7 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
 
             // Draw overlay points (small orange dots)
             /*
-            ctx.fillStyle = "#ed8936";
+            ctx.fillStyle = "#00A29A";
             for (let i = 0; i < n; i++) {
                 const angle = startAngle + i * angleStep;
                 const val = overlayValues[i] || 0;
