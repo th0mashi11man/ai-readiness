@@ -1,4 +1,5 @@
 "use client";
+import { Asap_Condensed } from "next/font/google";
 import { useRef, useEffect } from "react";
 
 export default function RadarChart({ labels, values, overlayValues, pointColors, maxValue, hideValues = false }) {
@@ -44,7 +45,7 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
         ctx.clearRect(0, 0, w, h);
 
         // Draw background circles
-        ctx.strokeStyle = "#e2e8f0";
+        ctx.strokeStyle = "#e4e4e4";
         ctx.lineWidth = 1;
         for (let r = 0.2; r <= 1.0; r += 0.2) {
             ctx.beginPath();
@@ -53,7 +54,7 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
         }
 
         // Draw axes
-        ctx.strokeStyle = "#cbd5e0";
+        ctx.strokeStyle = "#e4e4e4";
         for (let i = 0; i < n; i++) {
             const angle = startAngle + i * angleStep;
             ctx.beginPath();
@@ -76,7 +77,7 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
             ctx.closePath();
             ctx.save();
             ctx.strokeStyle = "#00A29A"; // Orange
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 2;
             ctx.setLineDash([5, 5]);
             ctx.stroke();
             // Optional fill
@@ -114,8 +115,8 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
             ctx.closePath();
 
             const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
-            gradient.addColorStop(0, "rgba(49, 130, 206, 0.4)");
-            gradient.addColorStop(1, "rgba(49, 130, 206, 0.1)");
+            gradient.addColorStop(0, "#468aac85");
+            gradient.addColorStop(1, "#a9cee021");
             ctx.fillStyle = gradient;
             ctx.fill();
 
@@ -124,7 +125,7 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
             ctx.stroke();
 
             // Draw Points (Colored by Logic if provided)
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 1;
             ctx.strokeStyle = "#fff";
 
             for (let i = 0; i < n; i++) {
@@ -145,7 +146,7 @@ export default function RadarChart({ labels, values, overlayValues, pointColors,
 
         // Labels
         ctx.fillStyle = "#2d3748";
-        ctx.font = "600 13px Inter, system-ui, sans-serif";
+        ctx.font = "600 14px Libre Franklin, system-ui, sans-serif";
         ctx.textAlign = "center";
 
         for (let i = 0; i < n; i++) {

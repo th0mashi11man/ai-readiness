@@ -427,9 +427,9 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
                                     const levelConfig = {
                                         aligned: { color: '#00A29A', bg: '#00a29a15', border: '#00A29A', badge: locale === 'sv' ? '✓ I linje med prioritering' : '✓ Aligned with priority' },
-                                        minor: { color: '#a9cee0', bg: '#a9cee01e', border: '#a9cee0', badge: locale === 'sv' ? 'Litet glapp' : 'Minor gap' },
-                                        moderate: { color: '#dfc161', bg: '#ecd89621', border: '#ecd896', badge: locale === 'sv' ? 'Måttligt glapp' : 'Moderate gap' },
-                                        significant: { color: '#e4815a', bg: '#f5ad901a', border: '#f5ac90', badge: locale === 'sv' ? 'Betydande glapp' : 'Significant gap' },
+                                        minor: { color: '#5292b3', bg: '#a9cee01e', border: '#a9cee0', badge: locale === 'sv' ? 'Litet glapp' : 'Minor gap' },
+                                        moderate: { color: '#d4b54c', bg: '#ecd89621', border: '#ecd896', badge: locale === 'sv' ? 'Måttligt glapp' : 'Moderate gap' },
+                                        significant: { color: '#cf6339', bg: '#f5ad901a', border: '#f5ac90', badge: locale === 'sv' ? 'Betydande glapp' : 'Significant gap' },
                                         surplus: { color: '#8e0826', bg: '#ebd1d03b', border: '#ebd1d0d2', badge: locale === 'sv' ? 'Överstiger prioritering' : 'Exceeds priority' },
                                     };
                                     const cfg = levelConfig[level];
