@@ -1,12 +1,12 @@
-import { Inter } from "next/font/google";
+import { Libre_Franklin } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/AppShell";
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-const inter = Inter({
+const libreFranklin = Libre_Franklin({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-libre-franklin",
   display: 'swap',
 });
 
@@ -24,7 +24,7 @@ function getUiStrings() {
 export default function RootLayout({ children }) {
   const uiStrings = getUiStrings();
   return (
-    <html lang="sv" suppressHydrationWarning className={inter.variable}>
+    <html lang="sv" suppressHydrationWarning className={libreFranklin.variable}>
       <body suppressHydrationWarning>
         <AppShell uiStrings={uiStrings}>
           {children}

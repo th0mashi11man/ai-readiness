@@ -347,11 +347,11 @@ function OrgResults({ bank, t, locale, onRestart }) {
                     {/* Legend for Current vs Target */}
                     <div style={{ display: "flex", justifyContent: "center", gap: "2rem", marginBottom: "2rem" }}>
                         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <div style={{ width: "16px", height: "16px", background: "rgba(49, 130, 206, 0.4)", border: "2px solid #3182ce", borderRadius: "4px" }}></div>
+                            <div style={{ width: "16px", height: "16px", background: "#a9cee07a", border: "2px solid #2779a1", borderRadius: "4px" }}></div>
                             <span style={{ fontWeight: 500 }}>{locale === 'sv' ? "Nuvarande prioriteringar" : "Current Priorities"}</span>
                         </div>
                         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <div style={{ width: "16px", height: "0px", borderTop: "2px dashed #ed8936" }}></div>
+                            <div style={{ width: "16px", height: "0px", borderTop: "2px dashed #00A29A" }}></div>
                             <span style={{ fontWeight: 500 }}>{locale === 'sv' ? "Målbild" : "Target"}</span>
                         </div>
                     </div>
@@ -401,7 +401,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                         <div style={{ fontSize: "0.9rem", color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                                             {locale === 'sv' ? "Nuvarande" : "Current"}
                                         </div>
-                                        <div style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#3182ce" }}>
+                                        <div style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#2779a1" }}>
                                             {Math.round(item.average)} / 5
                                         </div>
                                     </div>
@@ -410,7 +410,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                         <div style={{ fontSize: "0.9rem", color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                                             {locale === 'sv' ? "Målbild" : "Target"}
                                         </div>
-                                        <div style={{ fontSize: "1.5rem", fontWeight: "bold", color: "var(--secondary-color, #f59e0b)" }}>
+                                        <div style={{ fontSize: "1.5rem", fontWeight: "bold", color: "var(--secondary-color, #00A29A)" }}>
                                             {storedPriorities[item.id] || 3} / 5
                                         </div>
                                     </div>
@@ -426,11 +426,11 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                     const suggestion = gapSuggestions[item.id]?.[level]?.[locale];
 
                                     const levelConfig = {
-                                        aligned: { color: '#22c55e', bg: '#f0fdf4', border: '#86efac', badge: locale === 'sv' ? '✓ I linje med prioritering' : '✓ Aligned with priority' },
-                                        minor: { color: '#3b82f6', bg: '#eff6ff', border: '#93c5fd', badge: locale === 'sv' ? 'Litet glapp' : 'Minor gap' },
-                                        moderate: { color: '#f59e0b', bg: '#fffbeb', border: '#fcd34d', badge: locale === 'sv' ? 'Måttligt glapp' : 'Moderate gap' },
-                                        significant: { color: '#ef4444', bg: '#fef2f2', border: '#fca5a5', badge: locale === 'sv' ? 'Betydande glapp' : 'Significant gap' },
-                                        surplus: { color: '#8b5cf6', bg: '#f5f3ff', border: '#c4b5fd', badge: locale === 'sv' ? 'Överstiger prioritering' : 'Exceeds priority' },
+                                        aligned: { color: '#00A29A', bg: '#00a29a15', border: '#00A29A', badge: locale === 'sv' ? '✓ I linje med prioritering' : '✓ Aligned with priority' },
+                                        minor: { color: '#5292b3', bg: '#a9cee01e', border: '#a9cee0', badge: locale === 'sv' ? 'Litet glapp' : 'Minor gap' },
+                                        moderate: { color: '#d4b54c', bg: '#ecd89621', border: '#ecd896', badge: locale === 'sv' ? 'Måttligt glapp' : 'Moderate gap' },
+                                        significant: { color: '#cf6339', bg: '#f5ad901a', border: '#f5ac90', badge: locale === 'sv' ? 'Betydande glapp' : 'Significant gap' },
+                                        surplus: { color: '#8e0826', bg: '#ebd1d03b', border: '#ebd1d0d2', badge: locale === 'sv' ? 'Överstiger prioritering' : 'Exceeds priority' },
                                     };
                                     const cfg = levelConfig[level];
 
