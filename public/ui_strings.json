@@ -79,12 +79,12 @@
       "en": "Start the self-assessment"
     },
     "description": {
-      "sv": "Besvara frågor om er organisations arbete med AI för att identifiera dominerande implementeringsorienteringar i nuläget och tydliggöra era avsedda prioriteringar framåt.",
-      "en": "Answer questions about your organisation’s AI work to identify dominant implementation orientations today and clarify your intended priorities going forward."
+      "sv": "Här följer ett antal på frågor om hur er organisation arbetar med AI. Syftet är att identifiera vilka inriktningar som i dag präglar arbetet med AI och att tydliggöra vilka prioriteringar ni vill göra framåt.",
+      "en": "Here are some questions about how your organisation works with AI. The purpose is to identify the current focus areas of your AI efforts and to clarify your priorities for the future."
     },
     "title": {
-      "sv": "AI-beredskap i skolorganisationer",
-      "en": "AI Readiness in School Organizations"
+      "sv": "Skatta skolorganisationens AI-beredskap",
+      "en": "Assess AI Readiness in School Organizations"
     }
   },
   "about": {
@@ -97,8 +97,12 @@
       "en": "Göteborgsregionen (GR) is a collaborative organisation of 13 municipalities in western Sweden. GR works across areas including education, labour market, social welfare, urban planning, and skills supply — strengthening the region and creating better conditions for its residents through inter-municipal cooperation."
     },
     "descriptionBody": {
-      "sv": "Det här verktyget stöder skolorganisationer i att göra medvetna och transparenta val kring hur de tar sig an AI. Det vilar på förståelsen att AI-implementering inte bara är en teknisk fråga, utan en strategisk och normativ sådan. Organisationer prioriterar olika orienteringar vid integrering av AI, och dessa prioriteringar formar hur AI styrs, tolkas och förverkligas i vardaglig pedagogisk och administrativ praktik.\n\nVerktyget identifierar fem tydliga orienteringar för AI-implementering: Analys och kvalitet, Effektivitet och automatisering, Kunskap och demokrati, Elevstöd och lärande samt Teknik och upphandling. Varje orientering speglar ett särskilt sätt att definiera syftet med, värdet av och konsekvenserna av AI i skolan.",
-      "en": "This tool supports school organisations in making deliberate and transparent choices about how to approach AI. It is grounded in the understanding that AI implementation is not only a technical matter, but a strategic and normative one. Organisations prioritise different orientations when integrating AI, and these priorities shape how AI is governed, interpreted, and enacted in everyday educational and administrative practice.\n\nThe tool identifies five distinct orientations to AI implementation: Analysis and Quality, Efficiency and Automation, Knowledge and Democracy, Student Support and Learning, and Technology and Procurement. Each orientation reflects a particular way of defining the purpose, value, and implications of AI in schooling."
+      "sv": "Det här verktyget stöder skolorganisationer i att göra medvetna och transparenta val kring hur de tar sig an AI. Utgångspunkten är att införandet av AI inte bara är en teknisk fråga, utan också en strategisk och värderingsbaserad sådan. 
+Olika organisationer prioriterar olika perspektiv vid införandet av AI. Dessa prioriteringar formar i sin tur hur AI styrs, tolkas och används i skolans pedagogiska och administrativa arbete. 
+Verktyget utgår från fem tydliga inriktningar för AI-implementering: Analys och kvalitet, Effektivitet och automatisering, Kunskap och demokrati, Elevstöd och lärande samt Teknik och upphandling. Varje inriktning beskriver ett särskilt sätt att se på syftet med AI, värdet av tekniken och vilka konsekvenser AI kan få i skolans verksamhet.",
+      "en": "This tool supports school organisations in making informed and transparent decisions about how they approach AI. The premise is that the implementation of AI is not merely a technical issue, but also a strategic and values-based one. 
+Different organisations prioritise different perspectives when introducing AI. These priorities, in turn, shape how AI is governed, interpreted, and used in the school’s educational and administrative work. 
+The tool is based on five distinct approaches to AI implementation: Analysis and Quality, Efficiency and Automation, Knowledge and Democracy, Student Support and Learning, and Technology and Procurement. Each focus area describes a specific way of viewing the purpose of AI, the value of the technology, and the potential consequences AI may have on school operations."
     },
     "descriptionTitle": {
       "sv": "Vad är detta för verktyg?",
@@ -113,8 +117,12 @@
       "en": "About this tool"
     },
     "usageBody": {
-      "sv": "Du börjar med att ange hur du idealt skulle vilja prioritera de olika orienteringarna i din organisation. Detta steg gör dina strategiska intentioner explicita.\n\nDärefter får du svara på en serie frågor om nuvarande praxis, rutiner och beslutsprocesser relaterade till AI. Dessa frågor hjälper till att identifiera vilka orienteringar som för närvarande är mest framträdande i din organisations dagliga arbete.\n\nVid slutet av skattningen får du en visuell radarprofil som låter dig jämföra din nuvarande orienteringslandskap med dina avsedda prioriteringar. Syftet är inte att ranka eller utvärdera prestationer, utan att stödja strukturerad reflektion, ledarskapsdialog och strategisk linjering i sammanhang där AI håller på att bli en del av skolans kunskapsinfrastruktur.",
-      "en": "You begin by indicating how you would ideally prioritise the different orientations in your organisation. This step makes your strategic intentions explicit.\n\nYou are then asked to respond to a series of questions about current practices, routines, and decision-making processes related to AI. These questions help identify which orientations are presently most prominent in your organisation’s daily work.\n\nAt the end of the assessment, you receive a visual radar profile that allows you to compare your current orientation landscape with your intended priorities. The purpose is not to rank or evaluate performance, but to support structured reflection, leadership dialogue, and strategic alignment in contexts where AI is becoming part of the knowledge infrastructure of schooling."
+      "sv": "Du börjar med att ange hur du helst skulle vilja prioritera de olika inriktningarna i din organisation. Detta steg gör dina strategiska intentioner tydliga. 
+Därefter får du svara på en serie frågor om hur organisationen arbetar med AI idag. Frågorna rör exempelvis praxis, rutiner och beslutsprocesser relaterade till AI. Svaren gör det möjligt att identifiera vilka inriktningar som för närvarande är mest framträdande i din organisations dagliga arbete. 
+Vid slutet av skattningen får du en visuell radarprofil som visar hur organisationens nuvarande arbetssätt förhåller sig till de prioriteringar ni helst vill ha. Syftet är inte att ranka eller utvärdera olika prestationer, utan att stödja strukturerad reflektion, ledarskapsdialog och strategisk linjering i sammanhang där AI håller på att bli en del av skolans kunskapsinfrastruktur.",
+      "en": "You begin by indicating how you would prefer to prioritise the various focus areas within your organisation. This step clarifies your strategic intentions.
+Next, you will answer a series of questions about how your organisation currently works with AI. The questions concern, for example, practices, routines, and decision-making processes related to AI. The answers make it possible to identify which areas are currently most prominent in your organization’s daily work. 
+At the end of the assessment, you’ll receive a visual radar profile showing how your organisation’s current practices align with your preferred priorities. The purpose is not to rank or evaluate different performance levels, but to support structured reflection, leadership dialogue, and strategic alignment in contexts where AI is becoming part of the school’s knowledge infrastructure."
     },
     "usageTitle": {
       "sv": "Vad gör man i verktyget?",
@@ -139,7 +147,7 @@
       "en": "There are different orientations that school organisations can take when implementing AI, and these can be prioritised differently depending on the goals and circumstances of the organisation."
     },
     "prioritiesOutro": {
-      "sv": "Nu har ni angett hur ni vill prioritera de olika perspektiven i er organisation. Genom att besvara frågorna som följer får ni en bild av vilka orienteringar som för närvarande har störst genomslag i er organisation. Avslutningsvis kan ni jämföra era resultat med era angivna prioriteringar.",
+      "sv": "Nu har ni angett hur ni vill prioritera de olika perspektiven i er organisation. Genom att besvara frågorna som följer får ni en bild av vilka inriktningar som för närvarande har störst genomslag i er organisation. Avslutningsvis kan ni jämföra era resultat med era angivna prioriteringar.",
       "en": "Now that you have indicated how you would choose to prioritise the different perspectives in your organisation, answering the questions that follow will help you get a sense of which orientations currently have the most priority in your organisation. In the end, you will be able to compare your results with your target prioritisations."
     },
     "prioritiesTitle": {
