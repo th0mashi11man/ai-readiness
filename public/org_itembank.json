@@ -9,56 +9,56 @@
     {
       "id": "ANA",
       "label": {
-        "sv": "Analys- / Kvalitetsorientering",
-        "en": "Analysis / Quality Orientation"
+        "sv": "Analys- / Kvalitet",
+        "en": "Analysis / Quality"
       },
       "description": {
-        "sv": "Här ramas AI in som en resurs för att stärka analys och systematiskt kvalitetsarbete. Tyngdpunkten ligger på att generera insikter, identifiera mönster och stödja kunskapsbaserade beslut. AI blir ett verktyg för uppföljning och utveckling genom ökad analytisk kapacitet.",
-        "en": "Here, AI is framed as a resource for strengthening data analysis and systematic quality work. The emphasis is on generating insights, identifying patterns, and supporting evidence-informed decision-making. AI becomes a tool for monitoring performance and improving outcomes through enhanced analytical capacity."
+        "sv": "AI betraktas som en resurs för att stärka analys och det systematiska kvalitetsarbetet. Tyngdpunkten ligger på att generera insikter, identifiera mönster och stödja kunskapsbaserade beslut. AI används som ett verktyg för uppföljning och utveckling genom ökad analytisk kapacitet.",
+        "en": "AI is framed as a resource for strengthening data analysis and systematic quality work. The emphasis is on generating insights, identifying patterns, and supporting evidence-informed decision-making. AI is used as a tool for monitoring performance and improving outcomes through enhanced analytical capacity."
       }
     },
     {
       "id": "EFF",
       "label": {
-        "sv": "Effektivitets- / Automatiseringsorientering",
-        "en": "Efficiency / Automation Orientation"
+        "sv": "Effektivitet / Automatisering",
+        "en": "Efficiency / Automation"
       },
       "description": {
-        "sv": "I denna orientering förstås AI främst som ett verktyg för att minska arbetsbelastning och öka organisatorisk effektivitet. Fokus ligger på att effektivisera administrativa processer, automatisera repetitiva uppgifter och frigöra tid för personal. Framgång mäts i tidsvinster, kostnadskontroll och mer välfungerande arbetsflöden.",
-        "en": "In this orientation, AI is primarily understood as a tool for reducing workload and improving organisational efficiency. The focus is on streamlining administrative processes, automating repetitive tasks, and freeing up staff time. Success is measured in terms of time savings, cost control, and smoother workflows across the system."
+        "sv": "AI förstås främst som ett verktyg för att minska arbetsbelastning och öka organisatorisk effektivitet. Fokus ligger på att effektivisera administrativa processer, automatisera repetitiva uppgifter och frigöra tid för personal. Framgång mäts i tidsvinster, kostnadskontroll och mer välfungerande arbetsflöden.",
+        "en": "AI is primarily understood as a tool for reducing workload and improving organisational efficiency. The focus is on streamlining administrative processes, automating repetitive tasks, and freeing up staff time. Success is measured in terms of time savings, cost control, and smoother workflows across the system."
       }
     },
     {
       "id": "KNO",
       "label": {
-        "sv": "Kunskaps- / Demokratiorientering",
-        "en": "Knowledge / Democracy Orientation"
+        "sv": "Kunskap / Demokrati",
+        "en": "Knowledge / Democracy"
       },
       "description": {
-        "sv": "I denna orientering förstås AI som en bredare kunskapsmässig och samhällelig fråga. Fokus ligger på hur AI omformar kunskapspraktiker, professionellt omdöme och demokratiskt deltagande. Tyngdpunkten ligger på att utveckla kritisk AI-kompetens och att säkerställa att elever och lärare kan förhålla sig reflekterande till AI som en del av skolans demokratiska och bildande uppdrag.",
-        "en": "In this orientation, AI is understood as a broader epistemic and societal issue. The focus is on how AI reshapes knowledge practices, professional judgment, and democratic participation. Emphasis is placed on developing critical AI literacy and ensuring that students and educators can engage reflectively with AI as part of their civic formation."
+        "sv": "AI betraktas som en bredare kunskapsmässig och samhällelig fråga. Fokus ligger på hur AI omformar kunskapspraktiker, professionellt omdöme och demokratiskt deltagande. Tyngdpunkten ligger på att utveckla kritisk AI-kompetens och att säkerställa att elever och lärare kan förhålla sig reflekterande till AI som en del av skolans demokratiska och bildande uppdrag.",
+        "en": "AI is understood as a broader epistemic and societal issue. The focus is on how AI reshapes knowledge practices, professional judgment, and democratic participation. Emphasis is placed on developing critical AI literacy and ensuring that students and educators can engage reflectively with AI as part of their civic formation."
       }
     },
     {
       "id": "SUP",
       "label": {
-        "sv": "Elevstöds- / Lärandeorientering",
-        "en": "Student Support / Learning Orientation"
+        "sv": "Elevstöd / Lärande",
+        "en": "Student Support / Learning"
       },
       "description": {
-        "sv": "Denna orientering placerar AI i relation till undervisning och elevers lärande. Fokus ligger på differentiering, inkludering, återkoppling och pedagogisk utveckling. AI ses som en resurs som kan stärka lärprocesser och möta elevers skiftande behov.",
-        "en": "This orientation positions AI as a means of supporting teaching and enhancing student learning. The focus is on differentiation, inclusion, feedback, and pedagogical innovation. AI is seen as a resource that can strengthen learning processes and respond to diverse student needs."
+        "sv": "Denna inriktning fokuserar på AI:s roll i relation till undervisning och elevers lärande. Fokus ligger på differentiering, inkludering, återkoppling och pedagogisk utveckling. AI ses som en resurs som kan stärka lärprocesser och möta elevers skiftande behov.",
+        "en": "This orientation focuses on AI as a means of supporting teaching and enhancing student learning. The focus is on differentiation, inclusion, feedback, and pedagogical innovation. AI is seen as a resource that can strengthen learning processes and respond to diverse student needs."
       }
     },
     {
       "id": "TEC",
       "label": {
-        "sv": "Teknik- / Inköpsorientering",
-        "en": "Technology / Procurement Orientation"
+        "sv": "Teknik / Inköp",
+        "en": "Technology / Procurement"
       },
       "description": {
-        "sv": "I denna orientering behandlas AI främst som en teknisk och infrastrukturell fråga. Uppmärksamheten riktas mot upphandling, juridisk efterlevnad, dataskydd, systemintegration och riskhantering. Den centrala ambitionen är att säkerställa att AI-verktyg är säkra, tillförlitliga och förenliga med regelverk.",
-        "en": "In this orientation, AI is primarily treated as a technical and infrastructural issue. Attention centres on procurement processes, legal compliance, data protection, integration with existing systems, and risk management. The key concern is ensuring that AI tools are secure, reliable, and aligned with regulatory frameworks."
+        "sv": "AI betraktas främst som en teknisk och infrastrukturell fråga. Uppmärksamheten riktas mot upphandling, juridisk efterlevnad, dataskydd, systemintegration och riskhantering. Den centrala ambitionen är att säkerställa att AI-verktyg är säkra, tillförlitliga och förenliga med regelverk.",
+        "en": "AI is primarily treated as a technical and infrastructural issue. Attention centres on procurement processes, legal compliance, data protection, integration with existing systems, and risk management. The key concern is ensuring that AI tools are secure, reliable, and aligned with regulatory frameworks."
       }
     }
   ],
@@ -90,8 +90,8 @@
     {
       "id": "q_ana_4",
       "text": {
-        "sv": "Samtal om AI kretsar ofta kring hur det kan stärka systematiskt kvalitetsarbete och resultatuppföljning.",
-        "en": "Discussions about AI often centre on how it can strengthen systematic quality improvement and outcome monitoring."
+        "sv": "Samtal om AI kretsar ofta kring hur tekniken kan stärka det systematiska kvalitetsarbetet och resultatuppföljning.",
+        "en": "Discussions about AI often centre on how the technology can strengthen systematic quality improvement and outcome monitoring."
       },
       "orientationId": "ANA"
     },
@@ -114,7 +114,7 @@
     {
       "id": "q_eff_3",
       "text": {
-        "sv": "När AI införs görs uttryckliga beräkningar eller uppskattningar av effektiviseringsvinster.",
+        "sv": "När AI införs görs tydliga beräkningar eller uppskattningar av effektiviseringsvinster.",
         "en": "When AI is introduced, expected efficiency gains are explicitly calculated or estimated."
       },
       "orientationId": "EFF"
@@ -122,16 +122,16 @@
     {
       "id": "q_eff_4",
       "text": {
-        "sv": "I styrdokument eller intern kommunikation beskrivs AI som ett sätt att “frigöra tid” för kärnuppdraget.",
-        "en": "In strategic documents or internal communication, AI is framed as a way to “free up time” for core tasks."
+        "sv": "I styrdokument eller intern kommunikation beskrivs AI som ett sätt att frigöra tid för kärnuppdraget.",
+        "en": "In strategic documents or internal communication, AI is framed as a way to free up time for core tasks."
       },
       "orientationId": "EFF"
     },
     {
       "id": "q_kno_1",
       "text": {
-        "sv": "Organiserade aktiviteter behandlar hur AI påverkar kunskapsproduktion, bedömning och professionellt omdöme.",
-        "en": "Organised activities address how AI influences knowledge production, assessment, and professional judgment."
+        "sv": "AI:s påverkan på kunskapsproduktion, bedömning och professionellt omdöme diskuteras inom ramen för organiserade aktiviter.",
+        "en": "AI's influence on knowledge production, assessment, and professional judgment is discussed during organised activities."
       },
       "orientationId": "KNO"
     },
@@ -146,7 +146,7 @@
     {
       "id": "q_kno_3",
       "text": {
-        "sv": "Etiska, samhälleliga eller demokratiska implikationer av AI tas uttryckligen upp i ledningsforum eller strategiskt arbete.",
+        "sv": "Etiska, samhälleliga eller demokratiska följder av AI tas uttryckligen upp i ledningsforum eller strategiskt arbete.",
         "en": "Ethical, societal, or democratic implications of AI are explicitly addressed in leadership forums or strategic planning."
       },
       "orientationId": "KNO"
