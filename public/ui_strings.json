@@ -6,7 +6,7 @@
     "Variables: Some strings use {variable} syntax (e.g., {current}). Do not translate the text inside the curly braces."
   ],
   "schemaVersion": "1.0.0",
-  "defaultLocale": "sv",
+  "defaultLocale": "en",
   "supportedLocales": [
     "sv",
     "en"
@@ -75,7 +75,7 @@
   },
   "home": {
     "ctaOrganization": {
-      "sv": "Starta självbedömningen",
+      "sv": "Starta skattningen",
       "en": "Start the self-assessment"
     },
     "description": {
