@@ -1,11 +1,12 @@
 "use client";
 import { useI18n } from "@/lib/i18n";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function HomePage() {
   const { t } = useI18n();
-  const router = useRouter();
+  const descriptionParagraphs = t("home.description")
+    .split(/\n\s*\n/)
+    .filter(Boolean);
 
   return (
     <section className="page page-home fade-in">
@@ -13,7 +14,11 @@ export default function HomePage() {
         <div className="hero-glow" aria-hidden="true" />
         <div className="hero-content">
           <h1 className="hero-title">{t("home.title")}</h1>
-          <p className="hero-description">{t("home.description")}</p>
+          <div className="hero-description">
+            {descriptionParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
           <div className="cta-group">
             <Link
               href="/organization"

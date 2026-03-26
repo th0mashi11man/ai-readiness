@@ -316,6 +316,14 @@ body {
   line-height: 1.7;
 }
 
+.hero-description p {
+  margin: 0;
+}
+
+.hero-description p + p {
+  margin-top: 1.25rem;
+}
+
 .cta-group {
   display: flex;
   gap: 16px;
