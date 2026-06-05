@@ -3,7 +3,7 @@
     "This file contains the feedback text shown to users based on the gap between their priorities and current results.",
     "Levels: Feedback is categorized by the degree of misalignment: aligned, minor, moderate, significant, or surplus.",
     "Orientation IDs: EFF (Efficiency), ANA (Analysis), TEC (Technology), SUP (Student Support), KNO (Knowledge).",
-    "Placeholders: Some texts contain [link placeholder] hints. These will eventually be replaced with real URLs."
+    "Resource links are drawn from the resource bank on, or resources linked from, https://aiforskolhuvudman.se/."
   ],
   "ANA": {
     "aligned": {
@@ -11,16 +11,16 @@
       "en": "Your organisation is working in line with your stated priority for analysis and quality work. Continuing to integrate AI insights into monitoring processes is one way to build on this."
     },
     "minor": {
-      "sv": "Det finns ett litet glapp inom analys och kvalitetsarbete. Att utöka användningen av dataanalysverktyg i uppföljningen är ett möjligt nästa steg. Introduktionsresurser finns via [länkplatshållare: introduktion till AI-stödd analys i skolan].",
-      "en": "There is a small gap in analysis and quality work. Expanding the use of data analysis tools in monitoring is one possible next step. Introductory resources can be found at [link placeholder: introduction to AI-supported analysis in schools]."
+      "sv": "Det finns ett litet glapp inom analys och kvalitetsarbete. Att utöka användningen av dataanalysverktyg i uppföljningen är ett möjligt nästa steg. Introduktionsresurser finns via <a href=\"https://skr.se/digitaliseringivalfarden/digitaliseringiskolan/datainformeratarbeteformertraffsakerverksamhetsutveckling.9291.html\" target=\"_blank\" rel=\"noopener noreferrer\">SKR:s stöd om datainformerat arbete</a>.",
+      "en": "There is a small gap in analysis and quality work. Expanding the use of data analysis tools in monitoring is one possible next step. Introductory resources can be found via <a href=\"https://skr.se/digitaliseringivalfarden/digitaliseringiskolan/datainformeratarbeteformertraffsakerverksamhetsutveckling.9291.html\" target=\"_blank\" rel=\"noopener noreferrer\">SKR's support for data-informed work</a>."
     },
     "moderate": {
-      "sv": "Er organisation värderar analys och kvalitetsarbete högre än nuvarande praktik visar. Kompetensutveckling kring dataanalys och tydligare rutiner för AI-insikter i beslutsfattandet är möjliga vägar framåt. Resurser finns via [länkplatshållare: kurs i datadriven skolutveckling].",
-      "en": "Your organisation values analysis and quality work more than current practice reflects. Investing in competency development around data analysis and establishing clearer routines for AI-generated insights are possible paths forward. Resources can be found at [link placeholder: course in data-driven school development]."
+      "sv": "Er organisation värderar analys och kvalitetsarbete högre än nuvarande praktik visar. Kompetensutveckling kring dataanalys och tydligare rutiner för AI-insikter i beslutsfattandet är möjliga vägar framåt. Resurser finns via <a href=\"https://innovationsarena.goteborgsregionen.se/grundkurs-generativ-ai/\" target=\"_blank\" rel=\"noopener noreferrer\">Göteborgsregionens digitala utbildning om generativ AI</a>.",
+      "en": "Your organisation values analysis and quality work more than current practice reflects. Investing in competency development around data analysis and establishing clearer routines for AI-generated insights are possible paths forward. Resources can be found via <a href=\"https://innovationsarena.goteborgsregionen.se/grundkurs-generativ-ai/\" target=\"_blank\" rel=\"noopener noreferrer\">Gothenburg Region's digital course on generative AI</a>."
     },
     "significant": {
-      "sv": "Det finns ett betydande glapp inom analys och kvalitetsarbete. Att ta fram en strategi för datainsamling och analys kan vara ett sätt att adressera detta. Resurser och ramverk finns via [länkplatshållare: ramverk för systematiskt kvalitetsarbete med AI].",
-      "en": "There is a significant gap in analysis and quality work. Developing a strategy for data collection and analysis is one way to address this. Resources and frameworks can be found at [link placeholder: framework for systematic quality work with AI]."
+      "sv": "Det finns ett betydande glapp inom analys och kvalitetsarbete. Att ta fram en strategi för datainsamling och analys kan vara ett sätt att adressera detta. Resurser och ramverk finns via <a href=\"https://innovationsarena.goteborgsregionen.se/ramverk/\" target=\"_blank\" rel=\"noopener noreferrer\">Göteborgsregionens kompetensramverk</a>.",
+      "en": "There is a significant gap in analysis and quality work. Developing a strategy for data collection and analysis is one way to address this. Resources and frameworks can be found via <a href=\"https://innovationsarena.goteborgsregionen.se/ramverk/\" target=\"_blank\" rel=\"noopener noreferrer\">Gothenburg Region's competency framework</a>."
     },
     "surplus": {
       "sv": "Er nuvarande praktik inom analys och kvalitetsarbete överstiger er uttalade prioritering. Det kan vara värt att reflektera över om denna betoning är i linje med organisationens övergripande strategiska inriktning.",
@@ -33,16 +33,16 @@
       "en": "Your organisation is working in line with your stated priority for efficiency and automation. Continuing to monitor and share good examples internally is one way to build on this."
     },
     "minor": {
-      "sv": "Det finns ett litet glapp inom effektivitet och automatisering. Ett sätt att adressera detta är att kartlägga vilka administrativa processer som kan effektiviseras med AI-stöd. Användbara resurser kan hittas via [länkplatshållare: resurs om processautomatisering].",
-      "en": "There is a small gap in efficiency and automation. One way to address this is to map which administrative processes could be streamlined with AI support. Useful resources can be found at [link placeholder: resource on process automation]."
+      "sv": "Det finns ett litet glapp inom effektivitet och automatisering. Ett sätt att adressera detta är att kartlägga vilka administrativa processer som kan effektiviseras med AI-stöd. Användbara resurser kan hittas via <a href=\"https://www.digg.se/ai-for-offentlig-forvaltning/riktlinjer-for-generativ-ai\" target=\"_blank\" rel=\"noopener noreferrer\">DIGG:s riktlinjer för generativ AI inom offentlig förvaltning</a>.",
+      "en": "There is a small gap in efficiency and automation. One way to address this is to map which administrative processes could be streamlined with AI support. Useful resources can be found via <a href=\"https://www.digg.se/ai-for-offentlig-forvaltning/riktlinjer-for-generativ-ai\" target=\"_blank\" rel=\"noopener noreferrer\">DIGG's guidelines for generative AI in public administration</a>."
     },
     "moderate": {
-      "sv": "Er organisation prioriterar effektivitet och automatisering högre än nuvarande praktik visar. Konkreta pilotprojekt för AI-stödd administration är ett möjligt nästa steg. Resurser för detta kan hittas via [länkplatshållare: guide för AI-driven processoptimering].",
-      "en": "Your organisation prioritises efficiency and automation higher than current practice reflects. Concrete pilot projects for AI-supported administration are one possible next step. Resources for this can be found at [link placeholder: guide to AI-driven process optimisation]."
+      "sv": "Er organisation prioriterar effektivitet och automatisering högre än nuvarande praktik visar. Konkreta pilotprojekt för AI-stödd administration är ett möjligt nästa steg. Resurser för detta kan hittas via <a href=\"https://karlstad.se/smarta-karlstad/sa-jobbar-vi-med-innovation/ai\" target=\"_blank\" rel=\"noopener noreferrer\">Karlstads kommuns exempel på arbete med AI</a>.",
+      "en": "Your organisation prioritises efficiency and automation higher than current practice reflects. Concrete pilot projects for AI-supported administration are one possible next step. Resources for this can be found via <a href=\"https://karlstad.se/smarta-karlstad/sa-jobbar-vi-med-innovation/ai\" target=\"_blank\" rel=\"noopener noreferrer\">Karlstad Municipality's example of working with AI</a>."
     },
     "significant": {
-      "sv": "Det finns ett betydande glapp mellan er prioritering av effektivitet och er nuvarande praktik. En strukturerad kartläggning av arbetsflöden kan vara ett sätt att börja. Resurser och ramverk för detta finns via [länkplatshållare: ramverk för digital transformation i skolan].",
-      "en": "There is a significant gap between your stated priority for efficiency and your current practice. A structured workflow mapping is one way to begin closing this gap. Resources and frameworks can be found at [link placeholder: framework for digital transformation in schools]."
+      "sv": "Det finns ett betydande glapp mellan er prioritering av effektivitet och er nuvarande praktik. En strukturerad kartläggning av arbetsflöden kan vara ett sätt att börja. Resurser och ramverk för detta finns via <a href=\"https://edu.ri.se/sv/larandeskelleftea/#/\" target=\"_blank\" rel=\"noopener noreferrer\">RISE och Skellefteå kommuns material om lärande organisation</a>.",
+      "en": "There is a significant gap between your stated priority for efficiency and your current practice. A structured workflow mapping is one way to begin closing this gap. Resources and frameworks can be found via <a href=\"https://edu.ri.se/sv/larandeskelleftea/#/\" target=\"_blank\" rel=\"noopener noreferrer\">RISE and Skellefteå Municipality's material on the learning organisation</a>."
     },
     "surplus": {
       "sv": "Er nuvarande praktik inom effektivitet och automatisering överstiger er uttalade prioritering. Det kan vara värt att reflektera över om resurser och uppmärksamhet är väl fördelade i förhållande till organisationens övergripande mål.",
@@ -55,16 +55,16 @@
       "en": "Your organisation is working in line with your stated priority for knowledge and democracy. Continuing to integrate critical AI literacy into teaching and leadership forums is one way to build on this."
     },
     "minor": {
-      "sv": "Det finns ett litet glapp inom kunskap och demokrati. Att lyfta etiska och samhälleliga frågor om AI i befintliga forum är ett möjligt nästa steg. En diskussionsguide finns via [länkplatshållare: diskussionsguide om AI och demokrati].",
-      "en": "There is a small gap in knowledge and democracy. Raising ethical and societal questions about AI in existing forums is one possible next step. A discussion guide can be found at [link placeholder: discussion guide on AI and democracy]."
+      "sv": "Det finns ett litet glapp inom kunskap och demokrati. Att lyfta etiska och samhälleliga frågor om AI i befintliga forum är ett möjligt nästa steg. En diskussionsguide finns via <a href=\"https://ailit.fi/etikdialog/\" target=\"_blank\" rel=\"noopener noreferrer\">AILit:s etikdialog</a>.",
+      "en": "There is a small gap in knowledge and democracy. Raising ethical and societal questions about AI in existing forums is one possible next step. A discussion guide can be found via <a href=\"https://ailit.fi/etikdialog/\" target=\"_blank\" rel=\"noopener noreferrer\">AILit's ethics dialogue</a>."
     },
     "moderate": {
-      "sv": "Er organisation värderar kunskap och demokrati högre än nuvarande praktik visar. Att integrera kritisk AI-kompetens i kompetensutvecklingsplaner och ge elever strukturerade möjligheter att granska AI:s samhällspåverkan är möjliga vägar framåt. Läromedel finns via [länkplatshållare: läromedel om AI-etik och källkritik].",
-      "en": "Your organisation values knowledge and democracy more than current practice reflects. Integrating critical AI literacy into professional development plans and giving students structured opportunities to examine AI's societal impact are possible paths forward. Teaching materials can be found at [link placeholder: teaching materials on AI ethics and source criticism]."
+      "sv": "Er organisation värderar kunskap och demokrati högre än nuvarande praktik visar. Att integrera kritisk AI-kompetens i kompetensutvecklingsplaner och ge elever strukturerade möjligheter att granska AI:s samhällspåverkan är möjliga vägar framåt. Läromedel finns via <a href=\"https://www.skolverket.se/kompetensutveckling/stod-i-arbetet/rad-om-ai-chattbottar-och-liknande-verktyg#h-GemensammaforhallningssatttillAIpaskolan\" target=\"_blank\" rel=\"noopener noreferrer\">Skolverkets råd om gemensamma förhållningssätt till AI</a>.",
+      "en": "Your organisation values knowledge and democracy more than current practice reflects. Integrating critical AI literacy into professional development plans and giving students structured opportunities to examine AI's societal impact are possible paths forward. Teaching materials can be found via <a href=\"https://www.skolverket.se/kompetensutveckling/stod-i-arbetet/rad-om-ai-chattbottar-och-liknande-verktyg#h-GemensammaforhallningssatttillAIpaskolan\" target=\"_blank\" rel=\"noopener noreferrer\">the Swedish National Agency for Education's advice on shared approaches to AI</a>."
     },
     "significant": {
-      "sv": "Det finns ett betydande glapp inom kunskap och demokrati. En strategi för kritisk AI-kompetens som genomsyrar hela organisationen — från ledning till klassrum — är ett möjligt sätt att adressera detta. Forskning och vägledning om kritisk AI-kompetens finns via [länkplatshållare: forskning om AI-kompetens i skolan].",
-      "en": "There is a significant gap in knowledge and democracy. Developing a strategy for critical AI literacy that spans the whole organisation — from leadership to classroom — is one possible way to address this. Research and guidance on critical AI literacy can be found at [link placeholder: research on AI competency in schools]."
+      "sv": "Det finns ett betydande glapp inom kunskap och demokrati. En strategi för kritisk AI-kompetens som genomsyrar hela organisationen — från ledning till klassrum — är ett möjligt sätt att adressera detta. Forskning och vägledning om kritisk AI-kompetens finns via <a href=\"https://ailiteracyframework.org/\" target=\"_blank\" rel=\"noopener noreferrer\">AI Literacy Framework</a>.",
+      "en": "There is a significant gap in knowledge and democracy. Developing a strategy for critical AI literacy that spans the whole organisation — from leadership to classroom — is one possible way to address this. Research and guidance on critical AI literacy can be found via <a href=\"https://ailiteracyframework.org/\" target=\"_blank\" rel=\"noopener noreferrer\">the AI Literacy Framework</a>."
     },
     "surplus": {
       "sv": "Er nuvarande praktik inom kunskap och demokrati överstiger er uttalade prioritering. Det kan vara värt att reflektera över om detta fokus är väl integrerat med organisationens övriga AI-arbete.",
@@ -77,16 +77,16 @@
       "en": "Your organisation is working in line with your stated priority for student support and learning. Continuing to support teachers in pedagogical AI use and sharing successful examples is one way to build on this."
     },
     "minor": {
-      "sv": "Det finns ett litet glapp inom elevstöd och lärande. Att erbjuda fler möjligheter för lärare att utforska AI-verktyg i undervisningen är ett möjligt nästa steg. Introduktionskurser finns via [länkplatshållare: introduktionskurs i AI för lärare].",
-      "en": "There is a small gap in student support and learning. Offering more opportunities for teachers to explore AI tools in teaching is one possible next step. Introductory courses can be found at [link placeholder: introductory course in AI for teachers]."
+      "sv": "Det finns ett litet glapp inom elevstöd och lärande. Att erbjuda fler möjligheter för lärare att utforska AI-verktyg i undervisningen är ett möjligt nästa steg. Introduktionskurser finns via <a href=\"https://www.elementsofai.se/\" target=\"_blank\" rel=\"noopener noreferrer\">Elements of AI</a>.",
+      "en": "There is a small gap in student support and learning. Offering more opportunities for teachers to explore AI tools in teaching is one possible next step. Introductory courses can be found via <a href=\"https://www.elementsofai.se/\" target=\"_blank\" rel=\"noopener noreferrer\">Elements of AI</a>."
     },
     "moderate": {
-      "sv": "Er organisation värderar elevstöd och lärande högre än nuvarande praktik visar. Strukturerade kompetensutvecklingsinsatser och forum för lärare att dela erfarenheter är möjliga vägar framåt. Resurser finns via [länkplatshållare: program för pedagogisk AI-kompetensutveckling].",
-      "en": "Your organisation values student support and learning more than current practice reflects. Structured professional development and forums for teachers to share experiences are possible paths forward. Resources can be found at [link placeholder: programme for pedagogical AI competency development]."
+      "sv": "Er organisation värderar elevstöd och lärande högre än nuvarande praktik visar. Strukturerade kompetensutvecklingsinsatser och forum för lärare att dela erfarenheter är möjliga vägar framåt. Resurser finns via <a href=\"https://innovationsarena.goteborgsregionen.se/grundkurs-generativ-ai/\" target=\"_blank\" rel=\"noopener noreferrer\">Göteborgsregionens grundkurs om generativ AI</a>.",
+      "en": "Your organisation values student support and learning more than current practice reflects. Structured professional development and forums for teachers to share experiences are possible paths forward. Resources can be found via <a href=\"https://innovationsarena.goteborgsregionen.se/grundkurs-generativ-ai/\" target=\"_blank\" rel=\"noopener noreferrer\">Gothenburg Region's introductory course on generative AI</a>."
     },
     "significant": {
-      "sv": "Det finns ett betydande glapp inom elevstöd och lärande. En handlingsplan för pedagogisk AI-kompetensutveckling och systematisk utvärdering av hur AI kan stödja elever med olika behov är möjliga sätt att adressera detta. Forskning och resurser finns via [länkplatshållare: forskningsöversikt om AI och inkludering i skolan].",
-      "en": "There is a significant gap in student support and learning. Developing an action plan for pedagogical AI competency development and systematically evaluating how AI can support students with diverse needs are possible ways to address this. Research and resources can be found at [link placeholder: research overview on AI and inclusion in schools]."
+      "sv": "Det finns ett betydande glapp inom elevstöd och lärande. En handlingsplan för pedagogisk AI-kompetensutveckling och systematisk utvärdering av hur AI kan stödja elever med olika behov är möjliga sätt att adressera detta. Forskning och resurser finns via <a href=\"https://innovationsarena.goteborgsregionen.se/ramverk/\" target=\"_blank\" rel=\"noopener noreferrer\">Göteborgsregionens kompetensramverk</a>.",
+      "en": "There is a significant gap in student support and learning. Developing an action plan for pedagogical AI competency development and systematically evaluating how AI can support students with diverse needs are possible ways to address this. Research and resources can be found via <a href=\"https://innovationsarena.goteborgsregionen.se/ramverk/\" target=\"_blank\" rel=\"noopener noreferrer\">Gothenburg Region's competency framework</a>."
     },
     "surplus": {
       "sv": "Er nuvarande praktik inom elevstöd och lärande överstiger er uttalade prioritering. Det kan vara värt att reflektera över om denna betoning är i linje med organisationens bredare strategiska prioriteringar.",
@@ -99,16 +99,16 @@
       "en": "Your organisation is working in line with your stated priority for technology and procurement. Continuing to ensure AI systems meet current security and compliance requirements is one way to maintain this."
     },
     "minor": {
-      "sv": "Det finns ett litet glapp inom teknik och upphandling. Att se över rutiner för granskning och godkännande av AI-verktyg kan vara ett nästa steg. En checklista för detta finns via [länkplatshållare: checklista för AI-upphandling i offentlig sektor].",
-      "en": "There is a small gap in technology and procurement. Reviewing routines for evaluating and approving AI tools is one possible next step. A checklist for this can be found at [link placeholder: checklist for AI procurement in the public sector]."
+      "sv": "Det finns ett litet glapp inom teknik och upphandling. Att se över rutiner för granskning och godkännande av AI-verktyg kan vara ett nästa steg. En checklista för detta finns via <a href=\"https://aiforskolhuvudman.se/files/3.1.1.2_Behovs_och_vardecheck.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Behovs- och värdecheck</a>.",
+      "en": "There is a small gap in technology and procurement. Reviewing routines for evaluating and approving AI tools is one possible next step. A checklist for this can be found via <a href=\"https://aiforskolhuvudman.se/files/3.1.1.2_Behovs_och_vardecheck.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">the needs and value check</a>."
     },
     "moderate": {
-      "sv": "Er organisation prioriterar teknik och upphandling högre än nuvarande praktik visar. Tydligare processer för AI-upphandling och ansvariga roller för teknisk granskning är möjliga sätt att adressera detta. Resurser finns via [länkplatshållare: guide för ansvarsfull AI-upphandling].",
-      "en": "Your organisation prioritises technology and procurement higher than current practice reflects. Clearer processes for AI procurement and assigned roles for technical review are possible ways to address this. Resources can be found at [link placeholder: guide to responsible AI procurement]."
+      "sv": "Er organisation prioriterar teknik och upphandling högre än nuvarande praktik visar. Tydligare processer för AI-upphandling och ansvariga roller för teknisk granskning är möjliga sätt att adressera detta. Resurser finns via <a href=\"https://aiforskolhuvudman.se/files/3.1.1.4_Beslutsstod.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">beslutsstödet för AI-anskaffning</a>.",
+      "en": "Your organisation prioritises technology and procurement higher than current practice reflects. Clearer processes for AI procurement and assigned roles for technical review are possible ways to address this. Resources can be found via <a href=\"https://aiforskolhuvudman.se/files/3.1.1.4_Beslutsstod.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">the decision support for AI procurement</a>."
     },
     "significant": {
-      "sv": "Det finns ett betydande glapp inom teknik och upphandling. En IT-säkerhetsrevision av befintliga AI-system och en policy för AI-upphandling är möjliga startpunkter. Vägledning och checklistor för detta finns via [länkplatshållare: vägledning för AI och dataskydd i skolan].",
-      "en": "There is a significant gap in technology and procurement. An IT security audit of existing AI systems and a policy for AI procurement are possible starting points. Guidance and checklists for this can be found at [link placeholder: guidance on AI and data protection in schools]."
+      "sv": "Det finns ett betydande glapp inom teknik och upphandling. En IT-säkerhetsrevision av befintliga AI-system och en policy för AI-upphandling är möjliga startpunkter. Vägledning och checklistor för detta finns via <a href=\"https://www.imy.se/verksamhet/dataskydd/innovationsportalen/vagledning-om-gdpr-och-ai/\" target=\"_blank\" rel=\"noopener noreferrer\">IMY:s vägledning om GDPR och AI</a>.",
+      "en": "There is a significant gap in technology and procurement. An IT security audit of existing AI systems and a policy for AI procurement are possible starting points. Guidance and checklists for this can be found via <a href=\"https://www.imy.se/verksamhet/dataskydd/innovationsportalen/vagledning-om-gdpr-och-ai/\" target=\"_blank\" rel=\"noopener noreferrer\">IMY's guidance on GDPR and AI</a>."
     },
     "surplus": {
       "sv": "Er nuvarande praktik inom teknik och upphandling överstiger er uttalade prioritering. Det kan vara värt att reflektera över om det tekniska fokuset är väl balanserat mot pedagogiska och organisatoriska behov.",
