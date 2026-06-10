@@ -893,6 +893,152 @@ body {
   text-align: center;
 }
 
+.research-share {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-border);
+}
+
+.research-share-prompt {
+  padding: 20px;
+  border: 1px solid #ecd896;
+  border-radius: 8px;
+  background: #ecd89620;
+}
+
+.research-share-prompt h2,
+.share-form h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.research-share-prompt p {
+  margin-bottom: 14px;
+}
+
+.research-share-link {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.research-share-link:hover {
+  color: var(--color-primary-hover);
+}
+
+.share-form {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.share-info {
+  margin-bottom: 24px;
+}
+
+.share-info p {
+  margin-bottom: 14px;
+}
+
+.share-info a {
+  color: var(--color-primary);
+}
+
+.share-form h3 {
+  margin: 0 0 16px;
+  font-size: 1rem;
+}
+
+.share-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field span {
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font: inherit;
+  min-height: 44px;
+  padding: 9px 12px;
+  background: #fff;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--color-primary);
+  outline: 3px solid var(--color-primary-light);
+}
+
+.share-consent {
+  margin-top: 20px;
+}
+
+.share-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.share-status {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+}
+
+.share-status-success {
+  color: #08665f;
+  background: var(--color-success-bg);
+  border: 1px solid #00a29a66;
+}
+
+.share-status-error {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+  border: 1px solid #8e082633;
+}
+
+@media (max-width: 700px) {
+  .share-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .share-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .share-form-actions .btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 /* ── Heatmap ─────────────────────────────────────────────────────── */
 .heatmap-wrapper {
   overflow-x: auto;
@@ -1268,6 +1414,7 @@ body {
 
   .navbar,
   .results-actions,
+  .research-share,
   .quiz-nav,
   .quiz-actions,
   .btn-text,

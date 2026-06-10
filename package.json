@@ -5,9 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "vercel": "PATH=/opt/homebrew/bin:$PATH XDG_CACHE_HOME=/private/tmp/vercel-cache-ai-readiness VERCEL_CACHE_DIR=/private/tmp/vercel-cache-ai-readiness vercel",
+    "deploy:prod": "PATH=/opt/homebrew/bin:$PATH XDG_CACHE_HOME=/private/tmp/vercel-cache-ai-readiness VERCEL_CACHE_DIR=/private/tmp/vercel-cache-ai-readiness vercel deploy --prod -y"
   },
   "dependencies": {
+    "@vercel/blob": "1.0.2",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"

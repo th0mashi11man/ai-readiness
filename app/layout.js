@@ -1,16 +1,9 @@
-import { Libre_Franklin } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import AppShell from "@/components/AppShell";
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { getPreferredLocaleFromHeader, normalizeLocale } from "@/lib/locale";
-
-const libreFranklin = Libre_Franklin({
-  subsets: ["latin"],
-  variable: "--font-libre-franklin",
-  display: 'swap',
-});
 
 export const metadata = {
   title: "AI-beredskap i skolorganisationer",
@@ -33,7 +26,7 @@ export default async function RootLayout({ children }) {
   );
 
   return (
-    <html lang={initialLocale} suppressHydrationWarning className={libreFranklin.variable}>
+    <html lang={initialLocale} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <AppShell uiStrings={uiStrings} initialLocale={initialLocale}>
           {children}

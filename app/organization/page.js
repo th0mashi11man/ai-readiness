@@ -10,6 +10,99 @@ import PrintHeader from "@/components/PrintHeader";
 
 import { Suspense } from "react";
 
+const SHARE_COPY = {
+    sv: {
+        promptTitle: "Kan du tänka dig att dela dina svar som forskningsdata?",
+        promptBody: "Genom att svara på några korta frågor så kan vi använda dina svar för att förbättra vår förståelse av AI-beredskap inom skolorganisationer och utveckla bättre sätt att mäta och följa sådan beredskap över tid. Deltagandet är frivilligt och du kan senare begära att dina uppgifter dras tillbaka. Om du inte vill dela så raderas dina svar så fort du stänger ner hemsidan.",
+        openForm: "Dela svar som forskningsdata",
+        formTitle: "Information om att dela dina svar som forskningsdata",
+        formBody: [
+            "Du tillfrågas om du vill dela dina svar från AI Readiness Self-Assessment Tool som forskningsdata. Syftet är att bidra till forskning om AI-beredskap, digitalisering och ansvarsfull användning av cloud- och AI-relaterad teknik i skolorganisationer. Genom att dela dina svar hjälper du oss att förbättra förståelsen av hur organisationer arbetar med AI-frågor och hur AI-beredskap kan mätas och följas över tid.",
+            "Datan kommer att användas för att studera de områden som frågorna i verktyget handlar om: organisationens strategier, arbetssätt, kompetenser, tekniska förutsättningar, styrning, ansvarsfördelning och behov av stöd i relation till AI och digital infrastruktur.",
+            "Att dela dina svar är frivilligt. Du kan använda verktyget även om du inte vill dela dina svar för forskning. Om du samtycker kan du senare kontakta oss för att begära att dina uppgifter tas bort eller inte längre används. För att detta ska vara möjligt så behöver du lämna dina kontaktuppgifter. Om du väljer att inte göra detta kan vi inte identifiera dina svar. Om datan har anonymiserats eller sammanställts på ett sätt som gör att enskilda svar inte längre kan identifieras, kan det i dessa sammanhang däremot vara omöjligt att ta bort just dina uppgifter från dessa analyser.",
+            "Vi kommer att hantera materialet i enlighet med god forskningssed och forskningsetiska principer. Resultat från forskningen kommer att presenteras på en övergripande nivå, i rapporter, vetenskapliga publikationer eller presentationer. Enskilda personer eller organisationer kommer inte att namnges eller beskrivas på ett sätt som gör dem identifierbara.",
+        ],
+        contact: "Vid frågor om forskningen eller om du vill dra tillbaka ditt samtycke kan du kontakta:",
+        questionsTitle: "Korta kontextfrågor",
+        schoolOrg: "Jag arbetar inom en skolorganisation",
+        role: "Min roll inom denna organisation",
+        principal: "Huvudmannen är",
+        municipalitySize: "Kommunens storlek",
+        privateSchoolSize: "Privat skolas storlek",
+        organizationName: "Organisation/skola (valfritt)",
+        contactName: "Namn (valfritt)",
+        contactEmail: "E-post för eventuell återkallelse (valfritt)",
+        other: "Annat",
+        otherPlaceholder: "Beskriv kort",
+        yes: "Ja",
+        no: "Nej",
+        private: "Privat",
+        municipal: "Kommunal",
+        choose: "Välj...",
+        consent: "Jag samtycker till att mina svar och uppgifterna ovan delas som forskningsdata.",
+        submit: "Skicka forskningsdata",
+        submitting: "Skickar...",
+        cancel: "Avbryt",
+        success: "Tack. Dina svar har skickats som forskningsdatafil till mottagaradressen.",
+        error: "Det gick inte att skicka svaren. Försök igen eller exportera resultatet som PDF.",
+        notConfigured: "Mottagaren för forskningsdata är inte konfigurerad ännu.",
+        required: "Fyll i de obligatoriska fälten och samtyckesrutan.",
+    },
+    en: {
+        promptTitle: "Would you consider sharing your answers as research data?",
+        promptBody: "By answering a few short contextual questions, you can help us improve our understanding of AI readiness in school organisations and develop better ways to measure and follow such readiness over time. Participation is voluntary and you can later ask for your data to be withdrawn. If you do not want to share, your answers are deleted as soon as you close the website.",
+        openForm: "Share answers as research data",
+        formTitle: "Information about sharing your answers as research data",
+        formBody: [
+            "You are being asked whether you want to share your answers from the AI Readiness Self-Assessment Tool as research data. The purpose is to contribute to research on AI readiness, digitalisation, and responsible use of cloud- and AI-related technology in school organisations.",
+            "The data will be used to study the areas covered by the tool: organisational strategies, practices, competencies, technical conditions, governance, responsibilities, and support needs in relation to AI and digital infrastructure.",
+            "Sharing your answers is voluntary. You can use the tool even if you do not want to share your answers for research. If you consent, you can later contact us to request that your data be removed or no longer used. To make this possible, you need to provide contact details. If you choose not to do this, we cannot identify your answers.",
+            "We will handle the material in accordance with good research practice and research ethics principles. Research results will be presented at an aggregated level in reports, scientific publications, or presentations. Individuals or organisations will not be named or described in a way that makes them identifiable.",
+        ],
+        contact: "For questions about the research or to withdraw your consent, contact:",
+        questionsTitle: "Short contextual questions",
+        schoolOrg: "I work within a school organisation",
+        role: "My role in this organisation",
+        principal: "The responsible authority is",
+        municipalitySize: "Municipality size",
+        privateSchoolSize: "Private school size",
+        organizationName: "Organisation/school (optional)",
+        contactName: "Name (optional)",
+        contactEmail: "Email for possible withdrawal (optional)",
+        other: "Other",
+        otherPlaceholder: "Briefly describe",
+        yes: "Yes",
+        no: "No",
+        private: "Private",
+        municipal: "Municipal",
+        choose: "Choose...",
+        consent: "I consent to my answers and the information above being shared as research data.",
+        submit: "Send research data",
+        submitting: "Sending...",
+        cancel: "Cancel",
+        success: "Thank you. Your answers have been sent as a research data file to the receiving address.",
+        error: "The answers could not be sent. Please try again or export the result as PDF.",
+        notConfigured: "The research data receiver has not been configured yet.",
+        required: "Complete the required fields and consent checkbox.",
+    },
+};
+
+const SIZE_OPTIONS = [
+    "Färre än 10 000 invånare / Fewer than 10,000 inhabitants",
+    "10 000-24 999 invånare / 10,000-24,999 inhabitants",
+    "25 000-49 999 invånare / 25,000-49,999 inhabitants",
+    "50 000-99 999 invånare / 50,000-99,999 inhabitants",
+    "100 000 invånare eller fler / 100,000 inhabitants or more",
+];
+
+const SCHOOL_SIZE_OPTIONS = [
+    "Färre än 100 elever / Fewer than 100 students",
+    "100-249 elever / 100-249 students",
+    "250-499 elever / 250-499 students",
+    "500-999 elever / 500-999 students",
+    "1 000 elever eller fler / 1,000 students or more",
+];
+
 export default function OrganizationPage() {
     return (
         <Suspense fallback={<div className="loading">Laddar...</div>}>
@@ -294,10 +387,27 @@ function SurveyFlow({ bank, onComplete, t, locale }) {
 function OrgResults({ bank, t, locale, onRestart }) {
     const [responses, setResponses] = useState({});
     const [storedPriorities, setStoredPriorities] = useState({});
+    const [storedSession, setStoredSession] = useState({});
     const [mounted, setMounted] = useState(false);
+    const [shareOpen, setShareOpen] = useState(false);
+    const [shareForm, setShareForm] = useState({
+        schoolOrg: "",
+        schoolOrgOther: "",
+        role: "",
+        principal: "",
+        municipalitySize: "",
+        privateSchoolSize: "",
+        organizationName: "",
+        contactName: "",
+        contactEmail: "",
+        consent: false,
+    });
+    const [shareStatus, setShareStatus] = useState({ type: "", message: "" });
+    const [isSubmittingShare, setIsSubmittingShare] = useState(false);
 
     useEffect(() => {
         const stored = JSON.parse(localStorage.getItem("organization_state") || "{}");
+        setStoredSession(stored);
         setResponses(stored.answers || {});
 
         const priorities = JSON.parse(localStorage.getItem("org_priorities") || "{}");
@@ -335,6 +445,107 @@ function OrgResults({ bank, t, locale, onRestart }) {
         const raw = storedPriorities[id] || 0;
         return ((raw - 1) / 4) * 100; // Normalize 1-5 to 0-100
     });
+
+    const copy = SHARE_COPY[locale] || SHARE_COPY.sv;
+
+    const updateShareForm = (field, value) => {
+        setShareForm(prev => ({ ...prev, [field]: value }));
+        if (shareStatus.type === "error") {
+            setShareStatus({ type: "", message: "" });
+        }
+    };
+
+    const buildResearchPayload = () => {
+        const submittedAt = new Date().toISOString();
+        const sessionId = storedSession.sessionId || "unknown-session";
+        const filename = `ai-readiness-${submittedAt.replace(/[:.]/g, "-")}-${sessionId}.json`;
+        const orientationResults = results.ORIENTATION_IDS.map(id => {
+            const orientation = bank.orientations.find(o => o.id === id);
+            return {
+                id,
+                label: orientation?.label || {},
+                description: orientation?.description || {},
+                scorePct: Math.round(results.results[id].score),
+                averageLikert: results.results[id].average,
+                priorityLikert: storedPriorities[id] || null,
+            };
+        });
+
+        const answers = bank.items.map(item => ({
+            itemId: item.id,
+            orientationId: item.orientationId,
+            text: item.text,
+            response: responses[item.id] ?? null,
+            reverseScored: Boolean(item.reverseScored),
+        }));
+
+        return {
+            schemaVersion: "1.0.0",
+            source: "AI Readiness Self-Assessment Tool",
+            submittedAt,
+            filename,
+            locale,
+            session: {
+                sessionId: storedSession.sessionId || null,
+                startedAt: storedSession.startedAt || null,
+                completedAt: storedSession.completedAt || null,
+            },
+            context: {
+                schoolOrg: shareForm.schoolOrg,
+                schoolOrgOther: shareForm.schoolOrgOther,
+                role: shareForm.role,
+                principal: shareForm.principal,
+                municipalitySize: shareForm.municipalitySize,
+                privateSchoolSize: shareForm.privateSchoolSize,
+                organizationName: shareForm.organizationName,
+                contactName: shareForm.contactName,
+                contactEmail: shareForm.contactEmail,
+                consentGiven: shareForm.consent,
+            },
+            priorities: storedPriorities,
+            results: orientationResults,
+            answers,
+        };
+    };
+
+    const handleShareSubmit = async (event) => {
+        event.preventDefault();
+        const needsSchoolOther = shareForm.schoolOrg === "other" && !shareForm.schoolOrgOther.trim();
+        const requiredMissing = !shareForm.schoolOrg || needsSchoolOther || !shareForm.role.trim() || !shareForm.principal || !shareForm.consent;
+
+        if (requiredMissing) {
+            setShareStatus({ type: "error", message: copy.required });
+            return;
+        }
+
+        setIsSubmittingShare(true);
+        setShareStatus({ type: "", message: "" });
+
+        try {
+            const payload = buildResearchPayload();
+            const response = await fetch("/api/share-results", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                const details = await response.json().catch(() => null);
+                if (details?.error) {
+                    throw new Error(details.error);
+                }
+                throw new Error("Share request failed");
+            }
+
+            setShareStatus({ type: "success", message: copy.success });
+            setShareOpen(false);
+        } catch (error) {
+            console.error(error);
+            setShareStatus({ type: "error", message: copy.error });
+        } finally {
+            setIsSubmittingShare(false);
+        }
+    };
 
     return (
         <section className="page page-results fade-in">
@@ -473,6 +684,143 @@ function OrgResults({ bank, t, locale, onRestart }) {
                         {t("common.exportPdf")}
                     </button>
                     {/* Restart button removed as requested */}
+                </div>
+
+                <div className="research-share">
+                    <div className="research-share-prompt">
+                        <h2>{copy.promptTitle}</h2>
+                        <p>{copy.promptBody}</p>
+                        <button
+                            type="button"
+                            className="research-share-link"
+                            onClick={() => setShareOpen(true)}
+                        >
+                            {copy.openForm}
+                        </button>
+                    </div>
+
+                    {shareStatus.message && (
+                        <p className={`share-status share-status-${shareStatus.type}`} role="status">
+                            {shareStatus.message}
+                        </p>
+                    )}
+
+                    {shareOpen && (
+                        <form className="share-form" onSubmit={handleShareSubmit}>
+                            <h2>{copy.formTitle}</h2>
+                            <div className="share-info">
+                                {copy.formBody.map((paragraph) => (
+                                    <p key={paragraph}>{paragraph}</p>
+                                ))}
+                                <p>
+                                    {copy.contact}<br />
+                                    Johan Lundin, Göteborgs universitet: <a href="mailto:johan.lundin@ait.gu.se">johan.lundin@ait.gu.se</a><br />
+                                    Thomas Hillman, Göteborgs universitet: <a href="mailto:thomas.hillman@ait.gu.se">thomas.hillman@ait.gu.se</a>
+                                </p>
+                            </div>
+
+                            <h3>{copy.questionsTitle}</h3>
+                            <div className="share-form-grid">
+                                <label className="field">
+                                    <span>{copy.schoolOrg} *</span>
+                                    <select value={shareForm.schoolOrg} onChange={(event) => updateShareForm("schoolOrg", event.target.value)} required>
+                                        <option value="">{copy.choose}</option>
+                                        <option value="yes">{copy.yes}</option>
+                                        <option value="no">{copy.no}</option>
+                                        <option value="other">{copy.other}</option>
+                                    </select>
+                                </label>
+
+                                {shareForm.schoolOrg === "other" && (
+                                    <label className="field">
+                                        <span>{copy.other}</span>
+                                        <input
+                                            value={shareForm.schoolOrgOther}
+                                            onChange={(event) => updateShareForm("schoolOrgOther", event.target.value)}
+                                            placeholder={copy.otherPlaceholder}
+                                            required
+                                        />
+                                    </label>
+                                )}
+
+                                <label className="field">
+                                    <span>{copy.role} *</span>
+                                    <input
+                                        value={shareForm.role}
+                                        onChange={(event) => updateShareForm("role", event.target.value)}
+                                        required
+                                    />
+                                </label>
+
+                                <label className="field">
+                                    <span>{copy.principal} *</span>
+                                    <select value={shareForm.principal} onChange={(event) => updateShareForm("principal", event.target.value)} required>
+                                        <option value="">{copy.choose}</option>
+                                        <option value="municipal">{copy.municipal}</option>
+                                        <option value="private">{copy.private}</option>
+                                    </select>
+                                </label>
+
+                                {shareForm.principal === "municipal" && (
+                                    <label className="field">
+                                        <span>{copy.municipalitySize}</span>
+                                        <select value={shareForm.municipalitySize} onChange={(event) => updateShareForm("municipalitySize", event.target.value)}>
+                                            <option value="">{copy.choose}</option>
+                                            {SIZE_OPTIONS.map(option => <option key={option} value={option}>{option}</option>)}
+                                        </select>
+                                    </label>
+                                )}
+
+                                {shareForm.principal === "private" && (
+                                    <label className="field">
+                                        <span>{copy.privateSchoolSize}</span>
+                                        <select value={shareForm.privateSchoolSize} onChange={(event) => updateShareForm("privateSchoolSize", event.target.value)}>
+                                            <option value="">{copy.choose}</option>
+                                            {SCHOOL_SIZE_OPTIONS.map(option => <option key={option} value={option}>{option}</option>)}
+                                        </select>
+                                    </label>
+                                )}
+
+                                <label className="field">
+                                    <span>{copy.organizationName}</span>
+                                    <input value={shareForm.organizationName} onChange={(event) => updateShareForm("organizationName", event.target.value)} />
+                                </label>
+
+                                <label className="field">
+                                    <span>{copy.contactName}</span>
+                                    <input value={shareForm.contactName} onChange={(event) => updateShareForm("contactName", event.target.value)} />
+                                </label>
+
+                                <label className="field">
+                                    <span>{copy.contactEmail}</span>
+                                    <input
+                                        type="email"
+                                        value={shareForm.contactEmail}
+                                        onChange={(event) => updateShareForm("contactEmail", event.target.value)}
+                                    />
+                                </label>
+                            </div>
+
+                            <label className="checkbox-label share-consent">
+                                <input
+                                    type="checkbox"
+                                    checked={shareForm.consent}
+                                    onChange={(event) => updateShareForm("consent", event.target.checked)}
+                                    required
+                                />
+                                <span>{copy.consent}</span>
+                            </label>
+
+                            <div className="share-form-actions">
+                                <button type="button" className="btn btn-ghost" onClick={() => setShareOpen(false)}>
+                                    {copy.cancel}
+                                </button>
+                                <button type="submit" className="btn btn-primary" disabled={isSubmittingShare}>
+                                    {isSubmittingShare ? copy.submitting : copy.submit}
+                                </button>
+                            </div>
+                        </form>
+                    )}
                 </div>
             </div>
         </section>
