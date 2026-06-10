@@ -112,8 +112,8 @@ export async function POST(request) {
         }
 
         const blob = await put(`research-submissions/${filename}`, json, {
-            access: "private",
-            addRandomSuffix: false,
+            access: "public",
+            addRandomSuffix: true,
             contentType: "application/json",
         });
         blobUrl = blob.url;
