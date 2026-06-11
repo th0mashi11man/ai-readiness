@@ -1,4 +1,5 @@
 "use client";
+import { Asap_Condensed } from "next/font/google";
 import { useRef, useEffect } from "react";
 
 export default function RadarChart({ labels, values, overlayValues, pointColors, maxValue, hideValues = false }) {
