@@ -541,7 +541,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
             setShareOpen(false);
         } catch (error) {
             console.error(error);
-            setShareStatus({ type: "error", message: copy.error });
+            setShareStatus({ type: "error", message: error instanceof Error && error.message ? error.message : copy.error });
         } finally {
             setIsSubmittingShare(false);
         }

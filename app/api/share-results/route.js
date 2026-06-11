@@ -78,8 +78,39 @@ async function sendEmail({ apiKey, from, to, replyTo, subject, filename, json, p
 
     if (!response.ok) {
         const details = await response.json().catch(() => null);
-        throw new Error(details?.message || details?.error || "Email delivery failed.");
+        const message = details?.message || details?.error || "Email delivery failed.";
+        throw new Error(`Email delivery failed: ${message}`);
     }
+}
+
+function getPublicError(error) {
+    const message = error instanceof Error ? error.message : "";
+
+    if (message.startsWith("Missing ")) {
+        return {
+            code: "missing_configuration",
+            message: "Forskningsdelningen saknar serverkonfiguration i Vercel. Kontrollera Blob- och Resend-variablerna.",
+        };
+    }
+
+    if (message.startsWith("Temporary upload failed")) {
+        return {
+            code: "temporary_upload_failed",
+            message: "Den tillfälliga filuppladdningen misslyckades. Kontrollera Vercel Blob-konfigurationen.",
+        };
+    }
+
+    if (message.startsWith("Email delivery failed")) {
+        return {
+            code: "email_delivery_failed",
+            message: `E-postleveransen misslyckades. ${message.replace("Email delivery failed: ", "")}`,
+        };
+    }
+
+    return {
+        code: "submission_failed",
+        message: "Det gick inte att skicka forskningsdata just nu.",
+    };
 }
 
 export async function POST(request) {
@@ -101,6 +132,7 @@ export async function POST(request) {
             return Response.json({ error: "Research data file is too large." }, { status: 413 });
         }
 
+        getRequiredEnv("BLOB_READ_WRITE_TOKEN");
         const resendApiKey = getRequiredEnv("RESEND_API_KEY");
         const to = parseRecipients(process.env.RESEARCH_EMAIL_TO || DEFAULT_RESEARCH_EMAIL_TO);
         const from = getRequiredEnv("RESEARCH_EMAIL_FROM");
@@ -115,6 +147,9 @@ export async function POST(request) {
             access: "public",
             addRandomSuffix: true,
             contentType: "application/json",
+        }).catch((uploadError) => {
+            const message = uploadError instanceof Error ? uploadError.message : "Unknown Blob error";
+            throw new Error(`Temporary upload failed: ${message}`);
         });
         blobUrl = blob.url;
 
@@ -148,9 +183,9 @@ export async function POST(request) {
             }
         }
 
-        const isConfigError = error instanceof Error && error.message.startsWith("Missing ");
+        const publicError = getPublicError(error);
         return Response.json(
-            { error: isConfigError ? "Research data email delivery is not configured." : "Could not send research data." },
+            { error: publicError.message, code: publicError.code },
             { status: 500 }
         );
     }
