@@ -20,14 +20,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 The self-assessment can send a JSON file with the participant's answers, scores,
 priorities, consent, and contextual questions to a research mailbox. The server
-temporarily stages each JSON file in private Vercel Blob storage, sends it as an
-email attachment, and deletes the temporary blob immediately after successful
-email delivery.
+sends the JSON file as an email attachment through Resend.
 
 Configure these environment variables in Vercel:
 
 ```bash
-BLOB_READ_WRITE_TOKEN="..."
 RESEND_API_KEY="..."
 RESEARCH_EMAIL_FROM="AI Readiness <submissions@your-verified-domain.example>"
 RESEARCH_EMAIL_TO="thomas.hillman@ait.gu.se"
@@ -35,11 +32,16 @@ RESEARCH_EMAIL_SUBJECT="AI Readiness research data submission"
 ```
 
 `RESEARCH_EMAIL_TO` defaults to `thomas.hillman@ait.gu.se` if it is not set.
+Vercel Blob is optional. To attempt best-effort temporary staging in Blob before
+sending, set `RESEARCH_USE_BLOB_STAGING="true"` and configure
+`BLOB_READ_WRITE_TOKEN` from a Blob store connected to the Vercel project.
+If Blob staging is unavailable, the server logs the Blob error and still sends
+the JSON file as a Resend email attachment.
 
 Recommended production setup:
 
-1. Create/connect a private Vercel Blob store for the project.
-2. Add Resend to the project and verify the sending domain.
+1. Add Resend to the project and verify the sending domain.
+2. Optionally create/connect a Vercel Blob store if temporary staging is needed.
 3. Send submissions to a dedicated research mailbox.
 4. In Power Automate, create a non-premium Outlook flow:
    - Trigger: when a new email arrives in the research mailbox.
@@ -49,9 +51,10 @@ Recommended production setup:
    - Optionally move the email to a processed folder or delete it after saving.
 
 The user experience stays one-step: after consent and context questions, the user
-clicks "Send research data." The JSON file should only remain in Vercel Blob for
-the duration of the server request. If email delivery or blob cleanup fails, the
-user sees an error instead of a success message.
+clicks "Send research data." If optional Blob staging succeeds, the JSON file
+should only remain in Vercel Blob for the duration of the server request. Email
+delivery remains the required step, and the user sees an error only if delivery
+or cleanup of an already-created temporary blob fails.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 

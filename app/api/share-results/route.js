@@ -1,9 +1,8 @@
-import { del, put } from "@vercel/blob";
-
 export const runtime = "nodejs";
 
 const MAX_PAYLOAD_BYTES = 250_000;
 const DEFAULT_RESEARCH_EMAIL_TO = "thomas.hillman@ait.gu.se";
+const ENABLE_BLOB_STAGING = process.env.RESEARCH_USE_BLOB_STAGING === "true";
 
 function getRequiredEnv(name) {
     const value = process.env[name];
@@ -46,7 +45,7 @@ function validatePayload(payload) {
     return null;
 }
 
-async function sendEmail({ apiKey, from, to, replyTo, subject, filename, json, payload }) {
+async function sendEmail({ apiKey, from, to, replyTo, subject, filename, json, payload, stagedInBlob }) {
     const response = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
@@ -64,8 +63,10 @@ async function sendEmail({ apiKey, from, to, replyTo, subject, filename, json, p
                 `File: ${filename}`,
                 `Submitted at: ${payload.submittedAt || "unknown"}`,
                 `Session: ${payload.session?.sessionId || "unknown"}`,
-                "",
-                "The temporary Vercel Blob copy is deleted immediately after this email is sent.",
+                ...(stagedInBlob ? [
+                    "",
+                    "The temporary Vercel Blob copy is deleted immediately after this email is sent.",
+                ] : []),
             ].join("\n"),
             attachments: [
                 {
@@ -87,9 +88,14 @@ function getPublicError(error) {
     const message = error instanceof Error ? error.message : "";
 
     if (message.startsWith("Missing ")) {
+        const missingName = message.replace("Missing ", "");
+        const configurationName = missingName === "BLOB_READ_WRITE_TOKEN"
+            ? "Vercel Blob-konfigurationen"
+            : "Resend-konfigurationen";
+
         return {
             code: "missing_configuration",
-            message: "Forskningsdelningen saknar serverkonfiguration i Vercel. Kontrollera Blob- och Resend-variablerna.",
+            message: `Forskningsdelningen saknar serverkonfiguration i Vercel. Kontrollera ${configurationName}.`,
         };
     }
 
@@ -113,6 +119,31 @@ function getPublicError(error) {
     };
 }
 
+async function stageTemporaryBlob({ filename, json }) {
+    if (!ENABLE_BLOB_STAGING) {
+        return null;
+    }
+
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+        console.warn("Skipping optional research data Blob staging because BLOB_READ_WRITE_TOKEN is missing.");
+        return null;
+    }
+
+    try {
+        const { put } = await import("@vercel/blob");
+        const blob = await put(`research-submissions/${filename}`, json, {
+            access: "public",
+            addRandomSuffix: true,
+            contentType: "application/json",
+        });
+
+        return blob.url;
+    } catch (uploadError) {
+        console.error("Optional research data Blob staging failed; continuing with email attachment.", uploadError);
+        return null;
+    }
+}
+
 export async function POST(request) {
     let blobUrl = null;
 
@@ -132,7 +163,6 @@ export async function POST(request) {
             return Response.json({ error: "Research data file is too large." }, { status: 413 });
         }
 
-        getRequiredEnv("BLOB_READ_WRITE_TOKEN");
         const resendApiKey = getRequiredEnv("RESEND_API_KEY");
         const to = parseRecipients(process.env.RESEARCH_EMAIL_TO || DEFAULT_RESEARCH_EMAIL_TO);
         const from = getRequiredEnv("RESEARCH_EMAIL_FROM");
@@ -143,15 +173,7 @@ export async function POST(request) {
             throw new Error("Missing RESEARCH_EMAIL_TO");
         }
 
-        const blob = await put(`research-submissions/${filename}`, json, {
-            access: "public",
-            addRandomSuffix: true,
-            contentType: "application/json",
-        }).catch((uploadError) => {
-            const message = uploadError instanceof Error ? uploadError.message : "Unknown Blob error";
-            throw new Error(`Temporary upload failed: ${message}`);
-        });
-        blobUrl = blob.url;
+        blobUrl = await stageTemporaryBlob({ filename, json });
 
         await sendEmail({
             apiKey: resendApiKey,
@@ -162,10 +184,14 @@ export async function POST(request) {
             filename,
             json,
             payload,
+            stagedInBlob: Boolean(blobUrl),
         });
 
-        await del(blobUrl);
-        blobUrl = null;
+        if (blobUrl) {
+            const { del } = await import("@vercel/blob");
+            await del(blobUrl);
+            blobUrl = null;
+        }
 
         return Response.json({ ok: true, filename });
     } catch (error) {
@@ -173,6 +199,7 @@ export async function POST(request) {
 
         if (blobUrl) {
             try {
+                const { del } = await import("@vercel/blob");
                 await del(blobUrl);
             } catch (cleanupError) {
                 console.error("Failed to delete temporary research data blob", cleanupError);
