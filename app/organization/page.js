@@ -45,7 +45,6 @@ const SHARE_COPY = {
         cancel: "Avbryt",
         success: "Tack. Dina svar har skickats som forskningsdatafil till mottagaradressen.",
         error: "Det gick inte att skicka svaren. Försök igen eller exportera resultatet som PDF.",
-        notConfigured: "Mottagaren för forskningsdata är inte konfigurerad ännu.",
         required: "Fyll i de obligatoriska fälten och samtyckesrutan.",
     },
     en: {
@@ -82,7 +81,6 @@ const SHARE_COPY = {
         cancel: "Cancel",
         success: "Thank you. Your answers have been sent as a research data file to the receiving address.",
         error: "The answers could not be sent. Please try again or export the result as PDF.",
-        notConfigured: "The research data receiver has not been configured yet.",
         required: "Complete the required fields and consent checkbox.",
     },
 };
@@ -116,15 +114,6 @@ function OrganizationContent() {
     const searchParams = useSearchParams();
     const [bank, setBank] = useState(null);
     const [phase, setPhase] = useState(searchParams.get("phase") || "priority");
-
-    // Check for stored priorities
-    useEffect(() => {
-        const stored = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("org_priorities") || "{}") : {};
-        if (Object.keys(stored).length > 0 && phase === "intro") {
-            // Optional: could skip priority step if already done? 
-            // For now, simpler to always let them review/start fresh or relying on flow.
-        }
-    }, []);
 
     useEffect(() => {
         fetch("/org_itembank.json")
@@ -429,8 +418,6 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
     const results = scoreOrganization(bank.items, responses);
 
-    // Generate labels and values for Radar Chart
-    // (Ensure fresh build)
     const labels = results.ORIENTATION_IDS.map(id => {
         const o = bank.orientations.find(opt => opt.id === id);
         return o?.label?.[locale] || id;
@@ -540,7 +527,6 @@ function OrgResults({ bank, t, locale, onRestart }) {
             setShareStatus({ type: "success", message: copy.success });
             setShareOpen(false);
         } catch (error) {
-            console.error(error);
             setShareStatus({ type: "error", message: error instanceof Error && error.message ? error.message : copy.error });
         } finally {
             setIsSubmittingShare(false);
@@ -683,7 +669,6 @@ function OrgResults({ bank, t, locale, onRestart }) {
                     <button className="btn btn-primary" onClick={() => window.print()}>
                         {t("common.exportPdf")}
                     </button>
-                    {/* Restart button removed as requested */}
                 </div>
 
                 <div className="research-share">
