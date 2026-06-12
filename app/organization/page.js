@@ -19,7 +19,7 @@ const SHARE_COPY = {
         formBody: [
             "Du tillfrågas om du vill dela dina svar från AI Readiness Self-Assessment Tool som forskningsdata. Syftet är att bidra till forskning om AI-beredskap, digitalisering och ansvarsfull användning av cloud- och AI-relaterad teknik i skolorganisationer. Genom att dela dina svar hjälper du oss att förbättra förståelsen av hur organisationer arbetar med AI-frågor och hur AI-beredskap kan mätas och följas över tid.",
             "Datan kommer att användas för att studera de områden som frågorna i verktyget handlar om: organisationens strategier, arbetssätt, kompetenser, tekniska förutsättningar, styrning, ansvarsfördelning och behov av stöd i relation till AI och digital infrastruktur.",
-            "Att dela dina svar är frivilligt. Du kan använda verktyget även om du inte vill dela dina svar för forskning. Om du samtycker kan du senare kontakta oss för att begära att dina uppgifter tas bort eller inte längre används. För att detta ska vara möjligt så behöver du lämna dina kontaktuppgifter. Om du väljer att inte göra detta kan vi inte identifiera dina svar. Om datan har anonymiserats eller sammanställts på ett sätt som gör att enskilda svar inte längre kan identifieras, kan det i dessa sammanhang däremot vara omöjligt att ta bort just dina uppgifter från dessa analyser.",
+            "Att dela dina svar är frivilligt. Du kan använda verktyget även om du inte vill dela dina svar för forskning. Om du samtycker kan du senare kontakta oss för att begära att dina uppgifter tas bort eller inte längre används. Om datan har anonymiserats eller sammanställts på ett sätt som gör att enskilda svar inte längre kan identifieras kan det däremot vara omöjligt att ta bort just dina uppgifter från sådana analyser.",
             "Vi kommer att hantera materialet i enlighet med god forskningssed och forskningsetiska principer. Resultat från forskningen kommer att presenteras på en övergripande nivå, i rapporter, vetenskapliga publikationer eller presentationer. Enskilda personer eller organisationer kommer inte att namnges eller beskrivas på ett sätt som gör dem identifierbara.",
         ],
         contact: "Vid frågor om forskningen eller om du vill dra tillbaka ditt samtycke kan du kontakta:",
@@ -29,9 +29,6 @@ const SHARE_COPY = {
         principal: "Huvudmannen är",
         municipalitySize: "Kommunens storlek",
         privateSchoolSize: "Privat skolas storlek",
-        organizationName: "Organisation/skola (valfritt)",
-        contactName: "Namn (valfritt)",
-        contactEmail: "E-post för eventuell återkallelse (valfritt)",
         other: "Annat",
         otherPlaceholder: "Beskriv kort",
         yes: "Ja",
@@ -55,7 +52,7 @@ const SHARE_COPY = {
         formBody: [
             "You are being asked whether you want to share your answers from the AI Readiness Self-Assessment Tool as research data. The purpose is to contribute to research on AI readiness, digitalisation, and responsible use of cloud- and AI-related technology in school organisations.",
             "The data will be used to study the areas covered by the tool: organisational strategies, practices, competencies, technical conditions, governance, responsibilities, and support needs in relation to AI and digital infrastructure.",
-            "Sharing your answers is voluntary. You can use the tool even if you do not want to share your answers for research. If you consent, you can later contact us to request that your data be removed or no longer used. To make this possible, you need to provide contact details. If you choose not to do this, we cannot identify your answers.",
+            "Sharing your answers is voluntary. You can use the tool even if you do not want to share your answers for research. If you consent, you can later contact us to request that your data be removed or no longer used. If data has been anonymised or aggregated in a way that means individual answers can no longer be identified, it may not be possible to remove your specific answers from those analyses.",
             "We will handle the material in accordance with good research practice and research ethics principles. Research results will be presented at an aggregated level in reports, scientific publications, or presentations. Individuals or organisations will not be named or described in a way that makes them identifiable.",
         ],
         contact: "For questions about the research or to withdraw your consent, contact:",
@@ -65,9 +62,6 @@ const SHARE_COPY = {
         principal: "The responsible authority is",
         municipalitySize: "Municipality size",
         privateSchoolSize: "Private school size",
-        organizationName: "Organisation/school (optional)",
-        contactName: "Name (optional)",
-        contactEmail: "Email for possible withdrawal (optional)",
         other: "Other",
         otherPlaceholder: "Briefly describe",
         yes: "Yes",
@@ -386,9 +380,6 @@ function OrgResults({ bank, t, locale, onRestart }) {
         principal: "",
         municipalitySize: "",
         privateSchoolSize: "",
-        organizationName: "",
-        contactName: "",
-        contactEmail: "",
         consent: false,
     });
     const [shareStatus, setShareStatus] = useState({ type: "", message: "" });
@@ -484,9 +475,6 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 principal: shareForm.principal,
                 municipalitySize: shareForm.municipalitySize,
                 privateSchoolSize: shareForm.privateSchoolSize,
-                organizationName: shareForm.organizationName,
-                contactName: shareForm.contactName,
-                contactEmail: shareForm.contactEmail,
                 consentGiven: shareForm.consent,
             },
             priorities: storedPriorities,
@@ -766,24 +754,6 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                     </label>
                                 )}
 
-                                <label className="field">
-                                    <span>{copy.organizationName}</span>
-                                    <input value={shareForm.organizationName} onChange={(event) => updateShareForm("organizationName", event.target.value)} />
-                                </label>
-
-                                <label className="field">
-                                    <span>{copy.contactName}</span>
-                                    <input value={shareForm.contactName} onChange={(event) => updateShareForm("contactName", event.target.value)} />
-                                </label>
-
-                                <label className="field">
-                                    <span>{copy.contactEmail}</span>
-                                    <input
-                                        type="email"
-                                        value={shareForm.contactEmail}
-                                        onChange={(event) => updateShareForm("contactEmail", event.target.value)}
-                                    />
-                                </label>
                             </div>
 
                             <label className="checkbox-label share-consent">
