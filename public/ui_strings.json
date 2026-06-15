@@ -13,8 +13,8 @@
   ],
   "consent": {
     "body": {
-      "sv": "Hela självskattningen körs i din webbläsare. Ingenting sparas eller skickas någonstans om du inte själv väljer att dela dina svar som forskningsdata i slutet.",
-      "en": "The whole self-assessment runs in your browser. Nothing is saved or sent anywhere unless you choose to share your answers as research data at the end."
+      "sv": "Hela självskattningen körs i din webbläsare. Ingenting sparas eller skickas någonstans om du inte själv väljer att dela dina svar som forskningsdata.",
+      "en": "The whole self-assessment runs in your browser. Nothing is saved or sent anywhere unless you choose to share your answers as research data."
     },
     "checkbox": {
       "sv": "Jag har läst informationen och vill fortsätta.",
