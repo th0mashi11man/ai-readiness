@@ -58,12 +58,6 @@
             "null"
           ]
         },
-        "consentGiven": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
         "score_ANA": {
           "type": [
             "integer",

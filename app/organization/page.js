@@ -461,6 +461,9 @@ function OrgResults({ bank, t, locale, onRestart }) {
         // in a tabular store (e.g. a SharePoint List via Power Automate) with no
         // array iteration. Keys are stable: score_/avg_/priority_<ORIENTATION>
         // and one key per question id.
+        // consentGiven is intentionally omitted: data is only ever collected
+        // when consent is true, so the column would be constant. Consent is
+        // still recorded in `context` and enforced server-side.
         const flat = {
             submittedAt,
             sessionId: storedSession.sessionId || null,
@@ -471,7 +474,6 @@ function OrgResults({ bank, t, locale, onRestart }) {
             principal: shareForm.principal,
             municipalitySize: shareForm.municipalitySize,
             privateSchoolSize: shareForm.privateSchoolSize,
-            consentGiven: shareForm.consent,
         };
         orientationResults.forEach(orientation => {
             flat[`score_${orientation.id}`] = orientation.scorePct;

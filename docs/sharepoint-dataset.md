@@ -16,7 +16,7 @@ One row per submission, with columns for:
 
 - **Metadata:** `submittedAt`, `sessionId`, `locale`
 - **Context:** `schoolOrg`, `schoolOrgOther`, `role`, `principal`,
-  `municipalitySize`, `privateSchoolSize`, `consentGiven`
+  `municipalitySize`, `privateSchoolSize`
 - **Scores per orientation** (ANA, EFF, KNO, SUP, TEC):
   `score_<ORI>` (0–100 %), `avg_<ORI>` (mean Likert), `priority_<ORI>`
 - **Each question response:** `q_ana_1` … `q_tec_4` (20 columns)
@@ -29,7 +29,7 @@ Fastest path (creates all 45 columns at once):
 2. Upload `docs/sharepoint-list-template.xlsx` (in this repo).
 3. Confirm the column types when prompted (set the `score_*`, `avg_*`,
    `priority_*`, and `q_*` columns to **Number**; leave the rest as
-   **Single line of text**; set `consentGiven` to **Yes/No**).
+   **Single line of text**).
 4. Name the list e.g. **AI Readiness Submissions** and create it.
 5. Delete the single blank starter row.
 
@@ -74,4 +74,8 @@ item) are standard — no premium Power Automate licence needed.
 - The JSON attachment still contains the full nested `results` and `answers`
   arrays (with question text and labels) if you ever need richer detail than
   the flat columns provide.
+- There is no `consentGiven` column: data is only ever collected when consent
+  is given (enforced server-side), so the value would be constant. Consent is
+  still recorded under `context.consentGiven` in the JSON attachment for the
+  audit trail.
 - Schema version of the payload is `1.1.0` (the version that added `flat`).
