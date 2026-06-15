@@ -70,7 +70,10 @@ export async function POST(request) {
     } catch (error) {
         console.error("Failed to store research submission", error);
         return Response.json(
-            { error: "Det gick inte att spara forskningsdata just nu." },
+            {
+                error: "Det gick inte att spara forskningsdata just nu.",
+                debug: error instanceof Error ? error.message : String(error),
+            },
             { status: 500 }
         );
     }
