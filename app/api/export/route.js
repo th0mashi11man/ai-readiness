@@ -1,4 +1,4 @@
-import { list, get } from "@vercel/blob";
+import { list, get, del } from "@vercel/blob";
 import { timingSafeEqual } from "crypto";
 
 export const runtime = "nodejs";
@@ -83,6 +83,23 @@ export async function POST(request) {
 
     if (!process.env.BLOB_READ_WRITE_TOKEN) {
         return Response.json({ error: "Storage not configured" }, { status: 500 });
+    }
+
+    // TEMP: one-off purge of diagnostic test rows by pathname substring.
+    if (typeof body?.purge === "string" && body.purge) {
+        const deleted = [];
+        let cursor;
+        do {
+            const result = await list({ prefix: SUBMISSIONS_PREFIX, cursor, limit: 1000 });
+            for (const blob of result.blobs) {
+                if (blob.pathname.includes(body.purge)) {
+                    await del(blob.url);
+                    deleted.push(blob.pathname);
+                }
+            }
+            cursor = result.cursor;
+        } while (cursor);
+        return Response.json({ deleted });
     }
 
     try {
