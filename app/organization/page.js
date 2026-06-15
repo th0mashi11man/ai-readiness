@@ -457,8 +457,33 @@ function OrgResults({ bank, t, locale, onRestart }) {
             reverseScored: Boolean(item.reverseScored),
         }));
 
+        // Flat, fixed-key representation so each submission maps 1:1 to columns
+        // in a tabular store (e.g. a SharePoint List via Power Automate) with no
+        // array iteration. Keys are stable: score_/avg_/priority_<ORIENTATION>
+        // and one key per question id.
+        const flat = {
+            submittedAt,
+            sessionId: storedSession.sessionId || null,
+            locale,
+            schoolOrg: shareForm.schoolOrg,
+            schoolOrgOther: shareForm.schoolOrgOther,
+            role: shareForm.role,
+            principal: shareForm.principal,
+            municipalitySize: shareForm.municipalitySize,
+            privateSchoolSize: shareForm.privateSchoolSize,
+            consentGiven: shareForm.consent,
+        };
+        orientationResults.forEach(orientation => {
+            flat[`score_${orientation.id}`] = orientation.scorePct;
+            flat[`avg_${orientation.id}`] = orientation.averageLikert;
+            flat[`priority_${orientation.id}`] = orientation.priorityLikert;
+        });
+        answers.forEach(answer => {
+            flat[answer.itemId] = answer.response;
+        });
+
         return {
-            schemaVersion: "1.0.0",
+            schemaVersion: "1.1.0",
             source: "AI Readiness Self-Assessment Tool",
             submittedAt,
             filename,
@@ -480,6 +505,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
             priorities: storedPriorities,
             results: orientationResults,
             answers,
+            flat,
         };
     };
 
