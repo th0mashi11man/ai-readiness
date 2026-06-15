@@ -18,43 +18,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Research Data Sharing
 
-The self-assessment can send a JSON file with the participant's answers, scores,
-priorities, consent, and contextual questions to a research mailbox. The server
-sends the JSON file as an email attachment through Resend.
+With consent, the self-assessment stores an anonymous JSON record (answers,
+scores, priorities, and contextual questions) in Vercel Blob. The collected data
+can be downloaded as a single CSV via a discrete, password-protected button in
+the site footer. See [docs/research-data.md](docs/research-data.md) for details.
 
-Configure these environment variables in Vercel:
+Required environment variables in Vercel:
 
 ```bash
-RESEND_API_KEY="..."
-RESEARCH_EMAIL_FROM="AI Readiness <submissions@your-verified-domain.example>"
-RESEARCH_EMAIL_TO="thomas.hillman@ait.gu.se"
-RESEARCH_EMAIL_SUBJECT="AI Readiness research data submission"
+BLOB_READ_WRITE_TOKEN="..."        # from the Blob store connected to the project
+RESEARCH_EXPORT_PASSWORD="..."     # gates the CSV export endpoint
 ```
-
-`RESEARCH_EMAIL_TO` defaults to `thomas.hillman@ait.gu.se` if it is not set.
-Vercel Blob is optional. To attempt best-effort temporary staging in Blob before
-sending, set `RESEARCH_USE_BLOB_STAGING="true"` and configure
-`BLOB_READ_WRITE_TOKEN` from a Blob store connected to the Vercel project.
-If Blob staging is unavailable, the server logs the Blob error and still sends
-the JSON file as a Resend email attachment.
-
-Recommended production setup:
-
-1. Add Resend to the project and verify the sending domain.
-2. Optionally create/connect a Vercel Blob store if temporary staging is needed.
-3. Send submissions to a dedicated research mailbox.
-4. In Power Automate, create a non-premium Outlook flow:
-   - Trigger: when a new email arrives in the research mailbox.
-   - Filter: subject equals the configured research submission subject.
-   - For each attachment: create the file in the approved SharePoint/OneDrive
-     research folder.
-   - Optionally move the email to a processed folder or delete it after saving.
-
-The user experience stays one-step: after consent and context questions, the user
-clicks "Send research data." If optional Blob staging succeeds, the JSON file
-should only remain in Vercel Blob for the duration of the server request. Email
-delivery remains the required step, and the user sees an error only if delivery
-or cleanup of an already-created temporary blob fails.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 

@@ -1642,3 +1642,37 @@ body {
   color: var(--color-text);
   font-weight: 700;
 }
+
+/* Discrete research-data export trigger (footer) */
+.site-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 1.5rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.export-trigger {
+  background: none;
+  border: none;
+  color: var(--color-border);
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0.25rem 0.6rem;
+  cursor: default;
+  opacity: 0.45;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.export-trigger:hover,
+.export-trigger:focus-visible {
+  opacity: 0.75;
+  outline: none;
+}
+
+@media print {
+  .site-footer {
+    display: none;
+  }
+}
