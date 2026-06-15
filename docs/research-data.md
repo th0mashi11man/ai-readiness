@@ -16,9 +16,9 @@ and consent is required (enforced server-side) before anything is stored.
 
 ## Downloading the dataset
 
-There is a discrete button in the site footer (a faint `·` in the bottom-right
-of every page). Clicking it prompts for a password and, on success, downloads
-the full dataset as a CSV (`ai-readiness-data-<date>.csv`).
+There is an **Export** button in the top navigation bar (download icon, next to
+the language toggle). Clicking it prompts for a password and, on success,
+downloads the full dataset as a CSV (`ai-readiness-data-<date>.csv`).
 
 - One row per submission, sorted by submission time.
 - Columns grouped: metadata → orientation scores → question responses.
