@@ -34,7 +34,7 @@ function validatePayload(payload) {
         return "Missing research data.";
     }
 
-    if (!payload.context?.consentGiven) {
+    if (payload.context?.consentGiven !== true) {
         return "Consent is required.";
     }
 
