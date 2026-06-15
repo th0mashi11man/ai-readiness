@@ -58,10 +58,11 @@ export async function POST(request) {
             );
         }
 
-        // Store one immutable JSON object per submission. A random suffix keeps
-        // the public URL unguessable; aggregation/export requires the Blob token.
+        // Store one immutable JSON object per submission in the private Blob
+        // store. Reads require authentication (the Blob token), which only the
+        // server holds; the export endpoint reads them back with get().
         await put(`${SUBMISSIONS_PREFIX}${filename}`, json, {
-            access: "public",
+            access: "private",
             addRandomSuffix: true,
             contentType: "application/json",
         });
@@ -70,10 +71,7 @@ export async function POST(request) {
     } catch (error) {
         console.error("Failed to store research submission", error);
         return Response.json(
-            {
-                error: "Det gick inte att spara forskningsdata just nu.",
-                debug: error instanceof Error ? error.message : String(error),
-            },
+            { error: "Det gick inte att spara forskningsdata just nu." },
             { status: 500 }
         );
     }

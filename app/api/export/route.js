@@ -1,4 +1,4 @@
-import { list } from "@vercel/blob";
+import { list, get } from "@vercel/blob";
 import { timingSafeEqual } from "crypto";
 
 export const runtime = "nodejs";
@@ -95,13 +95,15 @@ export async function POST(request) {
             cursor = result.cursor;
         } while (cursor);
 
-        // Fetch and flatten each submission.
+        // Read and flatten each submission. The store is private, so blobs must
+        // be read with an authenticated get() rather than a plain URL fetch.
         const records = [];
         for (const blob of blobs) {
             try {
-                const response = await fetch(blob.downloadUrl || blob.url, { cache: "no-store" });
-                if (!response.ok) continue;
-                const data = await response.json();
+                const result = await get(blob.pathname, { access: "private", useCache: false });
+                if (!result || !result.stream) continue;
+                const text = await new Response(result.stream).text();
+                const data = JSON.parse(text);
                 if (data && data.flat && typeof data.flat === "object") {
                     records.push(data.flat);
                 }

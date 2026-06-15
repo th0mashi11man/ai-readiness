@@ -36,8 +36,9 @@ body contains the correct `password`.
 
 ## Notes on storage privacy
 
-Vercel Blob objects are served from an unguessable public URL (random suffix),
-and the URLs are never exposed by the app. Listing/aggregating all submissions
-requires the Blob token, which only the server holds. Because the data is fully
-anonymous, this model is acceptable; if identifying data were ever added, a
-private store with authenticated reads would be required instead.
+The Blob store is configured with **private** access: submissions are written
+with `put(..., { access: "private" })` and can only be read back with the Blob
+token, which only the server holds (the export endpoint uses `get()` to read
+them). The objects are not accessible via public URL. Combined with the fact
+that no identifying data is collected, this keeps the dataset both anonymous
+and access-controlled.
