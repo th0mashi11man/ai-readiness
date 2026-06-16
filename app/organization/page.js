@@ -26,14 +26,15 @@ const SHARE_COPY = {
         questionsTitle: "Korta kontextfrågor",
         schoolOrg: "Jag arbetar inom en skolorganisation",
         role: "Min roll inom denna organisation",
+        schoolLevel: "Vilken skolform arbetar du inom?",
         principal: "Huvudmannen är",
         municipalitySize: "Kommunens storlek",
-        privateSchoolSize: "Privat skolas storlek",
+        concernSize: "Antal skolor i friskolekoncernen",
         other: "Annat",
         otherPlaceholder: "Beskriv kort",
         yes: "Ja",
         no: "Nej",
-        private: "Privat",
+        private: "Friskola",
         municipal: "Kommunal",
         choose: "Välj...",
         consent: "Jag samtycker till att mina svar och uppgifterna ovan delas som forskningsdata.",
@@ -59,14 +60,15 @@ const SHARE_COPY = {
         questionsTitle: "Short contextual questions",
         schoolOrg: "I work within a school organisation",
         role: "My role in this organisation",
+        schoolLevel: "Which school level do you work in?",
         principal: "The responsible authority is",
         municipalitySize: "Municipality size",
-        privateSchoolSize: "Private school size",
+        concernSize: "Number of schools in the group",
         other: "Other",
         otherPlaceholder: "Briefly describe",
         yes: "Yes",
         no: "No",
-        private: "Private",
+        private: "Independent school",
         municipal: "Municipal",
         choose: "Choose...",
         consent: "I consent to my answers and the information above being shared as research data.",
@@ -87,12 +89,36 @@ const SIZE_OPTIONS = [
     "100 000 invånare eller fler / 100,000 inhabitants or more",
 ];
 
-const SCHOOL_SIZE_OPTIONS = [
-    "Färre än 100 elever / Fewer than 100 students",
-    "100-249 elever / 100-249 students",
-    "250-499 elever / 250-499 students",
-    "500-999 elever / 500-999 students",
-    "1 000 elever eller fler / 1,000 students or more",
+// Number of schools in a friskolekoncern (independent-school group).
+const CONCERN_SIZE_OPTIONS = [
+    "1 skola / 1 school",
+    "2–5 skolor / 2–5 schools",
+    "6–10 skolor / 6–10 schools",
+    "11–25 skolor / 11–25 schools",
+    "Fler än 25 skolor / More than 25 schools",
+];
+
+// Roles. "principal" and "teacher" additionally trigger the school-level question.
+const ROLE_OPTIONS = [
+    { value: "principal", sv: "Rektor", en: "Principal" },
+    { value: "teacher", sv: "Lärare", en: "Teacher" },
+    { value: "director_of_education", sv: "Skolchef / förvaltningschef", en: "Director of education" },
+    { value: "development_leader", sv: "Utvecklingsledare", en: "Development leader" },
+    { value: "it_coordinator", sv: "IT-ansvarig / IT-samordnare", en: "IT coordinator" },
+    { value: "other", sv: "Annat", en: "Other" },
+];
+
+const ROLES_WITH_SCHOOL_LEVEL = ["principal", "teacher"];
+
+// School levels following the Swedish school system (skolformer / stadier).
+const SCHOOL_LEVEL_OPTIONS = [
+    { value: "preschool", sv: "Förskola", en: "Preschool" },
+    { value: "preschool_class", sv: "Förskoleklass", en: "Preschool class" },
+    { value: "compulsory_1_3", sv: "Grundskola åk 1–3 (lågstadiet)", en: "Compulsory school, years 1–3" },
+    { value: "compulsory_4_6", sv: "Grundskola åk 4–6 (mellanstadiet)", en: "Compulsory school, years 4–6" },
+    { value: "compulsory_7_9", sv: "Grundskola åk 7–9 (högstadiet)", en: "Compulsory school, years 7–9" },
+    { value: "upper_secondary", sv: "Gymnasieskola", en: "Upper secondary school" },
+    { value: "adult_education", sv: "Vuxenutbildning", en: "Adult education" },
 ];
 
 export default function OrganizationPage() {
@@ -389,9 +415,11 @@ function OrgResults({ bank, t, locale }) {
         schoolOrg: "",
         schoolOrgOther: "",
         role: "",
+        roleOther: "",
+        schoolLevel: "",
         principal: "",
         municipalitySize: "",
-        privateSchoolSize: "",
+        concernSize: "",
         consent: false,
     });
     const [shareStatus, setShareStatus] = useState({ type: "", message: "" });
@@ -485,9 +513,11 @@ function OrgResults({ bank, t, locale }) {
             schoolOrg: shareForm.schoolOrg,
             schoolOrgOther: shareForm.schoolOrgOther,
             role: shareForm.role,
+            roleOther: shareForm.roleOther,
+            schoolLevel: shareForm.schoolLevel,
             principal: shareForm.principal,
             municipalitySize: shareForm.municipalitySize,
-            privateSchoolSize: shareForm.privateSchoolSize,
+            concernSize: shareForm.concernSize,
         };
         orientationResults.forEach(orientation => {
             flat[`score_${orientation.id}`] = orientation.scorePct;
@@ -513,9 +543,11 @@ function OrgResults({ bank, t, locale }) {
                 schoolOrg: shareForm.schoolOrg,
                 schoolOrgOther: shareForm.schoolOrgOther,
                 role: shareForm.role,
+                roleOther: shareForm.roleOther,
+                schoolLevel: shareForm.schoolLevel,
                 principal: shareForm.principal,
                 municipalitySize: shareForm.municipalitySize,
-                privateSchoolSize: shareForm.privateSchoolSize,
+                concernSize: shareForm.concernSize,
                 consentGiven: shareForm.consent,
             },
             priorities: storedPriorities,
@@ -528,10 +560,12 @@ function OrgResults({ bank, t, locale }) {
     const handleShareSubmit = async (event) => {
         event.preventDefault();
         const needsSchoolOther = shareForm.schoolOrg === "other" && !shareForm.schoolOrgOther.trim();
+        const needsRoleOther = shareForm.role === "other" && !shareForm.roleOther.trim();
         const errors = {
             schoolOrg: !shareForm.schoolOrg,
             schoolOrgOther: needsSchoolOther,
-            role: !shareForm.role.trim(),
+            role: !shareForm.role,
+            roleOther: needsRoleOther,
             principal: !shareForm.principal,
             consent: !shareForm.consent,
         };
@@ -762,12 +796,37 @@ function OrgResults({ bank, t, locale }) {
 
                                 <label className={`field ${fieldErrors.role ? "field-error" : ""}`}>
                                     <span>{copy.role} *</span>
-                                    <input
-                                        value={shareForm.role}
-                                        onChange={(event) => updateShareForm("role", event.target.value)}
-                                        required
-                                    />
+                                    <select value={shareForm.role} onChange={(event) => updateShareForm("role", event.target.value)} required>
+                                        <option value="">{copy.choose}</option>
+                                        {ROLE_OPTIONS.map(option => (
+                                            <option key={option.value} value={option.value}>{option[locale] || option.sv}</option>
+                                        ))}
+                                    </select>
                                 </label>
+
+                                {shareForm.role === "other" && (
+                                    <label className={`field ${fieldErrors.roleOther ? "field-error" : ""}`}>
+                                        <span>{copy.other}</span>
+                                        <input
+                                            value={shareForm.roleOther}
+                                            onChange={(event) => updateShareForm("roleOther", event.target.value)}
+                                            placeholder={copy.otherPlaceholder}
+                                            required
+                                        />
+                                    </label>
+                                )}
+
+                                {ROLES_WITH_SCHOOL_LEVEL.includes(shareForm.role) && (
+                                    <label className="field">
+                                        <span>{copy.schoolLevel}</span>
+                                        <select value={shareForm.schoolLevel} onChange={(event) => updateShareForm("schoolLevel", event.target.value)}>
+                                            <option value="">{copy.choose}</option>
+                                            {SCHOOL_LEVEL_OPTIONS.map(option => (
+                                                <option key={option.value} value={option.value}>{option[locale] || option.sv}</option>
+                                            ))}
+                                        </select>
+                                    </label>
+                                )}
 
                                 <label className={`field ${fieldErrors.principal ? "field-error" : ""}`}>
                                     <span>{copy.principal} *</span>
@@ -790,10 +849,10 @@ function OrgResults({ bank, t, locale }) {
 
                                 {shareForm.principal === "private" && (
                                     <label className="field">
-                                        <span>{copy.privateSchoolSize}</span>
-                                        <select value={shareForm.privateSchoolSize} onChange={(event) => updateShareForm("privateSchoolSize", event.target.value)}>
+                                        <span>{copy.concernSize}</span>
+                                        <select value={shareForm.concernSize} onChange={(event) => updateShareForm("concernSize", event.target.value)}>
                                             <option value="">{copy.choose}</option>
-                                            {SCHOOL_SIZE_OPTIONS.map(option => <option key={option} value={option}>{option}</option>)}
+                                            {CONCERN_SIZE_OPTIONS.map(option => <option key={option} value={option}>{option}</option>)}
                                         </select>
                                     </label>
                                 )}
