@@ -1684,19 +1684,40 @@ body {
   align-self: flex-start;
 }
 
-/* Prioritization budget hint */
-.budget-hint {
-  margin: -1rem 0 1.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #cf6339;
-  min-height: 1.2em;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+/* Prioritization budget tooltip (anchored to the clamped slider) */
+.priority-slider-wrap {
+  position: relative;
 }
 
-.budget-hint.visible {
-  opacity: 1;
+.budget-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  text-align: center;
+  background: #cf6339;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  z-index: 5;
+  pointer-events: none;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.budget-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #cf6339;
 }
 
 /* Homepage resume note */

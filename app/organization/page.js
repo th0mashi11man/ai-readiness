@@ -155,7 +155,7 @@ function OrganizationContent() {
 
 function PriorityStep({ bank, t, locale, onComplete }) {
     const [priorities, setPriorities] = useState({});
-    const [budgetHint, setBudgetHint] = useState(false);
+    const [clampedId, setClampedId] = useState(null);
     const hintTimer = useRef(null);
 
     // Restore saved priorities if present, otherwise start each at 3 (middle).
@@ -183,11 +183,12 @@ function PriorityStep({ bank, t, locale, onComplete }) {
         // Don't go below the slider's minimum (1) if it's already there
         const finalVal = Math.max(allowedVal, 1);
 
-        // Surface a transient hint when the request was clamped by the budget.
+        // Surface a transient hint on the slider that was clamped by the budget,
+        // so the message appears where the user is interacting (always in view).
         if (finalVal < newVal) {
-            setBudgetHint(true);
+            setClampedId(id);
             clearTimeout(hintTimer.current);
-            hintTimer.current = setTimeout(() => setBudgetHint(false), 2500);
+            hintTimer.current = setTimeout(() => setClampedId(null), 2500);
         }
 
         setPriorities(prev => ({ ...prev, [id]: finalVal }));
@@ -213,10 +214,6 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                     </span>
                 </div>
 
-                <p className={`budget-hint ${budgetHint ? "visible" : ""}`} role="status" aria-live="polite">
-                    {t("organization.budgetReached")}
-                </p>
-
                 <div className="priority-list">
                     {bank.orientations.map(orient => (
                         <div key={orient.id} className="priority-card">
@@ -229,15 +226,22 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                             <p className="priority-card-desc">
                                 {orient.description[locale]}
                             </p>
-                            <input
-                                type="range"
-                                min="1"
-                                max="5"
-                                step="1"
-                                value={priorities[orient.id] || 3}
-                                onChange={(e) => handleChange(orient.id, e.target.value)}
-                                className="priority-slider"
-                            />
+                            <div className="priority-slider-wrap">
+                                <input
+                                    type="range"
+                                    min="1"
+                                    max="5"
+                                    step="1"
+                                    value={priorities[orient.id] || 3}
+                                    onChange={(e) => handleChange(orient.id, e.target.value)}
+                                    className="priority-slider"
+                                />
+                                {clampedId === orient.id && (
+                                    <span className="budget-tooltip" role="status" aria-live="polite">
+                                        {t("organization.budgetReached")}
+                                    </span>
+                                )}
+                            </div>
                             <div className="priority-scale">
                                 <span>{t("organization.notImportant")}</span>
                                 <span>{t("organization.veryImportant")}</span>
