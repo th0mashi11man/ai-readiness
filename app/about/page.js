@@ -2,7 +2,7 @@
 import { useI18n } from "@/lib/i18n";
 import { useRouter } from "next/navigation";
 
-// Test data seeders — fill localStorage and navigate to results
+// Test data seeders — fill sessionStorage and navigate to results
 function seedOrgAndGo(router, profile) {
     let answers = {};
     let priorities = {};
@@ -57,14 +57,14 @@ function seedOrgAndGo(router, profile) {
         priorities["TEC"] = 3;
     }
 
-    localStorage.setItem("organization_state", JSON.stringify({
+    sessionStorage.setItem("organization_state", JSON.stringify({
         sessionId: "test-session-" + Date.now(),
         answers,
         itemOrder: items.map(i => i.id),
         currentIndex: items.length - 1,
         completed: true,
     }));
-    localStorage.setItem("org_priorities", JSON.stringify(priorities));
+    sessionStorage.setItem("org_priorities", JSON.stringify(priorities));
 
     router.push("/organization?phase=results");
 }

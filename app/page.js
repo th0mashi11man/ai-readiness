@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 function clearProgress() {
-  localStorage.removeItem("organization_state");
-  localStorage.removeItem("org_priorities");
+  sessionStorage.removeItem("organization_state");
+  sessionStorage.removeItem("org_priorities");
 }
 
 export default function HomePage() {
@@ -18,8 +18,8 @@ export default function HomePage() {
   // Detect a saved in-progress assessment in this browser.
   useEffect(() => {
     try {
-      const state = JSON.parse(localStorage.getItem("organization_state") || "null");
-      const priorities = JSON.parse(localStorage.getItem("org_priorities") || "null");
+      const state = JSON.parse(sessionStorage.getItem("organization_state") || "null");
+      const priorities = JSON.parse(sessionStorage.getItem("org_priorities") || "null");
       const hasAnswers = state && state.answers && Object.keys(state.answers).length > 0;
       const hasPriorities = priorities && Object.keys(priorities).length > 0;
 

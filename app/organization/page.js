@@ -119,7 +119,7 @@ function OrganizationContent() {
 
     const handlePriorityComplete = (priorities) => {
         if (typeof window !== "undefined") {
-            localStorage.setItem("org_priorities", JSON.stringify(priorities));
+            sessionStorage.setItem("org_priorities", JSON.stringify(priorities));
         }
         setPhase("survey");
     };
@@ -161,7 +161,7 @@ function PriorityStep({ bank, t, locale, onComplete }) {
     // Restore saved priorities if present, otherwise start each at 3 (middle).
     useEffect(() => {
         const saved = typeof window !== "undefined"
-            ? JSON.parse(localStorage.getItem("org_priorities") || "{}")
+            ? JSON.parse(sessionStorage.getItem("org_priorities") || "{}")
             : {};
         const initial = {};
         bank.orientations.forEach(o => { initial[o.id] = saved[o.id] || 3; });
@@ -395,11 +395,11 @@ function OrgResults({ bank, t, locale }) {
     const [fieldErrors, setFieldErrors] = useState({});
 
     useEffect(() => {
-        const stored = JSON.parse(localStorage.getItem("organization_state") || "{}");
+        const stored = JSON.parse(sessionStorage.getItem("organization_state") || "{}");
         setStoredSession(stored);
         setResponses(stored.answers || {});
 
-        const priorities = JSON.parse(localStorage.getItem("org_priorities") || "{}");
+        const priorities = JSON.parse(sessionStorage.getItem("org_priorities") || "{}");
         setStoredPriorities(priorities);
 
         setMounted(true);

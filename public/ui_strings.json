@@ -87,8 +87,8 @@
       "en": "Start over"
     },
     "progressNote": {
-      "sv": "Du har en påbörjad skattning sparad i den här webbläsaren.",
-      "en": "You have an assessment in progress saved in this browser."
+      "sv": "Du har en påbörjad skattning i den här sessionen.",
+      "en": "You have an assessment in progress in this session."
     },
     "description": {
       "sv": "Hur väl rustad är er organisation för att arbeta med AI? Med det här verktyget får ni stöd för gemensam förståelse och kloka vägval. Ni börjar med att ange hur ni vill prioritera olika områden i ert AI-arbete. Därefter svarar ni på frågor om hur ni arbetar idag.\n\nNär ni är klara får ni ett diagram som jämför nuläget med era önskade prioriteringar. Målet är att hjälpa er skapa en tydlig riktning i en tid där AI blir en allt viktigare del av skolans utveckling.",
