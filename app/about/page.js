@@ -96,29 +96,22 @@ export default function AboutPage() {
                 </div>
 
                 {/* CREDtech */}
-                <div className="about-org" style={{
-                    padding: "2rem",
-                    borderRadius: "var(--radius-lg)",
-                    border: "1px solid var(--color-border)",
-                    background: "var(--color-surface)",
-                    marginBottom: "1.5rem",
-                }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "1rem", flexWrap: "wrap" }}>
+                <div className="about-org">
+                    <div className="about-org-logos">
                         <img
                             src="/credtech-logo.png"
                             alt="CREDtech"
-                            style={{ height: "48px", objectFit: "contain" }}
+                            className="about-org-logo"
                         />
                     </div>
-                    <p style={{ lineHeight: "1.7", color: "var(--color-text-secondary)", margin: "0 0 1rem 0" }}>
+                    <p>
                         {t("about.credtechDescription")}
                     </p>
                     <a
                         href="https://www.credtech.se"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-ghost"
-                        style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                        className="btn btn-ghost about-org-link"
                     >
                         credtech.se
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -130,29 +123,22 @@ export default function AboutPage() {
                 </div>
 
                 {/* Göteborgsregionen */}
-                <div className="about-org" style={{
-                    padding: "2rem",
-                    borderRadius: "var(--radius-lg)",
-                    border: "1px solid var(--color-border)",
-                    background: "var(--color-surface)",
-                    marginBottom: "2.5rem",
-                }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "1rem", flexWrap: "wrap" }}>
+                <div className="about-org about-org--last">
+                    <div className="about-org-logos">
                         <img
                             src="/gr-logo.png"
                             alt="Göteborgsregionen"
-                            style={{ height: "48px", objectFit: "contain" }}
+                            className="about-org-logo"
                         />
                     </div>
-                    <p style={{ lineHeight: "1.7", color: "var(--color-text-secondary)", margin: "0 0 1rem 0" }}>
+                    <p>
                         {t("about.grDescription")}
                     </p>
                     <a
                         href="https://goteborgsregionen.se"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-ghost"
-                        style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                        className="btn btn-ghost about-org-link"
                     >
                         goteborgsregionen.se
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -163,24 +149,26 @@ export default function AboutPage() {
                     </a>
                 </div>
 
-                {/* Discrete Test Cases */}
-                <div className="test-links" style={{
-                    marginTop: "4rem",
-                    paddingTop: "2rem",
-                    borderTop: "1px solid var(--color-border-subtle)",
-                    opacity: 0.4,
-                    transition: "opacity 0.2s",
-                }}
-                    onMouseEnter={(e) => e.currentTarget.style.opacity = "1"}
-                    onMouseLeave={(e) => e.currentTarget.style.opacity = "0.4"}
-                >
-                    <div className="test-section" style={{ display: "flex", alignItems: "center", gap: "1rem", fontSize: "0.8rem" }}>
-                        <span style={{ color: "var(--color-text-secondary)" }}>Debug:</span>
-                        <button className="btn btn-ghost btn-sm" onClick={() => seedOrgAndGo(router, "efficiency")}>Case 1</button>
-                        <button className="btn btn-ghost btn-sm" onClick={() => seedOrgAndGo(router, "balanced")}>Case 2</button>
-                        <button className="btn btn-ghost btn-sm" onClick={() => seedOrgAndGo(router, "knowledge")}>Case 3</button>
+                {/* Discrete Test Cases — development only */}
+                {process.env.NODE_ENV !== "production" && (
+                    <div className="test-links" style={{
+                        marginTop: "4rem",
+                        paddingTop: "2rem",
+                        borderTop: "1px solid var(--color-border-subtle)",
+                        opacity: 0.4,
+                        transition: "opacity 0.2s",
+                    }}
+                        onMouseEnter={(e) => e.currentTarget.style.opacity = "1"}
+                        onMouseLeave={(e) => e.currentTarget.style.opacity = "0.4"}
+                    >
+                        <div className="test-section" style={{ display: "flex", alignItems: "center", gap: "1rem", fontSize: "0.8rem" }}>
+                            <span style={{ color: "var(--color-text-secondary)" }}>Debug:</span>
+                            <button className="btn btn-ghost btn-sm" onClick={() => seedOrgAndGo(router, "efficiency")}>Case 1</button>
+                            <button className="btn btn-ghost btn-sm" onClick={() => seedOrgAndGo(router, "balanced")}>Case 2</button>
+                            <button className="btn btn-ghost btn-sm" onClick={() => seedOrgAndGo(router, "knowledge")}>Case 3</button>
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </section>
     );

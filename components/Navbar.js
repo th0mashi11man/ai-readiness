@@ -3,7 +3,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import { useState } from "react";
-import ExportButton from "./ExportButton";
 
 export default function Navbar() {
     const { locale, setLocale, t } = useI18n();
@@ -49,8 +48,6 @@ export default function Navbar() {
                         </Link>
                     ))}
                 </div>
-
-                <ExportButton />
 
                 <button
                     className="lang-toggle"

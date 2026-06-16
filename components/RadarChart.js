@@ -1,193 +1,130 @@
 "use client";
-import { Asap_Condensed } from "next/font/google";
-import { useRef, useEffect } from "react";
 
-export default function RadarChart({ labels, values, overlayValues, pointColors, maxValue, hideValues = false }) {
-    const canvasRef = useRef(null);
+// SVG radar chart. Rendered as SVG (not canvas) so it stays crisp in print /
+// PDF export and exposes real DOM for accessibility.
+export default function RadarChart({ labels, values, overlayValues, pointColors, maxValue = 100 }) {
+    if (!labels || labels.length === 0) return null;
 
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
+    const W = 800;
+    const H = 550;
+    const cx = W / 2;
+    const cy = H / 2;
+    const R = Math.min(W, H) / 2 - 60;
 
-        // High DPI support
-        const dpr = window.devicePixelRatio || 1;
-        // Use container dimensions if possible, but for canvas drawing we need explicit size.
-        // We'll assume a coordinate space of 800x500 for drawing logic, scaled by DPR.
-        const W = 800;
-        const H = 550;
+    const n = labels.length;
+    const angleStep = (2 * Math.PI) / n;
+    const startAngle = -Math.PI / 2;
 
-        canvas.width = W * dpr;
-        canvas.height = H * dpr;
+    const pointAt = (value, radiusFrac) => {
+        const i = radiusFrac.index;
+        const angle = startAngle + i * angleStep;
+        const frac = Math.max(0, Math.min(1, (value || 0) / maxValue));
+        return {
+            x: cx + R * frac * Math.cos(angle),
+            y: cy + R * frac * Math.sin(angle),
+        };
+    };
 
-        // CSS size (responsiveness handled by CSS "width: 100%")
-        canvas.style.width = "100%";
-        canvas.style.height = "auto";
-        canvas.style.aspectRatio = `${W}/${H}`;
+    const polygonPoints = (data) =>
+        data
+            .map((value, index) => {
+                const pt = pointAt(value, { index });
+                return `${pt.x.toFixed(1)},${pt.y.toFixed(1)}`;
+            })
+            .join(" ");
 
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
+    const rings = [0.2, 0.4, 0.6, 0.8, 1.0];
 
-        ctx.scale(dpr, dpr);
+    const axes = labels.map((_, i) => {
+        const angle = startAngle + i * angleStep;
+        return { x: cx + R * Math.cos(angle), y: cy + R * Math.sin(angle) };
+    });
 
-        const w = W;
-        const h = H;
-        const cx = w / 2;
-        const cy = h / 2;
-        // Radius: fit within the canvas with padding for labels
-        const R = Math.min(w, h) / 2 - 60;
+    const labelPositions = labels.map((label, i) => {
+        const angle = startAngle + i * angleStep;
+        const labelR = R + 25;
+        return {
+            label,
+            x: cx + labelR * Math.cos(angle),
+            y: cy + labelR * Math.sin(angle),
+        };
+    });
 
-        if (!labels || labels.length === 0) return;
+    const hasOverlay = Array.isArray(overlayValues) && overlayValues.length === n;
+    const hasValues = Array.isArray(values) && values.length === n;
 
-        const n = labels.length;
-        const angleStep = (2 * Math.PI) / n;
-        const startAngle = -Math.PI / 2; // Up
-
-        ctx.clearRect(0, 0, w, h);
-
-        // Draw background circles
-        ctx.strokeStyle = "#e4e4e4";
-        ctx.lineWidth = 1;
-        for (let r = 0.2; r <= 1.0; r += 0.2) {
-            ctx.beginPath();
-            ctx.arc(cx, cy, R * r, 0, 2 * Math.PI);
-            ctx.stroke();
-        }
-
-        // Draw axes
-        ctx.strokeStyle = "#e4e4e4";
-        for (let i = 0; i < n; i++) {
-            const angle = startAngle + i * angleStep;
-            ctx.beginPath();
-            ctx.moveTo(cx, cy);
-            ctx.lineTo(cx + R * Math.cos(angle), cy + R * Math.sin(angle));
-            ctx.stroke();
-        }
-
-        // Draw Overlay (Priorities) first
-        if (overlayValues && overlayValues.length === n) {
-            ctx.beginPath();
-            for (let i = 0; i < n; i++) {
-                const angle = startAngle + i * angleStep;
-                const val = overlayValues[i] || 0;
-                const frac = val / maxValue;
-                const x = cx + R * frac * Math.cos(angle);
-                const y = cy + R * frac * Math.sin(angle);
-                i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-            }
-            ctx.closePath();
-            ctx.save();
-            ctx.strokeStyle = "#00A29A"; // Orange
-            ctx.lineWidth = 2;
-            ctx.setLineDash([5, 5]);
-            ctx.stroke();
-            // Optional fill
-            // ctx.fillStyle = "rgba(237, 137, 54, 0.05)";
-            // ctx.fill();
-            ctx.restore();
-
-            // Draw overlay points (small orange dots)
-            /*
-            ctx.fillStyle = "#00A29A";
-            for (let i = 0; i < n; i++) {
-                const angle = startAngle + i * angleStep;
-                const val = overlayValues[i] || 0;
-                const frac = val / maxValue;
-                const x = cx + R * frac * Math.cos(angle);
-                const y = cy + R * frac * Math.sin(angle);
-                ctx.beginPath();
-                ctx.arc(x, y, 3, 0, 2 * Math.PI);
-                ctx.fill();
-            }
-            */
-        }
-
-        // Draw Main Data Polygon (Blue fill)
-        if (values && values.length === n) {
-            ctx.beginPath();
-            for (let i = 0; i < n; i++) {
-                const angle = startAngle + i * angleStep;
-                const val = values[i] || 0;
-                const frac = val / maxValue;
-                const x = cx + R * frac * Math.cos(angle);
-                const y = cy + R * frac * Math.sin(angle);
-                i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-            }
-            ctx.closePath();
-
-            const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
-            gradient.addColorStop(0, "#468aac85");
-            gradient.addColorStop(1, "#a9cee021");
-            ctx.fillStyle = gradient;
-            ctx.fill();
-
-            ctx.strokeStyle = "#3182ce";
-            ctx.lineWidth = 2;
-            ctx.stroke();
-
-            // Draw Points (Colored by Logic if provided)
-            ctx.lineWidth = 1;
-            ctx.strokeStyle = "#fff";
-
-            for (let i = 0; i < n; i++) {
-                const angle = startAngle + i * angleStep;
-                const val = values[i] || 0;
-                const frac = val / maxValue;
-                const x = cx + R * frac * Math.cos(angle);
-                const y = cy + R * frac * Math.sin(angle);
-
-                ctx.beginPath();
-                ctx.arc(x, y, 6, 0, 2 * Math.PI);
-                // Color from props or default blue
-                ctx.fillStyle = (pointColors && pointColors[i]) ? pointColors[i] : "#3182ce";
-                ctx.fill();
-                ctx.stroke();
-            }
-        }
-
-        // Labels
-        ctx.fillStyle = "#2d3748";
-        ctx.font = "600 14px Libre Franklin, system-ui, sans-serif";
-        ctx.textAlign = "center";
-
-        for (let i = 0; i < n; i++) {
-            const angle = startAngle + i * angleStep;
-            const labelR = R + 25;
-            const x = cx + labelR * Math.cos(angle);
-            const y = cy + labelR * Math.sin(angle);
-
-            // Adjust alignment slightly based on position
-            /*
-            if (angle > -Math.PI/2 && angle < Math.PI/2) ctx.textAlign = "left";
-            else if (angle === -Math.PI/2 || angle === Math.PI/2) ctx.textAlign = "center";
-            else ctx.textAlign = "right";
-            */
-
-            ctx.fillText(labels[i], x, y);
-
-            ctx.fillText(labels[i], x, y);
-
-            // Draw values if not hidden
-            // User requested removal of numerical scores from the chart
-            /*
-            if (!hideValues && values && values[i] !== undefined) {
-                ctx.fillStyle = "#4a5568";
-                ctx.font = "normal 11px Inter, system-ui, sans-serif";
-                ctx.fillText(`${Math.round(values[i])}%`, x, y + 15);
-                ctx.fillStyle = "#2d3748"; // Reset for next label
-                ctx.font = "600 13px Inter, system-ui, sans-serif";
-            }
-            */
-        }
-
-    }, [labels, values, overlayValues, pointColors, maxValue, hideValues]);
+    const ariaSummary = labels
+        .map((label, i) => `${label}: ${Math.round(values?.[i] ?? 0)}%`)
+        .join(", ");
 
     return (
-        <canvas
-            ref={canvasRef}
-            className="radar-canvas"
+        <svg
+            className="radar-svg"
+            viewBox={`0 0 ${W} ${H}`}
+            preserveAspectRatio="xMidYMid meet"
             role="img"
-            aria-label="Radar chart showing organization profile"
+            aria-label={`Radar chart showing organisation profile. ${ariaSummary}`}
             style={{ width: "100%", height: "auto", display: "block" }}
-        />
+        >
+            <title>Organisation profile</title>
+            <defs>
+                <radialGradient id="radar-fill" gradientUnits="userSpaceOnUse" cx={cx} cy={cy} r={R}>
+                    <stop offset="0%" stopColor="#468aac" stopOpacity="0.52" />
+                    <stop offset="100%" stopColor="#a9cee0" stopOpacity="0.13" />
+                </radialGradient>
+            </defs>
+
+            {/* Grid rings */}
+            {rings.map((r) => (
+                <circle key={r} cx={cx} cy={cy} r={R * r} fill="none" stroke="#e4e4e4" strokeWidth="1" />
+            ))}
+
+            {/* Axes */}
+            {axes.map((a, i) => (
+                <line key={i} x1={cx} y1={cy} x2={a.x} y2={a.y} stroke="#e4e4e4" strokeWidth="1" />
+            ))}
+
+            {/* Target / priority polygon (dashed) */}
+            {hasOverlay && (
+                <polygon
+                    points={polygonPoints(overlayValues)}
+                    fill="none"
+                    stroke="#00A29A"
+                    strokeWidth="2"
+                    strokeDasharray="5 5"
+                />
+            )}
+
+            {/* Current polygon (filled) */}
+            {hasValues && (
+                <>
+                    <polygon points={polygonPoints(values)} fill="url(#radar-fill)" stroke="#3182ce" strokeWidth="2" />
+                    {values.map((value, i) => {
+                        const pt = pointAt(value, { index: i });
+                        // Ignore non-literal colors (e.g. "var(--x)") — var() is not
+                        // valid in SVG presentation attributes.
+                        const raw = pointColors && pointColors[i];
+                        const fill = typeof raw === "string" && !raw.includes("var(") ? raw : "#3182ce";
+                        return (
+                            <circle key={i} cx={pt.x} cy={pt.y} r="6" fill={fill} stroke="#fff" strokeWidth="1" />
+                        );
+                    })}
+                </>
+            )}
+
+            {/* Axis labels */}
+            {labelPositions.map((lp, i) => (
+                <text
+                    key={i}
+                    x={lp.x}
+                    y={lp.y}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    className="radar-axis-label"
+                >
+                    {lp.label}
+                </text>
+            ))}
+        </svg>
     );
 }

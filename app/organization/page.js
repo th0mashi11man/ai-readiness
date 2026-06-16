@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import { useQuizStore } from "@/lib/store";
@@ -147,7 +147,6 @@ function OrganizationContent() {
                     bank={bank}
                     t={t}
                     locale={locale}
-                    onRestart={() => setPhase("priority")}
                 />
             )}
         </div>
@@ -156,13 +155,20 @@ function OrganizationContent() {
 
 function PriorityStep({ bank, t, locale, onComplete }) {
     const [priorities, setPriorities] = useState({});
+    const [budgetHint, setBudgetHint] = useState(false);
+    const hintTimer = useRef(null);
 
-    // Initialize with 3 (middle) if not set. Total for 5 orientations = 15.
+    // Restore saved priorities if present, otherwise start each at 3 (middle).
     useEffect(() => {
+        const saved = typeof window !== "undefined"
+            ? JSON.parse(localStorage.getItem("org_priorities") || "{}")
+            : {};
         const initial = {};
-        bank.orientations.forEach(o => initial[o.id] = 3);
+        bank.orientations.forEach(o => { initial[o.id] = saved[o.id] || 3; });
         setPriorities(initial);
     }, [bank]);
+
+    useEffect(() => () => clearTimeout(hintTimer.current), []);
 
     const totalPoints = Object.values(priorities).reduce((a, b) => a + b, 0);
 
@@ -177,48 +183,50 @@ function PriorityStep({ bank, t, locale, onComplete }) {
         // Don't go below the slider's minimum (1) if it's already there
         const finalVal = Math.max(allowedVal, 1);
 
+        // Surface a transient hint when the request was clamped by the budget.
+        if (finalVal < newVal) {
+            setBudgetHint(true);
+            clearTimeout(hintTimer.current);
+            hintTimer.current = setTimeout(() => setBudgetHint(false), 2500);
+        }
+
         setPriorities(prev => ({ ...prev, [id]: finalVal }));
     };
 
     return (
         <section className="page fade-in">
             <div className="card">
-                <h1 style={{ marginBottom: "0.5rem" }}>{t("organization.prioritiesTitle")}</h1>
-                <p className="lead" style={{ marginBottom: "1rem" }}>
+                <h1 className="priorities-title">{t("organization.prioritiesTitle")}</h1>
+                <p className="lead priorities-intro">
                     {t("organization.prioritiesIntro")}
                 </p>
-                <p className="lead" style={{ marginBottom: "2rem", fontWeight: 600 }}>
+                <p className="lead priorities-description">
                     {t("organization.prioritiesDescription")}
                 </p>
 
-                <div className="point-tracker" style={{
-                    marginBottom: "2rem",
-                    padding: "1rem",
-                    borderRadius: "8px",
-                    backgroundColor: "var(--color-surface)",
-                    border: "1px solid var(--color-border)",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center"
-                }}>
-                    <span style={{ fontSize: "0.95rem", color: "var(--color-text-secondary)" }}>
+                <div className="point-tracker">
+                    <span className="point-tracker-label">
                         {t("organization.priorityBudget")}
                     </span>
-                    <span style={{ fontWeight: "600", color: "var(--color-text)" }}>
+                    <span className="point-tracker-total">
                         {t("organization.priorityPointsTotal").replace("{total}", totalPoints)}
                     </span>
                 </div>
 
-                <div className="priority-list" style={{ display: "grid", gap: "1.5rem", marginBottom: "2rem" }}>
+                <p className={`budget-hint ${budgetHint ? "visible" : ""}`} role="status" aria-live="polite">
+                    {t("organization.budgetReached")}
+                </p>
+
+                <div className="priority-list">
                     {bank.orientations.map(orient => (
-                        <div key={orient.id} style={{ padding: "1rem", border: "1px solid var(--color-border)", borderRadius: "8px" }}>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
-                                <h3 style={{ margin: 0 }}>{orient.label[locale]}</h3>
-                                <div style={{ fontWeight: "bold", fontSize: "1.2rem", color: "var(--color-primary)" }}>
+                        <div key={orient.id} className="priority-card">
+                            <div className="priority-card-head">
+                                <h3>{orient.label[locale]}</h3>
+                                <div className="priority-card-score">
                                     {priorities[orient.id]} / 5
                                 </div>
                             </div>
-                            <p style={{ margin: "0 0 1rem 0", fontSize: "0.9rem", color: "var(--color-text-secondary)" }}>
+                            <p className="priority-card-desc">
                                 {orient.description[locale]}
                             </p>
                             <input
@@ -228,9 +236,9 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                                 step="1"
                                 value={priorities[orient.id] || 3}
                                 onChange={(e) => handleChange(orient.id, e.target.value)}
-                                style={{ width: "100%", accentColor: "var(--color-primary)" }}
+                                className="priority-slider"
                             />
-                            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "var(--color-text-muted)", marginTop: "0.2rem" }}>
+                            <div className="priority-scale">
                                 <span>{t("organization.notImportant")}</span>
                                 <span>{t("organization.veryImportant")}</span>
                             </div>
@@ -238,11 +246,11 @@ function PriorityStep({ bank, t, locale, onComplete }) {
                     ))}
                 </div>
 
-                <p style={{ marginTop: "1.5rem", marginBottom: "1.5rem", color: "var(--color-text-secondary)", lineHeight: "1.6" }}>
+                <p className="priorities-outro">
                     {t("organization.prioritiesOutro")}
                 </p>
 
-                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                <div className="priorities-actions">
                     <button
                         className="btn btn-primary"
                         onClick={() => onComplete(priorities)}
@@ -367,7 +375,7 @@ function SurveyFlow({ bank, onComplete, t, locale }) {
 }
 
 
-function OrgResults({ bank, t, locale, onRestart }) {
+function OrgResults({ bank, t, locale }) {
     const [responses, setResponses] = useState({});
     const [storedPriorities, setStoredPriorities] = useState({});
     const [storedSession, setStoredSession] = useState({});
@@ -384,6 +392,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
     });
     const [shareStatus, setShareStatus] = useState({ type: "", message: "" });
     const [isSubmittingShare, setIsSubmittingShare] = useState(false);
+    const [fieldErrors, setFieldErrors] = useState({});
 
     useEffect(() => {
         const stored = JSON.parse(localStorage.getItem("organization_state") || "{}");
@@ -428,6 +437,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
     const updateShareForm = (field, value) => {
         setShareForm(prev => ({ ...prev, [field]: value }));
+        setFieldErrors(prev => (prev[field] ? { ...prev, [field]: false } : prev));
         if (shareStatus.type === "error") {
             setShareStatus({ type: "", message: "" });
         }
@@ -514,13 +524,21 @@ function OrgResults({ bank, t, locale, onRestart }) {
     const handleShareSubmit = async (event) => {
         event.preventDefault();
         const needsSchoolOther = shareForm.schoolOrg === "other" && !shareForm.schoolOrgOther.trim();
-        const requiredMissing = !shareForm.schoolOrg || needsSchoolOther || !shareForm.role.trim() || !shareForm.principal || !shareForm.consent;
+        const errors = {
+            schoolOrg: !shareForm.schoolOrg,
+            schoolOrgOther: needsSchoolOther,
+            role: !shareForm.role.trim(),
+            principal: !shareForm.principal,
+            consent: !shareForm.consent,
+        };
 
-        if (requiredMissing) {
+        if (Object.values(errors).some(Boolean)) {
+            setFieldErrors(errors);
             setShareStatus({ type: "error", message: copy.required });
             return;
         }
 
+        setFieldErrors({});
         setIsSubmittingShare(true);
         setShareStatus({ type: "", message: "" });
 
@@ -555,17 +573,17 @@ function OrgResults({ bank, t, locale, onRestart }) {
                 <PrintHeader title={t("organization.resultsTitle")} />
                 <h1>{t("organization.resultsTitle")}</h1>
 
-                <div style={{ margin: "0 auto 3rem", maxWidth: "800px" }}>
+                <div className="results-intro">
 
                     {/* Legend for Current vs Target */}
-                    <div style={{ display: "flex", justifyContent: "center", gap: "2rem", marginBottom: "2rem" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <div style={{ width: "16px", height: "16px", background: "#a9cee07a", border: "2px solid #2779a1", borderRadius: "4px" }}></div>
-                            <span style={{ fontWeight: 500 }}>{locale === 'sv' ? "Nuvarande prioriteringar" : "Current Priorities"}</span>
+                    <div className="results-legend">
+                        <div className="legend-item">
+                            <div className="legend-swatch--current"></div>
+                            <span>{locale === 'sv' ? "Nuläge" : "Current situation"}</span>
                         </div>
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <div style={{ width: "16px", height: "0px", borderTop: "2px dashed #00A29A" }}></div>
-                            <span style={{ fontWeight: 500 }}>{locale === 'sv' ? "Målbild" : "Target"}</span>
+                        <div className="legend-item">
+                            <div className="legend-swatch--target"></div>
+                            <span>{locale === 'sv' ? "Målbild (prioritering)" : "Target (priority)"}</span>
                         </div>
                     </div>
 
@@ -597,33 +615,27 @@ function OrgResults({ bank, t, locale, onRestart }) {
                         }))
                         .sort((a, b) => b.score - a.score)
                         .map(item => (
-                            <div key={item.id} className="narrative-block" style={{
-                                background: "var(--surface-color)",
-                                padding: "1rem",
-                                borderRadius: "var(--radius-lg)",
-                                border: "1px solid var(--border-color)",
-                                marginBottom: "0.5rem"
-                            }}>
-                                <h2 style={{ marginTop: 0, color: "var(--primary-color)" }}>
+                            <div key={item.id} className="narrative-block">
+                                <h2>
                                     {item.label[locale]}
                                 </h2>
 
                                 {/* Score Display: Current vs Priority */}
-                                <div style={{ display: "flex", gap: "2rem", marginBottom: "1rem", flexWrap: "wrap" }}>
+                                <div className="score-row">
                                     <div>
-                                        <div style={{ fontSize: "0.9rem", color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                                        <div className="score-metric-label">
                                             {locale === 'sv' ? "Nuvarande" : "Current"}
                                         </div>
-                                        <div style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#2779a1" }}>
+                                        <div className="score-metric-value score-metric-value--current">
                                             {Math.round(item.average)} / 5
                                         </div>
                                     </div>
 
                                     <div>
-                                        <div style={{ fontSize: "0.9rem", color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                                        <div className="score-metric-label">
                                             {locale === 'sv' ? "Målbild" : "Target"}
                                         </div>
-                                        <div style={{ fontSize: "1.5rem", fontWeight: "bold", color: "var(--secondary-color, #00A29A)" }}>
+                                        <div className="score-metric-value score-metric-value--target">
                                             {storedPriorities[item.id] || 3} / 5
                                         </div>
                                     </div>
@@ -707,7 +719,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                     )}
 
                     {shareOpen && (
-                        <form className="share-form" onSubmit={handleShareSubmit}>
+                        <form className="share-form" onSubmit={handleShareSubmit} noValidate>
                             <h2>{copy.formTitle}</h2>
                             <div className="share-info">
                                 {copy.formBody.map((paragraph) => (
@@ -722,7 +734,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
                             <h3>{copy.questionsTitle}</h3>
                             <div className="share-form-grid">
-                                <label className="field">
+                                <label className={`field ${fieldErrors.schoolOrg ? "field-error" : ""}`}>
                                     <span>{copy.schoolOrg} *</span>
                                     <select value={shareForm.schoolOrg} onChange={(event) => updateShareForm("schoolOrg", event.target.value)} required>
                                         <option value="">{copy.choose}</option>
@@ -733,7 +745,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                 </label>
 
                                 {shareForm.schoolOrg === "other" && (
-                                    <label className="field">
+                                    <label className={`field ${fieldErrors.schoolOrgOther ? "field-error" : ""}`}>
                                         <span>{copy.other}</span>
                                         <input
                                             value={shareForm.schoolOrgOther}
@@ -744,7 +756,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                     </label>
                                 )}
 
-                                <label className="field">
+                                <label className={`field ${fieldErrors.role ? "field-error" : ""}`}>
                                     <span>{copy.role} *</span>
                                     <input
                                         value={shareForm.role}
@@ -753,7 +765,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                     />
                                 </label>
 
-                                <label className="field">
+                                <label className={`field ${fieldErrors.principal ? "field-error" : ""}`}>
                                     <span>{copy.principal} *</span>
                                     <select value={shareForm.principal} onChange={(event) => updateShareForm("principal", event.target.value)} required>
                                         <option value="">{copy.choose}</option>
@@ -784,7 +796,7 @@ function OrgResults({ bank, t, locale, onRestart }) {
 
                             </div>
 
-                            <label className="checkbox-label share-consent">
+                            <label className={`checkbox-label share-consent ${fieldErrors.consent ? "field-error" : ""}`}>
                                 <input
                                     type="checkbox"
                                     checked={shareForm.consent}

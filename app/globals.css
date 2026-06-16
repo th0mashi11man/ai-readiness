@@ -794,9 +794,17 @@ body {
   margin: 16px 0 32px;
 }
 
-.radar-canvas {
+.radar-canvas,
+.radar-svg {
   max-width: 100%;
   height: auto;
+}
+
+.radar-axis-label {
+  font-family: var(--font-libre-franklin), system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  fill: #2d3748;
 }
 
 
@@ -994,8 +1002,23 @@ body {
   outline: 3px solid var(--color-primary-light);
 }
 
+.field.field-error input,
+.field.field-error select {
+  border-color: var(--color-error);
+}
+
+.field.field-error span {
+  color: var(--color-error);
+}
+
 .share-consent {
   margin-top: 20px;
+}
+
+.checkbox-label.field-error {
+  outline: 1px solid var(--color-error);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 .share-form-actions {
@@ -1467,7 +1490,8 @@ body {
     color: black !important;
   }
 
-  .radar-canvas {
+  .radar-canvas,
+  .radar-svg {
     max-width: 400px !important;
   }
 
@@ -1643,37 +1667,149 @@ body {
   font-weight: 700;
 }
 
-/* Research-data export button (navbar) — subtle icon-only */
-.nav-export {
+/* Research-data export page */
+.export-card {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.export-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.export-form .btn {
+  align-self: flex-start;
+}
+
+/* Prioritization budget hint */
+.budget-hint {
+  margin: -1rem 0 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cf6339;
+  min-height: 1.2em;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.budget-hint.visible {
+  opacity: 1;
+}
+
+/* Homepage resume note */
+.progress-note {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: -8px auto 0;
+}
+
+/* ── Prioritization step (migrated from inline styles) ───────────── */
+.priorities-title { margin-bottom: 0.5rem; }
+.priorities-intro { margin-bottom: 1rem; }
+.priorities-description { margin-bottom: 2rem; font-weight: 600; }
+
+.point-tracker {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.point-tracker-label { font-size: 0.95rem; color: var(--color-text-secondary); }
+.point-tracker-total { font-weight: 600; color: var(--color-text); }
+
+.priority-list { display: grid; gap: 1.5rem; margin-bottom: 2rem; }
+.priority-card {
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+.priority-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.priority-card-head h3 { margin: 0; }
+.priority-card-score { font-weight: bold; font-size: 1.2rem; color: var(--color-primary); }
+.priority-card-desc { margin: 0 0 1rem 0; font-size: 0.9rem; color: var(--color-text-secondary); }
+.priority-slider { width: 100%; accent-color: var(--color-primary); }
+.priority-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+.priorities-outro { margin: 1.5rem 0; color: var(--color-text-secondary); line-height: 1.6; }
+.priorities-actions { display: flex; justify-content: flex-end; }
+
+/* ── Results legend + narrative (migrated from inline styles) ─────── */
+.results-intro { margin: 0 auto 3rem; max-width: 800px; }
+.results-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.legend-item { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+.legend-swatch--current {
+  width: 16px;
+  height: 16px;
+  background: #a9cee07a;
+  border: 2px solid #2779a1;
+  border-radius: 4px;
+}
+.legend-swatch--target { width: 16px; height: 0; border-top: 2px dashed #00A29A; }
+
+.narrative-block {
+  background: var(--color-surface);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  margin-bottom: 0.5rem;
+}
+.narrative-block h2 { margin-top: 0; color: var(--color-primary); }
+.score-row { display: flex; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.score-metric-label {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.score-metric-value { font-size: 1.5rem; font-weight: bold; }
+.score-metric-value--current { color: #2779a1; }
+.score-metric-value--target { color: #00A29A; }
+
+/* ── About org cards (migrated from inline styles) ───────────────── */
+.about-org {
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  margin-bottom: 1.5rem;
+}
+.about-org-logos {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.about-org-logo { height: 48px; object-fit: contain; }
+.about-org p { line-height: 1.7; color: var(--color-text-secondary); margin: 0 0 1rem 0; }
+
+.about-org-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 6px;
-  border: none;
-  border-radius: var(--radius-sm);
-  background: none;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  transition: all var(--transition);
+  gap: 0.4rem;
 }
 
-.nav-export:hover:not(:disabled) {
-  color: var(--color-text);
-  background: var(--color-surface);
-}
-
-.nav-export:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
-.nav-export-icon {
-  flex-shrink: 0;
-  display: block;
-}
-
-@media print {
-  .nav-export {
-    display: none;
-  }
-}
+.about-org--last { margin-bottom: 2.5rem; }
