@@ -13,7 +13,7 @@ import { Suspense } from "react";
 const SHARE_COPY = {
     sv: {
         promptTitle: "Kan du tänka dig att dela dina svar som forskningsdata?",
-        promptBody: "Genom att svara på några korta frågor så kan vi använda dina svar för att förbättra vår förståelse av AI-beredskap inom skolorganisationer och utveckla bättre sätt att mäta och följa sådan beredskap över tid. Deltagandet är frivilligt och du kan senare begära att dina uppgifter dras tillbaka. Om du inte vill dela så raderas dina svar så fort du stänger ner hemsidan.",
+        promptBody: "Genom att svara på några korta frågor så kan vi använda dina svar för att förbättra vår förståelse av AI-beredskap inom skolorganisationer och utveckla bättre sätt att mäta och följa sådan beredskap över tid. Deltagandet är frivilligt, om du inte vill dela så raderas dina svar så fort du stänger ner hemsidan.",
         openForm: "Dela svar som forskningsdata",
         formTitle: "Information om att dela dina svar som forskningsdata",
         formBody: [
@@ -46,7 +46,7 @@ const SHARE_COPY = {
     },
     en: {
         promptTitle: "Would you consider sharing your answers as research data?",
-        promptBody: "By answering a few short contextual questions, you can help us improve our understanding of AI readiness in school organisations and develop better ways to measure and follow such readiness over time. Participation is voluntary and you can later ask for your data to be withdrawn. If you do not want to share, your answers are deleted as soon as you close the website.",
+        promptBody: "By answering a few short contextual questions, you can help us improve our understanding of AI readiness in school organisations and develop better ways to measure and follow such readiness over time. Participation is voluntary, if you do not want to share, your answers are deleted as soon as you close the website.",
         openForm: "Share answers as research data",
         formTitle: "Information about sharing your answers as research data",
         formBody: [
