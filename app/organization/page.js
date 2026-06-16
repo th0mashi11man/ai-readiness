@@ -715,8 +715,8 @@ function OrgResults({ bank, t, locale, onRestart }) {
                                 ))}
                                 <p>
                                     {copy.contact}<br />
-                                    Johan Lundin, Göteborgs universitet: <a href="mailto:johan.lundin@ait.gu.se">johan.lundin@ait.gu.se</a><br />
-                                    Thomas Hillman, Göteborgs universitet: <a href="mailto:thomas.hillman@ait.gu.se">thomas.hillman@ait.gu.se</a>
+                                    Thomas Hillman, Göteborgs universitet: <a href="mailto:thomas.hillman@ait.gu.se">thomas.hillman@ait.gu.se</a><br />
+                                    Johan Lundin, Göteborgs universitet: <a href="mailto:johan.lundin@ait.gu.se">johan.lundin@ait.gu.se</a>
                                 </p>
                             </div>
 
