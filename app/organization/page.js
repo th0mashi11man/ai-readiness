@@ -28,8 +28,7 @@ const SHARE_COPY = {
         role: "Min roll inom denna organisation",
         schoolLevel: "Vilken skolform arbetar du inom?",
         principal: "Huvudmannen är",
-        municipalitySize: "Kommunens storlek",
-        concernSize: "Antal skolor i friskolekoncernen",
+        schoolsRun: "Antal skolor som huvudmannen driver",
         other: "Annat",
         otherPlaceholder: "Beskriv kort",
         yes: "Ja",
@@ -60,8 +59,7 @@ const SHARE_COPY = {
         role: "My role in this organisation",
         schoolLevel: "Which school level do you work in?",
         principal: "The responsible authority is",
-        municipalitySize: "Municipality size",
-        concernSize: "Number of schools in the group",
+        schoolsRun: "Number of schools run by the authority",
         other: "Other",
         otherPlaceholder: "Briefly describe",
         yes: "Yes",
@@ -77,16 +75,9 @@ const SHARE_COPY = {
     },
 };
 
-const SIZE_OPTIONS = [
-    "Färre än 10 000 invånare / Fewer than 10,000 inhabitants",
-    "10 000-24 999 invånare / 10,000-24,999 inhabitants",
-    "25 000-49 999 invånare / 25,000-49,999 inhabitants",
-    "50 000-99 999 invånare / 50,000-99,999 inhabitants",
-    "100 000 invånare eller fler / 100,000 inhabitants or more",
-];
-
-// Number of schools in a friskolekoncern (independent-school group).
-const CONCERN_SIZE_OPTIONS = [
+// Number of schools the responsible authority (huvudman) runs — asked for all
+// authority types.
+const SCHOOL_COUNT_OPTIONS = [
     "1 skola / 1 school",
     "2–5 skolor / 2–5 schools",
     "6–10 skolor / 6–10 schools",
@@ -114,8 +105,6 @@ const PRINCIPAL_OPTIONS = [
     { value: "foundation", sv: "Stiftelse", en: "Foundation" },
     { value: "association", sv: "Förening", en: "Association" },
 ];
-
-const NON_MUNICIPAL_PRINCIPALS = ["company", "foundation", "association"];
 
 // School levels following the Swedish school system (skolformer / stadier).
 const SCHOOL_LEVEL_OPTIONS = [
@@ -425,8 +414,7 @@ function OrgResults({ bank, t, locale }) {
         roleOther: "",
         schoolLevel: "",
         principal: "",
-        municipalitySize: "",
-        concernSize: "",
+        schoolsRun: "",
         consent: false,
     });
     const [shareStatus, setShareStatus] = useState({ type: "", message: "" });
@@ -482,17 +470,6 @@ function OrgResults({ bank, t, locale }) {
         }
     };
 
-    // Changing the authority type clears the size follow-ups so a stale value
-    // (e.g. municipality size) is not kept when switching to an independent
-    // school authority.
-    const updatePrincipal = (value) => {
-        setShareForm(prev => ({ ...prev, principal: value, municipalitySize: "", concernSize: "" }));
-        setFieldErrors(prev => (prev.principal ? { ...prev, principal: false } : prev));
-        if (shareStatus.type === "error") {
-            setShareStatus({ type: "", message: "" });
-        }
-    };
-
     const buildResearchPayload = () => {
         const submittedAt = new Date().toISOString();
         const sessionId = storedSession.sessionId || "unknown-session";
@@ -534,8 +511,7 @@ function OrgResults({ bank, t, locale }) {
             roleOther: shareForm.roleOther,
             schoolLevel: shareForm.schoolLevel,
             principal: shareForm.principal,
-            municipalitySize: shareForm.municipalitySize,
-            concernSize: shareForm.concernSize,
+            schoolsRun: shareForm.schoolsRun,
         };
         orientationResults.forEach(orientation => {
             flat[`score_${orientation.id}`] = orientation.scorePct;
@@ -564,8 +540,7 @@ function OrgResults({ bank, t, locale }) {
                 roleOther: shareForm.roleOther,
                 schoolLevel: shareForm.schoolLevel,
                 principal: shareForm.principal,
-                municipalitySize: shareForm.municipalitySize,
-                concernSize: shareForm.concernSize,
+                schoolsRun: shareForm.schoolsRun,
                 consentGiven: shareForm.consent,
             },
             priorities: storedPriorities,
@@ -848,7 +823,7 @@ function OrgResults({ bank, t, locale }) {
 
                                 <label className={`field ${fieldErrors.principal ? "field-error" : ""}`}>
                                     <span>{copy.principal} *</span>
-                                    <select value={shareForm.principal} onChange={(event) => updatePrincipal(event.target.value)} required>
+                                    <select value={shareForm.principal} onChange={(event) => updateShareForm("principal", event.target.value)} required>
                                         <option value="">{copy.choose}</option>
                                         {PRINCIPAL_OPTIONS.map(option => (
                                             <option key={option.value} value={option.value}>{option[locale] || option.sv}</option>
@@ -856,22 +831,12 @@ function OrgResults({ bank, t, locale }) {
                                     </select>
                                 </label>
 
-                                {shareForm.principal === "municipality" && (
+                                {shareForm.principal && (
                                     <label className="field">
-                                        <span>{copy.municipalitySize}</span>
-                                        <select value={shareForm.municipalitySize} onChange={(event) => updateShareForm("municipalitySize", event.target.value)}>
+                                        <span>{copy.schoolsRun}</span>
+                                        <select value={shareForm.schoolsRun} onChange={(event) => updateShareForm("schoolsRun", event.target.value)}>
                                             <option value="">{copy.choose}</option>
-                                            {SIZE_OPTIONS.map(option => <option key={option} value={option}>{option}</option>)}
-                                        </select>
-                                    </label>
-                                )}
-
-                                {NON_MUNICIPAL_PRINCIPALS.includes(shareForm.principal) && (
-                                    <label className="field">
-                                        <span>{copy.concernSize}</span>
-                                        <select value={shareForm.concernSize} onChange={(event) => updateShareForm("concernSize", event.target.value)}>
-                                            <option value="">{copy.choose}</option>
-                                            {CONCERN_SIZE_OPTIONS.map(option => <option key={option} value={option}>{option}</option>)}
+                                            {SCHOOL_COUNT_OPTIONS.map(option => <option key={option} value={option}>{option}</option>)}
                                         </select>
                                     </label>
                                 )}
