@@ -34,8 +34,6 @@ const SHARE_COPY = {
         otherPlaceholder: "Beskriv kort",
         yes: "Ja",
         no: "Nej",
-        private: "Friskola",
-        municipal: "Kommunal",
         choose: "Välj...",
         consent: "Jag samtycker till att mina svar och uppgifterna ovan delas som forskningsdata.",
         submit: "Skicka forskningsdata",
@@ -68,8 +66,6 @@ const SHARE_COPY = {
         otherPlaceholder: "Briefly describe",
         yes: "Yes",
         no: "No",
-        private: "Independent school",
-        municipal: "Municipal",
         choose: "Choose...",
         consent: "I consent to my answers and the information above being shared as research data.",
         submit: "Send research data",
@@ -109,6 +105,17 @@ const ROLE_OPTIONS = [
 ];
 
 const ROLES_WITH_SCHOOL_LEVEL = ["principal", "teacher"];
+
+// Type of huvudman (responsible authority). "municipality" asks municipality
+// size; the independent-school authorities ask number of schools in the group.
+const PRINCIPAL_OPTIONS = [
+    { value: "municipality", sv: "Kommun", en: "Municipality" },
+    { value: "company", sv: "Bolag", en: "Company" },
+    { value: "foundation", sv: "Stiftelse", en: "Foundation" },
+    { value: "association", sv: "Förening", en: "Association" },
+];
+
+const NON_MUNICIPAL_PRINCIPALS = ["company", "foundation", "association"];
 
 // School levels following the Swedish school system (skolformer / stadier).
 const SCHOOL_LEVEL_OPTIONS = [
@@ -475,6 +482,17 @@ function OrgResults({ bank, t, locale }) {
         }
     };
 
+    // Changing the authority type clears the size follow-ups so a stale value
+    // (e.g. municipality size) is not kept when switching to an independent
+    // school authority.
+    const updatePrincipal = (value) => {
+        setShareForm(prev => ({ ...prev, principal: value, municipalitySize: "", concernSize: "" }));
+        setFieldErrors(prev => (prev.principal ? { ...prev, principal: false } : prev));
+        if (shareStatus.type === "error") {
+            setShareStatus({ type: "", message: "" });
+        }
+    };
+
     const buildResearchPayload = () => {
         const submittedAt = new Date().toISOString();
         const sessionId = storedSession.sessionId || "unknown-session";
@@ -830,14 +848,15 @@ function OrgResults({ bank, t, locale }) {
 
                                 <label className={`field ${fieldErrors.principal ? "field-error" : ""}`}>
                                     <span>{copy.principal} *</span>
-                                    <select value={shareForm.principal} onChange={(event) => updateShareForm("principal", event.target.value)} required>
+                                    <select value={shareForm.principal} onChange={(event) => updatePrincipal(event.target.value)} required>
                                         <option value="">{copy.choose}</option>
-                                        <option value="municipal">{copy.municipal}</option>
-                                        <option value="private">{copy.private}</option>
+                                        {PRINCIPAL_OPTIONS.map(option => (
+                                            <option key={option.value} value={option.value}>{option[locale] || option.sv}</option>
+                                        ))}
                                     </select>
                                 </label>
 
-                                {shareForm.principal === "municipal" && (
+                                {shareForm.principal === "municipality" && (
                                     <label className="field">
                                         <span>{copy.municipalitySize}</span>
                                         <select value={shareForm.municipalitySize} onChange={(event) => updateShareForm("municipalitySize", event.target.value)}>
@@ -847,7 +866,7 @@ function OrgResults({ bank, t, locale }) {
                                     </label>
                                 )}
 
-                                {shareForm.principal === "private" && (
+                                {NON_MUNICIPAL_PRINCIPALS.includes(shareForm.principal) && (
                                     <label className="field">
                                         <span>{copy.concernSize}</span>
                                         <select value={shareForm.concernSize} onChange={(event) => updateShareForm("concernSize", event.target.value)}>
