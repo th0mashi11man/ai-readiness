@@ -23,15 +23,12 @@ const SHARE_COPY = {
             "Vi kommer att hantera materialet i enlighet med god forskningssed och forskningsetiska principer. Resultat från forskningen kommer att presenteras på en övergripande nivå, i rapporter, vetenskapliga publikationer eller presentationer.",
         ],
         contact: "Vid frågor om forskningen kan du kontakta:",
-        schoolOrg: "Jag arbetar inom en skolorganisation",
         role: "Min roll inom denna organisation",
         schoolLevel: "Vilken skolform arbetar du inom?",
         principal: "Huvudmannen är",
         schoolsRun: "Antal skolor som huvudmannen driver",
         other: "Annat",
         otherPlaceholder: "Beskriv kort",
-        yes: "Ja",
-        no: "Nej",
         choose: "Välj...",
         consent: "Jag samtycker till att mina svar och uppgifterna ovan delas som forskningsdata.",
         submit: "Skicka forskningsdata",
@@ -53,15 +50,12 @@ const SHARE_COPY = {
             "We will handle the material in accordance with good research practice and research ethics principles. Research results will be presented at an aggregated level in reports, scientific publications, or presentations.",
         ],
         contact: "For questions about the research, contact:",
-        schoolOrg: "I work within a school organisation",
         role: "My role in this organisation",
         schoolLevel: "Which school level do you work in?",
         principal: "The responsible authority is",
         schoolsRun: "Number of schools run by the authority",
         other: "Other",
         otherPlaceholder: "Briefly describe",
-        yes: "Yes",
-        no: "No",
         choose: "Choose...",
         consent: "I consent to my answers and the information above being shared as research data.",
         submit: "Send research data",
@@ -406,8 +400,6 @@ function OrgResults({ bank, t, locale }) {
     const [mounted, setMounted] = useState(false);
     const [shareOpen, setShareOpen] = useState(false);
     const [shareForm, setShareForm] = useState({
-        schoolOrg: "",
-        schoolOrgOther: "",
         role: "",
         roleOther: "",
         schoolLevel: "",
@@ -503,8 +495,6 @@ function OrgResults({ bank, t, locale }) {
             submittedAt,
             sessionId: storedSession.sessionId || null,
             locale,
-            schoolOrg: shareForm.schoolOrg,
-            schoolOrgOther: shareForm.schoolOrgOther,
             role: shareForm.role,
             roleOther: shareForm.roleOther,
             schoolLevel: shareForm.schoolLevel,
@@ -532,8 +522,6 @@ function OrgResults({ bank, t, locale }) {
                 completedAt: storedSession.completedAt || null,
             },
             context: {
-                schoolOrg: shareForm.schoolOrg,
-                schoolOrgOther: shareForm.schoolOrgOther,
                 role: shareForm.role,
                 roleOther: shareForm.roleOther,
                 schoolLevel: shareForm.schoolLevel,
@@ -550,11 +538,8 @@ function OrgResults({ bank, t, locale }) {
 
     const handleShareSubmit = async (event) => {
         event.preventDefault();
-        const needsSchoolOther = shareForm.schoolOrg === "other" && !shareForm.schoolOrgOther.trim();
         const needsRoleOther = shareForm.role === "other" && !shareForm.roleOther.trim();
         const errors = {
-            schoolOrg: !shareForm.schoolOrg,
-            schoolOrgOther: needsSchoolOther,
             role: !shareForm.role,
             roleOther: needsRoleOther,
             principal: !shareForm.principal,
@@ -762,28 +747,6 @@ function OrgResults({ bank, t, locale }) {
                             </div>
 
                             <div className="share-form-grid">
-                                <label className={`field ${fieldErrors.schoolOrg ? "field-error" : ""}`}>
-                                    <span>{copy.schoolOrg} *</span>
-                                    <select value={shareForm.schoolOrg} onChange={(event) => updateShareForm("schoolOrg", event.target.value)} required>
-                                        <option value="">{copy.choose}</option>
-                                        <option value="yes">{copy.yes}</option>
-                                        <option value="no">{copy.no}</option>
-                                        <option value="other">{copy.other}</option>
-                                    </select>
-                                </label>
-
-                                {shareForm.schoolOrg === "other" && (
-                                    <label className={`field ${fieldErrors.schoolOrgOther ? "field-error" : ""}`}>
-                                        <span>{copy.other}</span>
-                                        <input
-                                            value={shareForm.schoolOrgOther}
-                                            onChange={(event) => updateShareForm("schoolOrgOther", event.target.value)}
-                                            placeholder={copy.otherPlaceholder}
-                                            required
-                                        />
-                                    </label>
-                                )}
-
                                 <label className={`field ${fieldErrors.role ? "field-error" : ""}`}>
                                     <span>{copy.role} *</span>
                                     <select value={shareForm.role} onChange={(event) => updateShareForm("role", event.target.value)} required>
