@@ -23,7 +23,6 @@ const SHARE_COPY = {
             "Vi kommer att hantera materialet i enlighet med god forskningssed och forskningsetiska principer. Resultat från forskningen kommer att presenteras på en övergripande nivå, i rapporter, vetenskapliga publikationer eller presentationer.",
         ],
         contact: "Vid frågor om forskningen kan du kontakta:",
-        questionsTitle: "Korta kontextfrågor",
         schoolOrg: "Jag arbetar inom en skolorganisation",
         role: "Min roll inom denna organisation",
         schoolLevel: "Vilken skolform arbetar du inom?",
@@ -54,7 +53,6 @@ const SHARE_COPY = {
             "We will handle the material in accordance with good research practice and research ethics principles. Research results will be presented at an aggregated level in reports, scientific publications, or presentations.",
         ],
         contact: "For questions about the research, contact:",
-        questionsTitle: "Short contextual questions",
         schoolOrg: "I work within a school organisation",
         role: "My role in this organisation",
         schoolLevel: "Which school level do you work in?",
@@ -763,7 +761,6 @@ function OrgResults({ bank, t, locale }) {
                                 </p>
                             </div>
 
-                            <h3>{copy.questionsTitle}</h3>
                             <div className="share-form-grid">
                                 <label className={`field ${fieldErrors.schoolOrg ? "field-error" : ""}`}>
                                     <span>{copy.schoolOrg} *</span>
